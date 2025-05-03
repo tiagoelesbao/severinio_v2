@@ -8105,3 +8105,205 @@ Stacktrace:
 [2025-05-02 17:33:24] [INFO] Campanha 120214507411990338 escalada para R$ 438.56
 [2025-05-02 17:34:01] [INFO] Mensagem enviada com sucesso!
 [2025-05-02 17:34:03] [INFO] Escala realizada: R$ 2000.0 distribuídos entre campanhas com lucro >= R$ 1.0. Orçamento total atual: R$ 10439.20.
+[2025-05-03 09:09:18] Iniciando escala com: Token=EAAQ0...FNOK0, Contas=['act_790223756353632', 'act_303402486183447'], Grupo=#ZIP - ROAS IMPERIO
+[2025-05-03 09:09:18] Parâmetros: Date Range=today, Min Profit=1, Scale Value=5000
+[2025-05-03 09:09:18] Planilha limpa no início da execução.
+[2025-05-03 09:09:18] Processando conta de anúncio: act_790223756353632
+[2025-05-03 09:09:18] Buscando campanhas para conta act_790223756353632...
+[2025-05-03 09:09:21] Encontradas 103 campanhas.
+[2025-05-03 09:09:22] Encontrados 12 insights.
+[2025-05-03 09:09:22] Processadas 11 campanhas ativas.
+[2025-05-03 09:09:22] Processando conta de anúncio: act_303402486183447
+[2025-05-03 09:09:22] Buscando campanhas para conta act_303402486183447...
+[2025-05-03 09:09:25] Encontradas 80 campanhas.
+[2025-05-03 09:09:26] Encontrados 5 insights.
+[2025-05-03 09:09:26] Processadas 3 campanhas ativas.
+[2025-05-03 09:09:26] Total de 14 campanhas ativas encontradas.
+[2025-05-03 09:09:26] Dados das campanhas salvos na planilha.
+[2025-05-03 09:09:26] [INFO] 10 campanhas para escalonamento. Soma dos lucros: R$ 363.23
+[2025-05-03 09:09:26] Enviando atualização de orçamento para campanha 120223099071640431
+[2025-05-03 09:09:27] Resposta da API: {'success': True}
+[2025-05-03 09:09:27] Orçamento atualizado para a campanha 120223099071640431: R$ 928.02
+[2025-05-03 09:09:27] Campanha 120223099071640431 escalada para R$ 928.02
+[2025-05-03 09:09:27] Enviando atualização de orçamento para campanha 120222533000150431
+[2025-05-03 09:09:28] Resposta da API: {'success': True}
+[2025-05-03 09:09:28] Orçamento atualizado para a campanha 120222533000150431: R$ 600.60
+[2025-05-03 09:09:28] Campanha 120222533000150431 escalada para R$ 600.60
+[2025-05-03 09:09:28] Enviando atualização de orçamento para campanha 120221473064310431
+[2025-05-03 09:09:28] Resposta da API: {'success': True}
+[2025-05-03 09:09:28] Orçamento atualizado para a campanha 120221473064310431: R$ 555.37
+[2025-05-03 09:09:28] Campanha 120221473064310431 escalada para R$ 555.37
+[2025-05-03 09:09:28] Enviando atualização de orçamento para campanha 120215736960620431
+[2025-05-03 09:09:30] Resposta da API: {'success': True}
+[2025-05-03 09:09:30] Orçamento atualizado para a campanha 120215736960620431: R$ 803.17
+[2025-05-03 09:09:30] Campanha 120215736960620431 escalada para R$ 803.17
+[2025-05-03 09:09:30] Enviando atualização de orçamento para campanha 120215567870460431
+[2025-05-03 09:09:31] Resposta da API: {'success': True}
+[2025-05-03 09:09:31] Orçamento atualizado para a campanha 120215567870460431: R$ 303.64
+[2025-05-03 09:09:31] Campanha 120215567870460431 escalada para R$ 303.64
+[2025-05-03 09:09:31] Enviando atualização de orçamento para campanha 120215038900720431
+[2025-05-03 09:09:32] Resposta da API: {'success': True}
+[2025-05-03 09:09:32] Orçamento atualizado para a campanha 120215038900720431: R$ 687.29
+[2025-05-03 09:09:32] Campanha 120215038900720431 escalada para R$ 687.29
+[2025-05-03 09:09:32] Enviando atualização de orçamento para campanha 120214808911760431
+[2025-05-03 09:09:34] Resposta da API: {'success': True}
+[2025-05-03 09:09:34] Orçamento atualizado para a campanha 120214808911760431: R$ 1559.66
+[2025-05-03 09:09:34] Campanha 120214808911760431 escalada para R$ 1559.66
+[2025-05-03 09:09:34] Enviando atualização de orçamento para campanha 120214323043310431
+[2025-05-03 09:09:35] Resposta da API: {'success': True}
+[2025-05-03 09:09:35] Orçamento atualizado para a campanha 120214323043310431: R$ 623.53
+[2025-05-03 09:09:35] Campanha 120214323043310431 escalada para R$ 623.53
+[2025-05-03 09:09:35] Enviando atualização de orçamento para campanha 120223669040530338
+[2025-05-03 09:09:36] Resposta da API: {'success': True}
+[2025-05-03 09:09:36] Orçamento atualizado para a campanha 120223669040530338: R$ 171.43
+[2025-05-03 09:09:36] Campanha 120223669040530338 escalada para R$ 171.43
+[2025-05-03 09:09:36] Enviando atualização de orçamento para campanha 120214507411990338
+[2025-05-03 09:09:39] Resposta da API: {'success': True}
+[2025-05-03 09:09:39] Orçamento atualizado para a campanha 120214507411990338: R$ 345.99
+[2025-05-03 09:09:39] Campanha 120214507411990338 escalada para R$ 345.99
+[2025-05-03 09:09:39] Iniciando envio de mensagem para o grupo: #ZIP - ROAS IMPERIO
+[2025-05-03 09:09:41] Abrindo WhatsApp Web...
+[2025-05-03 09:09:42] Aguardando carregamento do WhatsApp Web...
+[2025-05-03 09:10:29] WhatsApp Web carregado, procurando campo de pesquisa...
+[2025-05-03 09:10:29] Campo de pesquisa encontrado com seletor: div.x1n2onr6.xh8yej3.lexical-rich-text-input div[aria-label='Caixa de texto de pesquisa'][role='textbox'][data-tab='3']
+[2025-05-03 09:10:30] Pesquisando pelo grupo: #ZIP - ROAS IMPERIO
+[2025-05-03 09:10:54] Grupo encontrado com seletor: div._ak72 span[title='#ZIP - ROAS IMPERIO']
+[2025-05-03 09:10:56] Localizando campo de mensagem...
+[2025-05-03 09:10:56] Campo de mensagem encontrado com seletor: div.x1n2onr6.xh8yej3.xjdcl3y.lexical-rich-text-input div[aria-label='Digite uma mensagem'][role='textbox'][data-tab='10']
+[2025-05-03 09:10:56] Digitando mensagem...
+[2025-05-03 09:10:58] Enviando mensagem...
+[2025-05-03 09:10:58] Botão de enviar encontrado com seletor: button[aria-label='Enviar'][data-tab='11']
+[2025-05-03 09:11:18] Mensagem enviada com sucesso!
+[2025-05-03 09:11:20] [INFO] Mensagem enviada com sucesso: Escala realizada: R$ 5000.00 distribuídos entre 10 campanhas com lucro >= R$ 1.00. Orçamento total atual: R$ 7147.20.
+[2025-05-03 09:11:20] Processo de escala concluído com sucesso!
+[2025-05-03 09:12:37] Iniciando execução da função run...
+[2025-05-03 09:12:37] Parâmetros da operação:
+[2025-05-03 09:12:37] - Token: EAAQ0...FNOK0 (truncado)
+[2025-05-03 09:12:37] - Contas: ['act_790223756353632', 'act_303402486183447']
+[2025-05-03 09:12:37] - Grupo: #ZIP - ROAS IMPERIO
+[2025-05-03 09:12:37] - Date Range: today
+[2025-05-03 09:12:37] - Limite de Lucro Baixo: R$ 5000.0
+[2025-05-03 09:12:37] - Percentual de Redução: 15.0%
+[2025-05-03 09:12:41] Planilha limpa no início da execução.
+[2025-05-03 09:12:41] Processando conta de anúncio: act_790223756353632
+[2025-05-03 09:12:41] Buscando campanhas para conta act_790223756353632...
+[2025-05-03 09:12:44] Encontradas 103 campanhas.
+[2025-05-03 09:12:45] Encontrados 12 insights.
+[2025-05-03 09:12:45] Processadas 11 campanhas ativas.
+[2025-05-03 09:12:45] Processando conta de anúncio: act_303402486183447
+[2025-05-03 09:12:45] Buscando campanhas para conta act_303402486183447...
+[2025-05-03 09:12:47] Encontradas 80 campanhas.
+[2025-05-03 09:12:48] Encontrados 5 insights.
+[2025-05-03 09:12:48] Processadas 3 campanhas ativas.
+[2025-05-03 09:12:48] Total de 14 campanhas ativas encontradas.
+[2025-05-03 09:12:48] Dados das campanhas salvos na planilha.
+[2025-05-03 09:12:48] Iniciando processo de redução...
+[2025-05-03 09:12:48] Campanha 120223099071640431 será reduzida de R$ 928.01 para R$ 788.81
+[2025-05-03 09:12:48] Enviando atualização de orçamento para campanha 120223099071640431
+[2025-05-03 09:12:49] Resposta da API: {'success': True}
+[2025-05-03 09:12:49] Orçamento atualizado para a campanha 120223099071640431: R$ 788.81
+[2025-05-03 09:12:49] Campanha 120223099071640431 reduzida com sucesso para R$ 788.81
+[2025-05-03 09:12:49] Campanha 120222533000150431 será reduzida de R$ 600.60 para R$ 510.51
+[2025-05-03 09:12:49] Enviando atualização de orçamento para campanha 120222533000150431
+[2025-05-03 09:12:50] Resposta da API: {'success': True}
+[2025-05-03 09:12:50] Orçamento atualizado para a campanha 120222533000150431: R$ 510.51
+[2025-05-03 09:12:50] Campanha 120222533000150431 reduzida com sucesso para R$ 510.51
+[2025-05-03 09:12:50] Campanha 120221473064310431 será reduzida de R$ 555.36 para R$ 472.06
+[2025-05-03 09:12:50] Enviando atualização de orçamento para campanha 120221473064310431
+[2025-05-03 09:12:51] Resposta da API: {'success': True}
+[2025-05-03 09:12:51] Orçamento atualizado para a campanha 120221473064310431: R$ 472.06
+[2025-05-03 09:12:51] Campanha 120221473064310431 reduzida com sucesso para R$ 472.06
+[2025-05-03 09:12:51] Campanha 120215736960620431 será reduzida de R$ 803.16 para R$ 682.69
+[2025-05-03 09:12:51] Enviando atualização de orçamento para campanha 120215736960620431
+[2025-05-03 09:12:52] Resposta da API: {'success': True}
+[2025-05-03 09:12:52] Orçamento atualizado para a campanha 120215736960620431: R$ 682.69
+[2025-05-03 09:12:52] Campanha 120215736960620431 reduzida com sucesso para R$ 682.69
+[2025-05-03 09:12:52] Campanha 120215567870460431 será reduzida de R$ 303.64 para R$ 258.09
+[2025-05-03 09:12:52] Enviando atualização de orçamento para campanha 120215567870460431
+[2025-05-03 09:12:53] Resposta da API: {'success': True}
+[2025-05-03 09:12:53] Orçamento atualizado para a campanha 120215567870460431: R$ 258.09
+[2025-05-03 09:12:53] Campanha 120215567870460431 reduzida com sucesso para R$ 258.09
+[2025-05-03 09:12:53] Campanha 120215039931450431 será reduzida de R$ 150.00 para R$ 127.50
+[2025-05-03 09:12:53] Enviando atualização de orçamento para campanha 120215039931450431
+[2025-05-03 09:12:55] Resposta da API: {'success': True}
+[2025-05-03 09:12:55] Orçamento atualizado para a campanha 120215039931450431: R$ 127.50
+[2025-05-03 09:12:55] Campanha 120215039931450431 reduzida com sucesso para R$ 127.50
+[2025-05-03 09:12:55] Campanha 120215038900720431 será reduzida de R$ 687.28 para R$ 584.19
+[2025-05-03 09:12:55] Enviando atualização de orçamento para campanha 120215038900720431
+[2025-05-03 09:12:56] Resposta da API: {'success': True}
+[2025-05-03 09:12:56] Orçamento atualizado para a campanha 120215038900720431: R$ 584.19
+[2025-05-03 09:12:56] Campanha 120215038900720431 reduzida com sucesso para R$ 584.19
+[2025-05-03 09:12:56] Campanha 120214808911760431 será reduzida de R$ 1559.65 para R$ 1325.70
+[2025-05-03 09:12:56] Enviando atualização de orçamento para campanha 120214808911760431
+[2025-05-03 09:12:57] Resposta da API: {'success': True}
+[2025-05-03 09:12:57] Orçamento atualizado para a campanha 120214808911760431: R$ 1325.70
+[2025-05-03 09:12:57] Campanha 120214808911760431 reduzida com sucesso para R$ 1325.70
+[2025-05-03 09:12:57] Campanha 120214807605110431 será reduzida de R$ 150.00 para R$ 127.50
+[2025-05-03 09:12:57] Enviando atualização de orçamento para campanha 120214807605110431
+[2025-05-03 09:12:58] Resposta da API: {'success': True}
+[2025-05-03 09:12:58] Orçamento atualizado para a campanha 120214807605110431: R$ 127.50
+[2025-05-03 09:12:58] Campanha 120214807605110431 reduzida com sucesso para R$ 127.50
+[2025-05-03 09:12:58] Campanha 120214350104200431 será reduzida de R$ 157.49 para R$ 133.87
+[2025-05-03 09:12:58] Enviando atualização de orçamento para campanha 120214350104200431
+[2025-05-03 09:13:00] Resposta da API: {'success': True}
+[2025-05-03 09:13:00] Orçamento atualizado para a campanha 120214350104200431: R$ 133.87
+[2025-05-03 09:13:00] Campanha 120214350104200431 reduzida com sucesso para R$ 133.87
+[2025-05-03 09:13:00] Campanha 120214323043310431 será reduzida de R$ 623.52 para R$ 529.99
+[2025-05-03 09:13:00] Enviando atualização de orçamento para campanha 120214323043310431
+[2025-05-03 09:13:01] Resposta da API: {'success': True}
+[2025-05-03 09:13:01] Orçamento atualizado para a campanha 120214323043310431: R$ 529.99
+[2025-05-03 09:13:01] Campanha 120214323043310431 reduzida com sucesso para R$ 529.99
+[2025-05-03 09:13:01] Campanha 120223669040530338 será reduzida de R$ 171.42 para R$ 145.71
+[2025-05-03 09:13:01] Enviando atualização de orçamento para campanha 120223669040530338
+[2025-05-03 09:13:02] Resposta da API: {'success': True}
+[2025-05-03 09:13:02] Orçamento atualizado para a campanha 120223669040530338: R$ 145.71
+[2025-05-03 09:13:02] Campanha 120223669040530338 reduzida com sucesso para R$ 145.71
+[2025-05-03 09:13:02] Campanha 120214509094010338 será reduzida de R$ 111.02 para R$ 100.00
+[2025-05-03 09:13:02] Enviando atualização de orçamento para campanha 120214509094010338
+[2025-05-03 09:13:05] Resposta da API: {'success': True}
+[2025-05-03 09:13:05] Orçamento atualizado para a campanha 120214509094010338: R$ 100.00
+[2025-05-03 09:13:05] Campanha 120214509094010338 reduzida com sucesso para R$ 100.00
+[2025-05-03 09:13:05] Campanha 120214507411990338 será reduzida de R$ 345.99 para R$ 294.09
+[2025-05-03 09:13:05] Enviando atualização de orçamento para campanha 120214507411990338
+[2025-05-03 09:13:07] Resposta da API: {'success': True}
+[2025-05-03 09:13:07] Orçamento atualizado para a campanha 120214507411990338: R$ 294.09
+[2025-05-03 09:13:07] Campanha 120214507411990338 reduzida com sucesso para R$ 294.09
+[2025-05-03 09:13:07] Iniciando envio de mensagem para o grupo: #ZIP - ROAS IMPERIO
+[2025-05-03 09:13:09] Abrindo WhatsApp Web...
+[2025-05-03 09:13:10] Aguardando carregamento do WhatsApp Web...
+[2025-05-03 09:13:43] WhatsApp Web carregado, procurando campo de pesquisa...
+[2025-05-03 09:13:43] Campo de pesquisa encontrado com seletor: div.x1n2onr6.xh8yej3.lexical-rich-text-input div[aria-label='Caixa de texto de pesquisa'][role='textbox'][data-tab='3']
+[2025-05-03 09:13:45] Pesquisando pelo grupo: #ZIP - ROAS IMPERIO
+[2025-05-03 09:14:15] Grupo encontrado com seletor: div._ak72 span[title='#ZIP - ROAS IMPERIO']
+[2025-05-03 09:14:16] Problema ao enviar mensagem no WhatsApp: Message: element click intercepted: Element <span dir="auto" title="#ZIP - ROAS IMPERIO" class="x1iyjqo2 x6ikm8r x10wlt62 x1n2onr6 xlyipyv xuxw1ft x1rg5ohu _ao3e" style="min-height: 0px;">...</span> is not clickable at point (361, 258). Other element would receive the click: <div class="x9f619 x78zum5 xdt5ytf x6s0dn4 xl56j7k xh8yej3 xpb48g7 x1jn0hjm x1us19tq" role="dialog">...</div>
+  (Session info: chrome=136.0.7103.60)
+Stacktrace:
+	GetHandleVerifier [0x00DBD363+60275]
+	GetHandleVerifier [0x00DBD3A4+60340]
+	(No symbol) [0x00BF06F3]
+	(No symbol) [0x00C3E970]
+	(No symbol) [0x00C3CD14]
+	(No symbol) [0x00C3A8B7]
+	(No symbol) [0x00C39B87]
+	(No symbol) [0x00C2E265]
+	(No symbol) [0x00C5D08C]
+	(No symbol) [0x00C2DCF4]
+	(No symbol) [0x00C5D304]
+	(No symbol) [0x00C7E6EB]
+	(No symbol) [0x00C5CE86]
+	(No symbol) [0x00C2C623]
+	(No symbol) [0x00C2D474]
+	GetHandleVerifier [0x01008FE3+2467827]
+	GetHandleVerifier [0x010045E6+2448886]
+	GetHandleVerifier [0x0101F80C+2560028]
+	GetHandleVerifier [0x00DD3DF5+153093]
+	GetHandleVerifier [0x00DDA3BD+179149]
+	GetHandleVerifier [0x00DC4BB8+91080]
+	GetHandleVerifier [0x00DC4D60+91504]
+	GetHandleVerifier [0x00DAFA10+4640]
+	BaseThreadInitThunk [0x77435D49+25]
+	RtlInitializeExceptionChain [0x7788CFFB+107]
+	RtlGetAppContainerNamedObjectPath [0x7788CF81+561]
+
+[2025-05-03 09:14:18] [AVISO] Falha ao enviar mensagem WhatsApp, mas a redução foi concluída: Redução realizada: 15% dos orçamentos de campanhas com lucro abaixo de R$ 5000.0 foram reduzidos. Total de 14 campanhas reduzidas. Valor total reduzido: R$ 1066.44. Orçamento atual total: R$ 6080.70.
+[2025-05-03 09:14:18] Processo de redução concluído com sucesso!

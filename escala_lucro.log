@@ -1,0 +1,29 @@
+[2025-05-03 08:52:08] WARNING:  * Debugger is active!
+[2025-05-03 08:52:08] INFO:  * Debugger PIN: 372-168-963
+[2025-05-03 08:52:21] INFO:  * Detected change in 'C:\\Users\\Pichau\\iCloudDrive\\PROJETOS\\ZIP\\PROCESSOS\\ROBOS_PY\\ROBO_IMPERIO\\meu_projeto_web\\realocar_orcamento.py', reloading
+[2025-05-03 08:52:22] WARNING:  * Debugger is active!
+[2025-05-03 08:52:22] INFO:  * Debugger PIN: 372-168-963
+[2025-05-03 08:52:49] INFO: 127.0.0.1 - - [03/May/2025 08:52:49] "[32mGET / HTTP/1.1[0m" 302 -
+[2025-05-03 08:52:49] INFO: 127.0.0.1 - - [03/May/2025 08:52:49] "GET /login HTTP/1.1" 200 -
+[2025-05-03 08:52:49] INFO: 127.0.0.1 - - [03/May/2025 08:52:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-05-03 08:52:49] INFO: 127.0.0.1 - - [03/May/2025 08:52:49] "[36mGET /static/scripts.js HTTP/1.1[0m" 304 -
+[2025-05-03 08:52:49] INFO: 127.0.0.1 - - [03/May/2025 08:52:49] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+[2025-05-03 08:52:49] INFO: 127.0.0.1 - - [03/May/2025 08:52:49] "GET /login HTTP/1.1" 200 -
+[2025-05-03 08:53:02] INFO: 127.0.0.1 - - [03/May/2025 08:53:02] "[32mPOST /login HTTP/1.1[0m" 302 -
+[2025-05-03 08:53:02] INFO: 127.0.0.1 - - [03/May/2025 08:53:02] "GET / HTTP/1.1" 200 -
+[2025-05-03 08:53:02] INFO: 127.0.0.1 - - [03/May/2025 08:53:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-05-03 08:53:02] INFO: 127.0.0.1 - - [03/May/2025 08:53:02] "[36mGET /static/scripts.js HTTP/1.1[0m" 304 -
+[2025-05-03 08:53:02] INFO: 127.0.0.1 - - [03/May/2025 08:53:02] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-03 08:53:08] INFO: 127.0.0.1 - - [03/May/2025 08:53:08] "POST /start HTTP/1.1" 200 -
+[2025-05-03 08:53:08] INFO: 127.0.0.1 - - [03/May/2025 08:53:08] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 08:59:25] INFO: 127.0.0.1 - - [03/May/2025 08:59:25] "GET / HTTP/1.1" 200 -
+[2025-05-03 08:59:25] INFO: 127.0.0.1 - - [03/May/2025 08:59:25] "[36mGET /static/scripts.js HTTP/1.1[0m" 304 -
+[2025-05-03 08:59:25] INFO: 127.0.0.1 - - [03/May/2025 08:59:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-05-03 08:59:26] INFO: 127.0.0.1 - - [03/May/2025 08:59:26] "GET / HTTP/1.1" 200 -
+[2025-05-03 08:59:26] INFO: 127.0.0.1 - - [03/May/2025 08:59:26] "[36mGET /static/scripts.js HTTP/1.1[0m" 304 -
+[2025-05-03 08:59:26] INFO: 127.0.0.1 - - [03/May/2025 08:59:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-05-03 08:59:37] INFO: 127.0.0.1 - - [03/May/2025 08:59:37] "POST /start HTTP/1.1" 200 -
+[2025-05-03 08:59:37] INFO: 127.0.0.1 - - [03/May/2025 08:59:37] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 09:07:33] INFO:  * Detected change in 'C:\\Users\\Pichau\\iCloudDrive\\PROJETOS\\ZIP\\PROCESSOS\\ROBOS_PY\\ROBO_IMPERIO\\meu_projeto_web\\escala_lucro.py', reloading
+[2025-05-03 09:07:34] WARNING:  * Debugger is active!
+[2025-05-03 09:07:34] INFO:  * Debugger PIN: 372-168-963
