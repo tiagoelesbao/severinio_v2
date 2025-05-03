@@ -1,0 +1,248 @@
+2025-05-02 14:43:12,532 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-02 14:43:12,532 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-02 14:43:12,536 - INFO -  * Restarting with stat
+2025-05-02 14:43:13,409 - WARNING -  * Debugger is active!
+2025-05-02 14:43:13,427 - INFO -  * Debugger PIN: 372-168-963
+2025-05-02 14:44:34,335 - INFO - 127.0.0.1 - - [02/May/2025 14:44:34] "[32mGET / HTTP/1.1[0m" 302 -
+2025-05-02 14:44:35,819 - INFO - 127.0.0.1 - - [02/May/2025 14:44:35] "GET /login HTTP/1.1" 200 -
+2025-05-02 14:44:35,904 - INFO - 127.0.0.1 - - [02/May/2025 14:44:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-02 14:44:35,915 - INFO - 127.0.0.1 - - [02/May/2025 14:44:35] "[36mGET /static/scripts.js HTTP/1.1[0m" 304 -
+2025-05-02 14:44:35,972 - INFO - 127.0.0.1 - - [02/May/2025 14:44:35] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-05-02 14:44:36,005 - INFO - 127.0.0.1 - - [02/May/2025 14:44:36] "GET /login HTTP/1.1" 200 -
+2025-05-02 14:44:45,101 - INFO - 127.0.0.1 - - [02/May/2025 14:44:45] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-05-02 14:44:45,142 - INFO - 127.0.0.1 - - [02/May/2025 14:44:45] "GET / HTTP/1.1" 200 -
+2025-05-02 14:44:45,192 - INFO - 127.0.0.1 - - [02/May/2025 14:44:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-02 14:44:45,197 - INFO - 127.0.0.1 - - [02/May/2025 14:44:45] "[36mGET /static/scripts.js HTTP/1.1[0m" 304 -
+2025-05-02 14:44:45,242 - INFO - 127.0.0.1 - - [02/May/2025 14:44:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-02 14:44:53,846 - INFO - 127.0.0.1 - - [02/May/2025 14:44:53] "POST /start HTTP/1.1" 200 -
+2025-05-02 14:44:53,875 - INFO - 127.0.0.1 - - [02/May/2025 14:44:53] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:44:53,883 - INFO - Planilha limpa no início da execução.
+2025-05-02 14:44:53,884 - INFO - [INFO] Processando conta de anúncio: act_790223756353632
+2025-05-02 14:44:54,909 - INFO - 127.0.0.1 - - [02/May/2025 14:44:54] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:44:55,935 - INFO - 127.0.0.1 - - [02/May/2025 14:44:55] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:44:56,985 - INFO - 127.0.0.1 - - [02/May/2025 14:44:56] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:44:57,784 - INFO - [INFO] Processando conta de anúncio: act_303402486183447
+2025-05-02 14:44:58,043 - INFO - 127.0.0.1 - - [02/May/2025 14:44:58] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:44:59,089 - INFO - 127.0.0.1 - - [02/May/2025 14:44:59] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:00,142 - INFO - 127.0.0.1 - - [02/May/2025 14:45:00] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:00,925 - INFO - Dados das campanhas salvos na planilha.
+2025-05-02 14:45:00,943 - INFO - DEBUG: Campanha 120223099071640431 reduzida para R$ 260.10
+2025-05-02 14:45:01,170 - INFO - 127.0.0.1 - - [02/May/2025 14:45:01] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:02,044 - INFO - [INFO] Orçamento atualizado para a campanha 120223099071640431: R$ 260.10
+2025-05-02 14:45:02,045 - INFO - DEBUG: Campanha 120222533000150431 reduzida para R$ 3142.00
+2025-05-02 14:45:02,207 - INFO - 127.0.0.1 - - [02/May/2025 14:45:02] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:03,238 - INFO - 127.0.0.1 - - [02/May/2025 14:45:03] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:03,292 - INFO - [INFO] Orçamento atualizado para a campanha 120222533000150431: R$ 3142.00
+2025-05-02 14:45:03,292 - INFO - DEBUG: Campanha 120221473064310431 reduzida para R$ 100.00
+2025-05-02 14:45:04,269 - INFO - 127.0.0.1 - - [02/May/2025 14:45:04] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:04,270 - INFO - [INFO] Orçamento atualizado para a campanha 120221473064310431: R$ 100.00
+2025-05-02 14:45:04,271 - INFO - DEBUG: Campanha 120215736960620431 reduzida para R$ 100.00
+2025-05-02 14:45:05,316 - INFO - 127.0.0.1 - - [02/May/2025 14:45:05] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:05,575 - INFO - [INFO] Orçamento atualizado para a campanha 120215736960620431: R$ 100.00
+2025-05-02 14:45:05,576 - INFO - DEBUG: Campanha 120215567870460431 reduzida para R$ 1054.99
+2025-05-02 14:45:06,343 - INFO - 127.0.0.1 - - [02/May/2025 14:45:06] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:06,779 - INFO - [INFO] Orçamento atualizado para a campanha 120215567870460431: R$ 1054.99
+2025-05-02 14:45:06,780 - INFO - DEBUG: Campanha 120215039931450431 reduzida para R$ 398.20
+2025-05-02 14:45:07,369 - INFO - 127.0.0.1 - - [02/May/2025 14:45:07] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:08,140 - INFO - [INFO] Orçamento atualizado para a campanha 120215039931450431: R$ 398.20
+2025-05-02 14:45:08,142 - INFO - DEBUG: Campanha 120215038900720431 reduzida para R$ 2016.87
+2025-05-02 14:45:08,397 - INFO - 127.0.0.1 - - [02/May/2025 14:45:08] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:09,322 - INFO - [INFO] Orçamento atualizado para a campanha 120215038900720431: R$ 2016.87
+2025-05-02 14:45:09,323 - INFO - DEBUG: Campanha 120214808911760431 reduzida para R$ 2393.83
+2025-05-02 14:45:09,445 - INFO - 127.0.0.1 - - [02/May/2025 14:45:09] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:10,518 - INFO - 127.0.0.1 - - [02/May/2025 14:45:10] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:11,115 - INFO - [INFO] Orçamento atualizado para a campanha 120214808911760431: R$ 2393.83
+2025-05-02 14:45:11,116 - INFO - DEBUG: Campanha 120214807605110431 reduzida para R$ 100.00
+2025-05-02 14:45:11,572 - INFO - 127.0.0.1 - - [02/May/2025 14:45:11] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:12,169 - INFO - [INFO] Orçamento atualizado para a campanha 120214807605110431: R$ 100.00
+2025-05-02 14:45:12,170 - INFO - DEBUG: Campanha 120214350104200431 reduzida para R$ 221.78
+2025-05-02 14:45:12,615 - INFO - 127.0.0.1 - - [02/May/2025 14:45:12] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:13,413 - INFO - [INFO] Orçamento atualizado para a campanha 120214350104200431: R$ 221.78
+2025-05-02 14:45:13,414 - INFO - DEBUG: Campanha 120214323043310431 reduzida para R$ 438.72
+2025-05-02 14:45:13,665 - INFO - 127.0.0.1 - - [02/May/2025 14:45:13] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:14,697 - INFO - 127.0.0.1 - - [02/May/2025 14:45:14] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:14,699 - INFO - [INFO] Orçamento atualizado para a campanha 120214323043310431: R$ 438.72
+2025-05-02 14:45:14,700 - INFO - DEBUG: Campanha 120223669040530338 reduzida para R$ 520.20
+2025-05-02 14:45:15,728 - INFO - 127.0.0.1 - - [02/May/2025 14:45:15] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:15,822 - INFO - [INFO] Orçamento atualizado para a campanha 120223669040530338: R$ 520.20
+2025-05-02 14:45:15,824 - INFO - DEBUG: Campanha 120214509094010338 reduzida para R$ 100.00
+2025-05-02 14:45:16,764 - INFO - 127.0.0.1 - - [02/May/2025 14:45:16] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:17,864 - INFO - 127.0.0.1 - - [02/May/2025 14:45:17] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:18,148 - INFO - [INFO] Orçamento atualizado para a campanha 120214509094010338: R$ 100.00
+2025-05-02 14:45:18,149 - INFO - DEBUG: Campanha 120214507411990338 reduzida para R$ 187.63
+2025-05-02 14:45:18,915 - INFO - 127.0.0.1 - - [02/May/2025 14:45:18] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:19,949 - INFO - 127.0.0.1 - - [02/May/2025 14:45:19] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:20,371 - INFO - [INFO] Orçamento atualizado para a campanha 120214507411990338: R$ 187.63
+2025-05-02 14:45:20,400 - INFO - ====== WebDriver manager ======
+2025-05-02 14:45:20,984 - INFO - 127.0.0.1 - - [02/May/2025 14:45:20] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:21,384 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-02 14:45:21,424 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-02 14:45:21,459 - INFO - Driver [C:\Users\Pichau\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-02 14:45:22,035 - INFO - 127.0.0.1 - - [02/May/2025 14:45:22] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:23,071 - INFO - 127.0.0.1 - - [02/May/2025 14:45:23] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:24,106 - INFO - 127.0.0.1 - - [02/May/2025 14:45:24] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:24,170 - ERROR - [ERRO] Problema ao enviar mensagem no WhatsApp: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Stacktrace:
+	GetHandleVerifier [0x0123D363+60275]
+	GetHandleVerifier [0x0123D3A4+60340]
+	(No symbol) [0x010706F3]
+	(No symbol) [0x010A36EF]
+	(No symbol) [0x0109F509]
+	(No symbol) [0x010E8D78]
+	(No symbol) [0x010E873A]
+	(No symbol) [0x010DCE86]
+	(No symbol) [0x010AC623]
+	(No symbol) [0x010AD474]
+	GetHandleVerifier [0x01488FE3+2467827]
+	GetHandleVerifier [0x014845E6+2448886]
+	GetHandleVerifier [0x0149F80C+2560028]
+	GetHandleVerifier [0x01253DF5+153093]
+	GetHandleVerifier [0x0125A3BD+179149]
+	GetHandleVerifier [0x01244BB8+91080]
+	GetHandleVerifier [0x01244D60+91504]
+	GetHandleVerifier [0x0122FA10+4640]
+	BaseThreadInitThunk [0x760E5D49+25]
+	RtlInitializeExceptionChain [0x77DBCFFB+107]
+	RtlGetAppContainerNamedObjectPath [0x77DBCF81+561]
+
+2025-05-02 14:45:25,157 - INFO - 127.0.0.1 - - [02/May/2025 14:45:25] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:26,204 - INFO - 127.0.0.1 - - [02/May/2025 14:45:26] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:27,245 - INFO - 127.0.0.1 - - [02/May/2025 14:45:27] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:45:28,231 - INFO - Redução realizada: 10% dos orçamentos de campanhas com lucro abaixo de R$ 5000.0 foram reduzidos. Total reduzido: R$ 1181.59. Orçamento atual total: R$ 11034.32.
+2025-05-02 14:45:28,279 - INFO - 127.0.0.1 - - [02/May/2025 14:45:28] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:38,673 - INFO - 127.0.0.1 - - [02/May/2025 14:46:38] "POST /start HTTP/1.1" 200 -
+2025-05-02 14:46:38,682 - INFO - Planilha limpa no início da execução.
+2025-05-02 14:46:38,683 - INFO - [INFO] Processando conta de anúncio: act_790223756353632
+2025-05-02 14:46:38,696 - INFO - 127.0.0.1 - - [02/May/2025 14:46:38] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:39,723 - INFO - 127.0.0.1 - - [02/May/2025 14:46:39] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:40,756 - INFO - 127.0.0.1 - - [02/May/2025 14:46:40] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:41,784 - INFO - 127.0.0.1 - - [02/May/2025 14:46:41] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:42,392 - INFO - [INFO] Processando conta de anúncio: act_303402486183447
+2025-05-02 14:46:42,813 - INFO - 127.0.0.1 - - [02/May/2025 14:46:42] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:43,852 - INFO - 127.0.0.1 - - [02/May/2025 14:46:43] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:44,878 - INFO - 127.0.0.1 - - [02/May/2025 14:46:44] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:45,418 - INFO - Dados das campanhas salvos na planilha.
+2025-05-02 14:46:45,432 - INFO - DEBUG: Campanha 120223099071640431 reduzida para R$ 234.09
+2025-05-02 14:46:45,907 - INFO - 127.0.0.1 - - [02/May/2025 14:46:45] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:46,580 - INFO - [INFO] Orçamento atualizado para a campanha 120223099071640431: R$ 234.09
+2025-05-02 14:46:46,581 - INFO - DEBUG: Campanha 120222533000150431 reduzida para R$ 2827.79
+2025-05-02 14:46:46,937 - INFO - 127.0.0.1 - - [02/May/2025 14:46:46] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:47,606 - INFO - [INFO] Orçamento atualizado para a campanha 120222533000150431: R$ 2827.79
+2025-05-02 14:46:47,607 - INFO - DEBUG: Campanha 120221473064310431 reduzida para R$ 100.00
+2025-05-02 14:46:47,967 - INFO - 127.0.0.1 - - [02/May/2025 14:46:47] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:48,732 - INFO - [INFO] Orçamento atualizado para a campanha 120221473064310431: R$ 100.00
+2025-05-02 14:46:48,734 - INFO - DEBUG: Campanha 120215736960620431 reduzida para R$ 100.00
+2025-05-02 14:46:49,001 - INFO - 127.0.0.1 - - [02/May/2025 14:46:49] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:49,813 - INFO - [INFO] Orçamento atualizado para a campanha 120215736960620431: R$ 100.00
+2025-05-02 14:46:49,815 - INFO - DEBUG: Campanha 120215567870460431 reduzida para R$ 949.48
+2025-05-02 14:46:50,029 - INFO - 127.0.0.1 - - [02/May/2025 14:46:50] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:50,913 - INFO - [INFO] Orçamento atualizado para a campanha 120215567870460431: R$ 949.48
+2025-05-02 14:46:50,914 - INFO - DEBUG: Campanha 120215039931450431 reduzida para R$ 358.37
+2025-05-02 14:46:51,062 - INFO - 127.0.0.1 - - [02/May/2025 14:46:51] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:52,095 - INFO - 127.0.0.1 - - [02/May/2025 14:46:52] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:52,186 - INFO - [INFO] Orçamento atualizado para a campanha 120215039931450431: R$ 358.37
+2025-05-02 14:46:52,188 - INFO - DEBUG: Campanha 120215038900720431 reduzida para R$ 1815.18
+2025-05-02 14:46:53,124 - INFO - 127.0.0.1 - - [02/May/2025 14:46:53] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:53,367 - INFO - [INFO] Orçamento atualizado para a campanha 120215038900720431: R$ 1815.18
+2025-05-02 14:46:53,368 - INFO - DEBUG: Campanha 120214808911760431 reduzida para R$ 2154.44
+2025-05-02 14:46:54,163 - INFO - 127.0.0.1 - - [02/May/2025 14:46:54] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:55,020 - INFO - [INFO] Orçamento atualizado para a campanha 120214808911760431: R$ 2154.44
+2025-05-02 14:46:55,021 - INFO - DEBUG: Campanha 120214807605110431 reduzida para R$ 100.00
+2025-05-02 14:46:55,188 - INFO - 127.0.0.1 - - [02/May/2025 14:46:55] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:56,053 - INFO - [INFO] Orçamento atualizado para a campanha 120214807605110431: R$ 100.00
+2025-05-02 14:46:56,055 - INFO - DEBUG: Campanha 120214350104200431 reduzida para R$ 199.59
+2025-05-02 14:46:56,217 - INFO - 127.0.0.1 - - [02/May/2025 14:46:56] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:57,245 - INFO - 127.0.0.1 - - [02/May/2025 14:46:57] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:57,398 - INFO - [INFO] Orçamento atualizado para a campanha 120214350104200431: R$ 199.59
+2025-05-02 14:46:57,399 - INFO - DEBUG: Campanha 120214323043310431 reduzida para R$ 394.85
+2025-05-02 14:46:58,274 - INFO - 127.0.0.1 - - [02/May/2025 14:46:58] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:58,631 - INFO - [INFO] Orçamento atualizado para a campanha 120214323043310431: R$ 394.85
+2025-05-02 14:46:58,632 - INFO - DEBUG: Campanha 120223669040530338 reduzida para R$ 468.18
+2025-05-02 14:46:59,303 - INFO - 127.0.0.1 - - [02/May/2025 14:46:59] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:46:59,618 - INFO - [INFO] Orçamento atualizado para a campanha 120223669040530338: R$ 468.18
+2025-05-02 14:46:59,619 - INFO - DEBUG: Campanha 120214509094010338 reduzida para R$ 100.00
+2025-05-02 14:47:00,331 - INFO - 127.0.0.1 - - [02/May/2025 14:47:00] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:01,359 - INFO - 127.0.0.1 - - [02/May/2025 14:47:01] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:01,663 - INFO - [INFO] Orçamento atualizado para a campanha 120214509094010338: R$ 100.00
+2025-05-02 14:47:01,665 - INFO - DEBUG: Campanha 120214507411990338 reduzida para R$ 168.87
+2025-05-02 14:47:02,392 - INFO - 127.0.0.1 - - [02/May/2025 14:47:02] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:03,447 - INFO - 127.0.0.1 - - [02/May/2025 14:47:03] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:04,145 - INFO - [INFO] Orçamento atualizado para a campanha 120214507411990338: R$ 168.87
+2025-05-02 14:47:04,172 - INFO - ====== WebDriver manager ======
+2025-05-02 14:47:04,477 - INFO - 127.0.0.1 - - [02/May/2025 14:47:04] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:04,997 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-02 14:47:05,029 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-02 14:47:05,064 - INFO - Driver [C:\Users\Pichau\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-02 14:47:05,511 - INFO - 127.0.0.1 - - [02/May/2025 14:47:05] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:07,316 - INFO - 127.0.0.1 - - [02/May/2025 14:47:07] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:07,386 - INFO - WhatsApp Web aberto. Verificando carregamento...
+2025-05-02 14:47:09,324 - INFO - 127.0.0.1 - - [02/May/2025 14:47:09] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:11,308 - INFO - 127.0.0.1 - - [02/May/2025 14:47:11] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:13,310 - INFO - 127.0.0.1 - - [02/May/2025 14:47:13] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:13,649 - INFO - WhatsApp Web carregado com sucesso.
+2025-05-02 14:47:15,108 - INFO - Texto de pesquisa '#ZIP - ROAS IMPERIO' inserido.
+2025-05-02 14:47:15,309 - INFO - 127.0.0.1 - - [02/May/2025 14:47:15] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:17,312 - INFO - 127.0.0.1 - - [02/May/2025 14:47:17] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:18,829 - INFO - Grupo localizado e clicado com sucesso.
+2025-05-02 14:47:19,314 - INFO - 127.0.0.1 - - [02/May/2025 14:47:19] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:21,316 - INFO - 127.0.0.1 - - [02/May/2025 14:47:21] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:23,326 - INFO - 127.0.0.1 - - [02/May/2025 14:47:23] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:25,317 - INFO - 127.0.0.1 - - [02/May/2025 14:47:25] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:27,306 - INFO - 127.0.0.1 - - [02/May/2025 14:47:27] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:29,319 - INFO - 127.0.0.1 - - [02/May/2025 14:47:29] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:31,321 - INFO - 127.0.0.1 - - [02/May/2025 14:47:31] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:33,314 - INFO - 127.0.0.1 - - [02/May/2025 14:47:33] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:35,319 - INFO - 127.0.0.1 - - [02/May/2025 14:47:35] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:37,309 - INFO - 127.0.0.1 - - [02/May/2025 14:47:37] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:39,319 - INFO - 127.0.0.1 - - [02/May/2025 14:47:39] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:41,316 - INFO - 127.0.0.1 - - [02/May/2025 14:47:41] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:42,422 - INFO - Mensagem digitada com sucesso.
+2025-05-02 14:47:43,320 - INFO - 127.0.0.1 - - [02/May/2025 14:47:43] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:45,309 - INFO - 127.0.0.1 - - [02/May/2025 14:47:45] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:47,316 - INFO - 127.0.0.1 - - [02/May/2025 14:47:47] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:49,318 - INFO - 127.0.0.1 - - [02/May/2025 14:47:49] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:51,308 - INFO - 127.0.0.1 - - [02/May/2025 14:47:51] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:53,318 - INFO - 127.0.0.1 - - [02/May/2025 14:47:53] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:55,315 - INFO - 127.0.0.1 - - [02/May/2025 14:47:55] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:57,317 - INFO - 127.0.0.1 - - [02/May/2025 14:47:57] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:47:59,313 - INFO - 127.0.0.1 - - [02/May/2025 14:47:59] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:48:01,308 - INFO - 127.0.0.1 - - [02/May/2025 14:48:01] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:48:03,321 - INFO - 127.0.0.1 - - [02/May/2025 14:48:03] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:48:05,318 - INFO - 127.0.0.1 - - [02/May/2025 14:48:05] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:48:07,316 - INFO - 127.0.0.1 - - [02/May/2025 14:48:07] "GET /logs HTTP/1.1" 200 -
+2025-05-02 14:48:07,724 - ERROR - [ERRO] Problema ao enviar mensagem no WhatsApp: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=136.0.7103.60)
+Stacktrace:
+	GetHandleVerifier [0x0123D363+60275]
+	GetHandleVerifier [0x0123D3A4+60340]
+	(No symbol) [0x010706F3]
+	(No symbol) [0x0105FF20]
+	(No symbol) [0x0107DDA2]
+	(No symbol) [0x010E3D2F]
+	(No symbol) [0x010FDFE9]
+	(No symbol) [0x010DCE86]
+	(No symbol) [0x010AC623]
+	(No symbol) [0x010AD474]
+	GetHandleVerifier [0x01488FE3+2467827]
+	GetHandleVerifier [0x014845E6+2448886]
+	GetHandleVerifier [0x0149F80C+2560028]
+	GetHandleVerifier [0x01253DF5+153093]
+	GetHandleVerifier [0x0125A3BD+179149]
+	GetHandleVerifier [0x01244BB8+91080]
+	GetHandleVerifier [0x01244D60+91504]
+	GetHandleVerifier [0x0122FA10+4640]
+	BaseThreadInitThunk [0x760E5D49+25]
+	RtlInitializeExceptionChain [0x77DBCFFB+107]
+	RtlGetAppContainerNamedObjectPath [0x77DBCF81+561]
+
+2025-05-02 14:48:07,733 - INFO - Redução realizada: 10% dos orçamentos de campanhas com lucro abaixo de R$ 5000.0 foram reduzidos. Total reduzido: R$ 1063.43. Orçamento atual total: R$ 9970.84.
+2025-05-02 14:48:08,343 - INFO - 127.0.0.1 - - [02/May/2025 14:48:08] "GET /logs HTTP/1.1" 200 -
+2025-05-02 15:20:36,670 - INFO -  * Detected change in 'C:\\Users\\Pichau\\iCloudDrive\\PROJETOS\\ZIP\\PROCESSOS\\ROBOS_PY\\ROBO_IMPERIO\\meu_projeto_web\\escala_lucro.py', reloading
+2025-05-02 15:20:38,849 - INFO -  * Restarting with stat
+2025-05-02 15:22:52,766 - INFO -  * Restarting with stat
+2025-05-02 15:22:55,724 - INFO -  * Restarting with stat
+2025-05-02 15:24:27,793 - INFO -  * Restarting with stat
+2025-05-02 15:24:31,782 - INFO -  * Restarting with stat
+2025-05-02 15:24:47,946 - INFO -  * Restarting with stat

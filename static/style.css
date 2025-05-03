@@ -1,0 +1,108 @@
+/* Estética geral */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    /* Variáveis para posições iniciais das cores do fundo dinâmico */
+    --x1: 10%;
+    --y1: 20%;
+    --x2: 80%;
+    --y2: 30%;
+    --x3: 30%;
+    --y3: 80%;
+}
+  
+/* Fundo dinâmico animado (efeito plasma multicolorido) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--x1) var(--y1), rgba(255, 216, 191, 0.7) 0%, transparent 70%),
+                radial-gradient(circle at var(--x2) var(--y2), rgba(124, 124, 124, 0.7) 0%, transparent 70%),
+                radial-gradient(circle at var(--x3) var(--y3), rgba(0, 0, 0, 0.7) 0%, transparent 70%);
+    z-index: -1;
+    animation: moverFundo 20s infinite alternate;
+}
+  
+/* Animação do fundo dinâmico */
+@keyframes moverFundo {
+    0% {
+      --x1: 10%;  --y1: 20%;
+      --x2: 80%;  --y2: 30%;
+      --x3: 30%;  --y3: 80%;
+    }
+    50% {
+      --x1: 50%;  --y1: 50%;
+      --x2: 30%;  --y2: 80%;
+      --x3: 80%;  --y3: 20%;
+    }
+    100% {
+      --x1: 80%;  --y1: 70%;
+      --x2: 20%;  --y2: 40%;
+      --x3: 60%;  --y3: 90%;
+    }
+}
+  
+/* Estrutura básica */
+header, section {
+    padding: 1rem;
+}
+h1, h2 {
+    margin: 0 0 0.5rem 0;
+}
+  
+/* Botões - paleta de laranja */
+button, .btn {
+    background-color: #f08000; /* laranja escuro */
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+button:hover, .btn:hover {
+    background-color: #ffa500; /* laranja claro (hover) */
+}
+  
+/* Ajustes visuais adicionais */
+.form-section {
+    margin-bottom: 1.5rem;
+}
+input, select, textarea, .form-control {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+}
+input::placeholder, textarea::placeholder {
+    color: #aaa;
+}
+.log-panel {
+    background-color: #111;
+    color: #ddd;
+    font-family: monospace;
+    white-space: pre-wrap;
+    padding: 1rem;
+    margin-top: 1rem;
+    display: none;
+}
+.form-container {
+    max-width: 400px;
+    margin: 5rem auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 8px;
+}
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.form-container .btn {
+    width: 100%;
+}

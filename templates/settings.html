@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Configurações{% endblock %}
+{% block content %}
+<div class="form-container">
+  <h1>Configurações</h1>
+  {% if saved %}
+    <div class="alert alert-success" role="alert">Configurações salvas com sucesso.</div>
+  {% endif %}
+  {% if error %}
+    <div class="alert alert-danger" role="alert">Erro ao salvar configurações.</div>
+  {% endif %}
+  <form method="post" action="{{ url_for('settings') }}">
+    <div class="mb-3">
+      <label for="fb_token" class="form-label">Facebook Access Token:</label>
+      <textarea id="fb_token" name="fb_token" class="form-control" rows="3" required>{{ config.fb_token }}</textarea>
+    </div>
+    <div class="mb-3">
+      <label for="ad_accounts" class="form-label">Contas de Anúncio (IDs separados por vírgula):</label>
+      <input type="text" id="ad_accounts" name="ad_accounts" class="form-control" value="{{ config.ad_accounts|join(', ') }}">
+    </div>
+    <div class="mb-3">
+      <label for="whatsapp_group" class="form-label">Grupo do WhatsApp:</label>
+      <input type="text" id="whatsapp_group" name="whatsapp_group" class="form-control" value="{{ config.whatsapp_group }}">
+    </div>
+    <button type="submit" class="btn">Salvar</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h1>Gestão de Orçamento</h1>
+<div class="form-section">
+  <label for="operation">Operação:</label>
+  <select id="operation" name="operation" class="form-control">
+    <option value="" disabled selected>Selecione</option>
+    <option value="escalar">Escalar</option>
+    <option value="reduzir">Reduzir orçamento</option>
+    <option value="realocar">Realocar</option>
+  </select>
+</div>
+
+<!-- Campos para Escalar -->
+<div id="fields-escalar" class="param-fields" style="display: none;">
+  <div class="mb-3">
+    <label for="scale_value" class="form-label">Valor total de escala:</label>
+    <input type="number" id="scale_value" name="scale_value" class="form-control" min="0" step="any" required>
+  </div>
+  <div class="mb-3">
+    <label for="min_profit" class="form-label">Lucro mínimo:</label>
+    <input type="number" id="min_profit" name="min_profit" class="form-control" min="0" step="any" required>
+  </div>
+</div>
+
+<!-- Campos para Realocar -->
+<div id="fields-realocar" class="param-fields" style="display: none;">
+  <div class="mb-3">
+    <label for="low_profit" class="form-label">Limite de lucro baixo:</label>
+    <input type="number" id="low_profit" name="low_profit" class="form-control" min="0" step="any" required>
+  </div>
+  <div class="mb-3">
+    <label for="high_profit" class="form-label">Limite de lucro alto:</label>
+    <input type="number" id="high_profit" name="high_profit" class="form-control" min="0" step="any" required>
+  </div>
+  <div class="mb-3">
+    <label for="realloc_pct" class="form-label">Percentual de realocação (%):</label>
+    <input type="number" id="realloc_pct" name="realloc_pct" class="form-control" min="0" max="100" step="any" required>
+  </div>
+</div>
+
+<!-- Campos para Reduzir -->
+<div id="fields-reduzir" class="param-fields" style="display: none;">
+  <div class="mb-3">
+    <label for="reduce_profit_limit" class="form-label">Limite de lucro baixo:</label>
+    <input type="number" id="reduce_profit_limit" name="reduce_profit_limit" class="form-control" min="0" step="any" required>
+  </div>
+  <div class="mb-3">
+    <label for="reduce_pct" class="form-label">Percentual de redução (%):</label>
+    <input type="number" id="reduce_pct" name="reduce_pct" class="form-control" min="0" max="100" step="any" required>
+  </div>
+</div>
+
+<!-- Seleção de Data/Período -->
+<div class="form-section">
+  <label for="date_range">Período:</label>
+  <select id="date_range" name="date_range" class="form-control">
+    <option value="today">Hoje</option>
+    <option value="yesterday">Ontem</option>
+    <option value="last7">Últimos 7 dias</option>
+    <option value="custom">Personalizado</option>
+  </select>
+  <div id="custom-dates" style="display: none; margin-top: 10px;">
+    <label for="start_date" class="form-label">De:</label>
+    <input type="date" id="start_date" class="form-control">
+    <label for="end_date" class="form-label">Até:</label>
+    <input type="date" id="end_date" class="form-control">
+  </div>
+</div>
+
+<button id="start-btn" class="btn">Iniciar</button>
+<button id="log-toggle-btn" class="btn">Mostrar Logs</button>
+<div id="log-container" class="log-panel"></div>
+{% endblock %}

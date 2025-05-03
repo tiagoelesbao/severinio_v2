@@ -1,0 +1,24 @@
+{
+  "ACCESS_TOKEN": "EAAQ0iNruF0MBOZCyyGx8M9tbi6wwDDMejsITuMP77kmuYX27bqGax5ocxZAy39tJQtH4ZAMbntZAmlypVtSkUIqrMjsBZCskjCYEcWvvAIGss6FegyCbpqZBKeIidow2JZADZCYnyok9jcKdIqRdY1mZAXXI2WSw7ZCIF8z4rF57CWZBGhix0FXuGBzoBhBipxFNOK0",
+  "AD_ACCOUNTS": [
+    "act_790223756353632",
+    "act_303402486183447"
+  ],
+  "LIMITE_LUCRO": 500.0,
+  "VALOR_TOTAL_ESCALA": 100.0,
+  "MINIMO_ORCAMENTO": 100.0,
+  "WHATSAPP_GROUP": "#ZIP - ROAS IMPERIO",
+  "DATE_PRESET": "today",
+  "APP_PASSWORD": "admin",
+  "LIMITE_LUCRO_BAIXO": 500.0,
+  "LIMITE_LUCRO_ALTO": 500.0,
+  "PERCENTUAL_REALOCACAO": 0.3,
+  "fb_token": "EAAQ0iNruF0MBOZCyyGx8M9tbi6wwDDMejsITuMP77kmuYX27bqGax5ocxZAy39tJQtH4ZAMbntZAmlypVtSkUIqrMjsBZCskjCYEcWvvAIGss6FegyCbpqZBKeIidow2JZADZCYnyok9jcKdIqRdY1mZAXXI2WSw7ZCIF8z4rF57CWZBGhix0FXuGBzoBhBipxFNOK0",
+  "ad_accounts": [
+    "act_790223756353632",
+    "act_303402486183447"
+  ],
+  "whatsapp_group": "#ZIP - ROAS IMPERIO",
+  "admin_username": "admin",
+  "admin_password": "admin"
+}
