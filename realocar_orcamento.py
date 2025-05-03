@@ -334,7 +334,7 @@ def atualizar_orcamento_facebook(id_campanha, novo_orcamento):
 def enviar_mensagem_whatsapp(grupo, mensagem):
     """
     Função atualizada para enviar mensagens para um grupo do WhatsApp Web/Business
-    usando os novos seletores da interface.
+    usando técnicas mais robustas de localização de elementos.
     
     Args:
         grupo (str): Nome do grupo para enviar a mensagem
@@ -350,9 +350,8 @@ def enviar_mensagem_whatsapp(grupo, mensagem):
         # Configuração do navegador Chrome/Brave
         brave_options = Options()
         brave_options.binary_location = r"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
-        # Aumentar estabilidade evitando uso do perfil do usuário que pode estar em uso
-        # brave_options.add_argument("--user-data-dir=C:\\temp\\whatsapp_profile")
-        # brave_options.add_argument("--profile-directory=WhatsApp")
+        brave_options.add_argument(r"--user-data-dir=C:\Users\Pichau\AppData\Local\BraveSoftware\Brave-Browser\User Data")
+        brave_options.add_argument(r"--profile-directory=Default")
         brave_options.add_argument("--start-maximized")
         # Adicionar opção para evitar detecção de automação
         brave_options.add_argument("--disable-blink-features=AutomationControlled")
@@ -367,57 +366,86 @@ def enviar_mensagem_whatsapp(grupo, mensagem):
         log_message("Abrindo WhatsApp Web...")
         driver.get("https://web.whatsapp.com")
         
-        # Aguardar carregamento inicial (elemento do painel lateral)
-        log_message("Aguardando carregamento do WhatsApp Web...")
-        pane_side = WebDriverWait(driver, 360).until(
-            EC.presence_of_element_located((By.ID, "pane-side"))
-        )
-        log_message("WhatsApp Web carregado, procurando campo de pesquisa...")
-        
-        # Tentar diversos seletores para o campo de pesquisa (em ordem de especificidade)
-        search_selectors = [
-            # Seletor que você compartilhou
-            "div.x1n2onr6.xh8yej3.lexical-rich-text-input div[aria-label='Caixa de texto de pesquisa'][role='textbox'][data-tab='3']",
-            # Alternativas
-            "div[aria-label='Caixa de texto de pesquisa'][role='textbox']",
-            "div.lexical-rich-text-input div[role='textbox'][data-tab='3']",
-            "div[data-tab='3'][role='textbox']",
-            "div[aria-placeholder='Pesquisar ou começar uma nova conversa']"
+        # Múltiplos seletores para verificar se o WhatsApp Web carregou
+        whatsapp_loaded_selectors = [
+            (By.CSS_SELECTOR, "div[role='textbox'][aria-label='Caixa de texto de pesquisa']"),
+            (By.CSS_SELECTOR, "div[role='textbox'][aria-placeholder='Pesquisar ou começar uma nova conversa']"),
+            (By.XPATH, "//div[@role='textbox' and contains(@aria-label, 'Pesquisar')]"),
+            (By.XPATH, "//div[contains(@class, '_ai04')]"),
+            (By.XPATH, "//div[@id='pane-side']"),
+            (By.ID, "pane-side")
         ]
         
-        search_box = None
-        for selector in search_selectors:
+        # Aguardar carregamento da página com múltiplos seletores
+        log_message("Aguardando carregamento do WhatsApp Web...")
+        for selector_type, selector_value in whatsapp_loaded_selectors:
             try:
-                search_box = WebDriverWait(driver, 10).until(
-                    EC.presence_of_element_located((By.CSS_SELECTOR, selector))
+                WebDriverWait(driver, 60).until(
+                    EC.presence_of_element_located((selector_type, selector_value))
                 )
-                log_message(f"Campo de pesquisa encontrado com seletor: {selector}")
+                log_message(f"WhatsApp Web carregado, elemento detectado: {selector_value}")
                 break
             except:
                 continue
         
-        if not search_box:
-            # Última tentativa - tentar clicar no campo baseado em coordenadas
-            log_message("Tentando clicar na área de pesquisa...")
+        time.sleep(2)  # Pequena pausa para garantir que a interface esteja pronta
+        
+        # Múltiplos seletores para o campo de pesquisa
+        search_selectors = [
+            (By.CSS_SELECTOR, "div[role='textbox'][aria-label='Caixa de texto de pesquisa']"),
+            (By.CSS_SELECTOR, "div[role='textbox'][aria-placeholder='Pesquisar ou começar uma nova conversa']"),
+            (By.XPATH, "//div[@role='textbox' and contains(@aria-label, 'Pesquisar')]"),
+            (By.XPATH, "//button[@aria-label='Pesquisar ou começar uma nova conversa']"),
+            (By.XPATH, "//div[contains(@class, 'x10l6tqk')]"),
+            (By.XPATH, "//div[contains(@class, 'lexical-rich-text-input')]//div[@role='textbox']"),
+            (By.XPATH, "//div[@data-tab='3' and @role='textbox']")
+        ]
+        
+        # Tentar encontrar e clicar no campo de pesquisa
+        search_element = None
+        for selector_type, selector_value in search_selectors:
             try:
-                # Clique na região onde geralmente fica o campo de pesquisa
-                search_area = driver.find_element(By.CSS_SELECTOR, "div#pane-side")
-                driver.execute_script("arguments[0].scrollIntoView();", search_area)
+                search_element = WebDriverWait(driver, 30).until(
+                    EC.element_to_be_clickable((selector_type, selector_value))
+                )
+                log_message(f"Campo de pesquisa encontrado com seletor: {selector_value}")
+                break
+            except:
+                continue
+        
+        if not search_element:
+            # Tentar clicar na área onde geralmente fica o campo de pesquisa
+            try:
+                pane_side = driver.find_element(By.ID, "pane-side")
+                driver.execute_script("arguments[0].scrollIntoView();", pane_side)
                 actions = webdriver.ActionChains(driver)
-                actions.move_to_element_with_offset(search_area, 150, -50).click().perform()
+                actions.move_to_element_with_offset(pane_side, 150, -50).click().perform()
                 time.sleep(2)
+                log_message("Clique realizado na área de pesquisa via coordenadas")
+                
+                # Tentar novamente encontrar o campo após o clique
+                for selector_type, selector_value in search_selectors:
+                    try:
+                        search_element = WebDriverWait(driver, 10).until(
+                            EC.element_to_be_clickable((selector_type, selector_value))
+                        )
+                        if search_element:
+                            log_message(f"Campo de pesquisa encontrado após clique: {selector_value}")
+                            break
+                    except:
+                        continue
             except Exception as e:
                 log_message(f"Falha ao clicar na área de pesquisa: {e}")
-                driver.save_screenshot("campo_pesquisa_nao_encontrado.png")
-                raise Exception("Campo de pesquisa não encontrado")
+                driver.save_screenshot("area_pesquisa_nao_encontrada.png")
         
-        # Limpar campo de pesquisa (se necessário) e digitar nome do grupo
-        time.sleep(1)  # Pequena pausa para garantir que o campo está pronto
-        if search_box:
-            search_box.clear()
-            search_box.send_keys(grupo)
+        # Inserir texto de pesquisa
+        if search_element:
+            driver.execute_script("arguments[0].click();", search_element)
+            time.sleep(1)
+            search_element.clear()
+            search_element.send_keys(grupo)
         else:
-            # Se usou o clique por coordenadas, digitar diretamente
+            # Se ainda não encontrou o elemento, tentar enviar as teclas diretamente
             actions = webdriver.ActionChains(driver)
             actions.send_keys(grupo)
             actions.perform()
@@ -425,134 +453,191 @@ def enviar_mensagem_whatsapp(grupo, mensagem):
         log_message(f"Pesquisando pelo grupo: {grupo}")
         time.sleep(3)  # Aguardar a pesquisa carregar resultados
         
-        # Localizar e clicar no grupo/contato - usando o novo seletor
+        # Múltiplos seletores para encontrar o grupo
         group_selectors = [
-            f"div[aria-selected='true'] span[title='{grupo}']",
-            f"div[aria-selected='true'] div[title='{grupo}']",
-            f"div._ak72 span[title='{grupo}']",
-            f"div span[title='{grupo}']",
-            f"div[title='{grupo}']"
+            (By.XPATH, f"//span[@title='{grupo}']"),
+            (By.XPATH, f"//span[contains(text(), '{grupo}')]"),
+            (By.XPATH, f"//div[contains(text(), '{grupo}')]"),
+            (By.CSS_SELECTOR, f"div[aria-selected='true'] span[title='{grupo}']"),
+            (By.CSS_SELECTOR, f"div[aria-selected='true'] div[title='{grupo}']"),
+            (By.XPATH, f"//div[contains(@class, '_21S-L')]//span[@title='{grupo}']")
         ]
         
+        # Tentar encontrar e clicar no grupo
         group_element = None
-        for selector in group_selectors:
+        for selector_type, selector_value in group_selectors:
             try:
-                group_element = WebDriverWait(driver, 10).until(
-                    EC.element_to_be_clickable((By.CSS_SELECTOR, selector))
+                group_element = WebDriverWait(driver, 20).until(
+                    EC.element_to_be_clickable((selector_type, selector_value))
                 )
-                log_message(f"Grupo encontrado com seletor: {selector}")
+                log_message(f"Grupo encontrado com seletor: {selector_value}")
                 break
             except:
                 continue
         
-        if not group_element:
-            # Tentar clique diretamente no primeiro resultado da pesquisa
+        if group_element:
+            # Tentar clicar via JavaScript (mais confiável)
+            try:
+                driver.execute_script("arguments[0].click();", group_element)
+                log_message("Clicado no grupo usando JavaScript")
+            except:
+                # Se falhar, tentar clique normal
+                group_element.click()
+                log_message("Clicado no grupo com método padrão")
+        else:
+            # Tentar clicar no primeiro resultado da pesquisa
             try:
                 first_result = WebDriverWait(driver, 10).until(
                     EC.element_to_be_clickable((By.CSS_SELECTOR, "div[aria-selected='true']"))
                 )
-                first_result.click()
+                driver.execute_script("arguments[0].click();", first_result)
                 log_message("Clicado no primeiro resultado da pesquisa")
             except Exception as e:
                 log_message(f"Grupo não encontrado: {e}")
                 driver.save_screenshot("grupo_nao_encontrado.png")
                 raise Exception(f"Grupo/contato '{grupo}' não encontrado")
-        else:
-            group_element.click()
         
-        time.sleep(2)  # Pequena pausa após clicar no grupo
+        time.sleep(3)  # Pausa após clicar no grupo
         
-        # Localizar o campo de mensagem usando o novo seletor
-        log_message("Localizando campo de mensagem...")
+        # Múltiplos seletores para o campo de mensagem
         message_selectors = [
-            # Seletor que você compartilhou
-            "div.x1n2onr6.xh8yej3.xjdcl3y.lexical-rich-text-input div[aria-label='Digite uma mensagem'][role='textbox'][data-tab='10']",
-            # Alternativas
-            "div[aria-label='Digite uma mensagem'][role='textbox']",
-            "div.lexical-rich-text-input div[role='textbox'][data-tab='10']",
-            "div[data-tab='10'][role='textbox']",
-            "div[aria-placeholder='Digite uma mensagem']"
+            (By.XPATH, "//div[@role='textbox' and @data-tab='10']"),
+            (By.XPATH, "//div[@role='textbox' and contains(@aria-label, 'Digite uma mensagem')]"),
+            (By.CSS_SELECTOR, "div[role='textbox'][data-tab='10']"),
+            (By.CSS_SELECTOR, "div[role='textbox'][aria-label='Digite uma mensagem']"),
+            (By.XPATH, "//div[contains(@class, 'lexical-rich-text-input')]//div[@role='textbox']"),
+            (By.XPATH, "//footer//div[@role='textbox']"),
+            (By.XPATH, "//div[contains(@class, '_3Uu1_')]")
         ]
         
+        # Tentar encontrar o campo de mensagem
+        log_message("Localizando campo de mensagem...")
         message_box = None
-        for selector in message_selectors:
+        for selector_type, selector_value in message_selectors:
             try:
-                message_box = WebDriverWait(driver, 10).until(
-                    EC.presence_of_element_located((By.CSS_SELECTOR, selector))
+                message_box = WebDriverWait(driver, 30).until(
+                    EC.presence_of_element_located((selector_type, selector_value))
                 )
-                log_message(f"Campo de mensagem encontrado com seletor: {selector}")
+                log_message(f"Campo de mensagem encontrado com seletor: {selector_value}")
                 break
             except:
                 continue
         
         if not message_box:
-            # Última tentativa - tentar clicar no campo baseado em coordenadas
-            log_message("Tentando clicar na área de mensagem...")
+            # Tentar encontrar qualquer footer ou área de mensagem na parte inferior
             try:
-                # Clique na região onde geralmente fica o campo de mensagem
-                footer = driver.find_element(By.CSS_SELECTOR, "footer")
-                driver.execute_script("arguments[0].scrollIntoView();", footer)
-                actions = webdriver.ActionChains(driver)
-                actions.move_to_element_with_offset(footer, 200, -30).click().perform()
-                time.sleep(1)
+                footers = driver.find_elements(By.TAG_NAME, "footer")
+                if footers:
+                    footer = footers[0]
+                    driver.execute_script("arguments[0].scrollIntoView();", footer)
+                    
+                    # Tentar clicar em um ponto relativo ao footer
+                    actions = webdriver.ActionChains(driver)
+                    actions.move_to_element_with_offset(footer, 200, -30).click().perform()
+                    log_message("Clique realizado na área de mensagem via coordenadas")
+                    time.sleep(2)
+                    
+                    # Tentar novamente após o clique
+                    for selector_type, selector_value in message_selectors:
+                        try:
+                            message_box = WebDriverWait(driver, 10).until(
+                                EC.presence_of_element_located((selector_type, selector_value))
+                            )
+                            if message_box:
+                                log_message(f"Campo de mensagem encontrado após clique: {selector_value}")
+                                break
+                        except:
+                            continue
+                else:
+                    # Tentar clicar em uma posição absoluta no centro-inferior da tela
+                    window_size = driver.get_window_size()
+                    x_position = window_size['width'] // 2
+                    y_position = window_size['height'] - 100
+                    actions = webdriver.ActionChains(driver)
+                    actions.move_by_offset(x_position, y_position).click().perform()
+                    log_message("Clique realizado em posição absoluta na tela")
+                    time.sleep(2)
             except Exception as e:
-                log_message(f"Falha ao clicar na área de mensagem: {e}")
-                driver.save_screenshot("campo_mensagem_nao_encontrado.png")
-                raise Exception("Campo de mensagem não encontrado")
+                log_message(f"Falha ao localizar área de mensagem: {e}")
+                driver.save_screenshot("area_mensagem_nao_encontrada.png")
         
         # Digitar a mensagem
-        log_message("Digitando mensagem...")
+        log_message("Tentando digitar mensagem...")
         if message_box:
+            # Tentar clicar e limpar o campo antes de digitar
+            driver.execute_script("arguments[0].click();", message_box)
+            time.sleep(1)
             message_box.clear()
             message_box.send_keys(mensagem)
+            log_message("Mensagem digitada com sucesso")
         else:
-            # Se usou o clique por coordenadas, digitar diretamente
+            # Tentar enviar as teclas diretamente
             actions = webdriver.ActionChains(driver)
             actions.send_keys(mensagem)
             actions.perform()
+            log_message("Mensagem digitada via ActionChains")
         
-        time.sleep(1)  # Pequena pausa após digitar a mensagem
+        time.sleep(2)  # Pequena pausa após digitar a mensagem
         
-        # Localizar e clicar no botão de enviar usando o novo seletor
-        log_message("Enviando mensagem...")
+        # Múltiplos seletores para o botão de enviar
         send_selectors = [
-            # Seletor que você compartilhou
-            "button[aria-label='Enviar'][data-tab='11']",
-            # Alternativas
-            "button[aria-label='Enviar']",
-            "button[data-icon='wds-ic-send-filled']",
-            "button svg[data-icon='wds-ic-send-filled']",
-            "span[data-icon='wds-ic-send-filled']"
+            (By.CSS_SELECTOR, "button[aria-label='Enviar']"),
+            (By.CSS_SELECTOR, "button[data-tab='11']"),
+            (By.XPATH, "//button[contains(@class, '_3wFFT')]"),
+            (By.XPATH, "//button[@data-icon='send']"),
+            (By.XPATH, "//button[contains(@class, '_1Ae7k')]"),
+            (By.XPATH, "//span[@data-icon='send']")
         ]
         
+        # Tentar encontrar e clicar no botão de enviar
+        log_message("Procurando botão de enviar...")
         send_button = None
-        for selector in send_selectors:
+        for selector_type, selector_value in send_selectors:
             try:
-                send_button = WebDriverWait(driver, 10).until(
-                    EC.element_to_be_clickable((By.CSS_SELECTOR, selector))
+                send_button = WebDriverWait(driver, 20).until(
+                    EC.element_to_be_clickable((selector_type, selector_value))
                 )
-                log_message(f"Botão de enviar encontrado com seletor: {selector}")
+                log_message(f"Botão de enviar encontrado com seletor: {selector_value}")
                 break
             except:
                 continue
         
-        if not send_button:
-            # Última tentativa - enviar com ENTER
-            log_message("Tentando enviar mensagem com ENTER...")
+        if send_button:
+            # Tentar clicar via JavaScript (mais confiável)
             try:
-                actions = webdriver.ActionChains(driver)
-                actions.send_keys(Keys.ENTER)
-                actions.perform()
-            except Exception as e:
-                log_message(f"Falha ao enviar mensagem: {e}")
-                driver.save_screenshot("botao_enviar_nao_encontrado.png")
-                raise Exception("Botão de enviar não encontrado")
+                driver.execute_script("arguments[0].click();", send_button)
+                log_message("Botão de enviar clicado via JavaScript")
+            except:
+                # Se falhar, tentar clique normal
+                send_button.click()
+                log_message("Botão de enviar clicado com método padrão")
         else:
-            send_button.click()
+            # Tentar enviar com ENTER
+            log_message("Tentando enviar mensagem com ENTER...")
+            actions = webdriver.ActionChains(driver)
+            actions.send_keys(Keys.ENTER)
+            actions.perform()
+            log_message("Tecla ENTER enviada")
         
         # Aguardar um pouco para garantir que a mensagem foi enviada
-        time.sleep(20)
-        log_message("Mensagem enviada com sucesso!")
+        time.sleep(5)
+        
+        # Verificar se a mensagem foi enviada (procurar por marca de verificação)
+        try:
+            time.sleep(5)  # Tempo adicional para que a mensagem seja processada
+            # Tentar localizar elementos que indicam mensagem enviada (check marks)
+            check_marks = driver.find_elements(By.XPATH, "//span[@data-icon='msg-check']")
+            double_check_marks = driver.find_elements(By.XPATH, "//span[@data-icon='msg-dcheck']")
+            
+            if check_marks or double_check_marks:
+                log_message("Mensagem enviada com sucesso (confirmado por marcadores)")
+            else:
+                log_message("Mensagem possivelmente enviada, mas sem confirmação visual")
+        except:
+            # Ignorar erros na verificação de confirmação
+            pass
+        
+        log_message("Processo de envio de mensagem concluído")
         return True
         
     except Exception as e:
