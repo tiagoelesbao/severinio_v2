@@ -8636,3 +8636,59 @@ Stacktrace:
 
 [2025-05-03 10:27:27] [AVISO] Falha ao enviar mensagem WhatsApp, mas a escala foi concluída: Escala realizada: R$ 1000.00 distribuídos entre 13 campanhas com lucro >= R$ 1.00. Orçamento total atual: R$ 9580.52.
 [2025-05-03 10:27:27] Processo de escala concluído com sucesso!
+[2025-05-03 10:43:53] Iniciando escala com: Token=EAAQ0...FNOK0, Contas=['act_790223756353632', 'act_303402486183447'], Grupo=#ZIP - ROAS IMPERIO
+[2025-05-03 10:43:53] Parâmetros: Date Range=today, Min Profit=80, Scale Value=500
+[2025-05-03 10:43:53] Planilha limpa no início da execução.
+[2025-05-03 10:43:53] Processando conta de anúncio: act_790223756353632
+[2025-05-03 10:43:53] Buscando campanhas para conta act_790223756353632...
+[2025-05-03 10:43:56] Encontradas 103 campanhas.
+[2025-05-03 10:43:57] Encontrados 12 insights.
+[2025-05-03 10:43:57] Processadas 11 campanhas ativas.
+[2025-05-03 10:43:57] Processando conta de anúncio: act_303402486183447
+[2025-05-03 10:43:57] Buscando campanhas para conta act_303402486183447...
+[2025-05-03 10:43:59] Encontradas 80 campanhas.
+[2025-05-03 10:44:00] Encontrados 5 insights.
+[2025-05-03 10:44:00] Processadas 3 campanhas ativas.
+[2025-05-03 10:44:00] Total de 14 campanhas ativas encontradas.
+[2025-05-03 10:44:00] Dados das campanhas salvos na planilha.
+[2025-05-03 10:44:00] [INFO] 5 campanhas para escalonamento. Soma dos lucros: R$ 642.21
+[2025-05-03 10:44:00] Enviando atualização de orçamento para campanha 120215736960620431
+[2025-05-03 10:44:02] Resposta da API: {'success': True}
+[2025-05-03 10:44:02] Orçamento atualizado para a campanha 120215736960620431: R$ 1121.11
+[2025-05-03 10:44:02] Campanha 120215736960620431 escalada para R$ 1121.11
+[2025-05-03 10:44:02] Enviando atualização de orçamento para campanha 120215038900720431
+[2025-05-03 10:44:03] Resposta da API: {'success': True}
+[2025-05-03 10:44:04] Orçamento atualizado para a campanha 120215038900720431: R$ 957.50
+[2025-05-03 10:44:04] Campanha 120215038900720431 escalada para R$ 957.50
+[2025-05-03 10:44:04] Enviando atualização de orçamento para campanha 120214808911760431
+[2025-05-03 10:44:05] Resposta da API: {'success': True}
+[2025-05-03 10:44:05] Orçamento atualizado para a campanha 120214808911760431: R$ 2385.19
+[2025-05-03 10:44:05] Campanha 120214808911760431 escalada para R$ 2385.19
+[2025-05-03 10:44:05] Enviando atualização de orçamento para campanha 120214807605110431
+[2025-05-03 10:44:06] Resposta da API: {'success': True}
+[2025-05-03 10:44:06] Orçamento atualizado para a campanha 120214807605110431: R$ 641.72
+[2025-05-03 10:44:06] Campanha 120214807605110431 escalada para R$ 641.72
+[2025-05-03 10:44:06] Enviando atualização de orçamento para campanha 120214323043310431
+[2025-05-03 10:44:07] Resposta da API: {'success': True}
+[2025-05-03 10:44:07] Orçamento atualizado para a campanha 120214323043310431: R$ 825.77
+[2025-05-03 10:44:07] Campanha 120214323043310431 escalada para R$ 825.77
+[2025-05-03 10:44:07] Iniciando envio de mensagem para o grupo: #ZIP - ROAS IMPERIO
+[2025-05-03 10:44:09] Abrindo WhatsApp Web...
+[2025-05-03 10:44:10] Aguardando carregamento do WhatsApp Web...
+[2025-05-03 10:44:15] WhatsApp Web carregado, elemento detectado: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-05-03 10:44:18] Campo de pesquisa encontrado com seletor: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-05-03 10:44:20] Texto de pesquisa '#ZIP - ROAS IMPERIO' inserido.
+[2025-05-03 10:44:33] Grupo encontrado com seletor: //span[@title='#ZIP - ROAS IMPERIO']
+[2025-05-03 10:44:33] Grupo clicado com sucesso
+[2025-05-03 10:44:47] Conversa do grupo aberta com sucesso
+[2025-05-03 10:44:47] Localizando campo de mensagem...
+[2025-05-03 10:44:47] Campo de mensagem encontrado com seletor: //div[@role='textbox' and @data-tab='10']
+[2025-05-03 10:44:47] Tentando digitar mensagem...
+[2025-05-03 10:44:50] Mensagem digitada com sucesso
+[2025-05-03 10:44:51] Enviando mensagem...
+[2025-05-03 10:44:51] Botão de enviar encontrado com seletor: button[aria-label='Enviar']
+[2025-05-03 10:44:51] Botão de enviar clicado
+[2025-05-03 10:44:56] Mensagem enviada com sucesso (confirmado)
+[2025-05-03 10:44:56] Processo de envio de mensagem concluído
+[2025-05-03 10:44:59] [INFO] Mensagem enviada com sucesso: Escala realizada: R$ 500.00 distribuídos entre 5 campanhas com lucro >= R$ 80.00. Orçamento total atual: R$ 10080.47.
+[2025-05-03 10:44:59] Processo de escala concluído com sucesso!

@@ -1007,3 +1007,294 @@ Stacktrace:
 [2025-05-03 10:23:24] INFO: Processando conta de anúncio: act_790223756353632
 [2025-05-03 10:23:24] INFO: Buscando campanhas para conta act_790223756353632...
 [2025-05-03 10:23:24] INFO: 127.0.0.1 - - [03/May/2025 10:23:24] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:25] INFO: 127.0.0.1 - - [03/May/2025 10:23:25] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:26] INFO: 127.0.0.1 - - [03/May/2025 10:23:26] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:27] INFO: Encontradas 103 campanhas.
+[2025-05-03 10:23:27] INFO: 127.0.0.1 - - [03/May/2025 10:23:27] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:27] INFO: Encontrados 12 insights.
+[2025-05-03 10:23:27] INFO: Processadas 11 campanhas ativas.
+[2025-05-03 10:23:27] INFO: Processando conta de anúncio: act_303402486183447
+[2025-05-03 10:23:27] INFO: Buscando campanhas para conta act_303402486183447...
+[2025-05-03 10:23:28] INFO: 127.0.0.1 - - [03/May/2025 10:23:28] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:29] INFO: 127.0.0.1 - - [03/May/2025 10:23:29] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:30] INFO: Encontradas 80 campanhas.
+[2025-05-03 10:23:30] INFO: 127.0.0.1 - - [03/May/2025 10:23:30] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:30] INFO: Encontrados 5 insights.
+[2025-05-03 10:23:30] INFO: Processadas 3 campanhas ativas.
+[2025-05-03 10:23:30] INFO: Total de 14 campanhas ativas encontradas.
+[2025-05-03 10:23:31] INFO: Dados das campanhas salvos na planilha.
+[2025-05-03 10:23:31] INFO: [INFO] 13 campanhas para escalonamento. Soma dos lucros: R$ 644.54
+[2025-05-03 10:23:31] INFO: Enviando atualização de orçamento para campanha 120223099071640431
+[2025-05-03 10:23:31] INFO: 127.0.0.1 - - [03/May/2025 10:23:31] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:32] INFO: Resposta da API: {'success': True}
+[2025-05-03 10:23:32] INFO: Orçamento atualizado para a campanha 120223099071640431: R$ 1290.91
+[2025-05-03 10:23:32] INFO: Campanha 120223099071640431 escalada para R$ 1290.91
+[2025-05-03 10:23:32] INFO: Enviando atualização de orçamento para campanha 120222533000150431
+[2025-05-03 10:23:32] INFO: 127.0.0.1 - - [03/May/2025 10:23:32] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:33] INFO: Resposta da API: {'success': True}
+[2025-05-03 10:23:33] INFO: Orçamento atualizado para a campanha 120222533000150431: R$ 903.31
+[2025-05-03 10:23:33] INFO: Campanha 120222533000150431 escalada para R$ 903.31
+[2025-05-03 10:23:33] INFO: Enviando atualização de orçamento para campanha 120221473064310431
+[2025-05-03 10:23:33] INFO: 127.0.0.1 - - [03/May/2025 10:23:33] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:34] INFO: Resposta da API: {'success': True}
+[2025-05-03 10:23:34] INFO: Orçamento atualizado para a campanha 120221473064310431: R$ 653.64
+[2025-05-03 10:23:34] INFO: Campanha 120221473064310431 escalada para R$ 653.64
+[2025-05-03 10:23:34] INFO: Enviando atualização de orçamento para campanha 120215736960620431
+[2025-05-03 10:23:34] INFO: 127.0.0.1 - - [03/May/2025 10:23:34] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:35] INFO: Resposta da API: {'success': True}
+[2025-05-03 10:23:35] INFO: Orçamento atualizado para a campanha 120215736960620431: R$ 1044.79
+[2025-05-03 10:23:35] INFO: Campanha 120215736960620431 escalada para R$ 1044.79
+[2025-05-03 10:23:35] INFO: Enviando atualização de orçamento para campanha 120215567870460431
+[2025-05-03 10:23:35] INFO: 127.0.0.1 - - [03/May/2025 10:23:35] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:36] INFO: Resposta da API: {'success': True}
+[2025-05-03 10:23:36] INFO: Orçamento atualizado para a campanha 120215567870460431: R$ 299.73
+[2025-05-03 10:23:36] INFO: Campanha 120215567870460431 escalada para R$ 299.73
+[2025-05-03 10:23:36] INFO: Enviando atualização de orçamento para campanha 120215038900720431
+[2025-05-03 10:23:36] INFO: 127.0.0.1 - - [03/May/2025 10:23:36] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:38] INFO: 127.0.0.1 - - [03/May/2025 10:23:38] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:39] INFO: 127.0.0.1 - - [03/May/2025 10:23:39] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:40] INFO: Resposta da API: {'success': True}
+[2025-05-03 10:23:40] INFO: Orçamento atualizado para a campanha 120215038900720431: R$ 893.28
+[2025-05-03 10:23:40] INFO: Campanha 120215038900720431 escalada para R$ 893.28
+[2025-05-03 10:23:40] INFO: Enviando atualização de orçamento para campanha 120214808911760431
+[2025-05-03 10:23:40] INFO: 127.0.0.1 - - [03/May/2025 10:23:40] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:41] INFO: 127.0.0.1 - - [03/May/2025 10:23:41] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:41] INFO: Resposta da API: {'success': True}
+[2025-05-03 10:23:41] INFO: Orçamento atualizado para a campanha 120214808911760431: R$ 2164.71
+[2025-05-03 10:23:41] INFO: Campanha 120214808911760431 escalada para R$ 2164.71
+[2025-05-03 10:23:41] INFO: Enviando atualização de orçamento para campanha 120214807605110431
+[2025-05-03 10:23:42] INFO: 127.0.0.1 - - [03/May/2025 10:23:42] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:42] INFO: Resposta da API: {'success': True}
+[2025-05-03 10:23:42] INFO: Orçamento atualizado para a campanha 120214807605110431: R$ 574.66
+[2025-05-03 10:23:42] INFO: Campanha 120214807605110431 escalada para R$ 574.66
+[2025-05-03 10:23:42] INFO: Enviando atualização de orçamento para campanha 120214350104200431
+[2025-05-03 10:23:43] INFO: 127.0.0.1 - - [03/May/2025 10:23:43] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:43] INFO: Resposta da API: {'success': True}
+[2025-05-03 10:23:43] INFO: Orçamento atualizado para a campanha 120214350104200431: R$ 194.98
+[2025-05-03 10:23:43] INFO: Campanha 120214350104200431 escalada para R$ 194.98
+[2025-05-03 10:23:43] INFO: Enviando atualização de orçamento para campanha 120214323043310431
+[2025-05-03 10:23:44] INFO: 127.0.0.1 - - [03/May/2025 10:23:44] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:44] INFO: Resposta da API: {'success': True}
+[2025-05-03 10:23:44] INFO: Orçamento atualizado para a campanha 120214323043310431: R$ 753.86
+[2025-05-03 10:23:44] INFO: Campanha 120214323043310431 escalada para R$ 753.86
+[2025-05-03 10:23:44] INFO: Enviando atualização de orçamento para campanha 120223669040530338
+[2025-05-03 10:23:45] INFO: 127.0.0.1 - - [03/May/2025 10:23:45] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:46] INFO: Resposta da API: {'success': True}
+[2025-05-03 10:23:46] INFO: Orçamento atualizado para a campanha 120223669040530338: R$ 207.02
+[2025-05-03 10:23:46] INFO: Campanha 120223669040530338 escalada para R$ 207.02
+[2025-05-03 10:23:46] INFO: Enviando atualização de orçamento para campanha 120214509094010338
+[2025-05-03 10:23:46] INFO: 127.0.0.1 - - [03/May/2025 10:23:46] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:47] INFO: 127.0.0.1 - - [03/May/2025 10:23:47] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:48] INFO: Resposta da API: {'success': True}
+[2025-05-03 10:23:48] INFO: Orçamento atualizado para a campanha 120214509094010338: R$ 133.37
+[2025-05-03 10:23:48] INFO: Campanha 120214509094010338 escalada para R$ 133.37
+[2025-05-03 10:23:48] INFO: Enviando atualização de orçamento para campanha 120214507411990338
+[2025-05-03 10:23:48] INFO: 127.0.0.1 - - [03/May/2025 10:23:48] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:49] INFO: 127.0.0.1 - - [03/May/2025 10:23:49] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:50] INFO: Resposta da API: {'success': True}
+[2025-05-03 10:23:50] INFO: Orçamento atualizado para a campanha 120214507411990338: R$ 338.75
+[2025-05-03 10:23:50] INFO: Campanha 120214507411990338 escalada para R$ 338.75
+[2025-05-03 10:23:50] INFO: Iniciando envio de mensagem para o grupo: #ZIP - ROAS IMPERIO
+[2025-05-03 10:23:50] INFO: ====== WebDriver manager ======
+[2025-05-03 10:23:50] INFO: 127.0.0.1 - - [03/May/2025 10:23:50] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:51] INFO: 127.0.0.1 - - [03/May/2025 10:23:51] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:51] INFO: Get LATEST chromedriver version for google-chrome
+[2025-05-03 10:23:51] INFO: Get LATEST chromedriver version for google-chrome
+[2025-05-03 10:23:51] INFO: Driver [C:\Users\Pichau\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver.exe] found in cache
+[2025-05-03 10:23:52] INFO: 127.0.0.1 - - [03/May/2025 10:23:52] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:53] INFO: Abrindo WhatsApp Web...
+[2025-05-03 10:23:54] INFO: 127.0.0.1 - - [03/May/2025 10:23:54] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:55] INFO: Aguardando carregamento do WhatsApp Web...
+[2025-05-03 10:23:56] INFO: 127.0.0.1 - - [03/May/2025 10:23:56] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:58] INFO: 127.0.0.1 - - [03/May/2025 10:23:58] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:23:59] INFO: WhatsApp Web carregado, elemento detectado: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-05-03 10:24:00] INFO: 127.0.0.1 - - [03/May/2025 10:24:00] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:01] INFO: Campo de pesquisa encontrado com seletor: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-05-03 10:24:02] INFO: 127.0.0.1 - - [03/May/2025 10:24:02] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:03] INFO: Pesquisando pelo grupo: #ZIP - ROAS IMPERIO
+[2025-05-03 10:24:04] INFO: 127.0.0.1 - - [03/May/2025 10:24:04] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:06] INFO: 127.0.0.1 - - [03/May/2025 10:24:06] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:07] INFO: Grupo encontrado com seletor: //span[@title='#ZIP - ROAS IMPERIO']
+[2025-05-03 10:24:07] INFO: Clicado no grupo usando JavaScript
+[2025-05-03 10:24:08] INFO: 127.0.0.1 - - [03/May/2025 10:24:08] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:10] INFO: Localizando campo de mensagem...
+[2025-05-03 10:24:10] INFO: 127.0.0.1 - - [03/May/2025 10:24:10] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:12] INFO: 127.0.0.1 - - [03/May/2025 10:24:12] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:14] INFO: 127.0.0.1 - - [03/May/2025 10:24:14] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:15] INFO: 127.0.0.1 - - [03/May/2025 10:24:15] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:16] INFO: 127.0.0.1 - - [03/May/2025 10:24:16] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:17] INFO: 127.0.0.1 - - [03/May/2025 10:24:17] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:18] INFO: 127.0.0.1 - - [03/May/2025 10:24:18] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:19] INFO: 127.0.0.1 - - [03/May/2025 10:24:19] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:20] INFO: 127.0.0.1 - - [03/May/2025 10:24:20] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:21] INFO: 127.0.0.1 - - [03/May/2025 10:24:21] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:22] INFO: 127.0.0.1 - - [03/May/2025 10:24:22] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:23] INFO: 127.0.0.1 - - [03/May/2025 10:24:23] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:24] INFO: 127.0.0.1 - - [03/May/2025 10:24:24] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:26] INFO: 127.0.0.1 - - [03/May/2025 10:24:26] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:28] INFO: 127.0.0.1 - - [03/May/2025 10:24:28] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:30] INFO: 127.0.0.1 - - [03/May/2025 10:24:30] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:32] INFO: 127.0.0.1 - - [03/May/2025 10:24:32] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:34] INFO: 127.0.0.1 - - [03/May/2025 10:24:34] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:36] INFO: 127.0.0.1 - - [03/May/2025 10:24:36] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:38] INFO: 127.0.0.1 - - [03/May/2025 10:24:38] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:40] INFO: 127.0.0.1 - - [03/May/2025 10:24:40] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:42] INFO: 127.0.0.1 - - [03/May/2025 10:24:42] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:44] INFO: 127.0.0.1 - - [03/May/2025 10:24:44] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:46] INFO: 127.0.0.1 - - [03/May/2025 10:24:46] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:48] INFO: 127.0.0.1 - - [03/May/2025 10:24:48] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:50] INFO: 127.0.0.1 - - [03/May/2025 10:24:50] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:52] INFO: 127.0.0.1 - - [03/May/2025 10:24:52] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:54] INFO: 127.0.0.1 - - [03/May/2025 10:24:54] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:56] INFO: 127.0.0.1 - - [03/May/2025 10:24:56] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:24:58] INFO: 127.0.0.1 - - [03/May/2025 10:24:58] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:00] INFO: 127.0.0.1 - - [03/May/2025 10:25:00] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:02] INFO: 127.0.0.1 - - [03/May/2025 10:25:02] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:04] INFO: 127.0.0.1 - - [03/May/2025 10:25:04] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:06] INFO: 127.0.0.1 - - [03/May/2025 10:25:06] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:08] INFO: 127.0.0.1 - - [03/May/2025 10:25:08] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:10] INFO: 127.0.0.1 - - [03/May/2025 10:25:10] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:12] INFO: 127.0.0.1 - - [03/May/2025 10:25:12] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:14] INFO: 127.0.0.1 - - [03/May/2025 10:25:14] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:16] INFO: 127.0.0.1 - - [03/May/2025 10:25:16] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:18] INFO: 127.0.0.1 - - [03/May/2025 10:25:18] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:20] INFO: 127.0.0.1 - - [03/May/2025 10:25:20] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:22] INFO: 127.0.0.1 - - [03/May/2025 10:25:22] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:24] INFO: 127.0.0.1 - - [03/May/2025 10:25:24] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:26] INFO: 127.0.0.1 - - [03/May/2025 10:25:26] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:28] INFO: 127.0.0.1 - - [03/May/2025 10:25:28] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:30] INFO: 127.0.0.1 - - [03/May/2025 10:25:30] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:32] INFO: 127.0.0.1 - - [03/May/2025 10:25:32] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:34] INFO: 127.0.0.1 - - [03/May/2025 10:25:34] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:36] INFO: 127.0.0.1 - - [03/May/2025 10:25:36] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:38] INFO: 127.0.0.1 - - [03/May/2025 10:25:38] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:40] INFO: 127.0.0.1 - - [03/May/2025 10:25:40] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:42] INFO: 127.0.0.1 - - [03/May/2025 10:25:42] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:44] INFO: 127.0.0.1 - - [03/May/2025 10:25:44] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:46] INFO: 127.0.0.1 - - [03/May/2025 10:25:46] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:48] INFO: 127.0.0.1 - - [03/May/2025 10:25:48] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:50] INFO: 127.0.0.1 - - [03/May/2025 10:25:50] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:52] INFO: 127.0.0.1 - - [03/May/2025 10:25:52] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:54] INFO: 127.0.0.1 - - [03/May/2025 10:25:54] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:56] INFO: 127.0.0.1 - - [03/May/2025 10:25:56] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:25:58] INFO: 127.0.0.1 - - [03/May/2025 10:25:58] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:00] INFO: 127.0.0.1 - - [03/May/2025 10:26:00] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:02] INFO: 127.0.0.1 - - [03/May/2025 10:26:02] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:04] INFO: 127.0.0.1 - - [03/May/2025 10:26:04] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:06] INFO: 127.0.0.1 - - [03/May/2025 10:26:06] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:08] INFO: 127.0.0.1 - - [03/May/2025 10:26:08] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:10] INFO: 127.0.0.1 - - [03/May/2025 10:26:10] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:11] INFO: Campo de mensagem encontrado com seletor: //div[contains(@class, 'lexical-rich-text-input')]//div[@role='textbox']
+[2025-05-03 10:26:11] INFO: Tentando digitar mensagem...
+[2025-05-03 10:26:12] INFO: 127.0.0.1 - - [03/May/2025 10:26:12] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:12] INFO: Mensagem digitada com sucesso
+[2025-05-03 10:26:14] INFO: 127.0.0.1 - - [03/May/2025 10:26:14] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:14] INFO: Procurando botão de enviar...
+[2025-05-03 10:26:16] INFO: 127.0.0.1 - - [03/May/2025 10:26:16] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:18] INFO: 127.0.0.1 - - [03/May/2025 10:26:18] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:20] INFO: 127.0.0.1 - - [03/May/2025 10:26:20] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:22] INFO: 127.0.0.1 - - [03/May/2025 10:26:22] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:24] INFO: 127.0.0.1 - - [03/May/2025 10:26:24] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:26] INFO: 127.0.0.1 - - [03/May/2025 10:26:26] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:28] INFO: 127.0.0.1 - - [03/May/2025 10:26:28] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:30] INFO: 127.0.0.1 - - [03/May/2025 10:26:30] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:32] INFO: 127.0.0.1 - - [03/May/2025 10:26:32] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:34] INFO: 127.0.0.1 - - [03/May/2025 10:26:34] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:36] INFO: 127.0.0.1 - - [03/May/2025 10:26:36] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:38] INFO: 127.0.0.1 - - [03/May/2025 10:26:38] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:40] INFO: 127.0.0.1 - - [03/May/2025 10:26:40] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:42] INFO: 127.0.0.1 - - [03/May/2025 10:26:42] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:44] INFO: 127.0.0.1 - - [03/May/2025 10:26:44] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:46] INFO: 127.0.0.1 - - [03/May/2025 10:26:46] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:48] INFO: 127.0.0.1 - - [03/May/2025 10:26:48] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:50] INFO: 127.0.0.1 - - [03/May/2025 10:26:50] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:52] INFO: 127.0.0.1 - - [03/May/2025 10:26:52] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:54] INFO: 127.0.0.1 - - [03/May/2025 10:26:54] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:56] INFO: 127.0.0.1 - - [03/May/2025 10:26:56] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:26:58] INFO: 127.0.0.1 - - [03/May/2025 10:26:58] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:27:00] INFO: 127.0.0.1 - - [03/May/2025 10:27:00] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:27:02] INFO: 127.0.0.1 - - [03/May/2025 10:27:02] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:27:04] INFO: 127.0.0.1 - - [03/May/2025 10:27:04] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:27:06] INFO: 127.0.0.1 - - [03/May/2025 10:27:06] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:27:08] INFO: 127.0.0.1 - - [03/May/2025 10:27:08] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:27:10] INFO: 127.0.0.1 - - [03/May/2025 10:27:10] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:27:12] INFO: 127.0.0.1 - - [03/May/2025 10:27:12] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:27:14] INFO: 127.0.0.1 - - [03/May/2025 10:27:14] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:27:16] INFO: 127.0.0.1 - - [03/May/2025 10:27:16] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:27:18] INFO: 127.0.0.1 - - [03/May/2025 10:27:18] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:27:20] INFO: 127.0.0.1 - - [03/May/2025 10:27:20] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:27:22] INFO: 127.0.0.1 - - [03/May/2025 10:27:22] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:27:24] INFO: 127.0.0.1 - - [03/May/2025 10:27:24] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:27:24] INFO: Tentando enviar mensagem com ENTER...
+[2025-05-03 10:27:24] INFO: Problema ao enviar mensagem no WhatsApp: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=136.0.7103.60)
+Stacktrace:
+	GetHandleVerifier [0x0043D363+60275]
+	GetHandleVerifier [0x0043D3A4+60340]
+	(No symbol) [0x002706F3]
+	(No symbol) [0x0024FBEE]
+	(No symbol) [0x002E3BDE]
+	(No symbol) [0x002FDFE9]
+	(No symbol) [0x002DCE86]
+	(No symbol) [0x002AC623]
+	(No symbol) [0x002AD474]
+	GetHandleVerifier [0x00688FE3+2467827]
+	GetHandleVerifier [0x006845E6+2448886]
+	GetHandleVerifier [0x0069F80C+2560028]
+	GetHandleVerifier [0x00453DF5+153093]
+	GetHandleVerifier [0x0045A3BD+179149]
+	GetHandleVerifier [0x00444BB8+91080]
+	GetHandleVerifier [0x00444D60+91504]
+	GetHandleVerifier [0x0042FA10+4640]
+	BaseThreadInitThunk [0x757D5D49+25]
+	RtlInitializeExceptionChain [0x7782CFFB+107]
+	RtlGetAppContainerNamedObjectPath [0x7782CF81+561]
+
+[2025-05-03 10:27:26] INFO: 127.0.0.1 - - [03/May/2025 10:27:26] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:27:27] INFO: [AVISO] Falha ao enviar mensagem WhatsApp, mas a escala foi concluída: Escala realizada: R$ 1000.00 distribuídos entre 13 campanhas com lucro >= R$ 1.00. Orçamento total atual: R$ 9580.52.
+[2025-05-03 10:27:27] INFO: Processo de escala concluído com sucesso!
+[2025-05-03 10:27:28] INFO: 127.0.0.1 - - [03/May/2025 10:27:28] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:39:08] INFO:  * Detected change in 'C:\\Users\\Pichau\\iCloudDrive\\PROJETOS\\ZIP\\PROCESSOS\\ROBOS_PY\\ROBO_IMPERIO\\meu_projeto_web\\escala_lucro.py', reloading
+[2025-05-03 10:39:12] INFO:  * Restarting with stat
+[2025-05-03 10:42:19] INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2025-05-03 10:42:19] INFO: [33mPress CTRL+C to quit[0m
+[2025-05-03 10:42:19] INFO:  * Restarting with stat
+[2025-05-03 10:42:19] WARNING:  * Debugger is active!
+[2025-05-03 10:42:19] INFO:  * Debugger PIN: 372-168-963
+[2025-05-03 10:43:07] INFO: 127.0.0.1 - - [03/May/2025 10:43:07] "[32mGET / HTTP/1.1[0m" 302 -
+[2025-05-03 10:43:07] INFO: 127.0.0.1 - - [03/May/2025 10:43:07] "GET /login HTTP/1.1" 200 -
+[2025-05-03 10:43:07] INFO: 127.0.0.1 - - [03/May/2025 10:43:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-05-03 10:43:07] INFO: 127.0.0.1 - - [03/May/2025 10:43:07] "[36mGET /static/scripts.js HTTP/1.1[0m" 304 -
+[2025-05-03 10:43:07] INFO: 127.0.0.1 - - [03/May/2025 10:43:07] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+[2025-05-03 10:43:07] INFO: 127.0.0.1 - - [03/May/2025 10:43:07] "GET /login HTTP/1.1" 200 -
+[2025-05-03 10:43:12] INFO: 127.0.0.1 - - [03/May/2025 10:43:12] "[32mPOST /login HTTP/1.1[0m" 302 -
+[2025-05-03 10:43:12] INFO: 127.0.0.1 - - [03/May/2025 10:43:12] "GET / HTTP/1.1" 200 -
+[2025-05-03 10:43:12] INFO: 127.0.0.1 - - [03/May/2025 10:43:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-05-03 10:43:12] INFO: 127.0.0.1 - - [03/May/2025 10:43:12] "[36mGET /static/scripts.js HTTP/1.1[0m" 304 -
+[2025-05-03 10:43:12] INFO: 127.0.0.1 - - [03/May/2025 10:43:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-03 10:43:53] INFO: 127.0.0.1 - - [03/May/2025 10:43:53] "POST /start HTTP/1.1" 200 -
+[2025-05-03 10:43:53] INFO: Iniciando escala com: Token=EAAQ0...FNOK0, Contas=['act_790223756353632', 'act_303402486183447'], Grupo=#ZIP - ROAS IMPERIO
+[2025-05-03 10:43:53] INFO: Parâmetros: Date Range=today, Min Profit=80, Scale Value=500
+[2025-05-03 10:43:53] INFO: Planilha limpa no início da execução.
+[2025-05-03 10:43:53] INFO: Processando conta de anúncio: act_790223756353632
+[2025-05-03 10:43:53] INFO: Buscando campanhas para conta act_790223756353632...
+[2025-05-03 10:43:53] INFO: 127.0.0.1 - - [03/May/2025 10:43:53] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:43:54] INFO: 127.0.0.1 - - [03/May/2025 10:43:54] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:43:55] INFO: 127.0.0.1 - - [03/May/2025 10:43:55] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:43:56] INFO: Encontradas 103 campanhas.
+[2025-05-03 10:43:56] INFO: 127.0.0.1 - - [03/May/2025 10:43:56] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:43:57] INFO: Encontrados 12 insights.
+[2025-05-03 10:43:57] INFO: Processadas 11 campanhas ativas.
+[2025-05-03 10:43:57] INFO: Processando conta de anúncio: act_303402486183447
+[2025-05-03 10:43:57] INFO: Buscando campanhas para conta act_303402486183447...
+[2025-05-03 10:43:57] INFO: 127.0.0.1 - - [03/May/2025 10:43:57] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:43:58] INFO: 127.0.0.1 - - [03/May/2025 10:43:58] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:43:59] INFO: Encontradas 80 campanhas.
+[2025-05-03 10:43:59] INFO: 127.0.0.1 - - [03/May/2025 10:43:59] "GET /logs HTTP/1.1" 200 -
+[2025-05-03 10:44:00] INFO: Encontrados 5 insights.
+[2025-05-03 10:44:00] INFO: Processadas 3 campanhas ativas.
+[2025-05-03 10:44:00] INFO: Total de 14 campanhas ativas encontradas.
+[2025-05-03 10:44:00] INFO: Dados das campanhas salvos na planilha.
+[2025-05-03 10:44:00] INFO: [INFO] 5 campanhas para escalonamento. Soma dos lucros: R$ 642.21
