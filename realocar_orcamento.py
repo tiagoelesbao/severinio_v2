@@ -47,6 +47,7 @@ if not os.path.exists(CONFIG_FILE):
         "LIMITE_LUCRO_ALTO": 5000,
         "PERCENTUAL_REALOCACAO": 0.30,
         "MINIMO_ORCAMENTO": 100,
+        "MINIMO_ORCAMENTO_ABO": 8,  # Mínimo para AdSets ABO
         "MAXIMO_ORCAMENTO": 10000,
         "WHATSAPP_GROUP": "#ZIP - ROAS IMPERIO",
         "DATE_PRESET": "today"
@@ -65,6 +66,7 @@ LIMITE_LUCRO_BAIXO = float(config.get("LIMITE_LUCRO_BAIXO", 1000))
 LIMITE_LUCRO_ALTO = float(config.get("LIMITE_LUCRO_ALTO", 5000))
 PERCENTUAL_REALOCACAO = float(config.get("PERCENTUAL_REALOCACAO", 0.30))
 MINIMO_ORCAMENTO = float(config.get("MINIMO_ORCAMENTO", 100))
+MINIMO_ORCAMENTO_ABO = float(config.get("MINIMO_ORCAMENTO_ABO", 8))
 MAXIMO_ORCAMENTO = float(config.get("MAXIMO_ORCAMENTO", 10000))
 WHATSAPP_GROUP = config.get("WHATSAPP_GROUP", "#ZIP - ROAS IMPERIO")
 DATE_PRESET = config.get("DATE_PRESET", "today")
@@ -144,7 +146,8 @@ def buscar_adsets_campanha(campaign_id):
 
 def buscar_insights_adset(ad_account, campaign_id, date_preset=None, start_date=None, end_date=None):
     """Busca insights no nível de ad set para campanhas ABO"""
-    filtering = f'[{{"field":"campaign_id","operator":"EQUAL","value":"{campaign_id}"}}]'
+    # CORREÇÃO: Usar campaign.id ao invés de campaign_id
+    filtering = f'[{{"field":"campaign.id","operator":"EQUAL","value":"{campaign_id}"}}]'
     
     if date_preset:
         url = (
@@ -357,31 +360,45 @@ def atualizar_orcamento_adset(adset_id, novo_orcamento):
         log_message(f"[ERRO] Erro na requisição para atualizar AdSet {adset_id}: {e}")
         return False
 
-def realocar_campanha_abo(campanha_info, operacao, percentual):
+def realocar_campanha_abo(campanha_info, operacao, valor_mudanca):
     """
     Realoca orçamento de uma campanha ABO
     operacao: 'reduzir' ou 'aumentar'
-    percentual: percentual de mudança
+    valor_mudanca: valor total a ser mudado
     """
     adsets_info = campanha_info.get("adsets_info", [])
     if not adsets_info:
         log_message(f"[AVISO] Campanha ABO {campanha_info['id_campanha']} sem adsets ativos")
-        return 0, 0
+        return 0, 0, []
     
     total_mudanca = 0
     adsets_modificados = 0
+    detalhes_mudancas = []
     
     if operacao == 'reduzir':
         # Para redução, reduzir proporcionalmente todos os adsets
+        total_orcamento_adsets = sum(a['daily_budget'] for a in adsets_info)
+        
         for adset in adsets_info:
-            reducao = adset['daily_budget'] * percentual
-            novo_orcamento = max(adset['daily_budget'] - reducao, MINIMO_ORCAMENTO)
+            if total_orcamento_adsets > 0:
+                proporcao = adset['daily_budget'] / total_orcamento_adsets
+                reducao = valor_mudanca * proporcao
+            else:
+                reducao = valor_mudanca / len(adsets_info)
+            
+            novo_orcamento = max(adset['daily_budget'] - reducao, MINIMO_ORCAMENTO_ABO)
             reducao_real = adset['daily_budget'] - novo_orcamento
             
-            if atualizar_orcamento_adset(adset['adset_id'], novo_orcamento):
+            if reducao_real > 0 and atualizar_orcamento_adset(adset['adset_id'], novo_orcamento):
                 total_mudanca += reducao_real
                 adsets_modificados += 1
-                log_message(f"AdSet {adset['adset_name']} reduzido de R$ {adset['daily_budget']:.2f} para R$ {novo_orcamento:.2f}")
+                detalhes_mudancas.append({
+                    'nome': adset['adset_name'],
+                    'de': adset['daily_budget'],
+                    'para': novo_orcamento,
+                    'mudanca': -reducao_real
+                })
+                log_message(f"AdSet {adset['adset_id']} reduzido de R$ {adset['daily_budget']:.2f} para R$ {novo_orcamento:.2f} (-R$ {reducao_real:.2f})")
     
     else:  # aumentar
         # Para aumento, distribuir proporcionalmente ao lucro
@@ -392,27 +409,39 @@ def realocar_campanha_abo(campanha_info, operacao, percentual):
             
             for adset in adsets_lucrativos:
                 proporcao = adset['lucro'] / total_lucro_adsets
-                incremento = percentual * campanha_info['orcamento_diario'] * proporcao
+                incremento = valor_mudanca * proporcao
                 novo_orcamento = min(adset['daily_budget'] + incremento, MAXIMO_ORCAMENTO)
                 incremento_real = novo_orcamento - adset['daily_budget']
                 
-                if atualizar_orcamento_adset(adset['adset_id'], novo_orcamento):
+                if incremento_real > 0 and atualizar_orcamento_adset(adset['adset_id'], novo_orcamento):
                     total_mudanca += incremento_real
                     adsets_modificados += 1
-                    log_message(f"AdSet {adset['adset_name']} aumentado de R$ {adset['daily_budget']:.2f} para R$ {novo_orcamento:.2f}")
+                    detalhes_mudancas.append({
+                        'nome': adset['adset_name'],
+                        'de': adset['daily_budget'],
+                        'para': novo_orcamento,
+                        'mudanca': incremento_real
+                    })
+                    log_message(f"AdSet {adset['adset_id']} aumentado de R$ {adset['daily_budget']:.2f} para R$ {novo_orcamento:.2f} (+R$ {incremento_real:.2f})")
         else:
             # Se nenhum adset for lucrativo, distribuir igualmente
-            incremento_por_adset = (percentual * campanha_info['orcamento_diario']) / len(adsets_info)
+            incremento_por_adset = valor_mudanca / len(adsets_info)
             
             for adset in adsets_info:
                 novo_orcamento = min(adset['daily_budget'] + incremento_por_adset, MAXIMO_ORCAMENTO)
                 incremento_real = novo_orcamento - adset['daily_budget']
                 
-                if atualizar_orcamento_adset(adset['adset_id'], novo_orcamento):
+                if incremento_real > 0 and atualizar_orcamento_adset(adset['adset_id'], novo_orcamento):
                     total_mudanca += incremento_real
                     adsets_modificados += 1
+                    detalhes_mudancas.append({
+                        'nome': adset['adset_name'],
+                        'de': adset['daily_budget'],
+                        'para': novo_orcamento,
+                        'mudanca': incremento_real
+                    })
     
-    return total_mudanca, adsets_modificados
+    return total_mudanca, adsets_modificados, detalhes_mudancas
 
 def atualizar_orcamento_facebook(id_campanha, novo_orcamento):
     """Atualiza o orçamento de campanhas CBO"""
@@ -488,7 +517,11 @@ def realocar_orcamentos():
                 "lucro": row[8]
             })
     
-    log_message(f"Encontradas {len(campanhas_baixo)} campanhas com lucro BAIXO e {len(campanhas_alto)} com lucro ALTO")
+    # Ordenar campanhas
+    campanhas_baixo.sort(key=lambda x: x["lucro"])  # Piores primeiro
+    campanhas_alto.sort(key=lambda x: x["lucro"], reverse=True)  # Melhores primeiro
+    
+    log_message(f"[INFO] Encontradas {len(campanhas_baixo)} campanhas com lucro BAIXO e {len(campanhas_alto)} com lucro ALTO")
     
     # Se não houver campanhas para reduzir ou aumentar, finalizar
     if not campanhas_baixo or not campanhas_alto:
@@ -497,10 +530,8 @@ def realocar_orcamentos():
     
     # Calcular total a ser realocado
     total_reducao = 0
-    campanhas_reduzidas = 0
-    campanhas_cbo_reduzidas = 0
-    campanhas_abo_reduzidas = 0
-    total_adsets_reduzidos = 0
+    unidades_reduzidas = []
+    campanhas_modificadas_reducao = {}
     
     # Reduzir orçamentos das campanhas com lucro baixo
     for campanha in campanhas_baixo:
@@ -508,36 +539,39 @@ def realocar_orcamentos():
             # Para ABO, realocar nos adsets
             campanha_completa = campanhas_completas_data.get(campanha["id_campanha"])
             if campanha_completa and campanha_completa.get("adsets_info"):
-                mudanca, adsets_mod = realocar_campanha_abo(campanha_completa, 'reduzir', PERCENTUAL_REALOCACAO)
+                valor_reducao = campanha["orcamento_diario"] * PERCENTUAL_REALOCACAO
+                mudanca, adsets_mod, detalhes = realocar_campanha_abo(campanha_completa, 'reduzir', valor_reducao)
+                
                 if mudanca > 0:
                     total_reducao += mudanca
                     novo_orcamento_total = campanha["orcamento_diario"] - mudanca
                     sheet.cell(row=campanha["linha_index"], column=10).value = novo_orcamento_total
-                    campanhas_reduzidas += 1
-                    campanhas_abo_reduzidas += 1
-                    total_adsets_reduzidos += adsets_mod
+                    
+                    unidades_reduzidas.append(f"{campanha['nome_campanha']} (ABO) -R$ {mudanca:.2f} ({adsets_mod} adsets)")
+                    campanhas_modificadas_reducao[campanha["id_campanha"]] = {
+                        "nome": campanha["nome_campanha"],
+                        "mudanca": mudanca,
+                        "adsets_modificados": adsets_mod
+                    }
                     log_message(f"Campanha ABO {campanha['nome_campanha']} reduzida em R$ {mudanca:.2f}")
         else:
             # Para CBO, reduzir normalmente
             reducao = campanha["orcamento_diario"] * PERCENTUAL_REALOCACAO
             novo_orcamento = max(campanha["orcamento_diario"] - reducao, MINIMO_ORCAMENTO)
             reducao_real = campanha["orcamento_diario"] - novo_orcamento
-            total_reducao += reducao_real
-            
-            sheet.cell(row=campanha["linha_index"], column=10).value = novo_orcamento
             
             if atualizar_orcamento_facebook(campanha["id_campanha"], novo_orcamento):
-                log_message(f"Campanha CBO {campanha['nome_campanha']} reduzida de R$ {campanha['orcamento_diario']:.2f} para R$ {novo_orcamento:.2f}")
-                campanhas_reduzidas += 1
-                campanhas_cbo_reduzidas += 1
+                total_reducao += reducao_real
+                sheet.cell(row=campanha["linha_index"], column=10).value = novo_orcamento
+                unidades_reduzidas.append(f"{campanha['nome_campanha']} (CBO) -R$ {reducao_real:.2f}")
+                log_message(f"Campanha CBO {campanha['id_campanha']} reduzida de R$ {campanha['orcamento_diario']:.2f} para R$ {novo_orcamento:.2f} (-R$ {reducao_real:.2f})")
     
     # Distribuir o valor reduzido entre as campanhas com lucro alto
+    unidades_aumentadas = []
+    campanhas_modificadas_aumento = {}
+    
     if total_reducao > 0 and campanhas_alto:
         soma_lucro_alto = sum(c["lucro"] for c in campanhas_alto)
-        campanhas_escaladas = 0
-        campanhas_cbo_escaladas = 0
-        campanhas_abo_escaladas = 0
-        total_adsets_escalados = 0
         
         for campanha in campanhas_alto:
             # Distribuir proporcionalmente ao lucro
@@ -548,24 +582,28 @@ def realocar_orcamentos():
                 # Para ABO, distribuir entre adsets
                 campanha_completa = campanhas_completas_data.get(campanha["id_campanha"])
                 if campanha_completa and campanha_completa.get("adsets_info"):
-                    mudanca, adsets_mod = realocar_campanha_abo(campanha_completa, 'aumentar', incremento_total / campanha["orcamento_diario"])
+                    mudanca, adsets_mod, detalhes = realocar_campanha_abo(campanha_completa, 'aumentar', incremento_total)
+                    
                     if mudanca > 0:
                         novo_orcamento_total = campanha["orcamento_diario"] + mudanca
                         sheet.cell(row=campanha["linha_index"], column=10).value = novo_orcamento_total
-                        campanhas_escaladas += 1
-                        campanhas_abo_escaladas += 1
-                        total_adsets_escalados += adsets_mod
+                        
+                        unidades_aumentadas.append(f"{campanha['nome_campanha']} (ABO) +R$ {mudanca:.2f} ({adsets_mod} adsets)")
+                        campanhas_modificadas_aumento[campanha["id_campanha"]] = {
+                            "nome": campanha["nome_campanha"],
+                            "mudanca": mudanca,
+                            "adsets_modificados": adsets_mod
+                        }
                         log_message(f"Campanha ABO {campanha['nome_campanha']} aumentada em R$ {mudanca:.2f}")
             else:
                 # Para CBO, aumentar normalmente
                 novo_orcamento = min(campanha["orcamento_diario"] + incremento_total, MAXIMO_ORCAMENTO)
-                
-                sheet.cell(row=campanha["linha_index"], column=10).value = novo_orcamento
+                incremento_real = novo_orcamento - campanha["orcamento_diario"]
                 
                 if atualizar_orcamento_facebook(campanha["id_campanha"], novo_orcamento):
-                    log_message(f"Campanha CBO {campanha['nome_campanha']} aumentada de R$ {campanha['orcamento_diario']:.2f} para R$ {novo_orcamento:.2f}")
-                    campanhas_escaladas += 1
-                    campanhas_cbo_escaladas += 1
+                    sheet.cell(row=campanha["linha_index"], column=10).value = novo_orcamento
+                    unidades_aumentadas.append(f"{campanha['nome_campanha']} (CBO) +R$ {incremento_real:.2f}")
+                    log_message(f"Campanha CBO {campanha['id_campanha']} aumentada de R$ {campanha['orcamento_diario']:.2f} para R$ {novo_orcamento:.2f} (+R$ {incremento_real:.2f})")
     
     # Salvar planilha
     workbook.save(SPREADSHEET_PATH)
@@ -573,29 +611,65 @@ def realocar_orcamentos():
     # Calcular orçamento total atual
     total_orcamento_atual = calcular_orcamento_total()
     
+    # Separar por tipo para estatísticas
+    campanhas_cbo_reduzidas = [u for u in unidades_reduzidas if "(CBO)" in u]
+    campanhas_abo_reduzidas = [u for u in unidades_reduzidas if "(ABO)" in u]
+    campanhas_cbo_aumentadas = [u for u in unidades_aumentadas if "(CBO)" in u]
+    campanhas_abo_aumentadas = [u for u in unidades_aumentadas if "(ABO)" in u]
+    
+    total_adsets_reduzidos = sum(info["adsets_modificados"] for info in campanhas_modificadas_reducao.values())
+    total_adsets_aumentados = sum(info["adsets_modificados"] for info in campanhas_modificadas_aumento.values())
+    
     # Preparar mensagem de relatório detalhada
     mensagem = (
         f"✅ Realocação concluída!\n\n"
-        f"📉 Redução:\n"
-        f"• {campanhas_reduzidas} campanhas ({campanhas_cbo_reduzidas} CBO, {campanhas_abo_reduzidas} ABO)\n"
+        f"📊 Critérios:\n"
+        f"• Lucro baixo: < R$ {LIMITE_LUCRO_BAIXO:.2f}\n"
+        f"• Lucro alto: ≥ R$ {LIMITE_LUCRO_ALTO:.2f}\n"
+        f"• Percentual: {int(PERCENTUAL_REALOCACAO * 100)}%\n\n"
+        f"📉 Redução ({len(unidades_reduzidas)} unidades):\n"
     )
     
-    if campanhas_abo_reduzidas > 0:
-        mensagem += f"• {total_adsets_reduzidos} ad sets reduzidos\n"
+    if campanhas_cbo_reduzidas:
+        mensagem += f"🎯 CBO ({len(campanhas_cbo_reduzidas)}):\n"
+        for i, campanha in enumerate(campanhas_cbo_reduzidas[:3]):
+            mensagem += f"{i+1}. {campanha}\n"
+        if len(campanhas_cbo_reduzidas) > 3:
+            mensagem += f"... e mais {len(campanhas_cbo_reduzidas) - 3}\n"
     
-    mensagem += (
-        f"• Total reduzido: R$ {total_reducao:.2f}\n\n"
-        f"📈 Aumento:\n"
-        f"• {len(campanhas_alto)} campanhas ({campanhas_cbo_escaladas} CBO, {campanhas_abo_escaladas} ABO)\n"
-    )
+    if campanhas_abo_reduzidas:
+        mensagem += f"🔄 ABO ({len(campanhas_abo_reduzidas)} campanhas, {total_adsets_reduzidos} adsets):\n"
+        for i, campanha in enumerate(campanhas_abo_reduzidas[:3]):
+            mensagem += f"{i+1}. {campanha}\n"
+        if len(campanhas_abo_reduzidas) > 3:
+            mensagem += f"... e mais {len(campanhas_abo_reduzidas) - 3}\n"
     
-    if campanhas_abo_escaladas > 0:
-        mensagem += f"• {total_adsets_escalados} ad sets aumentados\n"
+    mensagem += f"\n💰 Total reduzido: R$ {total_reducao:.2f}\n\n"
+    mensagem += f"📈 Aumento ({len(unidades_aumentadas)} unidades):\n"
     
-    mensagem += (
-        f"• Total distribuído: R$ {total_reducao:.2f}\n\n"
-        f"💰 Orçamento total: R$ {total_orcamento_atual:.2f}"
-    )
+    if campanhas_cbo_aumentadas:
+        mensagem += f"🎯 CBO ({len(campanhas_cbo_aumentadas)}):\n"
+        for i, campanha in enumerate(campanhas_cbo_aumentadas[:3]):
+            mensagem += f"{i+1}. {campanha}\n"
+        if len(campanhas_cbo_aumentadas) > 3:
+            mensagem += f"... e mais {len(campanhas_cbo_aumentadas) - 3}\n"
+    
+    if campanhas_abo_aumentadas:
+        mensagem += f"🔄 ABO ({len(campanhas_abo_aumentadas)} campanhas, {total_adsets_aumentados} adsets):\n"
+        for i, campanha in enumerate(campanhas_abo_aumentadas[:3]):
+            mensagem += f"{i+1}. {campanha}\n"
+        if len(campanhas_abo_aumentadas) > 3:
+            mensagem += f"... e mais {len(campanhas_abo_aumentadas) - 3}\n"
+    
+    mensagem += f"\n💰 Total distribuído: R$ {total_reducao:.2f}\n"
+    mensagem += f"📊 Orçamento total: R$ {total_orcamento_atual:.2f}"
+    
+    # Log resumo final
+    log_message(f"[RESUMO] Realocação concluída:")
+    log_message(f"[RESUMO] Unidades reduzidas: {len(unidades_reduzidas)} ({len(campanhas_cbo_reduzidas)} CBO, {len(campanhas_abo_reduzidas)} ABO)")
+    log_message(f"[RESUMO] Unidades aumentadas: {len(unidades_aumentadas)} ({len(campanhas_cbo_aumentadas)} CBO, {len(campanhas_abo_aumentadas)} ABO)")
+    log_message(f"[RESUMO] Total realocado: R$ {total_reducao:.2f}")
+    log_message(f"[RESUMO] Orçamento total atual: R$ {total_orcamento_atual:.2f}")
     
     # Enviar relatório via WhatsApp
     sucesso_whatsapp = enviar_mensagem_whatsapp(WHATSAPP_GROUP, mensagem)
@@ -608,9 +682,42 @@ def realocar_orcamentos():
     log_message("Processo de realocação concluído com sucesso!")
     return True
 
-def enviar_mensagem_whatsapp(grupo, mensagem):
+def limpar_mensagem_whatsapp(mensagem):
+    """
+    Remove caracteres especiais e emojis que podem causar problemas no WhatsApp Web
+    """
+    import re
+    
+    # Substituir emojis específicos por texto
+    substituicoes = {
+        '✅': '[OK]',
+        '💰': '[$$]',
+        '📊': '[DADOS]',
+        '📈': '[SUBIU]',
+        '📉': '[DESCEU]',
+        '🔥': '[HOT]',
+        '🟡': '[*]',
+        '🌎': '[MUNDO]',
+        '•': '-'
+    }
+    
+    for emoji, texto in substituicoes.items():
+        mensagem = mensagem.replace(emoji, texto)
+    
+    # Remover outros caracteres Unicode problemáticos
+    # Mantém apenas caracteres ASCII e alguns latinos comuns
+    mensagem = ''.join(char for char in mensagem if ord(char) < 256)
+    
+    return mensagem
+
+def enviar_mensagem_whatsapp(grupo, mensagem_original):
     """Função para enviar mensagens para um grupo do WhatsApp"""
+    # Limpar mensagem antes de enviar
+    mensagem = limpar_mensagem_whatsapp(mensagem_original)
+    
     log_message(f"Iniciando envio de mensagem para o grupo: {grupo}")
+    log_message(f"Mensagem limpa: {mensagem[:100]}...")  # Log dos primeiros 100 caracteres
+    
     driver = None
     
     try:
@@ -936,6 +1043,12 @@ def run(token, accounts, group, logs, date_range='today', start_date=None, end_d
     # Definir contas ABO se fornecidas
     if abo_accounts:
         ABO_ACCOUNTS = abo_accounts
+        # IMPORTANTE: Adicionar contas ABO à lista de contas a processar
+        # para garantir que sejam incluídas no processamento
+        for conta_abo in abo_accounts:
+            if conta_abo not in AD_ACCOUNTS:
+                AD_ACCOUNTS.append(conta_abo)
+                log_message(f"Conta ABO {conta_abo} adicionada à lista de processamento")
     
     # Limpar dados de campanhas anteriores
     global campanhas_completas_data
@@ -955,62 +1068,79 @@ def run(token, accounts, group, logs, date_range='today', start_date=None, end_d
         PERCENTUAL_REALOCACAO = float(realloc_pct) if float(realloc_pct) <= 1.0 else float(realloc_pct)/100.0
     
     log_message("Iniciando realocação com: Token=" + token[:5] + "..." + token[-5:] + 
-               f", Contas={accounts}, Grupo={group}")
+               f", Contas={AD_ACCOUNTS}, Grupo={group}")
     log_message(f"Parâmetros: Date Range={date_range}, Low Profit={low_profit}, High Profit={high_profit}, Realloc %={realloc_pct}")
     log_message(f"Contas ABO configuradas: {ABO_ACCOUNTS}")
     
-    limpar_planilha()
-    todas_campanhas = []
-    
-    for ad_account in AD_ACCOUNTS:
-        log_message(f"Processando conta de anúncio: {ad_account}")
-        log_message(f"Buscando campanhas para conta {ad_account}...")
-        
-        campaigns_url = f"https://graph.facebook.com/v17.0/{ad_account}/campaigns?fields=id,name,daily_budget,status&access_token={ACCESS_TOKEN}"
-        
-        if date_range == 'custom' and start_date and end_date:
-            insights_url = (
-                f"https://graph.facebook.com/v17.0/{ad_account}/insights?fields=campaign_id,campaign_name,spend,action_values"
-                f"&time_range[since]={start_date}&time_range[until]={end_date}&level=campaign&access_token={ACCESS_TOKEN}"
-            )
-        else:
-            insights_url = (
-                f"https://graph.facebook.com/v17.0/{ad_account}/insights?fields=campaign_id,campaign_name,spend,action_values"
-                f"&date_preset={DATE_PRESET}&level=campaign&access_token={ACCESS_TOKEN}"
-            )
-        
-        campaigns = buscar_todos_dados_facebook(campaigns_url)
-        log_message(f"Encontradas {len(campaigns)} campanhas.")
-        
-        insights = buscar_todos_dados_facebook(insights_url)
-        log_message(f"Encontrados {len(insights)} insights.")
-        
-        # Processar campanhas com suporte a ABO
-        campanhas_processadas = processar_dados_campanhas(
-            campaigns, insights, ad_account,
-            DATE_PRESET if DATE_PRESET else None,
-            start_date if date_range == 'custom' else None,
-            end_date if date_range == 'custom' else None
-        )
-        
-        log_message(f"Processadas {len(campanhas_processadas)} campanhas ativas.")
-        
-        todas_campanhas.extend(campanhas_processadas)
-    
-    log_message(f"Total de {len(todas_campanhas)} campanhas ativas encontradas.")
-    
-    # Contar campanhas por tipo
-    campanhas_cbo = [c for c in todas_campanhas if c.get("tipo_campanha") == "CBO"]
-    campanhas_abo = [c for c in todas_campanhas if c.get("tipo_campanha") == "ABO"]
-    log_message(f"Campanhas CBO: {len(campanhas_cbo)}, Campanhas ABO: {len(campanhas_abo)}")
-    
-    salvar_campanhas_excel(todas_campanhas)
-    
     try:
+        limpar_planilha()
+        todas_campanhas = []
+        
+        # Processar TODAS as contas (incluindo ABO)
+        for ad_account in AD_ACCOUNTS:
+            tipo_conta = "ABO" if ad_account in ABO_ACCOUNTS else "CBO"
+            log_message(f"Processando conta de anúncio {tipo_conta}: {ad_account}")
+            log_message(f"Buscando campanhas para conta {ad_account}...")
+            
+            campaigns_url = f"https://graph.facebook.com/v17.0/{ad_account}/campaigns?fields=id,name,daily_budget,status&access_token={ACCESS_TOKEN}"
+            
+            if date_range == 'custom' and start_date and end_date:
+                insights_url = (
+                    f"https://graph.facebook.com/v17.0/{ad_account}/insights?fields=campaign_id,campaign_name,spend,action_values"
+                    f"&time_range[since]={start_date}&time_range[until]={end_date}&level=campaign&access_token={ACCESS_TOKEN}"
+                )
+            else:
+                insights_url = (
+                    f"https://graph.facebook.com/v17.0/{ad_account}/insights?fields=campaign_id,campaign_name,spend,action_values"
+                    f"&date_preset={DATE_PRESET}&level=campaign&access_token={ACCESS_TOKEN}"
+                )
+            
+            campaigns = buscar_todos_dados_facebook(campaigns_url)
+            log_message(f"Encontradas {len(campaigns)} campanhas.")
+            
+            insights = buscar_todos_dados_facebook(insights_url)
+            log_message(f"Encontrados {len(insights)} insights.")
+            
+            # Processar campanhas com suporte a ABO
+            campanhas_processadas = processar_dados_campanhas(
+                campaigns, insights, ad_account,
+                DATE_PRESET if DATE_PRESET else None,
+                start_date if date_range == 'custom' else None,
+                end_date if date_range == 'custom' else None
+            )
+            
+            log_message(f"Processadas {len(campanhas_processadas)} campanhas ativas.")
+            
+            # Log detalhado para campanhas ABO
+            if ad_account in ABO_ACCOUNTS:
+                campanhas_abo_desta_conta = [c for c in campanhas_processadas if c.get("tipo_campanha") == "ABO"]
+                if campanhas_abo_desta_conta:
+                    for camp in campanhas_abo_desta_conta:
+                        log_message(f"  - Campanha ABO: {camp['nome_campanha']} com {len(camp.get('adsets_info', []))} adsets")
+            
+            todas_campanhas.extend(campanhas_processadas)
+        
+        log_message(f"Total de {len(todas_campanhas)} campanhas ativas encontradas.")
+        
+        # Contar campanhas por tipo
+        campanhas_cbo = [c for c in todas_campanhas if c.get("tipo_campanha") == "CBO"]
+        campanhas_abo = [c for c in todas_campanhas if c.get("tipo_campanha") == "ABO"]
+        log_message(f"Campanhas CBO: {len(campanhas_cbo)}, Campanhas ABO: {len(campanhas_abo)}")
+        
+        # Log detalhado de campanhas ABO
+        if campanhas_abo:
+            total_adsets = sum(len(c.get("adsets_info", [])) for c in campanhas_abo)
+            log_message(f"Total de AdSets em campanhas ABO: {total_adsets}")
+        
+        salvar_campanhas_excel(todas_campanhas)
+        
         resultado = realocar_orcamentos()
         return resultado
+        
     except Exception as e:
         log_message(f"Erro durante o processo de realocação: {e}")
+        import traceback
+        log_message(traceback.format_exc())
         return False
 
 if __name__ == "__main__":

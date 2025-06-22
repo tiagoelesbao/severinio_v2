@@ -19113,3 +19113,508 @@ Resposta: {"error":{"message":"(#100) Filter campaign_id is not valid any more, 
 [2025-06-22 08:57:12] INFO: Processo de redução concluído com sucesso!
 [2025-06-22 08:57:12] INFO: 127.0.0.1 - - [22/Jun/2025 08:57:12] "GET /logs HTTP/1.1" 200 -
 [2025-06-22 09:04:01] INFO:  * Detected change in 'C:\\Users\\Pichau\\iCloudDrive\\PROJETOS\\ZIP\\PROCESSOS\\ROBOS_PY\\ROBO_IMPERIO\\meu_projeto_web\\reduzir_orcamento.py', reloading
+[2025-06-22 09:04:05] INFO:  * Restarting with stat
+[2025-06-22 09:04:06] WARNING:  * Debugger is active!
+[2025-06-22 09:04:06] INFO:  * Debugger PIN: 372-168-963
+[2025-06-22 09:04:47] INFO: 127.0.0.1 - - [22/Jun/2025 09:04:47] "POST /start HTTP/1.1" 200 -
+[2025-06-22 09:04:47] INFO: Conta ABO act_406219475582745 adicionada à lista de processamento
+[2025-06-22 09:04:47] INFO: Iniciando execução da função run...
+[2025-06-22 09:04:47] INFO: Parâmetros da operação:
+[2025-06-22 09:04:47] INFO: - Token: EAAQ0...FNOK0 (truncado)
+[2025-06-22 09:04:47] INFO: - Contas: ['act_790223756353632', 'act_303402486183447', 'act_406219475582745']
+[2025-06-22 09:04:47] INFO: - Grupo: #IMP - ROI DIÁRIO
+[2025-06-22 09:04:47] INFO: - Date Range: today
+[2025-06-22 09:04:47] INFO: - Limite de Lucro Baixo: R$ 1000.0
+[2025-06-22 09:04:47] INFO: - Percentual de Redução: 35.0%
+[2025-06-22 09:04:47] INFO: - Contas ABO configuradas: ['act_406219475582745']
+[2025-06-22 09:04:47] INFO: Planilha limpa no início da execução.
+[2025-06-22 09:04:47] INFO: Processando conta de anúncio CBO: act_790223756353632
+[2025-06-22 09:04:47] INFO: Buscando campanhas para conta act_790223756353632...
+[2025-06-22 09:04:47] INFO: 127.0.0.1 - - [22/Jun/2025 09:04:47] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:04:48] INFO: 127.0.0.1 - - [22/Jun/2025 09:04:48] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:04:49] INFO: 127.0.0.1 - - [22/Jun/2025 09:04:49] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:04:50] INFO: Encontradas 110 campanhas.
+[2025-06-22 09:04:50] INFO: 127.0.0.1 - - [22/Jun/2025 09:04:50] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:04:51] INFO: Encontrados 14 insights.
+[2025-06-22 09:04:51] INFO: Processadas 12 campanhas ativas.
+[2025-06-22 09:04:51] INFO: Processando conta de anúncio CBO: act_303402486183447
+[2025-06-22 09:04:51] INFO: Buscando campanhas para conta act_303402486183447...
+[2025-06-22 09:04:51] INFO: 127.0.0.1 - - [22/Jun/2025 09:04:51] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:04:53] INFO: 127.0.0.1 - - [22/Jun/2025 09:04:53] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:04:54] INFO: 127.0.0.1 - - [22/Jun/2025 09:04:54] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:04:54] INFO: Encontradas 87 campanhas.
+[2025-06-22 09:04:55] INFO: 127.0.0.1 - - [22/Jun/2025 09:04:55] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:04:55] INFO: Encontrados 7 insights.
+[2025-06-22 09:04:55] INFO: Processadas 5 campanhas ativas.
+[2025-06-22 09:04:55] INFO: Processando conta de anúncio ABO: act_406219475582745
+[2025-06-22 09:04:55] INFO: Buscando campanhas para conta act_406219475582745...
+[2025-06-22 09:04:56] INFO: Encontradas 34 campanhas.
+[2025-06-22 09:04:56] INFO: 127.0.0.1 - - [22/Jun/2025 09:04:56] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:04:56] INFO: Encontrados 6 insights.
+[2025-06-22 09:04:57] INFO: 127.0.0.1 - - [22/Jun/2025 09:04:57] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:04:58] INFO: 127.0.0.1 - - [22/Jun/2025 09:04:58] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:04:58] INFO: Campanha ABO 120226735943410030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 09:04:59] INFO: 127.0.0.1 - - [22/Jun/2025 09:04:59] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:00] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:00] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:01] INFO: Campanha ABO 120226735942950030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 09:05:01] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:01] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:02] INFO: Campanha ABO 120226735942940030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 09:05:02] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:02] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:03] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:03] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:03] INFO: Campanha ABO 120226735942930030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 09:05:03] INFO: Processadas 4 campanhas ativas.
+[2025-06-22 09:05:03] INFO: Total de 21 campanhas ativas encontradas.
+[2025-06-22 09:05:03] INFO: Campanhas CBO: 17, Campanhas ABO: 4
+[2025-06-22 09:05:03] INFO: Total de AdSets em campanhas ABO: 60
+[2025-06-22 09:05:03] INFO: Dados das campanhas salvos na planilha.
+[2025-06-22 09:05:03] INFO: Iniciando processo de redução...
+[2025-06-22 09:05:03] INFO:   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 09:05:03] INFO:   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 09:05:03] INFO:   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 09:05:03] INFO:   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 09:05:03] INFO: [INFO] 77 unidades para redução:
+[2025-06-22 09:05:03] INFO: - Campanhas CBO: 17
+[2025-06-22 09:05:03] INFO: - AdSets ABO: 60
+[2025-06-22 09:05:03] INFO: Enviando atualização de orçamento para campanha 120227590767740431
+[2025-06-22 09:05:04] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:04] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:04] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:04] INFO: Orçamento atualizado para a campanha 120227590767740431: R$ 100.00
+[2025-06-22 09:05:04] INFO: Enviando atualização de orçamento para campanha 120227588920730431
+[2025-06-22 09:05:05] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:05] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:05] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:05] INFO: Orçamento atualizado para a campanha 120227588920730431: R$ 100.00
+[2025-06-22 09:05:05] INFO: Enviando atualização de orçamento para campanha 120227372043910431
+[2025-06-22 09:05:06] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:06] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:06] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:06] INFO: Orçamento atualizado para a campanha 120227372043910431: R$ 100.00
+[2025-06-22 09:05:06] INFO: Enviando atualização de orçamento para campanha 120227095176980431
+[2025-06-22 09:05:07] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:07] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:07] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:07] INFO: Orçamento atualizado para a campanha 120227095176980431: R$ 100.00
+[2025-06-22 09:05:07] INFO: Enviando atualização de orçamento para campanha 120222533000150431
+[2025-06-22 09:05:08] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:08] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:08] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:08] INFO: Orçamento atualizado para a campanha 120222533000150431: R$ 172.09
+[2025-06-22 09:05:08] INFO: Enviando atualização de orçamento para campanha 120221473064310431
+[2025-06-22 09:05:09] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:09] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:10] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:10] INFO: Orçamento atualizado para a campanha 120221473064310431: R$ 100.00
+[2025-06-22 09:05:10] INFO: Enviando atualização de orçamento para campanha 120215736960620431
+[2025-06-22 09:05:10] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:10] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:11] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:11] INFO: Orçamento atualizado para a campanha 120215736960620431: R$ 173.88
+[2025-06-22 09:05:11] INFO: Enviando atualização de orçamento para campanha 120215567870460431
+[2025-06-22 09:05:11] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:11] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:12] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:12] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:13] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:13] INFO: Orçamento atualizado para a campanha 120215567870460431: R$ 493.24
+[2025-06-22 09:05:13] INFO: Enviando atualização de orçamento para campanha 120215039931450431
+[2025-06-22 09:05:13] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:13] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:14] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:14] INFO: Orçamento atualizado para a campanha 120215039931450431: R$ 100.00
+[2025-06-22 09:05:14] INFO: Enviando atualização de orçamento para campanha 120215038900720431
+[2025-06-22 09:05:14] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:14] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:15] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:15] INFO: Orçamento atualizado para a campanha 120215038900720431: R$ 100.00
+[2025-06-22 09:05:15] INFO: Enviando atualização de orçamento para campanha 120214808911760431
+[2025-06-22 09:05:16] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:16] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:17] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:17] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:18] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:18] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:19] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:19] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:19] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:19] INFO: Orçamento atualizado para a campanha 120214808911760431: R$ 1706.15
+[2025-06-22 09:05:19] INFO: Enviando atualização de orçamento para campanha 120214323043310431
+[2025-06-22 09:05:20] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:20] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:20] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:20] INFO: Orçamento atualizado para a campanha 120214323043310431: R$ 100.00
+[2025-06-22 09:05:20] INFO: Enviando atualização de orçamento para campanha 120227639640790338
+[2025-06-22 09:05:21] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:21] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:21] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:21] INFO: Orçamento atualizado para a campanha 120227639640790338: R$ 181.36
+[2025-06-22 09:05:21] INFO: Enviando atualização de orçamento para campanha 120227628451420338
+[2025-06-22 09:05:22] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:22] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:23] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:23] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:23] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:23] INFO: Orçamento atualizado para a campanha 120227628451420338: R$ 1531.74
+[2025-06-22 09:05:23] INFO: Enviando atualização de orçamento para campanha 120227626914980338
+[2025-06-22 09:05:24] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:24] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:24] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:24] INFO: Orçamento atualizado para a campanha 120227626914980338: R$ 1538.02
+[2025-06-22 09:05:24] INFO: Enviando atualização de orçamento para campanha 120214509094010338
+[2025-06-22 09:05:25] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:25] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:26] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:26] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:26] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:26] INFO: Orçamento atualizado para a campanha 120214509094010338: R$ 100.00
+[2025-06-22 09:05:26] INFO: Enviando atualização de orçamento para campanha 120214507411990338
+[2025-06-22 09:05:27] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:27] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:28] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:28] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:29] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:05:29] INFO: Orçamento atualizado para a campanha 120214507411990338: R$ 122.27
+[2025-06-22 09:05:29] INFO: Atualizando orçamento do AdSet 120226736700490030 para R$ 8.00
+[2025-06-22 09:05:29] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:29] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:30] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:30] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:31] INFO: Orçamento do AdSet 120226736700490030 atualizado com sucesso
+[2025-06-22 09:05:31] INFO: Atualizando orçamento do AdSet 120226736700470030 para R$ 8.00
+[2025-06-22 09:05:31] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:31] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:32] INFO: Orçamento do AdSet 120226736700470030 atualizado com sucesso
+[2025-06-22 09:05:32] INFO: Atualizando orçamento do AdSet 120226736700410030 para R$ 8.00
+[2025-06-22 09:05:32] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:32] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:33] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:33] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:34] INFO: Orçamento do AdSet 120226736700410030 atualizado com sucesso
+[2025-06-22 09:05:34] INFO: Atualizando orçamento do AdSet 120226736700150030 para R$ 8.00
+[2025-06-22 09:05:34] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:34] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:36] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:36] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:36] INFO: Orçamento do AdSet 120226736700150030 atualizado com sucesso
+[2025-06-22 09:05:36] INFO: Atualizando orçamento do AdSet 120226736700130030 para R$ 8.00
+[2025-06-22 09:05:37] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:37] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:37] INFO: Orçamento do AdSet 120226736700130030 atualizado com sucesso
+[2025-06-22 09:05:37] INFO: Atualizando orçamento do AdSet 120226736700070030 para R$ 8.00
+[2025-06-22 09:05:38] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:38] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:38] INFO: Orçamento do AdSet 120226736700070030 atualizado com sucesso
+[2025-06-22 09:05:38] INFO: Atualizando orçamento do AdSet 120226736700060030 para R$ 8.00
+[2025-06-22 09:05:39] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:39] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:39] INFO: Orçamento do AdSet 120226736700060030 atualizado com sucesso
+[2025-06-22 09:05:39] INFO: Atualizando orçamento do AdSet 120226736700050030 para R$ 8.00
+[2025-06-22 09:05:40] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:40] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:40] INFO: Orçamento do AdSet 120226736700050030 atualizado com sucesso
+[2025-06-22 09:05:40] INFO: Atualizando orçamento do AdSet 120226736700040030 para R$ 8.00
+[2025-06-22 09:05:41] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:41] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:42] INFO: Orçamento do AdSet 120226736700040030 atualizado com sucesso
+[2025-06-22 09:05:42] INFO: Atualizando orçamento do AdSet 120226736700030030 para R$ 8.00
+[2025-06-22 09:05:42] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:42] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:43] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:43] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:43] INFO: Orçamento do AdSet 120226736700030030 atualizado com sucesso
+[2025-06-22 09:05:43] INFO: Atualizando orçamento do AdSet 120226736700020030 para R$ 8.00
+[2025-06-22 09:05:44] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:44] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:45] INFO: Orçamento do AdSet 120226736700020030 atualizado com sucesso
+[2025-06-22 09:05:45] INFO: Atualizando orçamento do AdSet 120226736700010030 para R$ 8.00
+[2025-06-22 09:05:45] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:45] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:46] INFO: Orçamento do AdSet 120226736700010030 atualizado com sucesso
+[2025-06-22 09:05:46] INFO: Atualizando orçamento do AdSet 120226735943130030 para R$ 8.00
+[2025-06-22 09:05:46] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:46] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:47] INFO: Orçamento do AdSet 120226735943130030 atualizado com sucesso
+[2025-06-22 09:05:47] INFO: Atualizando orçamento do AdSet 120226735943090030 para R$ 8.00
+[2025-06-22 09:05:47] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:47] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:49] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:49] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:51] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:51] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:51] INFO: Orçamento do AdSet 120226735943090030 atualizado com sucesso
+[2025-06-22 09:05:51] INFO: Atualizando orçamento do AdSet 120226735942960030 para R$ 8.00
+[2025-06-22 09:05:53] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:53] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:54] INFO: Orçamento do AdSet 120226735942960030 atualizado com sucesso
+[2025-06-22 09:05:54] INFO: Atualizando orçamento do AdSet 120226736700380030 para R$ 8.00
+[2025-06-22 09:05:55] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:55] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:55] INFO: Orçamento do AdSet 120226736700380030 atualizado com sucesso
+[2025-06-22 09:05:55] INFO: Atualizando orçamento do AdSet 120226736700240030 para R$ 8.00
+[2025-06-22 09:05:57] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:57] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:57] INFO: Orçamento do AdSet 120226736700240030 atualizado com sucesso
+[2025-06-22 09:05:57] INFO: Atualizando orçamento do AdSet 120226736700230030 para R$ 8.00
+[2025-06-22 09:05:58] INFO: Orçamento do AdSet 120226736700230030 atualizado com sucesso
+[2025-06-22 09:05:58] INFO: Atualizando orçamento do AdSet 120226736700210030 para R$ 8.00
+[2025-06-22 09:05:59] INFO: 127.0.0.1 - - [22/Jun/2025 09:05:59] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:05:59] INFO: Orçamento do AdSet 120226736700210030 atualizado com sucesso
+[2025-06-22 09:05:59] INFO: Atualizando orçamento do AdSet 120226736700180030 para R$ 8.00
+[2025-06-22 09:06:01] INFO: Orçamento do AdSet 120226736700180030 atualizado com sucesso
+[2025-06-22 09:06:01] INFO: Atualizando orçamento do AdSet 120226736699490030 para R$ 8.00
+[2025-06-22 09:06:01] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:01] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:02] INFO: Orçamento do AdSet 120226736699490030 atualizado com sucesso
+[2025-06-22 09:06:02] INFO: Atualizando orçamento do AdSet 120226736699480030 para R$ 8.00
+[2025-06-22 09:06:03] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:03] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:03] INFO: Orçamento do AdSet 120226736699480030 atualizado com sucesso
+[2025-06-22 09:06:03] INFO: Atualizando orçamento do AdSet 120226736699470030 para R$ 8.00
+[2025-06-22 09:06:04] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:04] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:04] INFO: Orçamento do AdSet 120226736699470030 atualizado com sucesso
+[2025-06-22 09:06:04] INFO: Atualizando orçamento do AdSet 120226736699460030 para R$ 8.00
+[2025-06-22 09:06:05] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:05] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:06] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:06] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:07] INFO: Orçamento do AdSet 120226736699460030 atualizado com sucesso
+[2025-06-22 09:06:07] INFO: Atualizando orçamento do AdSet 120226736699450030 para R$ 8.00
+[2025-06-22 09:06:08] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:08] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:08] INFO: Orçamento do AdSet 120226736699450030 atualizado com sucesso
+[2025-06-22 09:06:08] INFO: Atualizando orçamento do AdSet 120226736699440030 para R$ 8.00
+[2025-06-22 09:06:09] INFO: Orçamento do AdSet 120226736699440030 atualizado com sucesso
+[2025-06-22 09:06:09] INFO: Atualizando orçamento do AdSet 120226736699430030 para R$ 8.00
+[2025-06-22 09:06:10] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:10] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:11] INFO: Orçamento do AdSet 120226736699430030 atualizado com sucesso
+[2025-06-22 09:06:11] INFO: Atualizando orçamento do AdSet 120226735943380030 para R$ 8.00
+[2025-06-22 09:06:12] INFO: Orçamento do AdSet 120226735943380030 atualizado com sucesso
+[2025-06-22 09:06:12] INFO: Atualizando orçamento do AdSet 120226735943370030 para R$ 8.00
+[2025-06-22 09:06:12] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:12] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:13] INFO: Orçamento do AdSet 120226735943370030 atualizado com sucesso
+[2025-06-22 09:06:13] INFO: Atualizando orçamento do AdSet 120226735943350030 para R$ 8.00
+[2025-06-22 09:06:14] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:14] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:14] INFO: Orçamento do AdSet 120226735943350030 atualizado com sucesso
+[2025-06-22 09:06:14] INFO: Atualizando orçamento do AdSet 120226736700480030 para R$ 8.00
+[2025-06-22 09:06:16] INFO: Orçamento do AdSet 120226736700480030 atualizado com sucesso
+[2025-06-22 09:06:16] INFO: Atualizando orçamento do AdSet 120226736700460030 para R$ 8.00
+[2025-06-22 09:06:16] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:16] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:17] INFO: Orçamento do AdSet 120226736700460030 atualizado com sucesso
+[2025-06-22 09:06:17] INFO: Atualizando orçamento do AdSet 120226736700450030 para R$ 8.00
+[2025-06-22 09:06:18] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:18] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:18] INFO: Orçamento do AdSet 120226736700450030 atualizado com sucesso
+[2025-06-22 09:06:18] INFO: Atualizando orçamento do AdSet 120226736700440030 para R$ 8.00
+[2025-06-22 09:06:20] INFO: Orçamento do AdSet 120226736700440030 atualizado com sucesso
+[2025-06-22 09:06:20] INFO: Atualizando orçamento do AdSet 120226736700430030 para R$ 8.00
+[2025-06-22 09:06:20] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:20] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:22] INFO: Orçamento do AdSet 120226736700430030 atualizado com sucesso
+[2025-06-22 09:06:22] INFO: Atualizando orçamento do AdSet 120226736700420030 para R$ 8.00
+[2025-06-22 09:06:22] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:22] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:23] INFO: Orçamento do AdSet 120226736700420030 atualizado com sucesso
+[2025-06-22 09:06:23] INFO: Atualizando orçamento do AdSet 120226736700400030 para R$ 8.00
+[2025-06-22 09:06:24] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:24] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:24] INFO: Orçamento do AdSet 120226736700400030 atualizado com sucesso
+[2025-06-22 09:06:24] INFO: Atualizando orçamento do AdSet 120226736700390030 para R$ 8.00
+[2025-06-22 09:06:26] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:26] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:27] INFO: Orçamento do AdSet 120226736700390030 atualizado com sucesso
+[2025-06-22 09:06:27] INFO: Atualizando orçamento do AdSet 120226736700350030 para R$ 8.00
+[2025-06-22 09:06:28] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:28] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:28] INFO: Orçamento do AdSet 120226736700350030 atualizado com sucesso
+[2025-06-22 09:06:28] INFO: Atualizando orçamento do AdSet 120226736700340030 para R$ 8.00
+[2025-06-22 09:06:29] INFO: Orçamento do AdSet 120226736700340030 atualizado com sucesso
+[2025-06-22 09:06:29] INFO: Atualizando orçamento do AdSet 120226736700330030 para R$ 8.00
+[2025-06-22 09:06:30] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:30] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:31] INFO: Orçamento do AdSet 120226736700330030 atualizado com sucesso
+[2025-06-22 09:06:31] INFO: Atualizando orçamento do AdSet 120226736700250030 para R$ 8.00
+[2025-06-22 09:06:32] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:32] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:33] INFO: Orçamento do AdSet 120226736700250030 atualizado com sucesso
+[2025-06-22 09:06:33] INFO: Atualizando orçamento do AdSet 120226735943250030 para R$ 8.00
+[2025-06-22 09:06:34] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:34] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:34] INFO: Orçamento do AdSet 120226735943250030 atualizado com sucesso
+[2025-06-22 09:06:34] INFO: Atualizando orçamento do AdSet 120226735943240030 para R$ 8.00
+[2025-06-22 09:06:35] INFO: Orçamento do AdSet 120226735943240030 atualizado com sucesso
+[2025-06-22 09:06:36] INFO: Atualizando orçamento do AdSet 120226735942920030 para R$ 8.00
+[2025-06-22 09:06:36] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:36] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:37] INFO: Orçamento do AdSet 120226735942920030 atualizado com sucesso
+[2025-06-22 09:06:37] INFO: Atualizando orçamento do AdSet 120226736700220030 para R$ 8.00
+[2025-06-22 09:06:38] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:38] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:38] INFO: Orçamento do AdSet 120226736700220030 atualizado com sucesso
+[2025-06-22 09:06:38] INFO: Atualizando orçamento do AdSet 120226736700200030 para R$ 8.00
+[2025-06-22 09:06:40] INFO: Orçamento do AdSet 120226736700200030 atualizado com sucesso
+[2025-06-22 09:06:40] INFO: Atualizando orçamento do AdSet 120226736700190030 para R$ 8.00
+[2025-06-22 09:06:40] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:40] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:41] INFO: Orçamento do AdSet 120226736700190030 atualizado com sucesso
+[2025-06-22 09:06:41] INFO: Atualizando orçamento do AdSet 120226736700170030 para R$ 8.00
+[2025-06-22 09:06:42] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:42] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:42] INFO: Orçamento do AdSet 120226736700170030 atualizado com sucesso
+[2025-06-22 09:06:42] INFO: Atualizando orçamento do AdSet 120226736700160030 para R$ 8.00
+[2025-06-22 09:06:44] INFO: Orçamento do AdSet 120226736700160030 atualizado com sucesso
+[2025-06-22 09:06:44] INFO: Atualizando orçamento do AdSet 120226736700140030 para R$ 8.00
+[2025-06-22 09:06:44] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:44] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:45] INFO: Orçamento do AdSet 120226736700140030 atualizado com sucesso
+[2025-06-22 09:06:45] INFO: Atualizando orçamento do AdSet 120226736700120030 para R$ 8.00
+[2025-06-22 09:06:46] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:46] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:47] INFO: Orçamento do AdSet 120226736700120030 atualizado com sucesso
+[2025-06-22 09:06:47] INFO: Atualizando orçamento do AdSet 120226736700110030 para R$ 8.00
+[2025-06-22 09:06:48] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:48] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:50] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:50] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:52] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:52] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:54] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:54] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:54] INFO: Orçamento do AdSet 120226736700110030 atualizado com sucesso
+[2025-06-22 09:06:54] INFO: Atualizando orçamento do AdSet 120226736700100030 para R$ 8.00
+[2025-06-22 09:06:56] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:56] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:58] INFO: 127.0.0.1 - - [22/Jun/2025 09:06:58] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:06:59] INFO: Orçamento do AdSet 120226736700100030 atualizado com sucesso
+[2025-06-22 09:06:59] INFO: Atualizando orçamento do AdSet 120226736700090030 para R$ 8.00
+[2025-06-22 09:07:00] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:00] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:02] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:02] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:02] INFO: Orçamento do AdSet 120226736700090030 atualizado com sucesso
+[2025-06-22 09:07:02] INFO: Atualizando orçamento do AdSet 120226736700080030 para R$ 8.00
+[2025-06-22 09:07:03] INFO: Orçamento do AdSet 120226736700080030 atualizado com sucesso
+[2025-06-22 09:07:03] INFO: Atualizando orçamento do AdSet 120226736700000030 para R$ 8.00
+[2025-06-22 09:07:04] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:04] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:04] INFO: Orçamento do AdSet 120226736700000030 atualizado com sucesso
+[2025-06-22 09:07:04] INFO: Atualizando orçamento do AdSet 120226735943520030 para R$ 8.00
+[2025-06-22 09:07:06] INFO: Orçamento do AdSet 120226735943520030 atualizado com sucesso
+[2025-06-22 09:07:06] INFO: Atualizando orçamento do AdSet 120226735943490030 para R$ 8.00
+[2025-06-22 09:07:06] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:06] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:07] INFO: Orçamento do AdSet 120226735943490030 atualizado com sucesso
+[2025-06-22 09:07:07] INFO: Atualizando orçamento do AdSet 120226735943000030 para R$ 8.00
+[2025-06-22 09:07:08] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:08] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:08] INFO: Orçamento do AdSet 120226735943000030 atualizado com sucesso
+[2025-06-22 09:07:08] INFO: Iniciando envio de mensagem para o grupo: #IMP - ROI DIÁRIO
+[2025-06-22 09:07:08] INFO: Mensagem limpa: [OK] Redução concluída!
+
+[DESCEU] Unidades com lucro < R$ 1000.00:
+- 77 unidades reduzidas
+  - 17 ca...
+[2025-06-22 09:07:08] INFO: ====== WebDriver manager ======
+[2025-06-22 09:07:09] INFO: Get LATEST chromedriver version for google-chrome
+[2025-06-22 09:07:09] INFO: Get LATEST chromedriver version for google-chrome
+[2025-06-22 09:07:09] INFO: Driver [C:\Users\Pichau\.wdm\drivers\chromedriver\win64\137.0.7151.119\chromedriver-win32/chromedriver.exe] found in cache
+[2025-06-22 09:07:10] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:10] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:11] INFO: Abrindo WhatsApp Web...
+[2025-06-22 09:07:11] INFO: Aguardando carregamento do WhatsApp Web...
+[2025-06-22 09:07:12] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:12] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:14] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:14] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:16] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:16] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:18] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:18] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:19] INFO: WhatsApp Web carregado, elemento detectado: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 09:07:20] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:20] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:21] INFO: Campo de pesquisa encontrado com seletor: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 09:07:22] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:22] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:23] INFO: Texto de pesquisa '#IMP - ROI DIÁRIO' inserido.
+[2025-06-22 09:07:24] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:24] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:26] INFO: Grupo encontrado com seletor: //span[@title='#IMP - ROI DIÁRIO']
+[2025-06-22 09:07:26] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:26] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:28] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:28] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:30] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:30] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:30] INFO: Grupo clicado com sucesso
+[2025-06-22 09:07:32] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:32] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:33] INFO: Conversa do grupo aberta com sucesso
+[2025-06-22 09:07:33] INFO: Localizando campo de mensagem...
+[2025-06-22 09:07:33] INFO: Campo de mensagem encontrado com seletor: //div[@role='textbox' and @data-tab='10']
+[2025-06-22 09:07:33] INFO: Tentando digitar mensagem...
+[2025-06-22 09:07:34] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:34] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:35] INFO: Mensagem digitada com sucesso
+[2025-06-22 09:07:36] INFO: Enviando mensagem...
+[2025-06-22 09:07:36] INFO: Botão de enviar encontrado com seletor: button[aria-label='Enviar']
+[2025-06-22 09:07:36] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:36] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:36] INFO: Botão de enviar clicado
+[2025-06-22 09:07:38] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:38] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:40] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:40] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:41] INFO: Mensagem enviada com sucesso (confirmado)
+[2025-06-22 09:07:41] INFO: Processo de envio de mensagem concluído
+[2025-06-22 09:07:42] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:42] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:07:44] INFO: [INFO] Mensagem enviada com sucesso
+[2025-06-22 09:07:44] INFO: Processo de redução concluído com sucesso!
+[2025-06-22 09:07:44] INFO: 127.0.0.1 - - [22/Jun/2025 09:07:44] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:22] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:22] "POST /start HTTP/1.1" 200 -
+[2025-06-22 09:12:22] INFO: Iniciando escala com: Token=EAAQ0...FNOK0, Contas=['act_790223756353632', 'act_303402486183447', 'act_406219475582745'], Grupo=#IMP - ROI DIÁRIO
+[2025-06-22 09:12:22] INFO: Parâmetros: Date Range=today, Min Profit=1, Scale Value=7000
+[2025-06-22 09:12:22] INFO: Contas ABO configuradas: ['act_406219475582745']
+[2025-06-22 09:12:22] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:22] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:23] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:23] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:24] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:24] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:25] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:25] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:26] INFO: Planilha limpa no início da execução.
+[2025-06-22 09:12:26] INFO: Processando conta de anúncio CBO: act_790223756353632
+[2025-06-22 09:12:26] INFO: Buscando campanhas para conta act_790223756353632...
+[2025-06-22 09:12:26] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:26] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:27] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:27] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:28] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:28] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:29] INFO: Encontradas 110 campanhas.
+[2025-06-22 09:12:30] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:30] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:30] INFO: Encontrados 14 insights.
+[2025-06-22 09:12:30] INFO: Processadas 12 campanhas ativas.
+[2025-06-22 09:12:30] INFO: Processando conta de anúncio CBO: act_303402486183447
+[2025-06-22 09:12:30] INFO: Buscando campanhas para conta act_303402486183447...
+[2025-06-22 09:12:31] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:31] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:32] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:32] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:33] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:33] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:33] INFO: Encontradas 87 campanhas.
+[2025-06-22 09:12:34] INFO: Encontrados 7 insights.
+[2025-06-22 09:12:34] INFO: Processadas 5 campanhas ativas.
+[2025-06-22 09:12:34] INFO: Processando conta de anúncio ABO: act_406219475582745
+[2025-06-22 09:12:34] INFO: Buscando campanhas para conta act_406219475582745...
+[2025-06-22 09:12:34] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:34] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:35] INFO: Encontradas 34 campanhas.
+[2025-06-22 09:12:35] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:35] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:35] INFO: Encontrados 6 insights.
+[2025-06-22 09:12:36] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:36] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:37] INFO: Campanha ABO 120226735943410030: 15 adsets ativos, orçamento total: R$ 120.00
+[2025-06-22 09:12:37] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:37] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:38] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:38] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:38] INFO: Campanha ABO 120226735942950030: 15 adsets ativos, orçamento total: R$ 120.00
+[2025-06-22 09:12:39] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:39] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:39] INFO: Campanha ABO 120226735942940030: 15 adsets ativos, orçamento total: R$ 120.00
+[2025-06-22 09:12:40] INFO: Campanha ABO 120226735942930030: 15 adsets ativos, orçamento total: R$ 120.00
+[2025-06-22 09:12:40] INFO: Processadas 4 campanhas ativas.
+[2025-06-22 09:12:40] INFO: Total de 21 campanhas ativas encontradas.
+[2025-06-22 09:12:40] INFO: Campanhas CBO: 17, Campanhas ABO: 4
+[2025-06-22 09:12:40] INFO: Total de AdSets em campanhas ABO: 60
+[2025-06-22 09:12:41] INFO: Dados das campanhas salvos na planilha.
+[2025-06-22 09:12:41] INFO:   -> 1 AdSets com lucro >= R$ 1.00
+[2025-06-22 09:12:41] INFO:   -> 1 AdSets com lucro >= R$ 1.00
+[2025-06-22 09:12:41] INFO:   -> 1 AdSets com lucro >= R$ 1.00
+[2025-06-22 09:12:41] INFO:   -> 0 AdSets com lucro >= R$ 1.00
+[2025-06-22 09:12:41] INFO: [INFO] 6 unidades para escalonamento:
+[2025-06-22 09:12:41] INFO: - Campanhas CBO: 3
+[2025-06-22 09:12:41] INFO: - AdSets ABO: 3
+[2025-06-22 09:12:41] INFO: - Soma dos lucros: R$ 169.86
+[2025-06-22 09:12:41] INFO: Enviando atualização de orçamento para campanha 120227628451420338
+[2025-06-22 09:12:41] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:41] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:42] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:12:42] INFO: Orçamento atualizado para a campanha 120227628451420338: R$ 4116.86
+[2025-06-22 09:12:42] INFO: Campanha CBO 120227628451420338 escalada para R$ 4116.86
+[2025-06-22 09:12:42] INFO: Enviando atualização de orçamento para campanha 120227626914980338
+[2025-06-22 09:12:43] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:43] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:43] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:12:43] INFO: Orçamento atualizado para a campanha 120227626914980338: R$ 3731.64
+[2025-06-22 09:12:43] INFO: Campanha CBO 120227626914980338 escalada para R$ 3731.64
+[2025-06-22 09:12:43] INFO: Atualizando orçamento do AdSet 120226735943130030 para R$ 877.13
+[2025-06-22 09:12:45] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:45] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:45] INFO: Orçamento do AdSet 120226735943130030 atualizado com sucesso
+[2025-06-22 09:12:45] INFO: AdSet 120226735943130030 escalado de R$ 8.00 para R$ 877.13
+[2025-06-22 09:12:45] INFO: Enviando atualização de orçamento para campanha 120215567870460431
+[2025-06-22 09:12:47] INFO: Resposta da API: {'success': True}
+[2025-06-22 09:12:47] INFO: Orçamento atualizado para a campanha 120215567870460431: R$ 1135.29
+[2025-06-22 09:12:47] INFO: Campanha CBO 120215567870460431 escalada para R$ 1135.29
+[2025-06-22 09:12:47] INFO: Atualizando orçamento do AdSet 120226736700440030 para R$ 498.82
+[2025-06-22 09:12:47] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:47] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:48] INFO: Orçamento do AdSet 120226736700440030 atualizado com sucesso
+[2025-06-22 09:12:48] INFO: AdSet 120226736700440030 escalado de R$ 8.00 para R$ 498.82
+[2025-06-22 09:12:48] INFO: Atualizando orçamento do AdSet 120226735943350030 para R$ 227.24
+[2025-06-22 09:12:49] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:49] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:50] INFO: Orçamento do AdSet 120226735943350030 atualizado com sucesso
+[2025-06-22 09:12:50] INFO: AdSet 120226735943350030 escalado de R$ 8.00 para R$ 227.24
+[2025-06-22 09:12:50] INFO: Iniciando envio de mensagem para o grupo: #IMP - ROI DIÁRIO
+[2025-06-22 09:12:50] INFO: Mensagem limpa: [OK] Escala realizada com sucesso!
+
+[$$] Total distribuído: R$ 7000.00
+[DADOS] Unidades escaladas: 6...
+[2025-06-22 09:12:50] INFO: ====== WebDriver manager ======
+[2025-06-22 09:12:51] INFO: Get LATEST chromedriver version for google-chrome
+[2025-06-22 09:12:51] INFO: Get LATEST chromedriver version for google-chrome
+[2025-06-22 09:12:51] INFO: Driver [C:\Users\Pichau\.wdm\drivers\chromedriver\win64\137.0.7151.119\chromedriver-win32/chromedriver.exe] found in cache
+[2025-06-22 09:12:51] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:51] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:52] INFO: Abrindo WhatsApp Web...
+[2025-06-22 09:12:53] INFO: Aguardando carregamento do WhatsApp Web...
+[2025-06-22 09:12:53] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:53] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:55] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:55] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:57] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:57] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:12:59] INFO: 127.0.0.1 - - [22/Jun/2025 09:12:59] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:00] INFO: WhatsApp Web carregado, elemento detectado: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 09:13:01] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:01] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:02] INFO: Campo de pesquisa encontrado com seletor: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 09:13:03] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:03] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:05] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:05] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:07] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:07] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:09] INFO: Texto de pesquisa '#IMP - ROI DIÁRIO' inserido.
+[2025-06-22 09:13:09] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:09] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:11] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:11] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:12] INFO: Grupo encontrado com seletor: //span[@title='#IMP - ROI DIÁRIO']
+[2025-06-22 09:13:12] INFO: Grupo clicado com sucesso
+[2025-06-22 09:13:13] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:13] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:15] INFO: Conversa do grupo aberta com sucesso
+[2025-06-22 09:13:15] INFO: Localizando campo de mensagem...
+[2025-06-22 09:13:15] INFO: Campo de mensagem encontrado com seletor: //div[@role='textbox' and @data-tab='10']
+[2025-06-22 09:13:15] INFO: Tentando digitar mensagem...
+[2025-06-22 09:13:15] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:15] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:17] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:17] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:17] INFO: Mensagem digitada com sucesso
+[2025-06-22 09:13:18] INFO: Enviando mensagem...
+[2025-06-22 09:13:19] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:19] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:21] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:21] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:23] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:23] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:25] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:25] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:27] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:27] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:28] INFO: Botão de enviar encontrado com seletor: button[data-tab='11']
+[2025-06-22 09:13:29] INFO: Botão de enviar clicado
+[2025-06-22 09:13:29] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:29] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:31] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:31] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:33] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:33] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:34] INFO: Mensagem enviada com sucesso (confirmado)
+[2025-06-22 09:13:34] INFO: Processo de envio de mensagem concluído
+[2025-06-22 09:13:35] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:35] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:13:36] INFO: [INFO] Mensagem enviada com sucesso
+[2025-06-22 09:13:36] INFO: Processo de escala concluído com sucesso!
+[2025-06-22 09:13:37] INFO: 127.0.0.1 - - [22/Jun/2025 09:13:37] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 09:51:23] INFO:  * Detected change in 'C:\\Users\\Pichau\\iCloudDrive\\PROJETOS\\ZIP\\PROCESSOS\\ROBOS_PY\\ROBO_IMPERIO\\meu_projeto_web\\escala_lucro.py', reloading
+[2025-06-22 09:51:27] INFO:  * Restarting with stat
+[2025-06-22 09:51:29] WARNING:  * Debugger is active!
+[2025-06-22 09:51:29] INFO:  * Debugger PIN: 372-168-963
+[2025-06-22 09:59:59] INFO:  * Detected change in 'C:\\Users\\Pichau\\iCloudDrive\\PROJETOS\\ZIP\\PROCESSOS\\ROBOS_PY\\ROBO_IMPERIO\\meu_projeto_web\\reduzir_orcamento.py', reloading
+[2025-06-22 09:59:59] INFO:  * Restarting with stat
+[2025-06-22 10:00:01] WARNING:  * Debugger is active!
+[2025-06-22 10:00:01] INFO:  * Debugger PIN: 372-168-963
+[2025-06-22 10:08:05] INFO:  * Detected change in 'C:\\Users\\Pichau\\iCloudDrive\\PROJETOS\\ZIP\\PROCESSOS\\ROBOS_PY\\ROBO_IMPERIO\\meu_projeto_web\\realocar_orcamento.py', reloading
+[2025-06-22 10:08:05] INFO:  * Restarting with stat

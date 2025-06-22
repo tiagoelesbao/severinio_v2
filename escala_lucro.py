@@ -479,12 +479,15 @@ def escalar_campanhas():
                 MAXIMO_ORCAMENTO
             )
             
+            # Calcular incremento real (pode ser menor devido aos limites)
+            incremento_real = novo_orcamento - unidade["orcamento_atual"]
+            
             if atualizar_orcamento_facebook(unidade["id_campanha"], novo_orcamento):
                 sheet.cell(row=unidade["linha_index"], column=10).value = novo_orcamento
-                unidades_escaladas.append(f"{unidade['nome']} (CBO) +R$ {incremento:.2f}")
-                total_distribuido += incremento
+                unidades_escaladas.append(f"{unidade['nome']} (CBO) +R$ {incremento_real:.2f}")
+                total_distribuido += incremento_real
                 sucesso = True
-                log_message(f"Campanha CBO {unidade['id_campanha']} escalada para R$ {novo_orcamento:.2f}")
+                log_message(f"Campanha CBO {unidade['id_campanha']} escalada para R$ {novo_orcamento:.2f} (+R$ {incremento_real:.2f})")
                 
         else:  # ABO_ADSET
             # Escalar AdSet individual
@@ -493,6 +496,9 @@ def escalar_campanhas():
                 max(adset['daily_budget'] + incremento, MINIMO_ORCAMENTO),
                 MAXIMO_ORCAMENTO
             )
+            
+            # Calcular incremento real
+            incremento_real = novo_orcamento - adset['daily_budget']
             
             if atualizar_orcamento_adset(unidade["id_adset"], novo_orcamento):
                 # Rastrear mudança total na campanha
@@ -504,13 +510,12 @@ def escalar_campanhas():
                         "nome": unidade["nome_campanha"]
                     }
                 
-                incremento_real = novo_orcamento - adset['daily_budget']
                 campanhas_modificadas[unidade["id_campanha"]]["incremento_total"] += incremento_real
                 
-                unidades_escaladas.append(f"{unidade['nome']} (ABO AdSet) +R$ {incremento:.2f}")
-                total_distribuido += incremento
+                unidades_escaladas.append(f"{unidade['nome']} (ABO AdSet) +R$ {incremento_real:.2f}")
+                total_distribuido += incremento_real
                 sucesso = True
-                log_message(f"AdSet {unidade['id_adset']} escalado de R$ {adset['daily_budget']:.2f} para R$ {novo_orcamento:.2f}")
+                log_message(f"AdSet {unidade['id_adset']} escalado de R$ {adset['daily_budget']:.2f} para R$ {novo_orcamento:.2f} (+R$ {incremento_real:.2f})")
     
     # Atualizar orçamentos totais das campanhas ABO na planilha
     for id_campanha, info in campanhas_modificadas.items():
@@ -527,15 +532,32 @@ def escalar_campanhas():
         f"💰 Total distribuído: R$ {total_distribuido:.2f}\n"
         f"📊 Unidades escaladas: {len(unidades_escaladas)}\n"
         f"📈 Orçamento total atual: R$ {total_orcamento_atual:.2f}\n\n"
-        f"Top 10 escalas:\n"
     )
     
-    # Adicionar top 10 unidades escaladas
-    for i, unidade in enumerate(unidades_escaladas[:10]):
-        mensagem += f"{i+1}. {unidade}\n"
+    # Separar por tipo
+    campanhas_cbo_escaladas = [u for u in unidades_escaladas if "(CBO)" in u]
+    adsets_abo_escalados = [u for u in unidades_escaladas if "(ABO AdSet)" in u]
     
-    if len(unidades_escaladas) > 10:
-        mensagem += f"\n... e mais {len(unidades_escaladas) - 10} unidades"
+    if campanhas_cbo_escaladas:
+        mensagem += f"🎯 Campanhas CBO ({len(campanhas_cbo_escaladas)}):\n"
+        for i, campanha in enumerate(campanhas_cbo_escaladas[:5]):  # Top 5 CBO
+            mensagem += f"{i+1}. {campanha}\n"
+        if len(campanhas_cbo_escaladas) > 5:
+            mensagem += f"... e mais {len(campanhas_cbo_escaladas) - 5} campanhas CBO\n"
+        mensagem += "\n"
+    
+    if adsets_abo_escalados:
+        mensagem += f"🔄 AdSets ABO ({len(adsets_abo_escalados)}):\n"
+        for i, adset in enumerate(adsets_abo_escalados[:5]):  # Top 5 ABO
+            mensagem += f"{i+1}. {adset}\n"
+        if len(adsets_abo_escalados) > 5:
+            mensagem += f"... e mais {len(adsets_abo_escalados) - 5} AdSets ABO\n"
+    
+    # Log detalhado
+    log_message(f"[RESUMO] Total de unidades escaladas: {len(unidades_escaladas)}")
+    log_message(f"[RESUMO] Campanhas CBO escaladas: {len(campanhas_cbo_escaladas)}")
+    log_message(f"[RESUMO] AdSets ABO escalados: {len(adsets_abo_escalados)}")
+    log_message(f"[RESUMO] Total distribuído: R$ {total_distribuido:.2f}")
     
     sucesso_whatsapp = enviar_mensagem_whatsapp(WHATSAPP_GROUP, mensagem)
     

@@ -450,6 +450,9 @@ def reduzir_campanhas():
         log_message("[INFO] Nenhuma unidade para reduzir.")
         return False
     
+    # Ordenar por lucro (menor primeiro) para priorizar as piores
+    unidades_para_reduzir.sort(key=lambda x: x["lucro"])
+    
     # Logs detalhados
     log_message(f"[INFO] {len(unidades_para_reduzir)} unidades para redução:")
     log_message(f"- Campanhas CBO: {sum(1 for u in unidades_para_reduzir if u['tipo'] == 'CBO')}")
@@ -464,19 +467,19 @@ def reduzir_campanhas():
         if unidade["tipo"] == "CBO":
             # Reduzir campanha CBO
             novo_orcamento = max(unidade["orcamento_atual"] * (1 - PERCENTUAL_REDUCAO), MINIMO_ORCAMENTO)
-            reducao = unidade["orcamento_atual"] - novo_orcamento
+            reducao_real = unidade["orcamento_atual"] - novo_orcamento
             
             if atualizar_orcamento_facebook(unidade["id_campanha"], novo_orcamento):
                 sheet.cell(row=unidade["linha_index"], column=10).value = novo_orcamento
-                total_reduzido += reducao
-                unidades_reduzidas.append(f"{unidade['nome']} (CBO) -R$ {reducao:.2f}")
-                log_message(f"Campanha CBO {unidade['nome']} reduzida para R$ {novo_orcamento:.2f}")
+                total_reduzido += reducao_real
+                unidades_reduzidas.append(f"{unidade['nome']} (CBO) -R$ {reducao_real:.2f}")
+                log_message(f"Campanha CBO {unidade['id_campanha']} reduzida de R$ {unidade['orcamento_atual']:.2f} para R$ {novo_orcamento:.2f} (-R$ {reducao_real:.2f})")
         
         else:  # ABO_ADSET
             # Reduzir AdSet individual
             adset = unidade["adset_info"]
             novo_orcamento = max(adset['daily_budget'] * (1 - PERCENTUAL_REDUCAO), MINIMO_ORCAMENTO_ABO)
-            reducao = adset['daily_budget'] - novo_orcamento
+            reducao_real = adset['daily_budget'] - novo_orcamento
             
             if atualizar_orcamento_adset(unidade["id_adset"], novo_orcamento):
                 # Rastrear mudança total na campanha
@@ -489,12 +492,12 @@ def reduzir_campanhas():
                         "adsets_reduzidos": 0
                     }
                 
-                campanhas_modificadas[unidade["id_campanha"]]["reducao_total"] += reducao
+                campanhas_modificadas[unidade["id_campanha"]]["reducao_total"] += reducao_real
                 campanhas_modificadas[unidade["id_campanha"]]["adsets_reduzidos"] += 1
                 
-                total_reduzido += reducao
-                unidades_reduzidas.append(f"{unidade['nome']} (ABO AdSet) -R$ {reducao:.2f}")
-                log_message(f"AdSet {unidade['nome']} reduzido para R$ {novo_orcamento:.2f}")
+                total_reduzido += reducao_real
+                unidades_reduzidas.append(f"{unidade['nome']} (ABO AdSet) -R$ {reducao_real:.2f}")
+                log_message(f"AdSet {unidade['id_adset']} reduzido de R$ {adset['daily_budget']:.2f} para R$ {novo_orcamento:.2f} (-R$ {reducao_real:.2f})")
     
     # Atualizar orçamentos totais das campanhas ABO na planilha
     for id_campanha, info in campanhas_modificadas.items():
@@ -505,21 +508,43 @@ def reduzir_campanhas():
     workbook.save(SPREADSHEET_PATH)
     total_orcamento_atual = calcular_orcamento_total()
     
-    # Preparar mensagem de relatório detalhada
-    campanhas_cbo_reduzidas = sum(1 for u in unidades_reduzidas if "(CBO)" in u)
-    adsets_abo_reduzidos = sum(1 for u in unidades_reduzidas if "(ABO AdSet)" in u)
+    # Separar por tipo para relatório
+    campanhas_cbo_reduzidas = [u for u in unidades_reduzidas if "(CBO)" in u]
+    adsets_abo_reduzidos = [u for u in unidades_reduzidas if "(ABO AdSet)" in u]
     campanhas_abo_com_reducao = len(campanhas_modificadas)
     
+    # Criar mensagem detalhada
     mensagem = (
         f"✅ Redução concluída!\n\n"
-        f"📉 Unidades com lucro < R$ {LIMITE_LUCRO_BAIXO:.2f}:\n"
+        f"📉 Critério: Lucro < R$ {LIMITE_LUCRO_BAIXO:.2f}\n"
+        f"🔻 Percentual aplicado: {int(PERCENTUAL_REDUCAO * 100)}%\n"
+        f"💸 Total reduzido: R$ {total_reduzido:.2f}\n\n"
+        f"📊 Resumo:\n"
         f"• {len(unidades_reduzidas)} unidades reduzidas\n"
-        f"  - {campanhas_cbo_reduzidas} campanhas CBO\n"
-        f"  - {adsets_abo_reduzidos} AdSets em {campanhas_abo_com_reducao} campanhas ABO\n"
-        f"• Percentual aplicado: {int(PERCENTUAL_REDUCAO * 100)}%\n"
-        f"• Total reduzido: R$ {total_reduzido:.2f}\n\n"
-        f"💰 Orçamento total atual: R$ {total_orcamento_atual:.2f}"
     )
+    
+    if campanhas_cbo_reduzidas:
+        mensagem += f"\n🎯 Campanhas CBO ({len(campanhas_cbo_reduzidas)}):\n"
+        for i, campanha in enumerate(campanhas_cbo_reduzidas[:5]):  # Top 5 reduções CBO
+            mensagem += f"{i+1}. {campanha}\n"
+        if len(campanhas_cbo_reduzidas) > 5:
+            mensagem += f"... e mais {len(campanhas_cbo_reduzidas) - 5} campanhas CBO\n"
+    
+    if adsets_abo_reduzidos:
+        mensagem += f"\n🔄 AdSets ABO ({len(adsets_abo_reduzidos)} em {campanhas_abo_com_reducao} campanhas):\n"
+        for i, adset in enumerate(adsets_abo_reduzidos[:5]):  # Top 5 reduções ABO
+            mensagem += f"{i+1}. {adset}\n"
+        if len(adsets_abo_reduzidos) > 5:
+            mensagem += f"... e mais {len(adsets_abo_reduzidos) - 5} AdSets ABO\n"
+    
+    mensagem += f"\n💰 Orçamento total atual: R$ {total_orcamento_atual:.2f}"
+    
+    # Log resumo final
+    log_message(f"[RESUMO] Total de unidades reduzidas: {len(unidades_reduzidas)}")
+    log_message(f"[RESUMO] Campanhas CBO reduzidas: {len(campanhas_cbo_reduzidas)}")
+    log_message(f"[RESUMO] AdSets ABO reduzidos: {len(adsets_abo_reduzidos)} em {campanhas_abo_com_reducao} campanhas")
+    log_message(f"[RESUMO] Total reduzido: R$ {total_reduzido:.2f}")
+    log_message(f"[RESUMO] Orçamento total atual: R$ {total_orcamento_atual:.2f}")
     
     sucesso_whatsapp = enviar_mensagem_whatsapp(WHATSAPP_GROUP, mensagem)
     
