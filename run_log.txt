@@ -19084,3 +19084,1022 @@ Campanhas:
 • 🔥 [T]-[Conversão]-[Perfil] - Lançamentos (CBO)
 
 [2025-06-22 08:01:29] Processo de escala concluído com sucesso!
+[2025-06-22 08:31:23] Conta ABO act_406219475582745 adicionada à lista de processamento
+[2025-06-22 08:31:23] Iniciando escala com: Token=EAAQ0...FNOK0, Contas=['act_790223756353632', 'act_303402486183447', 'act_406219475582745'], Grupo=#IMP - ROI DIÁRIO
+[2025-06-22 08:31:23] Parâmetros: Date Range=today, Min Profit=1, Scale Value=1000
+[2025-06-22 08:31:23] Contas ABO configuradas: ['act_406219475582745']
+[2025-06-22 08:31:23] Planilha limpa no início da execução.
+[2025-06-22 08:31:23] Processando conta de anúncio CBO: act_790223756353632
+[2025-06-22 08:31:23] Buscando campanhas para conta act_790223756353632...
+[2025-06-22 08:31:26] Encontradas 110 campanhas.
+[2025-06-22 08:31:27] Encontrados 13 insights.
+[2025-06-22 08:31:27] Processadas 12 campanhas ativas.
+[2025-06-22 08:31:27] Processando conta de anúncio CBO: act_303402486183447
+[2025-06-22 08:31:27] Buscando campanhas para conta act_303402486183447...
+[2025-06-22 08:31:29] Encontradas 87 campanhas.
+[2025-06-22 08:31:30] Encontrados 7 insights.
+[2025-06-22 08:31:30] Processadas 5 campanhas ativas.
+[2025-06-22 08:31:30] Processando conta de anúncio ABO: act_406219475582745
+[2025-06-22 08:31:30] Buscando campanhas para conta act_406219475582745...
+[2025-06-22 08:31:31] Encontradas 34 campanhas.
+[2025-06-22 08:31:32] Encontrados 6 insights.
+[2025-06-22 08:31:32] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb
+[2025-06-22 08:31:32] [ERRO] Falha ao buscar dados do Facebook: 400 Client Error: Bad Request for url: https://graph.facebook.com/v17.0/act_406219475582745/insights?fields=adset_id,adset_name,campaign_id,spend,action_values&date_preset=today&level=adset&filtering=%5B%7B%22field%22:%22campaign_id%22,%22operator%22:%22EQUAL%22,%22value%22:%22120226735943410030%22%7D%5D&access_token=EAAQ0iNruF0MBOZCyyGx8M9tbi6wwDDMejsITuMP77kmuYX27bqGax5ocxZAy39tJQtH4ZAMbntZAmlypVtSkUIqrMjsBZCskjCYEcWvvAIGss6FegyCbpqZBKeIidow2JZADZCYnyok9jcKdIqRdY1mZAXXI2WSw7ZCIF8z4rF57CWZBGhix0FXuGBzoBhBipxFNOK0
+Resposta: {"error":{"message":"(#100) Filter campaign_id is not valid any more, please use campaign.id instead","type":"OAuthException","code":100,"fbtrace_id":"AfI56ML-n_JQXWEXgT9SMhG"}}
+[2025-06-22 08:31:32] Campanha ABO 120226735943410030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 08:31:32] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto
+[2025-06-22 08:31:33] [ERRO] Falha ao buscar dados do Facebook: 400 Client Error: Bad Request for url: https://graph.facebook.com/v17.0/act_406219475582745/insights?fields=adset_id,adset_name,campaign_id,spend,action_values&date_preset=today&level=adset&filtering=%5B%7B%22field%22:%22campaign_id%22,%22operator%22:%22EQUAL%22,%22value%22:%22120226735942950030%22%7D%5D&access_token=EAAQ0iNruF0MBOZCyyGx8M9tbi6wwDDMejsITuMP77kmuYX27bqGax5ocxZAy39tJQtH4ZAMbntZAmlypVtSkUIqrMjsBZCskjCYEcWvvAIGss6FegyCbpqZBKeIidow2JZADZCYnyok9jcKdIqRdY1mZAXXI2WSw7ZCIF8z4rF57CWZBGhix0FXuGBzoBhBipxFNOK0
+Resposta: {"error":{"message":"(#100) Filter campaign_id is not valid any more, please use campaign.id instead","type":"OAuthException","code":100,"fbtrace_id":"ACnELOMpGL1djQAFaIVFp0j"}}
+[2025-06-22 08:31:33] Campanha ABO 120226735942950030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 08:31:33] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica
+[2025-06-22 08:31:34] [ERRO] Falha ao buscar dados do Facebook: 400 Client Error: Bad Request for url: https://graph.facebook.com/v17.0/act_406219475582745/insights?fields=adset_id,adset_name,campaign_id,spend,action_values&date_preset=today&level=adset&filtering=%5B%7B%22field%22:%22campaign_id%22,%22operator%22:%22EQUAL%22,%22value%22:%22120226735942940030%22%7D%5D&access_token=EAAQ0iNruF0MBOZCyyGx8M9tbi6wwDDMejsITuMP77kmuYX27bqGax5ocxZAy39tJQtH4ZAMbntZAmlypVtSkUIqrMjsBZCskjCYEcWvvAIGss6FegyCbpqZBKeIidow2JZADZCYnyok9jcKdIqRdY1mZAXXI2WSw7ZCIF8z4rF57CWZBGhix0FXuGBzoBhBipxFNOK0
+Resposta: {"error":{"message":"(#100) Filter campaign_id is not valid any more, please use campaign.id instead","type":"OAuthException","code":100,"fbtrace_id":"AoV96KoKomDlEaEtHVnr2Oj"}}
+[2025-06-22 08:31:34] Campanha ABO 120226735942940030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 08:31:34] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros
+[2025-06-22 08:31:35] [ERRO] Falha ao buscar dados do Facebook: 400 Client Error: Bad Request for url: https://graph.facebook.com/v17.0/act_406219475582745/insights?fields=adset_id,adset_name,campaign_id,spend,action_values&date_preset=today&level=adset&filtering=%5B%7B%22field%22:%22campaign_id%22,%22operator%22:%22EQUAL%22,%22value%22:%22120226735942930030%22%7D%5D&access_token=EAAQ0iNruF0MBOZCyyGx8M9tbi6wwDDMejsITuMP77kmuYX27bqGax5ocxZAy39tJQtH4ZAMbntZAmlypVtSkUIqrMjsBZCskjCYEcWvvAIGss6FegyCbpqZBKeIidow2JZADZCYnyok9jcKdIqRdY1mZAXXI2WSw7ZCIF8z4rF57CWZBGhix0FXuGBzoBhBipxFNOK0
+Resposta: {"error":{"message":"(#100) Filter campaign_id is not valid any more, please use campaign.id instead","type":"OAuthException","code":100,"fbtrace_id":"ApClss2_awhScxAEKB4KmpI"}}
+[2025-06-22 08:31:35] Campanha ABO 120226735942930030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 08:31:35] Processadas 4 campanhas ativas.
+[2025-06-22 08:31:35]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb com 15 adsets
+[2025-06-22 08:31:35]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto com 15 adsets
+[2025-06-22 08:31:35]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica com 15 adsets
+[2025-06-22 08:31:35]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros com 15 adsets
+[2025-06-22 08:31:35] Total de 21 campanhas ativas encontradas.
+[2025-06-22 08:31:35] Campanhas CBO: 17, Campanhas ABO: 4
+[2025-06-22 08:31:35] Total de AdSets em campanhas ABO: 60
+[2025-06-22 08:31:35] Dados das campanhas salvos na planilha.
+[2025-06-22 08:31:35] [INFO] 4 unidades para escalonamento:
+[2025-06-22 08:31:35] - Campanhas CBO: 4
+[2025-06-22 08:31:35] - AdSets ABO: 0
+[2025-06-22 08:31:35] - Soma dos lucros: R$ 145.26
+[2025-06-22 08:31:35] Enviando atualização de orçamento para campanha 120227628451420338
+[2025-06-22 08:31:36] Resposta da API: {'success': True}
+[2025-06-22 08:31:36] Orçamento atualizado para a campanha 120227628451420338: R$ 3216.89
+[2025-06-22 08:31:36] Campanha CBO 120227628451420338 escalada para R$ 3216.89
+[2025-06-22 08:31:36] Enviando atualização de orçamento para campanha 120227626914980338
+[2025-06-22 08:31:37] Resposta da API: {'success': True}
+[2025-06-22 08:31:37] Orçamento atualizado para a campanha 120227626914980338: R$ 3293.97
+[2025-06-22 08:31:37] Campanha CBO 120227626914980338 escalada para R$ 3293.97
+[2025-06-22 08:31:37] Enviando atualização de orçamento para campanha 120215567870460431
+[2025-06-22 08:31:38] Resposta da API: {'success': True}
+[2025-06-22 08:31:38] Orçamento atualizado para a campanha 120215567870460431: R$ 1050.96
+[2025-06-22 08:31:38] Campanha CBO 120215567870460431 escalada para R$ 1050.96
+[2025-06-22 08:31:38] Enviando atualização de orçamento para campanha 120214808911760431
+[2025-06-22 08:31:41] Resposta da API: {'success': True}
+[2025-06-22 08:31:41] Orçamento atualizado para a campanha 120214808911760431: R$ 4038.25
+[2025-06-22 08:31:41] Campanha CBO 120214808911760431 escalada para R$ 4038.25
+[2025-06-22 08:31:41] Iniciando envio de mensagem para o grupo: #IMP - ROI DIÁRIO
+[2025-06-22 08:31:41] Mensagem limpa: [OK] Escala realizada com sucesso!
+
+[$$] Total distribuído: R$ 1000.00
+[DADOS] Unidades escaladas: 4...
+[2025-06-22 08:31:44] Abrindo WhatsApp Web...
+[2025-06-22 08:31:44] Aguardando carregamento do WhatsApp Web...
+[2025-06-22 08:31:52] WhatsApp Web carregado, elemento detectado: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 08:31:54] Campo de pesquisa encontrado com seletor: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 08:31:58] Texto de pesquisa '#IMP - ROI DIÁRIO' inserido.
+[2025-06-22 08:32:01] Grupo encontrado com seletor: //span[@title='#IMP - ROI DIÁRIO']
+[2025-06-22 08:32:02] Grupo clicado com sucesso
+[2025-06-22 08:32:05] Conversa do grupo aberta com sucesso
+[2025-06-22 08:32:05] Localizando campo de mensagem...
+[2025-06-22 08:32:05] Campo de mensagem encontrado com seletor: //div[@role='textbox' and @data-tab='10']
+[2025-06-22 08:32:05] Tentando digitar mensagem...
+[2025-06-22 08:32:07] Mensagem digitada com sucesso
+[2025-06-22 08:32:08] Enviando mensagem...
+[2025-06-22 08:32:18] Botão de enviar encontrado com seletor: button[data-tab='11']
+[2025-06-22 08:32:18] Botão de enviar clicado
+[2025-06-22 08:32:23] Mensagem enviada com sucesso (confirmado)
+[2025-06-22 08:32:23] Processo de envio de mensagem concluído
+[2025-06-22 08:32:25] [INFO] Mensagem enviada com sucesso
+[2025-06-22 08:32:26] Processo de escala concluído com sucesso!
+[2025-06-22 08:36:36] Conta ABO act_406219475582745 adicionada à lista de processamento
+[2025-06-22 08:36:36] Iniciando escala com: Token=EAAQ0...FNOK0, Contas=['act_790223756353632', 'act_303402486183447', 'act_406219475582745'], Grupo=#IMP - ROI DIÁRIO
+[2025-06-22 08:36:36] Parâmetros: Date Range=today, Min Profit=1, Scale Value=500
+[2025-06-22 08:36:36] Contas ABO configuradas: ['act_406219475582745']
+[2025-06-22 08:36:36] Planilha limpa no início da execução.
+[2025-06-22 08:36:36] Processando conta de anúncio CBO: act_790223756353632
+[2025-06-22 08:36:36] Buscando campanhas para conta act_790223756353632...
+[2025-06-22 08:36:38] Encontradas 110 campanhas.
+[2025-06-22 08:36:39] Encontrados 14 insights.
+[2025-06-22 08:36:39] Processadas 12 campanhas ativas.
+[2025-06-22 08:36:39] Processando conta de anúncio CBO: act_303402486183447
+[2025-06-22 08:36:39] Buscando campanhas para conta act_303402486183447...
+[2025-06-22 08:36:41] Encontradas 87 campanhas.
+[2025-06-22 08:36:42] Encontrados 7 insights.
+[2025-06-22 08:36:42] Processadas 5 campanhas ativas.
+[2025-06-22 08:36:42] Processando conta de anúncio ABO: act_406219475582745
+[2025-06-22 08:36:42] Buscando campanhas para conta act_406219475582745...
+[2025-06-22 08:36:43] Encontradas 34 campanhas.
+[2025-06-22 08:36:44] Encontrados 6 insights.
+[2025-06-22 08:36:44] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb
+[2025-06-22 08:36:45] Campanha ABO 120226735943410030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 08:36:45] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto
+[2025-06-22 08:36:47] Campanha ABO 120226735942950030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 08:36:47] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica
+[2025-06-22 08:36:48] Campanha ABO 120226735942940030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 08:36:48] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros
+[2025-06-22 08:36:49] Campanha ABO 120226735942930030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 08:36:49] Processadas 4 campanhas ativas.
+[2025-06-22 08:36:49]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb com 15 adsets
+[2025-06-22 08:36:49]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto com 15 adsets
+[2025-06-22 08:36:49]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica com 15 adsets
+[2025-06-22 08:36:49]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros com 15 adsets
+[2025-06-22 08:36:49] Total de 21 campanhas ativas encontradas.
+[2025-06-22 08:36:49] Campanhas CBO: 17, Campanhas ABO: 4
+[2025-06-22 08:36:49] Total de AdSets em campanhas ABO: 60
+[2025-06-22 08:36:49] Dados das campanhas salvos na planilha.
+[2025-06-22 08:36:49] [INFO] 4 unidades para escalonamento:
+[2025-06-22 08:36:49] - Campanhas CBO: 4
+[2025-06-22 08:36:49] - AdSets ABO: 0
+[2025-06-22 08:36:49] - Soma dos lucros: R$ 137.53
+[2025-06-22 08:36:49] Enviando atualização de orçamento para campanha 120227628451420338
+[2025-06-22 08:36:51] Resposta da API: {'success': True}
+[2025-06-22 08:36:51] Orçamento atualizado para a campanha 120227628451420338: R$ 3445.35
+[2025-06-22 08:36:51] Campanha CBO 120227628451420338 escalada para R$ 3445.35
+[2025-06-22 08:36:51] Enviando atualização de orçamento para campanha 120227626914980338
+[2025-06-22 08:36:52] Resposta da API: {'success': True}
+[2025-06-22 08:36:52] Orçamento atualizado para a campanha 120227626914980338: R$ 3487.48
+[2025-06-22 08:36:52] Campanha CBO 120227626914980338 escalada para R$ 3487.48
+[2025-06-22 08:36:52] Enviando atualização de orçamento para campanha 120215567870460431
+[2025-06-22 08:36:53] Resposta da API: {'success': True}
+[2025-06-22 08:36:53] Orçamento atualizado para a campanha 120215567870460431: R$ 1119.42
+[2025-06-22 08:36:53] Campanha CBO 120215567870460431 escalada para R$ 1119.42
+[2025-06-22 08:36:53] Iniciando envio de mensagem para o grupo: #IMP - ROI DIÁRIO
+[2025-06-22 08:36:53] Mensagem limpa: [OK] Escala realizada com sucesso!
+
+[$$] Total distribuído: R$ 490.44
+[DADOS] Unidades escaladas: 3
+...
+[2025-06-22 08:36:56] Abrindo WhatsApp Web...
+[2025-06-22 08:36:56] Aguardando carregamento do WhatsApp Web...
+[2025-06-22 08:37:04] WhatsApp Web carregado, elemento detectado: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 08:37:07] Campo de pesquisa encontrado com seletor: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 08:37:13] Texto de pesquisa '#IMP - ROI DIÁRIO' inserido.
+[2025-06-22 08:37:16] Grupo encontrado com seletor: //span[@title='#IMP - ROI DIÁRIO']
+[2025-06-22 08:37:16] Grupo clicado com sucesso
+[2025-06-22 08:37:19] Conversa do grupo aberta com sucesso
+[2025-06-22 08:37:19] Localizando campo de mensagem...
+[2025-06-22 08:37:19] Campo de mensagem encontrado com seletor: //div[@role='textbox' and @data-tab='10']
+[2025-06-22 08:37:19] Tentando digitar mensagem...
+[2025-06-22 08:37:21] Mensagem digitada com sucesso
+[2025-06-22 08:37:22] Enviando mensagem...
+[2025-06-22 08:37:33] Botão de enviar encontrado com seletor: button[data-tab='11']
+[2025-06-22 08:37:33] Botão de enviar clicado
+[2025-06-22 08:37:38] Mensagem enviada com sucesso (confirmado)
+[2025-06-22 08:37:38] Processo de envio de mensagem concluído
+[2025-06-22 08:37:40] [INFO] Mensagem enviada com sucesso
+[2025-06-22 08:37:40] Processo de escala concluído com sucesso!
+[2025-06-22 08:45:54] Conta ABO act_406219475582745 adicionada à lista de processamento
+[2025-06-22 08:45:54] Iniciando escala com: Token=EAAQ0...FNOK0, Contas=['act_790223756353632', 'act_303402486183447', 'act_406219475582745'], Grupo=#IMP - ROI DIÁRIO
+[2025-06-22 08:45:54] Parâmetros: Date Range=today, Min Profit=1, Scale Value=500
+[2025-06-22 08:45:54] Contas ABO configuradas: ['act_406219475582745']
+[2025-06-22 08:45:54] Planilha limpa no início da execução.
+[2025-06-22 08:45:54] Processando conta de anúncio CBO: act_790223756353632
+[2025-06-22 08:45:54] Buscando campanhas para conta act_790223756353632...
+[2025-06-22 08:45:57] Encontradas 110 campanhas.
+[2025-06-22 08:45:58] Encontrados 14 insights.
+[2025-06-22 08:45:58] Processadas 12 campanhas ativas.
+[2025-06-22 08:45:58] Processando conta de anúncio CBO: act_303402486183447
+[2025-06-22 08:45:58] Buscando campanhas para conta act_303402486183447...
+[2025-06-22 08:46:00] Encontradas 87 campanhas.
+[2025-06-22 08:46:01] Encontrados 7 insights.
+[2025-06-22 08:46:01] Processadas 5 campanhas ativas.
+[2025-06-22 08:46:01] Processando conta de anúncio ABO: act_406219475582745
+[2025-06-22 08:46:01] Buscando campanhas para conta act_406219475582745...
+[2025-06-22 08:46:02] Encontradas 34 campanhas.
+[2025-06-22 08:46:03] Encontrados 6 insights.
+[2025-06-22 08:46:03] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb
+[2025-06-22 08:46:04] Campanha ABO 120226735943410030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 08:46:04] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto
+[2025-06-22 08:46:05] Campanha ABO 120226735942950030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 08:46:05] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica
+[2025-06-22 08:46:06] Campanha ABO 120226735942940030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 08:46:06] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros
+[2025-06-22 08:46:08] Campanha ABO 120226735942930030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 08:46:08] Processadas 4 campanhas ativas.
+[2025-06-22 08:46:08]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb com 15 adsets
+[2025-06-22 08:46:08]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto com 15 adsets
+[2025-06-22 08:46:08]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica com 15 adsets
+[2025-06-22 08:46:08]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros com 15 adsets
+[2025-06-22 08:46:08] Total de 21 campanhas ativas encontradas.
+[2025-06-22 08:46:08] Campanhas CBO: 17, Campanhas ABO: 4
+[2025-06-22 08:46:08] Total de AdSets em campanhas ABO: 60
+[2025-06-22 08:46:08] Dados das campanhas salvos na planilha.
+[2025-06-22 08:46:08] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb (lucro campanha: R$ -9.37)
+[2025-06-22 08:46:08]   -> 1 AdSets com lucro >= R$ 1.00
+[2025-06-22 08:46:08] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto (lucro campanha: R$ -27.29)
+[2025-06-22 08:46:08]   -> 1 AdSets com lucro >= R$ 1.00
+[2025-06-22 08:46:08] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica (lucro campanha: R$ -22.27)
+[2025-06-22 08:46:08]   -> 1 AdSets com lucro >= R$ 1.00
+[2025-06-22 08:46:08] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros (lucro campanha: R$ -35.54)
+[2025-06-22 08:46:08]   -> 0 AdSets com lucro >= R$ 1.00
+[2025-06-22 08:46:08] [INFO] 7 unidades para escalonamento:
+[2025-06-22 08:46:08] - Campanhas CBO: 4
+[2025-06-22 08:46:08] - AdSets ABO: 3
+[2025-06-22 08:46:08] - Soma dos lucros: R$ 174.16
+[2025-06-22 08:46:08] Enviando atualização de orçamento para campanha 120227628451420338
+[2025-06-22 08:46:09] Resposta da API: {'success': True}
+[2025-06-22 08:46:09] Orçamento atualizado para a campanha 120227628451420338: R$ 3625.43
+[2025-06-22 08:46:09] Campanha CBO 120227628451420338 escalada para R$ 3625.43
+[2025-06-22 08:46:09] Enviando atualização de orçamento para campanha 120227626914980338
+[2025-06-22 08:46:10] Resposta da API: {'success': True}
+[2025-06-22 08:46:10] Orçamento atualizado para a campanha 120227626914980338: R$ 3640.30
+[2025-06-22 08:46:10] Campanha CBO 120227626914980338 escalada para R$ 3640.30
+[2025-06-22 08:46:10] Atualizando orçamento do AdSet 120226735943130030 para R$ 100.00
+[2025-06-22 08:46:11] Orçamento do AdSet 120226735943130030 atualizado com sucesso
+[2025-06-22 08:46:11] AdSet 120226735943130030 escalado de R$ 8.88 para R$ 100.00
+[2025-06-22 08:46:11] Enviando atualização de orçamento para campanha 120215567870460431
+[2025-06-22 08:46:13] Resposta da API: {'success': True}
+[2025-06-22 08:46:13] Orçamento atualizado para a campanha 120215567870460431: R$ 1167.44
+[2025-06-22 08:46:13] Campanha CBO 120215567870460431 escalada para R$ 1167.44
+[2025-06-22 08:46:13] Atualizando orçamento do AdSet 120226736700440030 para R$ 100.00
+[2025-06-22 08:46:14] Orçamento do AdSet 120226736700440030 atualizado com sucesso
+[2025-06-22 08:46:14] AdSet 120226736700440030 escalado de R$ 8.88 para R$ 100.00
+[2025-06-22 08:46:14] Atualizando orçamento do AdSet 120226735943350030 para R$ 100.00
+[2025-06-22 08:46:15] Orçamento do AdSet 120226735943350030 atualizado com sucesso
+[2025-06-22 08:46:15] AdSet 120226735943350030 escalado de R$ 8.88 para R$ 100.00
+[2025-06-22 08:46:15] Campanha ABO 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - orçamento total atualizado para R$ 224.32
+[2025-06-22 08:46:15] Campanha ABO 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - orçamento total atualizado para R$ 224.32
+[2025-06-22 08:46:15] Campanha ABO 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - orçamento total atualizado para R$ 224.32
+[2025-06-22 08:46:15] Iniciando envio de mensagem para o grupo: #IMP - ROI DIÁRIO
+[2025-06-22 08:46:15] Mensagem limpa: [OK] Escala realizada com sucesso!
+
+[$$] Total distribuído: R$ 495.23
+[DADOS] Unidades escaladas: 6
+...
+[2025-06-22 08:46:18] Abrindo WhatsApp Web...
+[2025-06-22 08:46:18] Aguardando carregamento do WhatsApp Web...
+[2025-06-22 08:46:27] WhatsApp Web carregado, elemento detectado: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 08:46:29] Campo de pesquisa encontrado com seletor: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 08:46:31] Texto de pesquisa '#IMP - ROI DIÁRIO' inserido.
+[2025-06-22 08:46:38] Grupo encontrado com seletor: //span[@title='#IMP - ROI DIÁRIO']
+[2025-06-22 08:46:38] Grupo clicado com sucesso
+[2025-06-22 08:46:41] Conversa do grupo aberta com sucesso
+[2025-06-22 08:46:41] Localizando campo de mensagem...
+[2025-06-22 08:46:42] Campo de mensagem encontrado com seletor: //div[@role='textbox' and @data-tab='10']
+[2025-06-22 08:46:42] Tentando digitar mensagem...
+[2025-06-22 08:46:45] Mensagem digitada com sucesso
+[2025-06-22 08:46:46] Enviando mensagem...
+[2025-06-22 08:46:56] Botão de enviar encontrado com seletor: button[data-tab='11']
+[2025-06-22 08:46:56] Botão de enviar clicado
+[2025-06-22 08:47:01] Mensagem enviada com sucesso (confirmado)
+[2025-06-22 08:47:01] Processo de envio de mensagem concluído
+[2025-06-22 08:47:04] [INFO] Mensagem enviada com sucesso
+[2025-06-22 08:47:04] Processo de escala concluído com sucesso!
+[2025-06-22 08:54:48] Conta ABO act_406219475582745 adicionada à lista de processamento
+[2025-06-22 08:54:48] Iniciando execução da função run...
+[2025-06-22 08:54:48] Parâmetros da operação:
+[2025-06-22 08:54:48] - Token: EAAQ0...FNOK0 (truncado)
+[2025-06-22 08:54:48] - Contas: ['act_790223756353632', 'act_303402486183447', 'act_406219475582745']
+[2025-06-22 08:54:48] - Grupo: #IMP - ROI DIÁRIO
+[2025-06-22 08:54:48] - Date Range: today
+[2025-06-22 08:54:48] - Limite de Lucro Baixo: R$ 1000.0
+[2025-06-22 08:54:48] - Percentual de Redução: 35.0%
+[2025-06-22 08:54:48] - Contas ABO configuradas: ['act_406219475582745']
+[2025-06-22 08:54:48] Planilha limpa no início da execução.
+[2025-06-22 08:54:48] Processando conta de anúncio CBO: act_790223756353632
+[2025-06-22 08:54:48] Buscando campanhas para conta act_790223756353632...
+[2025-06-22 08:54:51] Encontradas 110 campanhas.
+[2025-06-22 08:54:52] Encontrados 14 insights.
+[2025-06-22 08:54:52] Processadas 12 campanhas ativas.
+[2025-06-22 08:54:52] Processando conta de anúncio CBO: act_303402486183447
+[2025-06-22 08:54:52] Buscando campanhas para conta act_303402486183447...
+[2025-06-22 08:54:54] Encontradas 87 campanhas.
+[2025-06-22 08:54:55] Encontrados 7 insights.
+[2025-06-22 08:54:55] Processadas 5 campanhas ativas.
+[2025-06-22 08:54:55] Processando conta de anúncio ABO: act_406219475582745
+[2025-06-22 08:54:55] Buscando campanhas para conta act_406219475582745...
+[2025-06-22 08:54:56] Encontradas 34 campanhas.
+[2025-06-22 08:54:56] Encontrados 6 insights.
+[2025-06-22 08:54:56] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb
+[2025-06-22 08:54:58] Campanha ABO 120226735943410030: 15 adsets ativos, orçamento total: R$ 224.32
+[2025-06-22 08:54:58] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto
+[2025-06-22 08:54:59] Campanha ABO 120226735942950030: 15 adsets ativos, orçamento total: R$ 224.32
+[2025-06-22 08:54:59] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica
+[2025-06-22 08:55:00] Campanha ABO 120226735942940030: 15 adsets ativos, orçamento total: R$ 224.32
+[2025-06-22 08:55:00] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros
+[2025-06-22 08:55:01] Campanha ABO 120226735942930030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 08:55:01] Processadas 4 campanhas ativas.
+[2025-06-22 08:55:01]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb com 15 adsets
+[2025-06-22 08:55:01]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto com 15 adsets
+[2025-06-22 08:55:01]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica com 15 adsets
+[2025-06-22 08:55:01]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros com 15 adsets
+[2025-06-22 08:55:01] Total de 21 campanhas ativas encontradas.
+[2025-06-22 08:55:01] Campanhas CBO: 17, Campanhas ABO: 4
+[2025-06-22 08:55:01] Total de AdSets em campanhas ABO: 60
+[2025-06-22 08:55:01] Dados das campanhas salvos na planilha.
+[2025-06-22 08:55:01] Iniciando processo de redução...
+[2025-06-22 08:55:01] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb (lucro campanha: R$ -10.34)
+[2025-06-22 08:55:01]   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 08:55:01] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto (lucro campanha: R$ -28.25)
+[2025-06-22 08:55:01]   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 08:55:01] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica (lucro campanha: R$ -23.16)
+[2025-06-22 08:55:01]   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 08:55:01] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros (lucro campanha: R$ -36.54)
+[2025-06-22 08:55:01]   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 08:55:01] [INFO] 77 unidades para redução:
+[2025-06-22 08:55:01] - Campanhas CBO: 17
+[2025-06-22 08:55:01] - AdSets ABO: 60
+[2025-06-22 08:55:01] Enviando atualização de orçamento para campanha 120227590767740431
+[2025-06-22 08:55:02] Resposta da API: {'success': True}
+[2025-06-22 08:55:02] Orçamento atualizado para a campanha 120227590767740431: R$ 100.00
+[2025-06-22 08:55:02] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Val.] - Gatilhos reduzida para R$ 100.00
+[2025-06-22 08:55:02] Enviando atualização de orçamento para campanha 120227588920730431
+[2025-06-22 08:55:03] Resposta da API: {'success': True}
+[2025-06-22 08:55:03] Orçamento atualizado para a campanha 120227588920730431: R$ 100.00
+[2025-06-22 08:55:03] Campanha CBO 🧊 [T]-[Conversão]-[Mx. Val]-[Perfil] - Best ADS reduzida para R$ 100.00
+[2025-06-22 08:55:03] Enviando atualização de orçamento para campanha 120227372043910431
+[2025-06-22 08:55:05] Resposta da API: {'success': True}
+[2025-06-22 08:55:05] Orçamento atualizado para a campanha 120227372043910431: R$ 100.00
+[2025-06-22 08:55:05] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Val.] - Como participar reduzida para R$ 100.00
+[2025-06-22 08:55:05] Enviando atualização de orçamento para campanha 120227095176980431
+[2025-06-22 08:55:06] Resposta da API: {'success': True}
+[2025-06-22 08:55:06] Orçamento atualizado para a campanha 120227095176980431: R$ 100.00
+[2025-06-22 08:55:06] Campanha CBO 🌎🟡 [T]-[Conversão]-[Mx. Val.] -Ganhadores 2 reduzida para R$ 100.00
+[2025-06-22 08:55:06] Enviando atualização de orçamento para campanha 120222533000150431
+[2025-06-22 08:55:07] Resposta da API: {'success': True}
+[2025-06-22 08:55:07] Orçamento atualizado para a campanha 120222533000150431: R$ 264.75
+[2025-06-22 08:55:07] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Num.] -> Reação reduzida para R$ 264.75
+[2025-06-22 08:55:07] Enviando atualização de orçamento para campanha 120221473064310431
+[2025-06-22 08:55:08] Resposta da API: {'success': True}
+[2025-06-22 08:55:08] Orçamento atualizado para a campanha 120221473064310431: R$ 100.00
+[2025-06-22 08:55:08] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Num.] - Pascoa reduzida para R$ 100.00
+[2025-06-22 08:55:08] Enviando atualização de orçamento para campanha 120215736960620431
+[2025-06-22 08:55:09] Resposta da API: {'success': True}
+[2025-06-22 08:55:09] Orçamento atualizado para a campanha 120215736960620431: R$ 267.50
+[2025-06-22 08:55:09] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Num.] - Chamadas Seguidores reduzida para R$ 267.50
+[2025-06-22 08:55:09] Enviando atualização de orçamento para campanha 120215567870460431
+[2025-06-22 08:55:10] Resposta da API: {'success': True}
+[2025-06-22 08:55:10] Orçamento atualizado para a campanha 120215567870460431: R$ 758.84
+[2025-06-22 08:55:10] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Num.] - Dia das Crianças - Cortes — 2 reduzida para R$ 758.84
+[2025-06-22 08:55:10] Enviando atualização de orçamento para campanha 120215039931450431
+[2025-06-22 08:55:12] Resposta da API: {'success': True}
+[2025-06-22 08:55:12] Orçamento atualizado para a campanha 120215039931450431: R$ 138.03
+[2025-06-22 08:55:12] Campanha CBO 🟡 [T]-[Conversão]-[Mx. val.] - Dia das Crianças - Cortes reduzida para R$ 138.03
+[2025-06-22 08:55:12] Enviando atualização de orçamento para campanha 120215038900720431
+[2025-06-22 08:55:13] Resposta da API: {'success': True}
+[2025-06-22 08:55:13] Orçamento atualizado para a campanha 120215038900720431: R$ 100.00
+[2025-06-22 08:55:13] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Num.] - Dia das Crianças - Cortes reduzida para R$ 100.00
+[2025-06-22 08:55:13] Enviando atualização de orçamento para campanha 120214808911760431
+[2025-06-22 08:55:16] Resposta da API: {'success': True}
+[2025-06-22 08:55:16] Orçamento atualizado para a campanha 120214808911760431: R$ 2624.86
+[2025-06-22 08:55:16] Campanha CBO 🌎🟡 [T]-[Conversão]-[Mx. Num.] - Ganhadores reduzida para R$ 2624.86
+[2025-06-22 08:55:16] Enviando atualização de orçamento para campanha 120214323043310431
+[2025-06-22 08:55:18] Resposta da API: {'success': True}
+[2025-06-22 08:55:18] Orçamento atualizado para a campanha 120214323043310431: R$ 100.00
+[2025-06-22 08:55:18] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Num.] -  cartinha reduzida para R$ 100.00
+[2025-06-22 08:55:18] Enviando atualização de orçamento para campanha 120227639640790338
+[2025-06-22 08:55:19] Resposta da API: {'success': True}
+[2025-06-22 08:55:19] Orçamento atualizado para a campanha 120227639640790338: R$ 279.02
+[2025-06-22 08:55:19] Campanha CBO 🔥 [T]-[Conversão]-[Mx. Val]-[Perfil] - Gatilhos reduzida para R$ 279.02
+[2025-06-22 08:55:19] Enviando atualização de orçamento para campanha 120227628451420338
+[2025-06-22 08:55:20] Resposta da API: {'success': True}
+[2025-06-22 08:55:20] Orçamento atualizado para a campanha 120227628451420338: R$ 2356.53
+[2025-06-22 08:55:20] Campanha CBO 🔥 [T]-[Conversão]-[Perfil] - Lançamentos — 2 reduzida para R$ 2356.53
+[2025-06-22 08:55:20] Enviando atualização de orçamento para campanha 120227626914980338
+[2025-06-22 08:55:21] Resposta da API: {'success': True}
+[2025-06-22 08:55:21] Orçamento atualizado para a campanha 120227626914980338: R$ 2366.19
+[2025-06-22 08:55:21] Campanha CBO 🔥 [T]-[Conversão]-[Perfil] - Lançamentos reduzida para R$ 2366.19
+[2025-06-22 08:55:21] Enviando atualização de orçamento para campanha 120214509094010338
+[2025-06-22 08:55:23] Resposta da API: {'success': True}
+[2025-06-22 08:55:23] Orçamento atualizado para a campanha 120214509094010338: R$ 100.00
+[2025-06-22 08:55:23] Campanha CBO 🔥 [T]-[Conversão]-[Mx. Val]-[Perfil] - LTV reduzida para R$ 100.00
+[2025-06-22 08:55:23] Enviando atualização de orçamento para campanha 120214507411990338
+[2025-06-22 08:55:25] Resposta da API: {'success': True}
+[2025-06-22 08:55:25] Orçamento atualizado para a campanha 120214507411990338: R$ 188.11
+[2025-06-22 08:55:25] Campanha CBO 🔥 [T]-[Conversão]-[Mx. Num]-[Perfil] - LTV reduzida para R$ 188.11
+[2025-06-22 08:55:25] Atualizando orçamento do AdSet 120226736700490030 para R$ 100.00
+[2025-06-22 08:55:27] Orçamento do AdSet 120226736700490030 atualizado com sucesso
+[2025-06-22 08:55:27] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Publico Aberto - Gambling — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:27] Atualizando orçamento do AdSet 120226736700470030 para R$ 100.00
+[2025-06-22 08:55:28] Orçamento do AdSet 120226736700470030 atualizado com sucesso
+[2025-06-22 08:55:28] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Publico Aberto - Gambling — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:28] Atualizando orçamento do AdSet 120226736700410030 para R$ 100.00
+[2025-06-22 08:55:29] Orçamento do AdSet 120226736700410030 atualizado com sucesso
+[2025-06-22 08:55:29] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compradores Envolvidos - Gambling — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:29] Atualizando orçamento do AdSet 120226736700150030 para R$ 100.00
+[2025-06-22 08:55:30] Orçamento do AdSet 120226736700150030 atualizado com sucesso
+[2025-06-22 08:55:30] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compras na Internet - Gambling — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:30] Atualizando orçamento do AdSet 120226736700130030 para R$ 100.00
+[2025-06-22 08:55:31] Orçamento do AdSet 120226736700130030 atualizado com sucesso
+[2025-06-22 08:55:31] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Publico Aberto - Gambling — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:31] Atualizando orçamento do AdSet 120226736700070030 para R$ 100.00
+[2025-06-22 08:55:33] Orçamento do AdSet 120226736700070030 atualizado com sucesso
+[2025-06-22 08:55:33] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Publico Aberto - Gambling — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:33] Atualizando orçamento do AdSet 120226736700060030 para R$ 100.00
+[2025-06-22 08:55:34] Orçamento do AdSet 120226736700060030 atualizado com sucesso
+[2025-06-22 08:55:34] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compradores Envolvidos - Gambling — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:34] Atualizando orçamento do AdSet 120226736700050030 para R$ 100.00
+[2025-06-22 08:55:35] Orçamento do AdSet 120226736700050030 atualizado com sucesso
+[2025-06-22 08:55:35] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compradores Envolvidos - Gambling — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:35] Atualizando orçamento do AdSet 120226736700040030 para R$ 100.00
+[2025-06-22 08:55:37] Orçamento do AdSet 120226736700040030 atualizado com sucesso
+[2025-06-22 08:55:37] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compras na Internet - Gambling — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:37] Atualizando orçamento do AdSet 120226736700030030 para R$ 100.00
+[2025-06-22 08:55:38] Orçamento do AdSet 120226736700030030 atualizado com sucesso
+[2025-06-22 08:55:38] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compras na Internet - Gambling — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:38] Atualizando orçamento do AdSet 120226736700020030 para R$ 100.00
+[2025-06-22 08:55:39] Orçamento do AdSet 120226736700020030 atualizado com sucesso
+[2025-06-22 08:55:39] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compradores Envolvidos - Gambling — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:39] Atualizando orçamento do AdSet 120226736700010030 para R$ 100.00
+[2025-06-22 08:55:40] Orçamento do AdSet 120226736700010030 atualizado com sucesso
+[2025-06-22 08:55:40] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compras na Internet - Gambling — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:40] Atualizando orçamento do AdSet 120226735943130030 para R$ 100.00
+[2025-06-22 08:55:42] Orçamento do AdSet 120226735943130030 atualizado com sucesso
+[2025-06-22 08:55:42] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compradores Envolvidos - Gambling reduzido para R$ 100.00
+[2025-06-22 08:55:42] Atualizando orçamento do AdSet 120226735943090030 para R$ 100.00
+[2025-06-22 08:55:43] Orçamento do AdSet 120226735943090030 atualizado com sucesso
+[2025-06-22 08:55:43] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Publico Aberto - Gambling reduzido para R$ 100.00
+[2025-06-22 08:55:43] Atualizando orçamento do AdSet 120226735942960030 para R$ 100.00
+[2025-06-22 08:55:44] Orçamento do AdSet 120226735942960030 atualizado com sucesso
+[2025-06-22 08:55:44] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compras na Internet - Gambling reduzido para R$ 100.00
+[2025-06-22 08:55:44] Atualizando orçamento do AdSet 120226736700380030 para R$ 100.00
+[2025-06-22 08:55:45] Orçamento do AdSet 120226736700380030 atualizado com sucesso
+[2025-06-22 08:55:45] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compras na Internet - Aberto — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:45] Atualizando orçamento do AdSet 120226736700240030 para R$ 100.00
+[2025-06-22 08:55:46] Orçamento do AdSet 120226736700240030 atualizado com sucesso
+[2025-06-22 08:55:46] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Publico Aberto - Aberto — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:46] Atualizando orçamento do AdSet 120226736700230030 para R$ 100.00
+[2025-06-22 08:55:47] Orçamento do AdSet 120226736700230030 atualizado com sucesso
+[2025-06-22 08:55:47] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compradores Envolvidos - Aberto — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:47] Atualizando orçamento do AdSet 120226736700210030 para R$ 100.00
+[2025-06-22 08:55:49] Orçamento do AdSet 120226736700210030 atualizado com sucesso
+[2025-06-22 08:55:49] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compradores Envolvidos - Aberto — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:49] Atualizando orçamento do AdSet 120226736700180030 para R$ 100.00
+[2025-06-22 08:55:50] Orçamento do AdSet 120226736700180030 atualizado com sucesso
+[2025-06-22 08:55:50] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Publico Aberto - Aberto — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:50] Atualizando orçamento do AdSet 120226736699490030 para R$ 100.00
+[2025-06-22 08:55:51] Orçamento do AdSet 120226736699490030 atualizado com sucesso
+[2025-06-22 08:55:51] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compradores Envolvidos - Aberto — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:51] Atualizando orçamento do AdSet 120226736699480030 para R$ 100.00
+[2025-06-22 08:55:52] Orçamento do AdSet 120226736699480030 atualizado com sucesso
+[2025-06-22 08:55:52] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compradores Envolvidos - Aberto — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:52] Atualizando orçamento do AdSet 120226736699470030 para R$ 100.00
+[2025-06-22 08:55:53] Orçamento do AdSet 120226736699470030 atualizado com sucesso
+[2025-06-22 08:55:53] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Publico Aberto - Aberto — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:53] Atualizando orçamento do AdSet 120226736699460030 para R$ 100.00
+[2025-06-22 08:55:54] Orçamento do AdSet 120226736699460030 atualizado com sucesso
+[2025-06-22 08:55:54] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compras na Internet - Aberto — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:54] Atualizando orçamento do AdSet 120226736699450030 para R$ 100.00
+[2025-06-22 08:55:55] Orçamento do AdSet 120226736699450030 atualizado com sucesso
+[2025-06-22 08:55:55] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compras na Internet - Aberto — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:55] Atualizando orçamento do AdSet 120226736699440030 para R$ 100.00
+[2025-06-22 08:55:56] Orçamento do AdSet 120226736699440030 atualizado com sucesso
+[2025-06-22 08:55:56] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Publico Aberto - Aberto — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:56] Atualizando orçamento do AdSet 120226736699430030 para R$ 100.00
+[2025-06-22 08:55:57] Orçamento do AdSet 120226736699430030 atualizado com sucesso
+[2025-06-22 08:55:57] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compras na Internet - Aberto — Cópia reduzido para R$ 100.00
+[2025-06-22 08:55:57] Atualizando orçamento do AdSet 120226735943380030 para R$ 100.00
+[2025-06-22 08:55:59] Orçamento do AdSet 120226735943380030 atualizado com sucesso
+[2025-06-22 08:55:59] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compradores Envolvidos - Aberto reduzido para R$ 100.00
+[2025-06-22 08:55:59] Atualizando orçamento do AdSet 120226735943370030 para R$ 100.00
+[2025-06-22 08:56:00] Orçamento do AdSet 120226735943370030 atualizado com sucesso
+[2025-06-22 08:56:00] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Publico Aberto - Aberto reduzido para R$ 100.00
+[2025-06-22 08:56:00] Atualizando orçamento do AdSet 120226735943350030 para R$ 100.00
+[2025-06-22 08:56:01] Orçamento do AdSet 120226735943350030 atualizado com sucesso
+[2025-06-22 08:56:01] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compras na Internet - Aberto reduzido para R$ 100.00
+[2025-06-22 08:56:01] Atualizando orçamento do AdSet 120226736700480030 para R$ 100.00
+[2025-06-22 08:56:02] Orçamento do AdSet 120226736700480030 atualizado com sucesso
+[2025-06-22 08:56:02] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compras na Internet - Música — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:02] Atualizando orçamento do AdSet 120226736700460030 para R$ 100.00
+[2025-06-22 08:56:03] Orçamento do AdSet 120226736700460030 atualizado com sucesso
+[2025-06-22 08:56:03] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compras na Internet - Música — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:03] Atualizando orçamento do AdSet 120226736700450030 para R$ 100.00
+[2025-06-22 08:56:05] Orçamento do AdSet 120226736700450030 atualizado com sucesso
+[2025-06-22 08:56:05] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compradores Envolvidos - Música — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:05] Atualizando orçamento do AdSet 120226736700440030 para R$ 100.00
+[2025-06-22 08:56:06] Orçamento do AdSet 120226736700440030 atualizado com sucesso
+[2025-06-22 08:56:06] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compras na Internet - Música — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:06] Atualizando orçamento do AdSet 120226736700430030 para R$ 100.00
+[2025-06-22 08:56:07] Orçamento do AdSet 120226736700430030 atualizado com sucesso
+[2025-06-22 08:56:07] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compradores Envolvidos - Música — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:07] Atualizando orçamento do AdSet 120226736700420030 para R$ 100.00
+[2025-06-22 08:56:08] Orçamento do AdSet 120226736700420030 atualizado com sucesso
+[2025-06-22 08:56:08] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compradores Envolvidos - Música — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:08] Atualizando orçamento do AdSet 120226736700400030 para R$ 100.00
+[2025-06-22 08:56:10] Orçamento do AdSet 120226736700400030 atualizado com sucesso
+[2025-06-22 08:56:10] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compras na Internet - Música — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:10] Atualizando orçamento do AdSet 120226736700390030 para R$ 100.00
+[2025-06-22 08:56:11] Orçamento do AdSet 120226736700390030 atualizado com sucesso
+[2025-06-22 08:56:11] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Publico aberto - Musica — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:11] Atualizando orçamento do AdSet 120226736700350030 para R$ 100.00
+[2025-06-22 08:56:12] Orçamento do AdSet 120226736700350030 atualizado com sucesso
+[2025-06-22 08:56:12] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Publico aberto - Musica — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:12] Atualizando orçamento do AdSet 120226736700340030 para R$ 100.00
+[2025-06-22 08:56:13] Orçamento do AdSet 120226736700340030 atualizado com sucesso
+[2025-06-22 08:56:13] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Publico aberto - Musica — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:13] Atualizando orçamento do AdSet 120226736700330030 para R$ 100.00
+[2025-06-22 08:56:14] Orçamento do AdSet 120226736700330030 atualizado com sucesso
+[2025-06-22 08:56:14] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Publico aberto - Musica — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:14] Atualizando orçamento do AdSet 120226736700250030 para R$ 100.00
+[2025-06-22 08:56:16] Orçamento do AdSet 120226736700250030 atualizado com sucesso
+[2025-06-22 08:56:16] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compradores Envolvidos - Música — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:16] Atualizando orçamento do AdSet 120226735943250030 para R$ 100.00
+[2025-06-22 08:56:17] Orçamento do AdSet 120226735943250030 atualizado com sucesso
+[2025-06-22 08:56:17] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compradores Envolvidos - Música reduzido para R$ 100.00
+[2025-06-22 08:56:17] Atualizando orçamento do AdSet 120226735943240030 para R$ 100.00
+[2025-06-22 08:56:18] Orçamento do AdSet 120226735943240030 atualizado com sucesso
+[2025-06-22 08:56:18] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compras na Internet - Música reduzido para R$ 100.00
+[2025-06-22 08:56:18] Atualizando orçamento do AdSet 120226735942920030 para R$ 100.00
+[2025-06-22 08:56:19] Orçamento do AdSet 120226735942920030 atualizado com sucesso
+[2025-06-22 08:56:19] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Publico aberto - Musica reduzido para R$ 100.00
+[2025-06-22 08:56:19] Atualizando orçamento do AdSet 120226736700220030 para R$ 100.00
+[2025-06-22 08:56:20] Orçamento do AdSet 120226736700220030 atualizado com sucesso
+[2025-06-22 08:56:20] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compras na Internet - Carros — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:20] Atualizando orçamento do AdSet 120226736700200030 para R$ 100.00
+[2025-06-22 08:56:21] Orçamento do AdSet 120226736700200030 atualizado com sucesso
+[2025-06-22 08:56:21] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compras na Internet - Carros — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:21] Atualizando orçamento do AdSet 120226736700190030 para R$ 100.00
+[2025-06-22 08:56:22] Orçamento do AdSet 120226736700190030 atualizado com sucesso
+[2025-06-22 08:56:22] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compradores Envolvidos - Carros — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:22] Atualizando orçamento do AdSet 120226736700170030 para R$ 100.00
+[2025-06-22 08:56:23] Orçamento do AdSet 120226736700170030 atualizado com sucesso
+[2025-06-22 08:56:23] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compras na Internet - Carros — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:23] Atualizando orçamento do AdSet 120226736700160030 para R$ 100.00
+[2025-06-22 08:56:24] Orçamento do AdSet 120226736700160030 atualizado com sucesso
+[2025-06-22 08:56:24] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compras na Internet - Carros — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:24] Atualizando orçamento do AdSet 120226736700140030 para R$ 100.00
+[2025-06-22 08:56:26] Orçamento do AdSet 120226736700140030 atualizado com sucesso
+[2025-06-22 08:56:26] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compradores Envolvidos - Carros — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:26] Atualizando orçamento do AdSet 120226736700120030 para R$ 100.00
+[2025-06-22 08:56:27] Orçamento do AdSet 120226736700120030 atualizado com sucesso
+[2025-06-22 08:56:27] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compradores Envolvidos - Carros — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:27] Atualizando orçamento do AdSet 120226736700110030 para R$ 100.00
+[2025-06-22 08:56:28] Orçamento do AdSet 120226736700110030 atualizado com sucesso
+[2025-06-22 08:56:28] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compradores Envolvidos - Carros — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:28] Atualizando orçamento do AdSet 120226736700100030 para R$ 100.00
+[2025-06-22 08:56:29] Orçamento do AdSet 120226736700100030 atualizado com sucesso
+[2025-06-22 08:56:29] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Publico Aberto - Carros — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:29] Atualizando orçamento do AdSet 120226736700090030 para R$ 100.00
+[2025-06-22 08:56:30] Orçamento do AdSet 120226736700090030 atualizado com sucesso
+[2025-06-22 08:56:30] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Publico Aberto - Carros — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:30] Atualizando orçamento do AdSet 120226736700080030 para R$ 100.00
+[2025-06-22 08:56:31] Orçamento do AdSet 120226736700080030 atualizado com sucesso
+[2025-06-22 08:56:31] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Publico Aberto - Carros — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:31] Atualizando orçamento do AdSet 120226736700000030 para R$ 100.00
+[2025-06-22 08:56:32] Orçamento do AdSet 120226736700000030 atualizado com sucesso
+[2025-06-22 08:56:32] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Publico Aberto - Carros — Cópia reduzido para R$ 100.00
+[2025-06-22 08:56:32] Atualizando orçamento do AdSet 120226735943520030 para R$ 100.00
+[2025-06-22 08:56:33] Orçamento do AdSet 120226735943520030 atualizado com sucesso
+[2025-06-22 08:56:33] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compradores Envolvidos - Carros reduzido para R$ 100.00
+[2025-06-22 08:56:33] Atualizando orçamento do AdSet 120226735943490030 para R$ 100.00
+[2025-06-22 08:56:35] Orçamento do AdSet 120226735943490030 atualizado com sucesso
+[2025-06-22 08:56:35] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compras na Internet - Carros reduzido para R$ 100.00
+[2025-06-22 08:56:35] Atualizando orçamento do AdSet 120226735943000030 para R$ 100.00
+[2025-06-22 08:56:36] Orçamento do AdSet 120226735943000030 atualizado com sucesso
+[2025-06-22 08:56:36] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Publico Aberto - Carros reduzido para R$ 100.00
+[2025-06-22 08:56:36] Campanha ABO 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - orçamento total atualizado para R$ 1500.00
+[2025-06-22 08:56:36] Campanha ABO 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - orçamento total atualizado para R$ 1500.00
+[2025-06-22 08:56:36] Campanha ABO 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - orçamento total atualizado para R$ 1500.00
+[2025-06-22 08:56:36] Campanha ABO 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - orçamento total atualizado para R$ 1500.00
+[2025-06-22 08:56:36] Iniciando envio de mensagem para o grupo: #IMP - ROI DIÁRIO
+[2025-06-22 08:56:36] Mensagem limpa: [OK] Redução concluída!
+
+[DESCEU] Unidades com lucro < R$ 1000.00:
+- 77 unidades reduzidas
+  - 17 ca...
+[2025-06-22 08:56:39] Abrindo WhatsApp Web...
+[2025-06-22 08:56:39] Aguardando carregamento do WhatsApp Web...
+[2025-06-22 08:56:47] WhatsApp Web carregado, elemento detectado: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 08:56:49] Campo de pesquisa encontrado com seletor: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 08:56:51] Texto de pesquisa '#IMP - ROI DIÁRIO' inserido.
+[2025-06-22 08:56:57] Grupo encontrado com seletor: //span[@title='#IMP - ROI DIÁRIO']
+[2025-06-22 08:56:58] Grupo clicado com sucesso
+[2025-06-22 08:57:01] Conversa do grupo aberta com sucesso
+[2025-06-22 08:57:01] Localizando campo de mensagem...
+[2025-06-22 08:57:01] Campo de mensagem encontrado com seletor: //div[@role='textbox' and @data-tab='10']
+[2025-06-22 08:57:01] Tentando digitar mensagem...
+[2025-06-22 08:57:03] Mensagem digitada com sucesso
+[2025-06-22 08:57:04] Enviando mensagem...
+[2025-06-22 08:57:04] Botão de enviar encontrado com seletor: button[aria-label='Enviar']
+[2025-06-22 08:57:05] Botão de enviar clicado
+[2025-06-22 08:57:10] Mensagem enviada com sucesso (confirmado)
+[2025-06-22 08:57:10] Processo de envio de mensagem concluído
+[2025-06-22 08:57:12] [INFO] Mensagem enviada com sucesso
+[2025-06-22 08:57:12] Processo de redução concluído com sucesso!
+[2025-06-22 09:04:47] Conta ABO act_406219475582745 adicionada à lista de processamento
+[2025-06-22 09:04:47] Iniciando execução da função run...
+[2025-06-22 09:04:47] Parâmetros da operação:
+[2025-06-22 09:04:47] - Token: EAAQ0...FNOK0 (truncado)
+[2025-06-22 09:04:47] - Contas: ['act_790223756353632', 'act_303402486183447', 'act_406219475582745']
+[2025-06-22 09:04:47] - Grupo: #IMP - ROI DIÁRIO
+[2025-06-22 09:04:47] - Date Range: today
+[2025-06-22 09:04:47] - Limite de Lucro Baixo: R$ 1000.0
+[2025-06-22 09:04:47] - Percentual de Redução: 35.0%
+[2025-06-22 09:04:47] - Contas ABO configuradas: ['act_406219475582745']
+[2025-06-22 09:04:47] Planilha limpa no início da execução.
+[2025-06-22 09:04:47] Processando conta de anúncio CBO: act_790223756353632
+[2025-06-22 09:04:47] Buscando campanhas para conta act_790223756353632...
+[2025-06-22 09:04:50] Encontradas 110 campanhas.
+[2025-06-22 09:04:51] Encontrados 14 insights.
+[2025-06-22 09:04:51] Processadas 12 campanhas ativas.
+[2025-06-22 09:04:51] Processando conta de anúncio CBO: act_303402486183447
+[2025-06-22 09:04:51] Buscando campanhas para conta act_303402486183447...
+[2025-06-22 09:04:54] Encontradas 87 campanhas.
+[2025-06-22 09:04:55] Encontrados 7 insights.
+[2025-06-22 09:04:55] Processadas 5 campanhas ativas.
+[2025-06-22 09:04:55] Processando conta de anúncio ABO: act_406219475582745
+[2025-06-22 09:04:55] Buscando campanhas para conta act_406219475582745...
+[2025-06-22 09:04:56] Encontradas 34 campanhas.
+[2025-06-22 09:04:56] Encontrados 6 insights.
+[2025-06-22 09:04:56] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb
+[2025-06-22 09:04:58] Campanha ABO 120226735943410030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 09:04:58] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto
+[2025-06-22 09:05:01] Campanha ABO 120226735942950030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 09:05:01] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica
+[2025-06-22 09:05:02] Campanha ABO 120226735942940030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 09:05:02] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros
+[2025-06-22 09:05:03] Campanha ABO 120226735942930030: 15 adsets ativos, orçamento total: R$ 133.20
+[2025-06-22 09:05:03] Processadas 4 campanhas ativas.
+[2025-06-22 09:05:03]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb com 15 adsets
+[2025-06-22 09:05:03]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto com 15 adsets
+[2025-06-22 09:05:03]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica com 15 adsets
+[2025-06-22 09:05:03]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros com 15 adsets
+[2025-06-22 09:05:03] Total de 21 campanhas ativas encontradas.
+[2025-06-22 09:05:03] Campanhas CBO: 17, Campanhas ABO: 4
+[2025-06-22 09:05:03] Total de AdSets em campanhas ABO: 60
+[2025-06-22 09:05:03] Dados das campanhas salvos na planilha.
+[2025-06-22 09:05:03] Iniciando processo de redução...
+[2025-06-22 09:05:03] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb (lucro campanha: R$ -13.73)
+[2025-06-22 09:05:03]   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 09:05:03] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto (lucro campanha: R$ -29.18)
+[2025-06-22 09:05:03]   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 09:05:03] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica (lucro campanha: R$ -25.14)
+[2025-06-22 09:05:03]   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 09:05:03] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros (lucro campanha: R$ -38.92)
+[2025-06-22 09:05:03]   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 09:05:03] [INFO] 77 unidades para redução:
+[2025-06-22 09:05:03] - Campanhas CBO: 17
+[2025-06-22 09:05:03] - AdSets ABO: 60
+[2025-06-22 09:05:03] Enviando atualização de orçamento para campanha 120227590767740431
+[2025-06-22 09:05:04] Resposta da API: {'success': True}
+[2025-06-22 09:05:04] Orçamento atualizado para a campanha 120227590767740431: R$ 100.00
+[2025-06-22 09:05:04] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Val.] - Gatilhos reduzida para R$ 100.00
+[2025-06-22 09:05:04] Enviando atualização de orçamento para campanha 120227588920730431
+[2025-06-22 09:05:05] Resposta da API: {'success': True}
+[2025-06-22 09:05:05] Orçamento atualizado para a campanha 120227588920730431: R$ 100.00
+[2025-06-22 09:05:05] Campanha CBO 🧊 [T]-[Conversão]-[Mx. Val]-[Perfil] - Best ADS reduzida para R$ 100.00
+[2025-06-22 09:05:05] Enviando atualização de orçamento para campanha 120227372043910431
+[2025-06-22 09:05:06] Resposta da API: {'success': True}
+[2025-06-22 09:05:06] Orçamento atualizado para a campanha 120227372043910431: R$ 100.00
+[2025-06-22 09:05:06] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Val.] - Como participar reduzida para R$ 100.00
+[2025-06-22 09:05:06] Enviando atualização de orçamento para campanha 120227095176980431
+[2025-06-22 09:05:07] Resposta da API: {'success': True}
+[2025-06-22 09:05:07] Orçamento atualizado para a campanha 120227095176980431: R$ 100.00
+[2025-06-22 09:05:07] Campanha CBO 🌎🟡 [T]-[Conversão]-[Mx. Val.] -Ganhadores 2 reduzida para R$ 100.00
+[2025-06-22 09:05:07] Enviando atualização de orçamento para campanha 120222533000150431
+[2025-06-22 09:05:08] Resposta da API: {'success': True}
+[2025-06-22 09:05:08] Orçamento atualizado para a campanha 120222533000150431: R$ 172.09
+[2025-06-22 09:05:08] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Num.] -> Reação reduzida para R$ 172.09
+[2025-06-22 09:05:08] Enviando atualização de orçamento para campanha 120221473064310431
+[2025-06-22 09:05:10] Resposta da API: {'success': True}
+[2025-06-22 09:05:10] Orçamento atualizado para a campanha 120221473064310431: R$ 100.00
+[2025-06-22 09:05:10] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Num.] - Pascoa reduzida para R$ 100.00
+[2025-06-22 09:05:10] Enviando atualização de orçamento para campanha 120215736960620431
+[2025-06-22 09:05:11] Resposta da API: {'success': True}
+[2025-06-22 09:05:11] Orçamento atualizado para a campanha 120215736960620431: R$ 173.88
+[2025-06-22 09:05:11] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Num.] - Chamadas Seguidores reduzida para R$ 173.88
+[2025-06-22 09:05:11] Enviando atualização de orçamento para campanha 120215567870460431
+[2025-06-22 09:05:13] Resposta da API: {'success': True}
+[2025-06-22 09:05:13] Orçamento atualizado para a campanha 120215567870460431: R$ 493.24
+[2025-06-22 09:05:13] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Num.] - Dia das Crianças - Cortes — 2 reduzida para R$ 493.24
+[2025-06-22 09:05:13] Enviando atualização de orçamento para campanha 120215039931450431
+[2025-06-22 09:05:14] Resposta da API: {'success': True}
+[2025-06-22 09:05:14] Orçamento atualizado para a campanha 120215039931450431: R$ 100.00
+[2025-06-22 09:05:14] Campanha CBO 🟡 [T]-[Conversão]-[Mx. val.] - Dia das Crianças - Cortes reduzida para R$ 100.00
+[2025-06-22 09:05:14] Enviando atualização de orçamento para campanha 120215038900720431
+[2025-06-22 09:05:15] Resposta da API: {'success': True}
+[2025-06-22 09:05:15] Orçamento atualizado para a campanha 120215038900720431: R$ 100.00
+[2025-06-22 09:05:15] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Num.] - Dia das Crianças - Cortes reduzida para R$ 100.00
+[2025-06-22 09:05:15] Enviando atualização de orçamento para campanha 120214808911760431
+[2025-06-22 09:05:19] Resposta da API: {'success': True}
+[2025-06-22 09:05:19] Orçamento atualizado para a campanha 120214808911760431: R$ 1706.15
+[2025-06-22 09:05:19] Campanha CBO 🌎🟡 [T]-[Conversão]-[Mx. Num.] - Ganhadores reduzida para R$ 1706.15
+[2025-06-22 09:05:19] Enviando atualização de orçamento para campanha 120214323043310431
+[2025-06-22 09:05:20] Resposta da API: {'success': True}
+[2025-06-22 09:05:20] Orçamento atualizado para a campanha 120214323043310431: R$ 100.00
+[2025-06-22 09:05:20] Campanha CBO 🟡 [T]-[Conversão]-[Mx. Num.] -  cartinha reduzida para R$ 100.00
+[2025-06-22 09:05:20] Enviando atualização de orçamento para campanha 120227639640790338
+[2025-06-22 09:05:21] Resposta da API: {'success': True}
+[2025-06-22 09:05:21] Orçamento atualizado para a campanha 120227639640790338: R$ 181.36
+[2025-06-22 09:05:21] Campanha CBO 🔥 [T]-[Conversão]-[Mx. Val]-[Perfil] - Gatilhos reduzida para R$ 181.36
+[2025-06-22 09:05:21] Enviando atualização de orçamento para campanha 120227628451420338
+[2025-06-22 09:05:23] Resposta da API: {'success': True}
+[2025-06-22 09:05:23] Orçamento atualizado para a campanha 120227628451420338: R$ 1531.74
+[2025-06-22 09:05:23] Campanha CBO 🔥 [T]-[Conversão]-[Perfil] - Lançamentos — 2 reduzida para R$ 1531.74
+[2025-06-22 09:05:23] Enviando atualização de orçamento para campanha 120227626914980338
+[2025-06-22 09:05:24] Resposta da API: {'success': True}
+[2025-06-22 09:05:24] Orçamento atualizado para a campanha 120227626914980338: R$ 1538.02
+[2025-06-22 09:05:24] Campanha CBO 🔥 [T]-[Conversão]-[Perfil] - Lançamentos reduzida para R$ 1538.02
+[2025-06-22 09:05:24] Enviando atualização de orçamento para campanha 120214509094010338
+[2025-06-22 09:05:26] Resposta da API: {'success': True}
+[2025-06-22 09:05:26] Orçamento atualizado para a campanha 120214509094010338: R$ 100.00
+[2025-06-22 09:05:26] Campanha CBO 🔥 [T]-[Conversão]-[Mx. Val]-[Perfil] - LTV reduzida para R$ 100.00
+[2025-06-22 09:05:26] Enviando atualização de orçamento para campanha 120214507411990338
+[2025-06-22 09:05:29] Resposta da API: {'success': True}
+[2025-06-22 09:05:29] Orçamento atualizado para a campanha 120214507411990338: R$ 122.27
+[2025-06-22 09:05:29] Campanha CBO 🔥 [T]-[Conversão]-[Mx. Num]-[Perfil] - LTV reduzida para R$ 122.27
+[2025-06-22 09:05:29] Atualizando orçamento do AdSet 120226736700490030 para R$ 8.00
+[2025-06-22 09:05:31] Orçamento do AdSet 120226736700490030 atualizado com sucesso
+[2025-06-22 09:05:31] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Publico Aberto - Gambling — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:31] Atualizando orçamento do AdSet 120226736700470030 para R$ 8.00
+[2025-06-22 09:05:32] Orçamento do AdSet 120226736700470030 atualizado com sucesso
+[2025-06-22 09:05:32] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Publico Aberto - Gambling — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:32] Atualizando orçamento do AdSet 120226736700410030 para R$ 8.00
+[2025-06-22 09:05:34] Orçamento do AdSet 120226736700410030 atualizado com sucesso
+[2025-06-22 09:05:34] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compradores Envolvidos - Gambling — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:34] Atualizando orçamento do AdSet 120226736700150030 para R$ 8.00
+[2025-06-22 09:05:36] Orçamento do AdSet 120226736700150030 atualizado com sucesso
+[2025-06-22 09:05:36] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compras na Internet - Gambling — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:36] Atualizando orçamento do AdSet 120226736700130030 para R$ 8.00
+[2025-06-22 09:05:37] Orçamento do AdSet 120226736700130030 atualizado com sucesso
+[2025-06-22 09:05:37] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Publico Aberto - Gambling — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:37] Atualizando orçamento do AdSet 120226736700070030 para R$ 8.00
+[2025-06-22 09:05:38] Orçamento do AdSet 120226736700070030 atualizado com sucesso
+[2025-06-22 09:05:38] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Publico Aberto - Gambling — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:38] Atualizando orçamento do AdSet 120226736700060030 para R$ 8.00
+[2025-06-22 09:05:39] Orçamento do AdSet 120226736700060030 atualizado com sucesso
+[2025-06-22 09:05:39] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compradores Envolvidos - Gambling — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:39] Atualizando orçamento do AdSet 120226736700050030 para R$ 8.00
+[2025-06-22 09:05:40] Orçamento do AdSet 120226736700050030 atualizado com sucesso
+[2025-06-22 09:05:40] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compradores Envolvidos - Gambling — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:40] Atualizando orçamento do AdSet 120226736700040030 para R$ 8.00
+[2025-06-22 09:05:42] Orçamento do AdSet 120226736700040030 atualizado com sucesso
+[2025-06-22 09:05:42] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compras na Internet - Gambling — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:42] Atualizando orçamento do AdSet 120226736700030030 para R$ 8.00
+[2025-06-22 09:05:43] Orçamento do AdSet 120226736700030030 atualizado com sucesso
+[2025-06-22 09:05:43] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compras na Internet - Gambling — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:43] Atualizando orçamento do AdSet 120226736700020030 para R$ 8.00
+[2025-06-22 09:05:45] Orçamento do AdSet 120226736700020030 atualizado com sucesso
+[2025-06-22 09:05:45] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compradores Envolvidos - Gambling — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:45] Atualizando orçamento do AdSet 120226736700010030 para R$ 8.00
+[2025-06-22 09:05:46] Orçamento do AdSet 120226736700010030 atualizado com sucesso
+[2025-06-22 09:05:46] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compras na Internet - Gambling — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:46] Atualizando orçamento do AdSet 120226735943130030 para R$ 8.00
+[2025-06-22 09:05:47] Orçamento do AdSet 120226735943130030 atualizado com sucesso
+[2025-06-22 09:05:47] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compradores Envolvidos - Gambling reduzido para R$ 8.00
+[2025-06-22 09:05:47] Atualizando orçamento do AdSet 120226735943090030 para R$ 8.00
+[2025-06-22 09:05:51] Orçamento do AdSet 120226735943090030 atualizado com sucesso
+[2025-06-22 09:05:51] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Publico Aberto - Gambling reduzido para R$ 8.00
+[2025-06-22 09:05:51] Atualizando orçamento do AdSet 120226735942960030 para R$ 8.00
+[2025-06-22 09:05:54] Orçamento do AdSet 120226735942960030 atualizado com sucesso
+[2025-06-22 09:05:54] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - Compras na Internet - Gambling reduzido para R$ 8.00
+[2025-06-22 09:05:54] Atualizando orçamento do AdSet 120226736700380030 para R$ 8.00
+[2025-06-22 09:05:55] Orçamento do AdSet 120226736700380030 atualizado com sucesso
+[2025-06-22 09:05:55] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compras na Internet - Aberto — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:55] Atualizando orçamento do AdSet 120226736700240030 para R$ 8.00
+[2025-06-22 09:05:57] Orçamento do AdSet 120226736700240030 atualizado com sucesso
+[2025-06-22 09:05:57] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Publico Aberto - Aberto — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:57] Atualizando orçamento do AdSet 120226736700230030 para R$ 8.00
+[2025-06-22 09:05:58] Orçamento do AdSet 120226736700230030 atualizado com sucesso
+[2025-06-22 09:05:58] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compradores Envolvidos - Aberto — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:58] Atualizando orçamento do AdSet 120226736700210030 para R$ 8.00
+[2025-06-22 09:05:59] Orçamento do AdSet 120226736700210030 atualizado com sucesso
+[2025-06-22 09:05:59] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compradores Envolvidos - Aberto — Cópia reduzido para R$ 8.00
+[2025-06-22 09:05:59] Atualizando orçamento do AdSet 120226736700180030 para R$ 8.00
+[2025-06-22 09:06:01] Orçamento do AdSet 120226736700180030 atualizado com sucesso
+[2025-06-22 09:06:01] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Publico Aberto - Aberto — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:01] Atualizando orçamento do AdSet 120226736699490030 para R$ 8.00
+[2025-06-22 09:06:02] Orçamento do AdSet 120226736699490030 atualizado com sucesso
+[2025-06-22 09:06:02] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compradores Envolvidos - Aberto — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:02] Atualizando orçamento do AdSet 120226736699480030 para R$ 8.00
+[2025-06-22 09:06:03] Orçamento do AdSet 120226736699480030 atualizado com sucesso
+[2025-06-22 09:06:03] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compradores Envolvidos - Aberto — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:03] Atualizando orçamento do AdSet 120226736699470030 para R$ 8.00
+[2025-06-22 09:06:04] Orçamento do AdSet 120226736699470030 atualizado com sucesso
+[2025-06-22 09:06:04] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Publico Aberto - Aberto — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:04] Atualizando orçamento do AdSet 120226736699460030 para R$ 8.00
+[2025-06-22 09:06:07] Orçamento do AdSet 120226736699460030 atualizado com sucesso
+[2025-06-22 09:06:07] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compras na Internet - Aberto — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:07] Atualizando orçamento do AdSet 120226736699450030 para R$ 8.00
+[2025-06-22 09:06:08] Orçamento do AdSet 120226736699450030 atualizado com sucesso
+[2025-06-22 09:06:08] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compras na Internet - Aberto — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:08] Atualizando orçamento do AdSet 120226736699440030 para R$ 8.00
+[2025-06-22 09:06:09] Orçamento do AdSet 120226736699440030 atualizado com sucesso
+[2025-06-22 09:06:09] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Publico Aberto - Aberto — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:09] Atualizando orçamento do AdSet 120226736699430030 para R$ 8.00
+[2025-06-22 09:06:11] Orçamento do AdSet 120226736699430030 atualizado com sucesso
+[2025-06-22 09:06:11] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compras na Internet - Aberto — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:11] Atualizando orçamento do AdSet 120226735943380030 para R$ 8.00
+[2025-06-22 09:06:12] Orçamento do AdSet 120226735943380030 atualizado com sucesso
+[2025-06-22 09:06:12] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compradores Envolvidos - Aberto reduzido para R$ 8.00
+[2025-06-22 09:06:12] Atualizando orçamento do AdSet 120226735943370030 para R$ 8.00
+[2025-06-22 09:06:13] Orçamento do AdSet 120226735943370030 atualizado com sucesso
+[2025-06-22 09:06:13] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Publico Aberto - Aberto reduzido para R$ 8.00
+[2025-06-22 09:06:13] Atualizando orçamento do AdSet 120226735943350030 para R$ 8.00
+[2025-06-22 09:06:14] Orçamento do AdSet 120226735943350030 atualizado com sucesso
+[2025-06-22 09:06:14] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - Compras na Internet - Aberto reduzido para R$ 8.00
+[2025-06-22 09:06:14] Atualizando orçamento do AdSet 120226736700480030 para R$ 8.00
+[2025-06-22 09:06:16] Orçamento do AdSet 120226736700480030 atualizado com sucesso
+[2025-06-22 09:06:16] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compras na Internet - Música — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:16] Atualizando orçamento do AdSet 120226736700460030 para R$ 8.00
+[2025-06-22 09:06:17] Orçamento do AdSet 120226736700460030 atualizado com sucesso
+[2025-06-22 09:06:17] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compras na Internet - Música — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:17] Atualizando orçamento do AdSet 120226736700450030 para R$ 8.00
+[2025-06-22 09:06:18] Orçamento do AdSet 120226736700450030 atualizado com sucesso
+[2025-06-22 09:06:18] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compradores Envolvidos - Música — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:18] Atualizando orçamento do AdSet 120226736700440030 para R$ 8.00
+[2025-06-22 09:06:20] Orçamento do AdSet 120226736700440030 atualizado com sucesso
+[2025-06-22 09:06:20] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compras na Internet - Música — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:20] Atualizando orçamento do AdSet 120226736700430030 para R$ 8.00
+[2025-06-22 09:06:22] Orçamento do AdSet 120226736700430030 atualizado com sucesso
+[2025-06-22 09:06:22] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compradores Envolvidos - Música — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:22] Atualizando orçamento do AdSet 120226736700420030 para R$ 8.00
+[2025-06-22 09:06:23] Orçamento do AdSet 120226736700420030 atualizado com sucesso
+[2025-06-22 09:06:23] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compradores Envolvidos - Música — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:23] Atualizando orçamento do AdSet 120226736700400030 para R$ 8.00
+[2025-06-22 09:06:24] Orçamento do AdSet 120226736700400030 atualizado com sucesso
+[2025-06-22 09:06:24] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compras na Internet - Música — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:24] Atualizando orçamento do AdSet 120226736700390030 para R$ 8.00
+[2025-06-22 09:06:27] Orçamento do AdSet 120226736700390030 atualizado com sucesso
+[2025-06-22 09:06:27] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Publico aberto - Musica — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:27] Atualizando orçamento do AdSet 120226736700350030 para R$ 8.00
+[2025-06-22 09:06:28] Orçamento do AdSet 120226736700350030 atualizado com sucesso
+[2025-06-22 09:06:28] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Publico aberto - Musica — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:28] Atualizando orçamento do AdSet 120226736700340030 para R$ 8.00
+[2025-06-22 09:06:29] Orçamento do AdSet 120226736700340030 atualizado com sucesso
+[2025-06-22 09:06:29] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Publico aberto - Musica — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:29] Atualizando orçamento do AdSet 120226736700330030 para R$ 8.00
+[2025-06-22 09:06:31] Orçamento do AdSet 120226736700330030 atualizado com sucesso
+[2025-06-22 09:06:31] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Publico aberto - Musica — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:31] Atualizando orçamento do AdSet 120226736700250030 para R$ 8.00
+[2025-06-22 09:06:33] Orçamento do AdSet 120226736700250030 atualizado com sucesso
+[2025-06-22 09:06:33] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compradores Envolvidos - Música — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:33] Atualizando orçamento do AdSet 120226735943250030 para R$ 8.00
+[2025-06-22 09:06:34] Orçamento do AdSet 120226735943250030 atualizado com sucesso
+[2025-06-22 09:06:34] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compradores Envolvidos - Música reduzido para R$ 8.00
+[2025-06-22 09:06:34] Atualizando orçamento do AdSet 120226735943240030 para R$ 8.00
+[2025-06-22 09:06:35] Orçamento do AdSet 120226735943240030 atualizado com sucesso
+[2025-06-22 09:06:35] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Compras na Internet - Música reduzido para R$ 8.00
+[2025-06-22 09:06:36] Atualizando orçamento do AdSet 120226735942920030 para R$ 8.00
+[2025-06-22 09:06:37] Orçamento do AdSet 120226735942920030 atualizado com sucesso
+[2025-06-22 09:06:37] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - Publico aberto - Musica reduzido para R$ 8.00
+[2025-06-22 09:06:37] Atualizando orçamento do AdSet 120226736700220030 para R$ 8.00
+[2025-06-22 09:06:38] Orçamento do AdSet 120226736700220030 atualizado com sucesso
+[2025-06-22 09:06:38] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compras na Internet - Carros — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:38] Atualizando orçamento do AdSet 120226736700200030 para R$ 8.00
+[2025-06-22 09:06:40] Orçamento do AdSet 120226736700200030 atualizado com sucesso
+[2025-06-22 09:06:40] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compras na Internet - Carros — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:40] Atualizando orçamento do AdSet 120226736700190030 para R$ 8.00
+[2025-06-22 09:06:41] Orçamento do AdSet 120226736700190030 atualizado com sucesso
+[2025-06-22 09:06:41] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compradores Envolvidos - Carros — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:41] Atualizando orçamento do AdSet 120226736700170030 para R$ 8.00
+[2025-06-22 09:06:42] Orçamento do AdSet 120226736700170030 atualizado com sucesso
+[2025-06-22 09:06:42] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compras na Internet - Carros — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:42] Atualizando orçamento do AdSet 120226736700160030 para R$ 8.00
+[2025-06-22 09:06:44] Orçamento do AdSet 120226736700160030 atualizado com sucesso
+[2025-06-22 09:06:44] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compras na Internet - Carros — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:44] Atualizando orçamento do AdSet 120226736700140030 para R$ 8.00
+[2025-06-22 09:06:45] Orçamento do AdSet 120226736700140030 atualizado com sucesso
+[2025-06-22 09:06:45] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compradores Envolvidos - Carros — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:45] Atualizando orçamento do AdSet 120226736700120030 para R$ 8.00
+[2025-06-22 09:06:47] Orçamento do AdSet 120226736700120030 atualizado com sucesso
+[2025-06-22 09:06:47] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compradores Envolvidos - Carros — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:47] Atualizando orçamento do AdSet 120226736700110030 para R$ 8.00
+[2025-06-22 09:06:54] Orçamento do AdSet 120226736700110030 atualizado com sucesso
+[2025-06-22 09:06:54] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compradores Envolvidos - Carros — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:54] Atualizando orçamento do AdSet 120226736700100030 para R$ 8.00
+[2025-06-22 09:06:59] Orçamento do AdSet 120226736700100030 atualizado com sucesso
+[2025-06-22 09:06:59] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Publico Aberto - Carros — Cópia reduzido para R$ 8.00
+[2025-06-22 09:06:59] Atualizando orçamento do AdSet 120226736700090030 para R$ 8.00
+[2025-06-22 09:07:02] Orçamento do AdSet 120226736700090030 atualizado com sucesso
+[2025-06-22 09:07:02] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Publico Aberto - Carros — Cópia reduzido para R$ 8.00
+[2025-06-22 09:07:02] Atualizando orçamento do AdSet 120226736700080030 para R$ 8.00
+[2025-06-22 09:07:03] Orçamento do AdSet 120226736700080030 atualizado com sucesso
+[2025-06-22 09:07:03] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Publico Aberto - Carros — Cópia reduzido para R$ 8.00
+[2025-06-22 09:07:03] Atualizando orçamento do AdSet 120226736700000030 para R$ 8.00
+[2025-06-22 09:07:04] Orçamento do AdSet 120226736700000030 atualizado com sucesso
+[2025-06-22 09:07:04] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Publico Aberto - Carros — Cópia reduzido para R$ 8.00
+[2025-06-22 09:07:04] Atualizando orçamento do AdSet 120226735943520030 para R$ 8.00
+[2025-06-22 09:07:06] Orçamento do AdSet 120226735943520030 atualizado com sucesso
+[2025-06-22 09:07:06] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compradores Envolvidos - Carros reduzido para R$ 8.00
+[2025-06-22 09:07:06] Atualizando orçamento do AdSet 120226735943490030 para R$ 8.00
+[2025-06-22 09:07:07] Orçamento do AdSet 120226735943490030 atualizado com sucesso
+[2025-06-22 09:07:07] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Compras na Internet - Carros reduzido para R$ 8.00
+[2025-06-22 09:07:07] Atualizando orçamento do AdSet 120226735943000030 para R$ 8.00
+[2025-06-22 09:07:08] Orçamento do AdSet 120226735943000030 atualizado com sucesso
+[2025-06-22 09:07:08] AdSet 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - Publico Aberto - Carros reduzido para R$ 8.00
+[2025-06-22 09:07:08] Campanha ABO 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - orçamento total atualizado para R$ 120.00
+[2025-06-22 09:07:08] Campanha ABO 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - orçamento total atualizado para R$ 120.00
+[2025-06-22 09:07:08] Campanha ABO 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - orçamento total atualizado para R$ 120.00
+[2025-06-22 09:07:08] Campanha ABO 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros - orçamento total atualizado para R$ 120.00
+[2025-06-22 09:07:08] Iniciando envio de mensagem para o grupo: #IMP - ROI DIÁRIO
+[2025-06-22 09:07:08] Mensagem limpa: [OK] Redução concluída!
+
+[DESCEU] Unidades com lucro < R$ 1000.00:
+- 77 unidades reduzidas
+  - 17 ca...
+[2025-06-22 09:07:11] Abrindo WhatsApp Web...
+[2025-06-22 09:07:11] Aguardando carregamento do WhatsApp Web...
+[2025-06-22 09:07:19] WhatsApp Web carregado, elemento detectado: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 09:07:21] Campo de pesquisa encontrado com seletor: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 09:07:23] Texto de pesquisa '#IMP - ROI DIÁRIO' inserido.
+[2025-06-22 09:07:26] Grupo encontrado com seletor: //span[@title='#IMP - ROI DIÁRIO']
+[2025-06-22 09:07:30] Grupo clicado com sucesso
+[2025-06-22 09:07:33] Conversa do grupo aberta com sucesso
+[2025-06-22 09:07:33] Localizando campo de mensagem...
+[2025-06-22 09:07:33] Campo de mensagem encontrado com seletor: //div[@role='textbox' and @data-tab='10']
+[2025-06-22 09:07:33] Tentando digitar mensagem...
+[2025-06-22 09:07:35] Mensagem digitada com sucesso
+[2025-06-22 09:07:36] Enviando mensagem...
+[2025-06-22 09:07:36] Botão de enviar encontrado com seletor: button[aria-label='Enviar']
+[2025-06-22 09:07:36] Botão de enviar clicado
+[2025-06-22 09:07:41] Mensagem enviada com sucesso (confirmado)
+[2025-06-22 09:07:41] Processo de envio de mensagem concluído
+[2025-06-22 09:07:44] [INFO] Mensagem enviada com sucesso
+[2025-06-22 09:07:44] Processo de redução concluído com sucesso!
+[2025-06-22 09:12:22] Iniciando escala com: Token=EAAQ0...FNOK0, Contas=['act_790223756353632', 'act_303402486183447', 'act_406219475582745'], Grupo=#IMP - ROI DIÁRIO
+[2025-06-22 09:12:22] Parâmetros: Date Range=today, Min Profit=1, Scale Value=7000
+[2025-06-22 09:12:22] Contas ABO configuradas: ['act_406219475582745']
+[2025-06-22 09:12:26] Planilha limpa no início da execução.
+[2025-06-22 09:12:26] Processando conta de anúncio CBO: act_790223756353632
+[2025-06-22 09:12:26] Buscando campanhas para conta act_790223756353632...
+[2025-06-22 09:12:29] Encontradas 110 campanhas.
+[2025-06-22 09:12:30] Encontrados 14 insights.
+[2025-06-22 09:12:30] Processadas 12 campanhas ativas.
+[2025-06-22 09:12:30] Processando conta de anúncio CBO: act_303402486183447
+[2025-06-22 09:12:30] Buscando campanhas para conta act_303402486183447...
+[2025-06-22 09:12:33] Encontradas 87 campanhas.
+[2025-06-22 09:12:34] Encontrados 7 insights.
+[2025-06-22 09:12:34] Processadas 5 campanhas ativas.
+[2025-06-22 09:12:34] Processando conta de anúncio ABO: act_406219475582745
+[2025-06-22 09:12:34] Buscando campanhas para conta act_406219475582745...
+[2025-06-22 09:12:35] Encontradas 34 campanhas.
+[2025-06-22 09:12:35] Encontrados 6 insights.
+[2025-06-22 09:12:35] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb
+[2025-06-22 09:12:37] Campanha ABO 120226735943410030: 15 adsets ativos, orçamento total: R$ 120.00
+[2025-06-22 09:12:37] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto
+[2025-06-22 09:12:38] Campanha ABO 120226735942950030: 15 adsets ativos, orçamento total: R$ 120.00
+[2025-06-22 09:12:38] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica
+[2025-06-22 09:12:39] Campanha ABO 120226735942940030: 15 adsets ativos, orçamento total: R$ 120.00
+[2025-06-22 09:12:39] Processando campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros
+[2025-06-22 09:12:40] Campanha ABO 120226735942930030: 15 adsets ativos, orçamento total: R$ 120.00
+[2025-06-22 09:12:40] Processadas 4 campanhas ativas.
+[2025-06-22 09:12:40]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb com 15 adsets
+[2025-06-22 09:12:40]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto com 15 adsets
+[2025-06-22 09:12:40]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica com 15 adsets
+[2025-06-22 09:12:40]   - Campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros com 15 adsets
+[2025-06-22 09:12:40] Total de 21 campanhas ativas encontradas.
+[2025-06-22 09:12:40] Campanhas CBO: 17, Campanhas ABO: 4
+[2025-06-22 09:12:40] Total de AdSets em campanhas ABO: 60
+[2025-06-22 09:12:41] Dados das campanhas salvos na planilha.
+[2025-06-22 09:12:41] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb (lucro campanha: R$ -16.07)
+[2025-06-22 09:12:41]   -> 1 AdSets com lucro >= R$ 1.00
+[2025-06-22 09:12:41] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto (lucro campanha: R$ -30.50)
+[2025-06-22 09:12:41]   -> 1 AdSets com lucro >= R$ 1.00
+[2025-06-22 09:12:41] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica (lucro campanha: R$ -30.91)
+[2025-06-22 09:12:41]   -> 1 AdSets com lucro >= R$ 1.00
+[2025-06-22 09:12:41] Processando AdSets da campanha ABO: 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Carros (lucro campanha: R$ -40.57)
+[2025-06-22 09:12:41]   -> 0 AdSets com lucro >= R$ 1.00
+[2025-06-22 09:12:41] [INFO] 6 unidades para escalonamento:
+[2025-06-22 09:12:41] - Campanhas CBO: 3
+[2025-06-22 09:12:41] - AdSets ABO: 3
+[2025-06-22 09:12:41] - Soma dos lucros: R$ 169.86
+[2025-06-22 09:12:41] Enviando atualização de orçamento para campanha 120227628451420338
+[2025-06-22 09:12:42] Resposta da API: {'success': True}
+[2025-06-22 09:12:42] Orçamento atualizado para a campanha 120227628451420338: R$ 4116.86
+[2025-06-22 09:12:42] Campanha CBO 120227628451420338 escalada para R$ 4116.86
+[2025-06-22 09:12:42] Enviando atualização de orçamento para campanha 120227626914980338
+[2025-06-22 09:12:43] Resposta da API: {'success': True}
+[2025-06-22 09:12:43] Orçamento atualizado para a campanha 120227626914980338: R$ 3731.64
+[2025-06-22 09:12:43] Campanha CBO 120227626914980338 escalada para R$ 3731.64
+[2025-06-22 09:12:43] Atualizando orçamento do AdSet 120226735943130030 para R$ 877.13
+[2025-06-22 09:12:45] Orçamento do AdSet 120226735943130030 atualizado com sucesso
+[2025-06-22 09:12:45] AdSet 120226735943130030 escalado de R$ 8.00 para R$ 877.13
+[2025-06-22 09:12:45] Enviando atualização de orçamento para campanha 120215567870460431
+[2025-06-22 09:12:47] Resposta da API: {'success': True}
+[2025-06-22 09:12:47] Orçamento atualizado para a campanha 120215567870460431: R$ 1135.29
+[2025-06-22 09:12:47] Campanha CBO 120215567870460431 escalada para R$ 1135.29
+[2025-06-22 09:12:47] Atualizando orçamento do AdSet 120226736700440030 para R$ 498.82
+[2025-06-22 09:12:48] Orçamento do AdSet 120226736700440030 atualizado com sucesso
+[2025-06-22 09:12:48] AdSet 120226736700440030 escalado de R$ 8.00 para R$ 498.82
+[2025-06-22 09:12:48] Atualizando orçamento do AdSet 120226735943350030 para R$ 227.24
+[2025-06-22 09:12:50] Orçamento do AdSet 120226735943350030 atualizado com sucesso
+[2025-06-22 09:12:50] AdSet 120226735943350030 escalado de R$ 8.00 para R$ 227.24
+[2025-06-22 09:12:50] Campanha ABO 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Gamb - orçamento total atualizado para R$ 989.13
+[2025-06-22 09:12:50] Campanha ABO 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Musica - orçamento total atualizado para R$ 610.82
+[2025-06-22 09:12:50] Campanha ABO 🚀 [T]-[Conversão]-[Mx. Val.] - Rapidinha 200k - Aberto - orçamento total atualizado para R$ 339.24
+[2025-06-22 09:12:50] Iniciando envio de mensagem para o grupo: #IMP - ROI DIÁRIO
+[2025-06-22 09:12:50] Mensagem limpa: [OK] Escala realizada com sucesso!
+
+[$$] Total distribuído: R$ 7000.00
+[DADOS] Unidades escaladas: 6...
+[2025-06-22 09:12:52] Abrindo WhatsApp Web...
+[2025-06-22 09:12:53] Aguardando carregamento do WhatsApp Web...
+[2025-06-22 09:13:00] WhatsApp Web carregado, elemento detectado: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 09:13:02] Campo de pesquisa encontrado com seletor: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 09:13:09] Texto de pesquisa '#IMP - ROI DIÁRIO' inserido.
+[2025-06-22 09:13:12] Grupo encontrado com seletor: //span[@title='#IMP - ROI DIÁRIO']
+[2025-06-22 09:13:12] Grupo clicado com sucesso
+[2025-06-22 09:13:15] Conversa do grupo aberta com sucesso
+[2025-06-22 09:13:15] Localizando campo de mensagem...
+[2025-06-22 09:13:15] Campo de mensagem encontrado com seletor: //div[@role='textbox' and @data-tab='10']
+[2025-06-22 09:13:15] Tentando digitar mensagem...
+[2025-06-22 09:13:17] Mensagem digitada com sucesso
+[2025-06-22 09:13:18] Enviando mensagem...
+[2025-06-22 09:13:28] Botão de enviar encontrado com seletor: button[data-tab='11']
+[2025-06-22 09:13:29] Botão de enviar clicado
+[2025-06-22 09:13:34] Mensagem enviada com sucesso (confirmado)
+[2025-06-22 09:13:34] Processo de envio de mensagem concluído
+[2025-06-22 09:13:36] [INFO] Mensagem enviada com sucesso
+[2025-06-22 09:13:36] Processo de escala concluído com sucesso!
