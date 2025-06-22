@@ -47,7 +47,7 @@ if not os.path.exists(CONFIG_FILE):
         "LIMITE_LUCRO_ALTO": 5000,
         "PERCENTUAL_REALOCACAO": 0.30,
         "MINIMO_ORCAMENTO": 100,
-        "MINIMO_ORCAMENTO_ABO": 8,  # Mínimo para AdSets ABO
+        "MINIMO_ORCAMENTO_ABO": 8,
         "MAXIMO_ORCAMENTO": 10000,
         "WHATSAPP_GROUP": "#ZIP - ROAS IMPERIO",
         "DATE_PRESET": "today"
@@ -146,7 +146,6 @@ def buscar_adsets_campanha(campaign_id):
 
 def buscar_insights_adset(ad_account, campaign_id, date_preset=None, start_date=None, end_date=None):
     """Busca insights no nível de ad set para campanhas ABO"""
-    # CORREÇÃO: Usar campaign.id ao invés de campaign_id
     filtering = f'[{{"field":"campaign.id","operator":"EQUAL","value":"{campaign_id}"}}]'
     
     if date_preset:
@@ -360,89 +359,6 @@ def atualizar_orcamento_adset(adset_id, novo_orcamento):
         log_message(f"[ERRO] Erro na requisição para atualizar AdSet {adset_id}: {e}")
         return False
 
-def realocar_campanha_abo(campanha_info, operacao, valor_mudanca):
-    """
-    Realoca orçamento de uma campanha ABO
-    operacao: 'reduzir' ou 'aumentar'
-    valor_mudanca: valor total a ser mudado
-    """
-    adsets_info = campanha_info.get("adsets_info", [])
-    if not adsets_info:
-        log_message(f"[AVISO] Campanha ABO {campanha_info['id_campanha']} sem adsets ativos")
-        return 0, 0, []
-    
-    total_mudanca = 0
-    adsets_modificados = 0
-    detalhes_mudancas = []
-    
-    if operacao == 'reduzir':
-        # Para redução, reduzir proporcionalmente todos os adsets
-        total_orcamento_adsets = sum(a['daily_budget'] for a in adsets_info)
-        
-        for adset in adsets_info:
-            if total_orcamento_adsets > 0:
-                proporcao = adset['daily_budget'] / total_orcamento_adsets
-                reducao = valor_mudanca * proporcao
-            else:
-                reducao = valor_mudanca / len(adsets_info)
-            
-            novo_orcamento = max(adset['daily_budget'] - reducao, MINIMO_ORCAMENTO_ABO)
-            reducao_real = adset['daily_budget'] - novo_orcamento
-            
-            if reducao_real > 0 and atualizar_orcamento_adset(adset['adset_id'], novo_orcamento):
-                total_mudanca += reducao_real
-                adsets_modificados += 1
-                detalhes_mudancas.append({
-                    'nome': adset['adset_name'],
-                    'de': adset['daily_budget'],
-                    'para': novo_orcamento,
-                    'mudanca': -reducao_real
-                })
-                log_message(f"AdSet {adset['adset_id']} reduzido de R$ {adset['daily_budget']:.2f} para R$ {novo_orcamento:.2f} (-R$ {reducao_real:.2f})")
-    
-    else:  # aumentar
-        # Para aumento, distribuir proporcionalmente ao lucro
-        adsets_lucrativos = [a for a in adsets_info if a['lucro'] > 0]
-        
-        if adsets_lucrativos:
-            total_lucro_adsets = sum(a['lucro'] for a in adsets_lucrativos)
-            
-            for adset in adsets_lucrativos:
-                proporcao = adset['lucro'] / total_lucro_adsets
-                incremento = valor_mudanca * proporcao
-                novo_orcamento = min(adset['daily_budget'] + incremento, MAXIMO_ORCAMENTO)
-                incremento_real = novo_orcamento - adset['daily_budget']
-                
-                if incremento_real > 0 and atualizar_orcamento_adset(adset['adset_id'], novo_orcamento):
-                    total_mudanca += incremento_real
-                    adsets_modificados += 1
-                    detalhes_mudancas.append({
-                        'nome': adset['adset_name'],
-                        'de': adset['daily_budget'],
-                        'para': novo_orcamento,
-                        'mudanca': incremento_real
-                    })
-                    log_message(f"AdSet {adset['adset_id']} aumentado de R$ {adset['daily_budget']:.2f} para R$ {novo_orcamento:.2f} (+R$ {incremento_real:.2f})")
-        else:
-            # Se nenhum adset for lucrativo, distribuir igualmente
-            incremento_por_adset = valor_mudanca / len(adsets_info)
-            
-            for adset in adsets_info:
-                novo_orcamento = min(adset['daily_budget'] + incremento_por_adset, MAXIMO_ORCAMENTO)
-                incremento_real = novo_orcamento - adset['daily_budget']
-                
-                if incremento_real > 0 and atualizar_orcamento_adset(adset['adset_id'], novo_orcamento):
-                    total_mudanca += incremento_real
-                    adsets_modificados += 1
-                    detalhes_mudancas.append({
-                        'nome': adset['adset_name'],
-                        'de': adset['daily_budget'],
-                        'para': novo_orcamento,
-                        'mudanca': incremento_real
-                    })
-    
-    return total_mudanca, adsets_modificados, detalhes_mudancas
-
 def atualizar_orcamento_facebook(id_campanha, novo_orcamento):
     """Atualiza o orçamento de campanhas CBO"""
     url = f"https://graph.facebook.com/v17.0/{id_campanha}"
@@ -479,7 +395,7 @@ def calcular_orcamento_total():
         return 0
 
 def realocar_orcamentos():
-    """Realoca orçamentos entre campanhas baixas e altas, suportando CBO e ABO"""
+    """Realoca orçamentos entre unidades de baixo e alto lucro (CBO + AdSets ABO)"""
     if not os.path.exists(SPREADSHEET_PATH):
         log_message("[ERRO] Planilha de campanhas não encontrada.")
         return False
@@ -491,119 +407,181 @@ def realocar_orcamentos():
     
     sheet = workbook["CAMPANHAS"]
     
-    # Identificar campanhas com lucro baixo e alto
-    campanhas_baixo = []
-    campanhas_alto = []
+    # Lista unificada de unidades para reduzir e aumentar
+    unidades_baixo_lucro = []
+    unidades_alto_lucro = []
     
+    # Processar todas as campanhas
     for row_index, row in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
-        classificacao = row[10]  # Classificação
+        id_campanha = row[1]
+        nome_campanha = row[2]
+        tipo_campanha = row[3] if len(row) > 3 else "CBO"
+        orcamento = row[4]
+        lucro = row[8]
         
-        if classificacao == "BAIXO":
-            campanhas_baixo.append({
-                "linha_index": row_index,
-                "id_campanha": row[1],
-                "nome_campanha": row[2],
-                "tipo_campanha": row[3] if len(row) > 3 else "CBO",
-                "orcamento_diario": row[4],
-                "lucro": row[8]
-            })
-        elif classificacao == "ALTO":
-            campanhas_alto.append({
-                "linha_index": row_index,
-                "id_campanha": row[1],
-                "nome_campanha": row[2],
-                "tipo_campanha": row[3] if len(row) > 3 else "CBO",
-                "orcamento_diario": row[4],
-                "lucro": row[8]
-            })
+        if tipo_campanha == "ABO":
+            # Para ABO, processar cada AdSet individualmente
+            campanha_completa = campanhas_completas_data.get(id_campanha)
+            if campanha_completa and campanha_completa.get("adsets_info"):
+                log_message(f"Analisando AdSets da campanha ABO: {nome_campanha}")
+                
+                for adset in campanha_completa["adsets_info"]:
+                    adset_lucro = adset.get('lucro', 0)
+                    
+                    unidade = {
+                        "tipo": "ABO_ADSET",
+                        "linha_index": row_index,
+                        "id_campanha": id_campanha,
+                        "id_adset": adset['adset_id'],
+                        "nome": f"{nome_campanha} - {adset['adset_name']}",
+                        "nome_campanha": nome_campanha,
+                        "orcamento_atual": adset['daily_budget'],
+                        "lucro": adset_lucro,
+                        "adset_info": adset,
+                        "campanha_info": campanha_completa
+                    }
+                    
+                    if adset_lucro < LIMITE_LUCRO_BAIXO:
+                        unidades_baixo_lucro.append(unidade)
+                    elif adset_lucro >= LIMITE_LUCRO_ALTO:
+                        unidades_alto_lucro.append(unidade)
+        else:
+            # Para CBO, usar a campanha inteira
+            if lucro is not None:
+                unidade = {
+                    "tipo": "CBO",
+                    "linha_index": row_index,
+                    "id_campanha": id_campanha,
+                    "nome": nome_campanha,
+                    "nome_campanha": nome_campanha,
+                    "orcamento_atual": orcamento,
+                    "lucro": lucro
+                }
+                
+                if lucro < LIMITE_LUCRO_BAIXO:
+                    unidades_baixo_lucro.append(unidade)
+                elif lucro >= LIMITE_LUCRO_ALTO:
+                    unidades_alto_lucro.append(unidade)
     
-    # Ordenar campanhas
-    campanhas_baixo.sort(key=lambda x: x["lucro"])  # Piores primeiro
-    campanhas_alto.sort(key=lambda x: x["lucro"], reverse=True)  # Melhores primeiro
+    # Ordenar unidades
+    unidades_baixo_lucro.sort(key=lambda x: x["lucro"])  # Piores primeiro
+    unidades_alto_lucro.sort(key=lambda x: x["lucro"], reverse=True)  # Melhores primeiro
     
-    log_message(f"[INFO] Encontradas {len(campanhas_baixo)} campanhas com lucro BAIXO e {len(campanhas_alto)} com lucro ALTO")
+    log_message(f"[INFO] Unidades identificadas:")
+    log_message(f"- Com lucro baixo (< R$ {LIMITE_LUCRO_BAIXO:.2f}): {len(unidades_baixo_lucro)}")
+    log_message(f"  - Campanhas CBO: {sum(1 for u in unidades_baixo_lucro if u['tipo'] == 'CBO')}")
+    log_message(f"  - AdSets ABO: {sum(1 for u in unidades_baixo_lucro if u['tipo'] == 'ABO_ADSET')}")
+    log_message(f"- Com lucro alto (>= R$ {LIMITE_LUCRO_ALTO:.2f}): {len(unidades_alto_lucro)}")
+    log_message(f"  - Campanhas CBO: {sum(1 for u in unidades_alto_lucro if u['tipo'] == 'CBO')}")
+    log_message(f"  - AdSets ABO: {sum(1 for u in unidades_alto_lucro if u['tipo'] == 'ABO_ADSET')}")
     
-    # Se não houver campanhas para reduzir ou aumentar, finalizar
-    if not campanhas_baixo or not campanhas_alto:
-        log_message("Não há campanhas suficientes para realocação.")
+    if not unidades_baixo_lucro or not unidades_alto_lucro:
+        log_message("Não há unidades suficientes para realocação.")
         return False
     
-    # Calcular total a ser realocado
+    # Reduzir orçamentos das unidades com baixo lucro
     total_reducao = 0
     unidades_reduzidas = []
-    campanhas_modificadas_reducao = {}
+    campanhas_abo_modificadas = {}  # Para rastrear mudanças nas campanhas ABO
     
-    # Reduzir orçamentos das campanhas com lucro baixo
-    for campanha in campanhas_baixo:
-        if campanha["tipo_campanha"] == "ABO":
-            # Para ABO, realocar nos adsets
-            campanha_completa = campanhas_completas_data.get(campanha["id_campanha"])
-            if campanha_completa and campanha_completa.get("adsets_info"):
-                valor_reducao = campanha["orcamento_diario"] * PERCENTUAL_REALOCACAO
-                mudanca, adsets_mod, detalhes = realocar_campanha_abo(campanha_completa, 'reduzir', valor_reducao)
-                
-                if mudanca > 0:
-                    total_reducao += mudanca
-                    novo_orcamento_total = campanha["orcamento_diario"] - mudanca
-                    sheet.cell(row=campanha["linha_index"], column=10).value = novo_orcamento_total
-                    
-                    unidades_reduzidas.append(f"{campanha['nome_campanha']} (ABO) -R$ {mudanca:.2f} ({adsets_mod} adsets)")
-                    campanhas_modificadas_reducao[campanha["id_campanha"]] = {
-                        "nome": campanha["nome_campanha"],
-                        "mudanca": mudanca,
-                        "adsets_modificados": adsets_mod
-                    }
-                    log_message(f"Campanha ABO {campanha['nome_campanha']} reduzida em R$ {mudanca:.2f}")
-        else:
-            # Para CBO, reduzir normalmente
-            reducao = campanha["orcamento_diario"] * PERCENTUAL_REALOCACAO
-            novo_orcamento = max(campanha["orcamento_diario"] - reducao, MINIMO_ORCAMENTO)
-            reducao_real = campanha["orcamento_diario"] - novo_orcamento
+    for unidade in unidades_baixo_lucro:
+        if unidade["tipo"] == "ABO_ADSET":
+            # Reduzir AdSet ABO
+            adset = unidade["adset_info"]
+            reducao = adset['daily_budget'] * PERCENTUAL_REALOCACAO
+            novo_orcamento = max(adset['daily_budget'] - reducao, MINIMO_ORCAMENTO_ABO)
+            reducao_real = adset['daily_budget'] - novo_orcamento
             
-            if atualizar_orcamento_facebook(campanha["id_campanha"], novo_orcamento):
+            if reducao_real > 0 and atualizar_orcamento_adset(unidade["id_adset"], novo_orcamento):
                 total_reducao += reducao_real
-                sheet.cell(row=campanha["linha_index"], column=10).value = novo_orcamento
-                unidades_reduzidas.append(f"{campanha['nome_campanha']} (CBO) -R$ {reducao_real:.2f}")
-                log_message(f"Campanha CBO {campanha['id_campanha']} reduzida de R$ {campanha['orcamento_diario']:.2f} para R$ {novo_orcamento:.2f} (-R$ {reducao_real:.2f})")
-    
-    # Distribuir o valor reduzido entre as campanhas com lucro alto
-    unidades_aumentadas = []
-    campanhas_modificadas_aumento = {}
-    
-    if total_reducao > 0 and campanhas_alto:
-        soma_lucro_alto = sum(c["lucro"] for c in campanhas_alto)
-        
-        for campanha in campanhas_alto:
-            # Distribuir proporcionalmente ao lucro
-            proporcao = campanha["lucro"] / soma_lucro_alto if soma_lucro_alto > 0 else 1.0 / len(campanhas_alto)
-            incremento_total = total_reducao * proporcao
-            
-            if campanha["tipo_campanha"] == "ABO":
-                # Para ABO, distribuir entre adsets
-                campanha_completa = campanhas_completas_data.get(campanha["id_campanha"])
-                if campanha_completa and campanha_completa.get("adsets_info"):
-                    mudanca, adsets_mod, detalhes = realocar_campanha_abo(campanha_completa, 'aumentar', incremento_total)
-                    
-                    if mudanca > 0:
-                        novo_orcamento_total = campanha["orcamento_diario"] + mudanca
-                        sheet.cell(row=campanha["linha_index"], column=10).value = novo_orcamento_total
-                        
-                        unidades_aumentadas.append(f"{campanha['nome_campanha']} (ABO) +R$ {mudanca:.2f} ({adsets_mod} adsets)")
-                        campanhas_modificadas_aumento[campanha["id_campanha"]] = {
-                            "nome": campanha["nome_campanha"],
-                            "mudanca": mudanca,
-                            "adsets_modificados": adsets_mod
-                        }
-                        log_message(f"Campanha ABO {campanha['nome_campanha']} aumentada em R$ {mudanca:.2f}")
-            else:
-                # Para CBO, aumentar normalmente
-                novo_orcamento = min(campanha["orcamento_diario"] + incremento_total, MAXIMO_ORCAMENTO)
-                incremento_real = novo_orcamento - campanha["orcamento_diario"]
+                unidades_reduzidas.append({
+                    "nome": unidade['nome'],
+                    "tipo": "ABO AdSet",
+                    "reducao": reducao_real,
+                    "de": adset['daily_budget'],
+                    "para": novo_orcamento
+                })
                 
-                if atualizar_orcamento_facebook(campanha["id_campanha"], novo_orcamento):
-                    sheet.cell(row=campanha["linha_index"], column=10).value = novo_orcamento
-                    unidades_aumentadas.append(f"{campanha['nome_campanha']} (CBO) +R$ {incremento_real:.2f}")
-                    log_message(f"Campanha CBO {campanha['id_campanha']} aumentada de R$ {campanha['orcamento_diario']:.2f} para R$ {novo_orcamento:.2f} (+R$ {incremento_real:.2f})")
+                # Rastrear mudanças na campanha
+                if unidade["id_campanha"] not in campanhas_abo_modificadas:
+                    campanhas_abo_modificadas[unidade["id_campanha"]] = {
+                        "linha_index": unidade["linha_index"],
+                        "orcamento_original": unidade["campanha_info"]["orcamento_diario"],
+                        "mudanca_total": 0
+                    }
+                campanhas_abo_modificadas[unidade["id_campanha"]]["mudanca_total"] -= reducao_real
+                
+        else:  # CBO
+            # Reduzir campanha CBO
+            reducao = unidade["orcamento_atual"] * PERCENTUAL_REALOCACAO
+            novo_orcamento = max(unidade["orcamento_atual"] - reducao, MINIMO_ORCAMENTO)
+            reducao_real = unidade["orcamento_atual"] - novo_orcamento
+            
+            if atualizar_orcamento_facebook(unidade["id_campanha"], novo_orcamento):
+                total_reducao += reducao_real
+                sheet.cell(row=unidade["linha_index"], column=10).value = novo_orcamento
+                unidades_reduzidas.append({
+                    "nome": unidade['nome'],
+                    "tipo": "CBO",
+                    "reducao": reducao_real,
+                    "de": unidade["orcamento_atual"],
+                    "para": novo_orcamento
+                })
+    
+    # Distribuir o valor reduzido entre as unidades com alto lucro
+    unidades_aumentadas = []
+    
+    if total_reducao > 0 and unidades_alto_lucro:
+        soma_lucro_alto = sum(u["lucro"] for u in unidades_alto_lucro)
+        
+        for unidade in unidades_alto_lucro:
+            # Distribuir proporcionalmente ao lucro
+            proporcao = unidade["lucro"] / soma_lucro_alto if soma_lucro_alto > 0 else 1.0 / len(unidades_alto_lucro)
+            incremento = total_reducao * proporcao
+            
+            if unidade["tipo"] == "ABO_ADSET":
+                # Aumentar AdSet ABO
+                adset = unidade["adset_info"]
+                novo_orcamento = min(adset['daily_budget'] + incremento, MAXIMO_ORCAMENTO)
+                incremento_real = novo_orcamento - adset['daily_budget']
+                
+                if incremento_real > 0 and atualizar_orcamento_adset(unidade["id_adset"], novo_orcamento):
+                    unidades_aumentadas.append({
+                        "nome": unidade['nome'],
+                        "tipo": "ABO AdSet",
+                        "aumento": incremento_real,
+                        "de": adset['daily_budget'],
+                        "para": novo_orcamento
+                    })
+                    
+                    # Rastrear mudanças na campanha
+                    if unidade["id_campanha"] not in campanhas_abo_modificadas:
+                        campanhas_abo_modificadas[unidade["id_campanha"]] = {
+                            "linha_index": unidade["linha_index"],
+                            "orcamento_original": unidade["campanha_info"]["orcamento_diario"],
+                            "mudanca_total": 0
+                        }
+                    campanhas_abo_modificadas[unidade["id_campanha"]]["mudanca_total"] += incremento_real
+                    
+            else:  # CBO
+                # Aumentar campanha CBO
+                novo_orcamento = min(unidade["orcamento_atual"] + incremento, MAXIMO_ORCAMENTO)
+                incremento_real = novo_orcamento - unidade["orcamento_atual"]
+                
+                if atualizar_orcamento_facebook(unidade["id_campanha"], novo_orcamento):
+                    sheet.cell(row=unidade["linha_index"], column=10).value = novo_orcamento
+                    unidades_aumentadas.append({
+                        "nome": unidade['nome'],
+                        "tipo": "CBO",
+                        "aumento": incremento_real,
+                        "de": unidade["orcamento_atual"],
+                        "para": novo_orcamento
+                    })
+    
+    # Atualizar orçamentos totais das campanhas ABO na planilha
+    for id_campanha, info in campanhas_abo_modificadas.items():
+        novo_orcamento_total = info["orcamento_original"] + info["mudanca_total"]
+        sheet.cell(row=info["linha_index"], column=10).value = novo_orcamento_total
     
     # Salvar planilha
     workbook.save(SPREADSHEET_PATH)
@@ -611,67 +589,61 @@ def realocar_orcamentos():
     # Calcular orçamento total atual
     total_orcamento_atual = calcular_orcamento_total()
     
-    # Separar por tipo para estatísticas
-    campanhas_cbo_reduzidas = [u for u in unidades_reduzidas if "(CBO)" in u]
-    campanhas_abo_reduzidas = [u for u in unidades_reduzidas if "(ABO)" in u]
-    campanhas_cbo_aumentadas = [u for u in unidades_aumentadas if "(CBO)" in u]
-    campanhas_abo_aumentadas = [u for u in unidades_aumentadas if "(ABO)" in u]
-    
-    total_adsets_reduzidos = sum(info["adsets_modificados"] for info in campanhas_modificadas_reducao.values())
-    total_adsets_aumentados = sum(info["adsets_modificados"] for info in campanhas_modificadas_aumento.values())
-    
-    # Preparar mensagem de relatório detalhada
+    # Preparar mensagem detalhada
     mensagem = (
-        f"✅ Realocação concluída!\n\n"
-        f"📊 Critérios:\n"
+        f"✅ REALOCAÇÃO CONCLUÍDA!\n\n"
+        f"📊 RESUMO DA OPERAÇÃO\n"
+        f"{'='*30}\n\n"
+        f"⚙️ PARÂMETROS UTILIZADOS:\n"
         f"• Lucro baixo: < R$ {LIMITE_LUCRO_BAIXO:.2f}\n"
         f"• Lucro alto: ≥ R$ {LIMITE_LUCRO_ALTO:.2f}\n"
         f"• Percentual: {int(PERCENTUAL_REALOCACAO * 100)}%\n\n"
-        f"📉 Redução ({len(unidades_reduzidas)} unidades):\n"
+        f"📉 REDUÇÕES ({len(unidades_reduzidas)} unidades)\n"
+        f"{'='*30}\n"
+        f"💰 Total reduzido: R$ {total_reducao:.2f}\n\n"
     )
     
-    if campanhas_cbo_reduzidas:
-        mensagem += f"🎯 CBO ({len(campanhas_cbo_reduzidas)}):\n"
-        for i, campanha in enumerate(campanhas_cbo_reduzidas[:3]):
-            mensagem += f"{i+1}. {campanha}\n"
-        if len(campanhas_cbo_reduzidas) > 3:
-            mensagem += f"... e mais {len(campanhas_cbo_reduzidas) - 3}\n"
+    # Top 5 reduções
+    unidades_reduzidas.sort(key=lambda x: x['reducao'], reverse=True)
+    for i, u in enumerate(unidades_reduzidas[:5]):
+        mensagem += f"{i+1}. {u['nome'][:40]}... ({u['tipo']})\n"
+        mensagem += f"   R$ {u['de']:.2f} → R$ {u['para']:.2f} (-R$ {u['reducao']:.2f})\n\n"
     
-    if campanhas_abo_reduzidas:
-        mensagem += f"🔄 ABO ({len(campanhas_abo_reduzidas)} campanhas, {total_adsets_reduzidos} adsets):\n"
-        for i, campanha in enumerate(campanhas_abo_reduzidas[:3]):
-            mensagem += f"{i+1}. {campanha}\n"
-        if len(campanhas_abo_reduzidas) > 3:
-            mensagem += f"... e mais {len(campanhas_abo_reduzidas) - 3}\n"
+    if len(unidades_reduzidas) > 5:
+        mensagem += f"... e mais {len(unidades_reduzidas) - 5} unidades\n\n"
     
-    mensagem += f"\n💰 Total reduzido: R$ {total_reducao:.2f}\n\n"
-    mensagem += f"📈 Aumento ({len(unidades_aumentadas)} unidades):\n"
+    mensagem += (
+        f"📈 AUMENTOS ({len(unidades_aumentadas)} unidades)\n"
+        f"{'='*30}\n"
+        f"💰 Total distribuído: R$ {sum(u['aumento'] for u in unidades_aumentadas):.2f}\n\n"
+    )
     
-    if campanhas_cbo_aumentadas:
-        mensagem += f"🎯 CBO ({len(campanhas_cbo_aumentadas)}):\n"
-        for i, campanha in enumerate(campanhas_cbo_aumentadas[:3]):
-            mensagem += f"{i+1}. {campanha}\n"
-        if len(campanhas_cbo_aumentadas) > 3:
-            mensagem += f"... e mais {len(campanhas_cbo_aumentadas) - 3}\n"
+    # Top 5 aumentos
+    unidades_aumentadas.sort(key=lambda x: x['aumento'], reverse=True)
+    for i, u in enumerate(unidades_aumentadas[:5]):
+        mensagem += f"{i+1}. {u['nome'][:40]}... ({u['tipo']})\n"
+        mensagem += f"   R$ {u['de']:.2f} → R$ {u['para']:.2f} (+R$ {u['aumento']:.2f})\n\n"
     
-    if campanhas_abo_aumentadas:
-        mensagem += f"🔄 ABO ({len(campanhas_abo_aumentadas)} campanhas, {total_adsets_aumentados} adsets):\n"
-        for i, campanha in enumerate(campanhas_abo_aumentadas[:3]):
-            mensagem += f"{i+1}. {campanha}\n"
-        if len(campanhas_abo_aumentadas) > 3:
-            mensagem += f"... e mais {len(campanhas_abo_aumentadas) - 3}\n"
+    if len(unidades_aumentadas) > 5:
+        mensagem += f"... e mais {len(unidades_aumentadas) - 5} unidades\n\n"
     
-    mensagem += f"\n💰 Total distribuído: R$ {total_reducao:.2f}\n"
-    mensagem += f"📊 Orçamento total: R$ {total_orcamento_atual:.2f}"
+    mensagem += (
+        f"📊 ESTATÍSTICAS FINAIS\n"
+        f"{'='*30}\n"
+        f"• Orçamento total: R$ {total_orcamento_atual:.2f}\n"
+        f"• Unidades CBO reduzidas: {sum(1 for u in unidades_reduzidas if u['tipo'] == 'CBO')}\n"
+        f"• AdSets ABO reduzidos: {sum(1 for u in unidades_reduzidas if u['tipo'] == 'ABO AdSet')}\n"
+        f"• Unidades CBO aumentadas: {sum(1 for u in unidades_aumentadas if u['tipo'] == 'CBO')}\n"
+        f"• AdSets ABO aumentados: {sum(1 for u in unidades_aumentadas if u['tipo'] == 'ABO AdSet')}\n"
+    )
     
-    # Log resumo final
-    log_message(f"[RESUMO] Realocação concluída:")
-    log_message(f"[RESUMO] Unidades reduzidas: {len(unidades_reduzidas)} ({len(campanhas_cbo_reduzidas)} CBO, {len(campanhas_abo_reduzidas)} ABO)")
-    log_message(f"[RESUMO] Unidades aumentadas: {len(unidades_aumentadas)} ({len(campanhas_cbo_aumentadas)} CBO, {len(campanhas_abo_aumentadas)} ABO)")
-    log_message(f"[RESUMO] Total realocado: R$ {total_reducao:.2f}")
-    log_message(f"[RESUMO] Orçamento total atual: R$ {total_orcamento_atual:.2f}")
+    # Log resumo
+    log_message("[RESUMO] Realocação concluída:")
+    log_message(f"[RESUMO] Total reduzido: R$ {total_reducao:.2f}")
+    log_message(f"[RESUMO] Unidades reduzidas: {len(unidades_reduzidas)}")
+    log_message(f"[RESUMO] Unidades aumentadas: {len(unidades_aumentadas)}")
     
-    # Enviar relatório via WhatsApp
+    # Enviar relatório via WhatsApp com timeout maior
     sucesso_whatsapp = enviar_mensagem_whatsapp(WHATSAPP_GROUP, mensagem)
     
     if not sucesso_whatsapp:
@@ -683,9 +655,7 @@ def realocar_orcamentos():
     return True
 
 def limpar_mensagem_whatsapp(mensagem):
-    """
-    Remove caracteres especiais e emojis que podem causar problemas no WhatsApp Web
-    """
+    """Remove caracteres especiais e emojis que podem causar problemas no WhatsApp Web"""
     import re
     
     # Substituir emojis específicos por texto
@@ -696,27 +666,29 @@ def limpar_mensagem_whatsapp(mensagem):
         '📈': '[SUBIU]',
         '📉': '[DESCEU]',
         '🔥': '[HOT]',
-        '🟡': '[*]',
-        '🌎': '[MUNDO]',
-        '•': '-'
+        '⚙️': '[CONFIG]',
+        '🎯': '[ALVO]',
+        '🔄': '[CICLO]',
+        '•': '-',
+        '→': '->',
+        '='*30: '-'*30
     }
     
     for emoji, texto in substituicoes.items():
         mensagem = mensagem.replace(emoji, texto)
     
     # Remover outros caracteres Unicode problemáticos
-    # Mantém apenas caracteres ASCII e alguns latinos comuns
     mensagem = ''.join(char for char in mensagem if ord(char) < 256)
     
     return mensagem
 
 def enviar_mensagem_whatsapp(grupo, mensagem_original):
-    """Função para enviar mensagens para um grupo do WhatsApp"""
+    """Função para enviar mensagens para um grupo do WhatsApp com melhor tratamento de timeout"""
     # Limpar mensagem antes de enviar
     mensagem = limpar_mensagem_whatsapp(mensagem_original)
     
     log_message(f"Iniciando envio de mensagem para o grupo: {grupo}")
-    log_message(f"Mensagem limpa: {mensagem[:100]}...")  # Log dos primeiros 100 caracteres
+    log_message(f"Tamanho da mensagem: {len(mensagem)} caracteres")
     
     driver = None
     
@@ -728,8 +700,6 @@ def enviar_mensagem_whatsapp(grupo, mensagem_original):
         brave_options.add_argument(r"--profile-directory=Default")
         brave_options.add_argument("--start-maximized")
         brave_options.add_argument("--window-size=1920,1080")
-        
-        # Adicionar opção para evitar detecção de automação
         brave_options.add_argument("--disable-blink-features=AutomationControlled")
         brave_options.add_argument("--disable-extensions")
         brave_options.add_experimental_option("excludeSwitches", ["enable-automation"])
@@ -751,283 +721,116 @@ def enviar_mensagem_whatsapp(grupo, mensagem_original):
         log_message("Abrindo WhatsApp Web...")
         driver.get("https://web.whatsapp.com")
         
-        # Múltiplos seletores para verificar se o WhatsApp Web carregou
-        whatsapp_loaded_selectors = [
-            (By.CSS_SELECTOR, "div[role='textbox'][aria-label='Caixa de texto de pesquisa']"),
-            (By.CSS_SELECTOR, "div[role='textbox'][aria-placeholder='Pesquisar ou começar uma nova conversa']"),
-            (By.XPATH, "//div[@role='textbox' and contains(@aria-label, 'Pesquisar')]"),
-            (By.XPATH, "//div[contains(@class, '_ai04')]"),
-            (By.XPATH, "//div[@id='pane-side']")
-        ]
+        # Aguardar carregamento inicial mais longo
+        time.sleep(5)
         
-        # Aguardar carregamento da página com múltiplos seletores
-        log_message("Aguardando carregamento do WhatsApp Web...")
-        carregou = False
-        for selector_type, selector_value in whatsapp_loaded_selectors:
+        # Verificar se o WhatsApp Web carregou
+        whatsapp_loaded = False
+        for attempt in range(3):
             try:
+                # Tentar encontrar elemento que indica carregamento completo
                 WebDriverWait(driver, 60).until(
-                    EC.presence_of_element_located((selector_type, selector_value))
+                    EC.presence_of_element_located((By.CSS_SELECTOR, "div[role='textbox'][aria-label='Caixa de texto de pesquisa']"))
                 )
-                log_message(f"WhatsApp Web carregado, elemento detectado: {selector_value}")
-                carregou = True
+                whatsapp_loaded = True
+                log_message("WhatsApp Web carregado com sucesso")
                 break
             except:
-                continue
+                log_message(f"Tentativa {attempt + 1} de carregar WhatsApp Web...")
+                time.sleep(5)
         
-        if not carregou:
-            log_message("Verificando se o WhatsApp carregou usando outro método...")
-            try:
-                WebDriverWait(driver, 120).until(
-                    EC.presence_of_element_located((By.XPATH, "//div[@data-testid='chat-list']"))
-                )
-                log_message("WhatsApp Web carregado (detectado via chat-list)")
-                carregou = True
-            except:
-                pass
-        
-        if not carregou:
-            log_message("Falha ao detectar carregamento do WhatsApp Web")
-            driver.save_screenshot("whatsapp_nao_carregou.png")
+        if not whatsapp_loaded:
+            log_message("Falha ao carregar WhatsApp Web")
             return False
         
-        # Garantir que a página está completamente carregada
-        time.sleep(2)
+        # Aguardar estabilização da página
+        time.sleep(3)
         
-        # Múltiplos seletores para o campo de pesquisa
-        search_selectors = [
-            (By.CSS_SELECTOR, "div[role='textbox'][aria-label='Caixa de texto de pesquisa']"),
-            (By.CSS_SELECTOR, "div[role='textbox'][aria-placeholder='Pesquisar ou começar uma nova conversa']"),
-            (By.XPATH, "//div[@role='textbox' and contains(@aria-label, 'Pesquisar')]"),
-            (By.XPATH, "//button[@aria-label='Pesquisar ou começar uma nova conversa']"),
-            (By.XPATH, "//div[contains(@class, 'x10l6tqk')]"),
-            (By.XPATH, "//div[contains(@class, 'lexical-rich-text-input')]//div[@role='textbox']")
-        ]
+        # Encontrar campo de pesquisa
+        search_element = WebDriverWait(driver, 30).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "div[role='textbox'][aria-label='Caixa de texto de pesquisa']"))
+        )
         
-        # Encontrar o campo de pesquisa
-        search_element = None
-        for selector_type, selector_value in search_selectors:
-            try:
-                search_element = WebDriverWait(driver, 30).until(
-                    EC.element_to_be_clickable((selector_type, selector_value))
-                )
-                log_message(f"Campo de pesquisa encontrado com seletor: {selector_value}")
-                break
-            except:
-                continue
-        
-        if not search_element:
-            log_message("Campo de pesquisa não encontrado")
-            driver.save_screenshot("campo_pesquisa_nao_encontrado.png")
-            return False
-        
-        # Clicar no campo de pesquisa e inserir o nome do grupo
-        try:
-            # Usando clique normal primeiro
-            search_element.click()
-            time.sleep(1)
-            search_element.clear()
-            search_element.send_keys(grupo)
-            log_message(f"Texto de pesquisa '{grupo}' inserido.")
-        except Exception as e:
-            log_message(f"Erro ao clicar no campo de pesquisa normalmente: {e}")
-            try:
-                # Se falhar, tente com ActionChains
-                actions = webdriver.ActionChains(driver)
-                actions.move_to_element(search_element).click().perform()
-                time.sleep(1)
-                search_element.clear()
-                search_element.send_keys(grupo)
-                log_message(f"Texto de pesquisa '{grupo}' inserido via ActionChains.")
-            except Exception as e2:
-                log_message(f"Falha ao inserir texto de pesquisa: {e2}")
-                driver.save_screenshot("erro_inserir_pesquisa.png")
-                return False
+        # Clicar e pesquisar grupo
+        search_element.click()
+        time.sleep(1)
+        search_element.clear()
+        search_element.send_keys(grupo)
+        log_message(f"Pesquisando grupo: {grupo}")
         
         # Aguardar resultados da pesquisa
+        time.sleep(4)
+        
+        # Clicar no grupo
+        group_element = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, f"//span[@title='{grupo}']"))
+        )
+        group_element.click()
+        log_message("Grupo encontrado e clicado")
+        
+        # Aguardar conversa abrir
         time.sleep(3)
         
-        # Múltiplos seletores para encontrar o grupo
-        group_selectors = [
-            (By.XPATH, f"//span[@title='{grupo}']"),
-            (By.XPATH, f"//span[contains(text(), '{grupo}')]"),
-            (By.XPATH, f"//div[contains(text(), '{grupo}')]")
-        ]
+        # Encontrar campo de mensagem
+        message_box = WebDriverWait(driver, 30).until(
+            EC.element_to_be_clickable((By.XPATH, "//div[@role='textbox' and @data-tab='10']"))
+        )
         
-        # Encontrar e clicar no grupo
-        group_element = None
-        for selector_type, selector_value in group_selectors:
-            try:
-                group_element = WebDriverWait(driver, 20).until(
-                    EC.element_to_be_clickable((selector_type, selector_value))
-                )
-                log_message(f"Grupo encontrado com seletor: {selector_value}")
-                break
-            except:
-                continue
-        
-        if not group_element:
-            log_message("Grupo não encontrado")
-            driver.save_screenshot("grupo_nao_encontrado.png")
-            return False
-        
-        # Clicar no grupo usando clique normal
-        try:
-            group_element.click()
-            log_message("Grupo clicado com sucesso")
-        except Exception as e:
-            log_message(f"Erro ao clicar no grupo normalmente: {e}")
-            try:
-                # Se falhar, tente com ActionChains
-                actions = webdriver.ActionChains(driver)
-                actions.move_to_element(group_element).click().perform()
-                log_message("Grupo clicado com ActionChains")
-            except Exception as e2:
-                log_message(f"Falha ao clicar no grupo: {e2}")
-                driver.save_screenshot("erro_clique_grupo.png")
-                return False
-        
-        # Verificar se o grupo foi realmente clicado
-        time.sleep(3)
-        try:
-            # Verificar se estamos na conversa, procurando por elemento que só aparece depois de clicar no grupo
-            chat_header = WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, f"//span[contains(text(), '{grupo}')]/ancestor::div[contains(@role, 'button')]"))
-            )
-            log_message("Conversa do grupo aberta com sucesso")
-        except:
-            log_message("Não foi possível confirmar se a conversa do grupo foi aberta")
-            driver.save_screenshot("conversa_nao_confirmada.png")
-            return False
-        
-        # Múltiplos seletores para o campo de mensagem
-        message_selectors = [
-            (By.XPATH, "//div[@role='textbox' and @data-tab='10']"),
-            (By.XPATH, "//div[@role='textbox' and contains(@aria-label, 'Digite uma mensagem')]"),
-            (By.CSS_SELECTOR, "div[role='textbox'][data-tab='10']"),
-            (By.CSS_SELECTOR, "div[role='textbox'][aria-label='Digite uma mensagem']"),
-            (By.XPATH, "//div[contains(@class, 'lexical-rich-text-input')]//div[@role='textbox']"),
-            (By.XPATH, "//footer//div[@role='textbox']"),
-            (By.XPATH, "//div[@data-testid='conversation-compose-box-input']"),
-            (By.XPATH, "//div[@title='Digite uma mensagem']")
-        ]
-        
-        # Encontrar o campo de mensagem
-        log_message("Localizando campo de mensagem...")
-        message_box = None
-        for selector_type, selector_value in message_selectors:
-            try:
-                message_box = WebDriverWait(driver, 30).until(
-                    EC.element_to_be_clickable((selector_type, selector_value))
-                )
-                log_message(f"Campo de mensagem encontrado com seletor: {selector_value}")
-                break
-            except:
-                continue
-        
-        if not message_box:
-            log_message("Campo de mensagem não encontrado")
-            driver.save_screenshot("campo_mensagem_nao_encontrado.png")
-            return False
-        
-        # Clicar e digitar a mensagem
-        log_message("Tentando digitar mensagem...")
-        try:
+        # Dividir mensagem em partes menores se for muito grande
+        max_chars = 4000
+        if len(mensagem) > max_chars:
+            log_message(f"Mensagem muito grande, dividindo em partes...")
+            partes = [mensagem[i:i+max_chars] for i in range(0, len(mensagem), max_chars)]
+            
+            for i, parte in enumerate(partes):
+                log_message(f"Enviando parte {i+1} de {len(partes)}...")
+                message_box.click()
+                time.sleep(1)
+                message_box.clear()
+                message_box.send_keys(parte)
+                time.sleep(2)
+                message_box.send_keys(Keys.ENTER)
+                time.sleep(3)
+        else:
+            # Enviar mensagem inteira
             message_box.click()
             time.sleep(1)
             message_box.clear()
-            message_box.send_keys(mensagem)
-            log_message("Mensagem digitada com sucesso")
-        except Exception as e:
-            log_message(f"Erro ao digitar mensagem normalmente: {e}")
-            try:
-                actions = webdriver.ActionChains(driver)
-                actions.move_to_element(message_box).click().perform()
-                time.sleep(1)
-                message_box.send_keys(mensagem)
-                log_message("Mensagem digitada via ActionChains")
-            except Exception as e2:
-                log_message(f"Falha ao digitar mensagem: {e2}")
-                driver.save_screenshot("erro_digitacao.png")
-                return False
-        
-        time.sleep(1)
-        
-        # Enviar a mensagem
-        log_message("Enviando mensagem...")
-        
-        # Primeiro tenta encontrar o botão de enviar
-        send_selectors = [
-            (By.CSS_SELECTOR, "button[aria-label='Enviar']"),
-            (By.CSS_SELECTOR, "button[data-tab='11']"),
-            (By.XPATH, "//button[contains(@class, '_3wFFT')]"),
-            (By.XPATH, "//button[@data-icon='send']"),
-            (By.XPATH, "//span[@data-icon='send']"),
-            (By.XPATH, "//button[@data-testid='send']"),
-            (By.XPATH, "//button[@aria-label='Enviar mensagem']")
-        ]
-        
-        send_button = None
-        for selector_type, selector_value in send_selectors:
-            try:
-                send_button = WebDriverWait(driver, 10).until(
-                    EC.element_to_be_clickable((selector_type, selector_value))
-                )
-                log_message(f"Botão de enviar encontrado com seletor: {selector_value}")
-                break
-            except:
-                continue
-        
-        if send_button:
-            try:
-                send_button.click()
-                log_message("Botão de enviar clicado")
-            except Exception as e:
-                log_message(f"Erro ao clicar no botão de enviar: {e}")
-                try:
-                    actions = webdriver.ActionChains(driver)
-                    actions.move_to_element(send_button).click().perform()
-                    log_message("Botão de enviar clicado via ActionChains")
-                except:
-                    log_message("Tentando enviar com ENTER...")
-                    message_box.send_keys(Keys.ENTER)
-        else:
-            # Se não encontrar o botão, tentar com ENTER
-            log_message("Botão de enviar não encontrado, tentando com ENTER...")
+            
+            # Digitar mensagem em blocos para evitar problemas
+            for i in range(0, len(mensagem), 500):
+                message_box.send_keys(mensagem[i:i+500])
+                time.sleep(0.5)
+            
+            log_message("Mensagem digitada, enviando...")
+            time.sleep(2)
+            
+            # Enviar mensagem
             message_box.send_keys(Keys.ENTER)
-            log_message("Tecla ENTER enviada")
         
-        # Aguardar para confirmar envio
+        # Aguardar confirmação de envio
         time.sleep(5)
         
-        # Verificar se a mensagem foi enviada
-        try:
-            # Procurar marcadores de mensagem enviada ou a própria mensagem no histórico
-            sent_indicators = driver.find_elements(By.XPATH, "//span[@data-icon='msg-check']") + \
-                              driver.find_elements(By.XPATH, "//span[@data-icon='msg-dcheck']") + \
-                              driver.find_elements(By.XPATH, f"//div[contains(@class, 'message-out')]//*[contains(text(), '{mensagem[:20]}')]")
-            
-            if sent_indicators:
-                log_message("Mensagem enviada com sucesso (confirmado)")
-            else:
-                log_message("Não foi possível confirmar o envio da mensagem, mas o processo foi concluído")
-        except Exception as e:
-            log_message(f"Erro ao verificar status da mensagem: {e}")
-        
-        log_message("Processo de envio de mensagem concluído")
+        log_message("Processo de envio concluído")
         return True
         
     except Exception as e:
-        log_message(f"Problema ao enviar mensagem no WhatsApp: {e}")
+        log_message(f"Erro ao enviar mensagem no WhatsApp: {e}")
         if driver:
             try:
-                driver.save_screenshot("whatsapp_error_final.png")
+                driver.save_screenshot("whatsapp_error_realocar.png")
             except:
                 pass
         return False
         
     finally:
         if driver:
-            driver.quit()
+            try:
+                # Dar tempo para mensagem ser enviada antes de fechar
+                time.sleep(3)
+                driver.quit()
+            except:
+                pass
 
 def run(token, accounts, group, logs, date_range='today', start_date=None, end_date=None, low_profit=None, high_profit=None, realloc_pct=None, abo_accounts=None):
     """

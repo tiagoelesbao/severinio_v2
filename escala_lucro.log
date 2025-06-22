@@ -19618,3 +19618,745 @@ Resposta: {"error":{"message":"(#100) Filter campaign_id is not valid any more, 
 [2025-06-22 10:00:01] INFO:  * Debugger PIN: 372-168-963
 [2025-06-22 10:08:05] INFO:  * Detected change in 'C:\\Users\\Pichau\\iCloudDrive\\PROJETOS\\ZIP\\PROCESSOS\\ROBOS_PY\\ROBO_IMPERIO\\meu_projeto_web\\realocar_orcamento.py', reloading
 [2025-06-22 10:08:05] INFO:  * Restarting with stat
+[2025-06-22 10:08:06] WARNING:  * Debugger is active!
+[2025-06-22 10:08:06] INFO:  * Debugger PIN: 372-168-963
+[2025-06-22 10:20:15] INFO: 127.0.0.1 - - [22/Jun/2025 10:20:15] "GET / HTTP/1.1" 200 -
+[2025-06-22 10:20:15] INFO: 127.0.0.1 - - [22/Jun/2025 10:20:15] "[36mGET /static/scripts.js HTTP/1.1[0m" 304 -
+[2025-06-22 10:20:15] INFO: 127.0.0.1 - - [22/Jun/2025 10:20:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-22 10:20:56] INFO: 127.0.0.1 - - [22/Jun/2025 10:20:56] "POST /start HTTP/1.1" 200 -
+[2025-06-22 10:20:56] INFO: Conta ABO act_406219475582745 adicionada à lista de processamento
+[2025-06-22 10:20:56] INFO: Iniciando realocação com: Token=EAAQ0...FNOK0, Contas=['act_790223756353632', 'act_303402486183447', 'act_406219475582745'], Grupo=#IMP - ROI DIÁRIO
+[2025-06-22 10:20:56] INFO: Parâmetros: Date Range=today, Low Profit=1, High Profit=2, Realloc %=20
+[2025-06-22 10:20:56] INFO: Contas ABO configuradas: ['act_406219475582745']
+[2025-06-22 10:20:56] INFO: Planilha não encontrada. Criando nova planilha.
+[2025-06-22 10:20:57] INFO: 127.0.0.1 - - [22/Jun/2025 10:20:57] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:20:57] INFO: Planilha criada com sucesso.
+[2025-06-22 10:20:57] INFO: Processando conta de anúncio CBO: act_790223756353632
+[2025-06-22 10:20:57] INFO: Buscando campanhas para conta act_790223756353632...
+[2025-06-22 10:20:58] INFO: 127.0.0.1 - - [22/Jun/2025 10:20:58] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:20:59] INFO: 127.0.0.1 - - [22/Jun/2025 10:20:59] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:20:59] INFO: Encontradas 110 campanhas.
+[2025-06-22 10:21:00] INFO: Encontrados 14 insights.
+[2025-06-22 10:21:00] INFO: Processadas 12 campanhas ativas.
+[2025-06-22 10:21:00] INFO: Processando conta de anúncio CBO: act_303402486183447
+[2025-06-22 10:21:00] INFO: Buscando campanhas para conta act_303402486183447...
+[2025-06-22 10:21:00] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:00] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:01] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:01] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:02] INFO: Encontradas 87 campanhas.
+[2025-06-22 10:21:02] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:02] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:03] INFO: Encontrados 7 insights.
+[2025-06-22 10:21:03] INFO: Processadas 5 campanhas ativas.
+[2025-06-22 10:21:03] INFO: Processando conta de anúncio ABO: act_406219475582745
+[2025-06-22 10:21:03] INFO: Buscando campanhas para conta act_406219475582745...
+[2025-06-22 10:21:03] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:03] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:04] INFO: Encontradas 34 campanhas.
+[2025-06-22 10:21:04] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:04] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:05] INFO: Encontrados 6 insights.
+[2025-06-22 10:21:05] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:05] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:06] INFO: Campanha ABO 120226735943410030: 15 adsets ativos, orçamento total: R$ 989.12
+[2025-06-22 10:21:06] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:06] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:07] INFO: Campanha ABO 120226735942950030: 15 adsets ativos, orçamento total: R$ 339.23
+[2025-06-22 10:21:07] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:07] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:08] INFO: Campanha ABO 120226735942940030: 15 adsets ativos, orçamento total: R$ 610.81
+[2025-06-22 10:21:08] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:08] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:09] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:09] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:09] INFO: Campanha ABO 120226735942930030: 15 adsets ativos, orçamento total: R$ 120.00
+[2025-06-22 10:21:09] INFO: Processadas 4 campanhas ativas.
+[2025-06-22 10:21:09] INFO: Total de 21 campanhas ativas encontradas.
+[2025-06-22 10:21:09] INFO: Campanhas CBO: 17, Campanhas ABO: 4
+[2025-06-22 10:21:09] INFO: Total de AdSets em campanhas ABO: 60
+[2025-06-22 10:21:09] INFO: Dados de 21 campanhas salvos na planilha.
+[2025-06-22 10:21:09] INFO: [INFO] Encontradas 12 campanhas com lucro BAIXO e 9 com lucro ALTO
+[2025-06-22 10:21:09] INFO: Enviando atualização de orçamento para campanha 120214808911760431
+[2025-06-22 10:21:10] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:10] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:11] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:11] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:12] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:12] INFO: Orçamento atualizado para a campanha 120214808911760431: R$ 1364.92
+[2025-06-22 10:21:12] INFO: Campanha CBO 120214808911760431 reduzida de R$ 1706.15 para R$ 1364.92 (-R$ 341.23)
+[2025-06-22 10:21:12] INFO: Enviando atualização de orçamento para campanha 120215567870460431
+[2025-06-22 10:21:12] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:12] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:14] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:14] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:14] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:14] INFO: Orçamento atualizado para a campanha 120215567870460431: R$ 908.22
+[2025-06-22 10:21:14] INFO: Campanha CBO 120215567870460431 reduzida de R$ 1135.28 para R$ 908.22 (-R$ 227.06)
+[2025-06-22 10:21:14] INFO: Atualizando orçamento do AdSet 120226735943130030 para R$ 701.70
+[2025-06-22 10:21:15] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:15] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:15] INFO: Orçamento do AdSet 120226735943130030 atualizado com sucesso
+[2025-06-22 10:21:15] INFO: AdSet 120226735943130030 reduzido de R$ 877.12 para R$ 701.70 (-R$ 175.42)
+[2025-06-22 10:21:15] INFO: Atualizando orçamento do AdSet 120226735943350030 para R$ 181.78
+[2025-06-22 10:21:16] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:16] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:16] INFO: Orçamento do AdSet 120226735943350030 atualizado com sucesso
+[2025-06-22 10:21:16] INFO: AdSet 120226735943350030 reduzido de R$ 227.23 para R$ 181.78 (-R$ 45.45)
+[2025-06-22 10:21:16] INFO: Enviando atualização de orçamento para campanha 120215039931450431
+[2025-06-22 10:21:17] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:17] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:17] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:17] INFO: Orçamento atualizado para a campanha 120215039931450431: R$ 100.00
+[2025-06-22 10:21:17] INFO: Campanha CBO 120215039931450431 reduzida de R$ 100.00 para R$ 100.00 (-R$ 0.00)
+[2025-06-22 10:21:17] INFO: Atualizando orçamento do AdSet 120226736700440030 para R$ 399.05
+[2025-06-22 10:21:18] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:18] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:18] INFO: Orçamento do AdSet 120226736700440030 atualizado com sucesso
+[2025-06-22 10:21:18] INFO: AdSet 120226736700440030 reduzido de R$ 498.81 para R$ 399.05 (-R$ 99.76)
+[2025-06-22 10:21:18] INFO: Enviando atualização de orçamento para campanha 120215736960620431
+[2025-06-22 10:21:19] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:19] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:19] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:19] INFO: Orçamento atualizado para a campanha 120215736960620431: R$ 139.10
+[2025-06-22 10:21:19] INFO: Campanha CBO 120215736960620431 reduzida de R$ 173.87 para R$ 139.10 (-R$ 34.77)
+[2025-06-22 10:21:19] INFO: Enviando atualização de orçamento para campanha 120227588920730431
+[2025-06-22 10:21:20] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:20] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:21] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:21] INFO: Orçamento atualizado para a campanha 120227588920730431: R$ 100.00
+[2025-06-22 10:21:21] INFO: Campanha CBO 120227588920730431 reduzida de R$ 100.00 para R$ 100.00 (-R$ 0.00)
+[2025-06-22 10:21:21] INFO: Enviando atualização de orçamento para campanha 120227372043910431
+[2025-06-22 10:21:21] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:21] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:22] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:22] INFO: Orçamento atualizado para a campanha 120227372043910431: R$ 100.00
+[2025-06-22 10:21:22] INFO: Campanha CBO 120227372043910431 reduzida de R$ 100.00 para R$ 100.00 (-R$ 0.00)
+[2025-06-22 10:21:22] INFO: Enviando atualização de orçamento para campanha 120214509094010338
+[2025-06-22 10:21:22] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:22] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:23] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:23] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:23] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:23] INFO: Orçamento atualizado para a campanha 120214509094010338: R$ 100.00
+[2025-06-22 10:21:23] INFO: Campanha CBO 120214509094010338 reduzida de R$ 100.00 para R$ 100.00 (-R$ 0.00)
+[2025-06-22 10:21:23] INFO: Enviando atualização de orçamento para campanha 120215038900720431
+[2025-06-22 10:21:24] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:24] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:25] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:25] INFO: Orçamento atualizado para a campanha 120215038900720431: R$ 100.00
+[2025-06-22 10:21:25] INFO: Campanha CBO 120215038900720431 reduzida de R$ 100.00 para R$ 100.00 (-R$ 0.00)
+[2025-06-22 10:21:25] INFO: Enviando atualização de orçamento para campanha 120222533000150431
+[2025-06-22 10:21:26] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:26] INFO: Orçamento atualizado para a campanha 120222533000150431: R$ 460.09
+[2025-06-22 10:21:26] INFO: Campanha CBO 120222533000150431 aumentada de R$ 172.08 para R$ 460.09 (+R$ 288.01)
+[2025-06-22 10:21:26] INFO: Enviando atualização de orçamento para campanha 120227095176980431
+[2025-06-22 10:21:26] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:26] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:27] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:27] INFO: Orçamento atualizado para a campanha 120227095176980431: R$ 255.43
+[2025-06-22 10:21:27] INFO: Campanha CBO 120227095176980431 aumentada de R$ 100.00 para R$ 255.43 (+R$ 155.43)
+[2025-06-22 10:21:27] INFO: Enviando atualização de orçamento para campanha 120227626914980338
+[2025-06-22 10:21:28] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:28] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:28] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:28] INFO: Orçamento atualizado para a campanha 120227626914980338: R$ 3882.51
+[2025-06-22 10:21:28] INFO: Campanha CBO 120227626914980338 aumentada de R$ 3731.64 para R$ 3882.51 (+R$ 150.87)
+[2025-06-22 10:21:28] INFO: Enviando atualização de orçamento para campanha 120227628451420338
+[2025-06-22 10:21:30] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:30] INFO: Orçamento atualizado para a campanha 120227628451420338: R$ 4236.98
+[2025-06-22 10:21:30] INFO: Campanha CBO 120227628451420338 aumentada de R$ 4116.85 para R$ 4236.98 (+R$ 120.13)
+[2025-06-22 10:21:30] INFO: Enviando atualização de orçamento para campanha 120221473064310431
+[2025-06-22 10:21:30] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:30] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:31] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:31] INFO: Orçamento atualizado para a campanha 120221473064310431: R$ 206.46
+[2025-06-22 10:21:31] INFO: Campanha CBO 120221473064310431 aumentada de R$ 100.00 para R$ 206.46 (+R$ 106.46)
+[2025-06-22 10:21:31] INFO: Enviando atualização de orçamento para campanha 120227590767740431
+[2025-06-22 10:21:32] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:32] INFO: Orçamento atualizado para a campanha 120227590767740431: R$ 165.00
+[2025-06-22 10:21:32] INFO: Campanha CBO 120227590767740431 aumentada de R$ 100.00 para R$ 165.00 (+R$ 65.00)
+[2025-06-22 10:21:32] INFO: Enviando atualização de orçamento para campanha 120227639640790338
+[2025-06-22 10:21:32] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:32] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:33] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:33] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:34] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:34] INFO: Orçamento atualizado para a campanha 120227639640790338: R$ 195.58
+[2025-06-22 10:21:34] INFO: Campanha CBO 120227639640790338 aumentada de R$ 181.35 para R$ 195.58 (+R$ 14.23)
+[2025-06-22 10:21:34] INFO: Enviando atualização de orçamento para campanha 120214507411990338
+[2025-06-22 10:21:34] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:34] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:35] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:35] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:36] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:36] INFO: Orçamento atualizado para a campanha 120214507411990338: R$ 135.45
+[2025-06-22 10:21:36] INFO: Campanha CBO 120214507411990338 aumentada de R$ 122.27 para R$ 135.45 (+R$ 13.18)
+[2025-06-22 10:21:36] INFO: Enviando atualização de orçamento para campanha 120214323043310431
+[2025-06-22 10:21:36] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:36] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:37] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:21:37] INFO: Orçamento atualizado para a campanha 120214323043310431: R$ 110.39
+[2025-06-22 10:21:37] INFO: Campanha CBO 120214323043310431 aumentada de R$ 100.00 para R$ 110.39 (+R$ 10.39)
+[2025-06-22 10:21:37] INFO: [RESUMO] Realocação concluída:
+[2025-06-22 10:21:37] INFO: [RESUMO] Unidades reduzidas: 11 (8 CBO, 3 ABO)
+[2025-06-22 10:21:37] INFO: [RESUMO] Unidades aumentadas: 9 (9 CBO, 0 ABO)
+[2025-06-22 10:21:37] INFO: [RESUMO] Total realocado: R$ 923.69
+[2025-06-22 10:21:37] INFO: [RESUMO] Orçamento total atual: R$ 14298.65
+[2025-06-22 10:21:37] INFO: Iniciando envio de mensagem para o grupo: #IMP - ROI DIÁRIO
+[2025-06-22 10:21:37] INFO: Mensagem limpa: [OK] Realocação concluída!
+
+[DADOS] Critérios:
+- Lucro baixo: < R$ 1.00
+- Lucro alto:  R$ 2.00
+- Per...
+[2025-06-22 10:21:37] INFO: ====== WebDriver manager ======
+[2025-06-22 10:21:37] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:37] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:38] INFO: Get LATEST chromedriver version for google-chrome
+[2025-06-22 10:21:38] INFO: Get LATEST chromedriver version for google-chrome
+[2025-06-22 10:21:38] INFO: Driver [C:\Users\Pichau\.wdm\drivers\chromedriver\win64\137.0.7151.119\chromedriver-win32/chromedriver.exe] found in cache
+[2025-06-22 10:21:38] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:38] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:40] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:40] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:40] INFO: Abrindo WhatsApp Web...
+[2025-06-22 10:21:41] INFO: Aguardando carregamento do WhatsApp Web...
+[2025-06-22 10:21:42] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:42] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:43] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:43] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:44] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:44] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:45] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:45] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:46] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:46] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:47] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:47] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:48] INFO: WhatsApp Web carregado, elemento detectado: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 10:21:48] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:48] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:49] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:49] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:50] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:50] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:51] INFO: Campo de pesquisa encontrado com seletor: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 10:21:51] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:51] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:53] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:53] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:54] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:54] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:55] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:55] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:56] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:56] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:56] INFO: Texto de pesquisa '#IMP - ROI DIÁRIO' inserido.
+[2025-06-22 10:21:57] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:57] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:58] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:58] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:21:59] INFO: 127.0.0.1 - - [22/Jun/2025 10:21:59] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:00] INFO: Grupo encontrado com seletor: //span[@title='#IMP - ROI DIÁRIO']
+[2025-06-22 10:22:00] INFO: Grupo clicado com sucesso
+[2025-06-22 10:22:00] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:00] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:01] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:01] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:02] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:02] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:03] INFO: Conversa do grupo aberta com sucesso
+[2025-06-22 10:22:03] INFO: Localizando campo de mensagem...
+[2025-06-22 10:22:03] INFO: Campo de mensagem encontrado com seletor: //div[@role='textbox' and @data-tab='10']
+[2025-06-22 10:22:03] INFO: Tentando digitar mensagem...
+[2025-06-22 10:22:03] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:03] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:04] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:04] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:05] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:05] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:06] INFO: Mensagem digitada com sucesso
+[2025-06-22 10:22:06] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:06] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:07] INFO: Enviando mensagem...
+[2025-06-22 10:22:07] INFO: Botão de enviar encontrado com seletor: button[aria-label='Enviar']
+[2025-06-22 10:22:07] INFO: Botão de enviar clicado
+[2025-06-22 10:22:08] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:08] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:09] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:09] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:10] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:10] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:11] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:11] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:12] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:12] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:12] INFO: Mensagem enviada com sucesso (confirmado)
+[2025-06-22 10:22:12] INFO: Processo de envio de mensagem concluído
+[2025-06-22 10:22:13] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:13] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:14] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:14] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:15] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:15] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:22:15] INFO: [INFO] Mensagem enviada com sucesso
+[2025-06-22 10:22:15] INFO: Processo de realocação concluído com sucesso!
+[2025-06-22 10:22:17] INFO: 127.0.0.1 - - [22/Jun/2025 10:22:17] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:37:26] INFO: 127.0.0.1 - - [22/Jun/2025 10:37:26] "GET / HTTP/1.1" 200 -
+[2025-06-22 10:37:26] INFO: 127.0.0.1 - - [22/Jun/2025 10:37:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-22 10:37:26] INFO: 127.0.0.1 - - [22/Jun/2025 10:37:26] "[36mGET /static/scripts.js HTTP/1.1[0m" 304 -
+[2025-06-22 10:38:19] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:19] "POST /start HTTP/1.1" 200 -
+[2025-06-22 10:38:19] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:19] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:19] INFO: Iniciando escala com: Token=EAAQ0...FNOK0, Contas=['act_790223756353632', 'act_303402486183447', 'act_406219475582745'], Grupo=#IMP - ROI DIÁRIO
+[2025-06-22 10:38:19] INFO: Parâmetros: Date Range=today, Min Profit=1, Scale Value=3000
+[2025-06-22 10:38:19] INFO: Contas ABO configuradas: ['act_406219475582745']
+[2025-06-22 10:38:20] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:20] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:21] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:21] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:22] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:22] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:23] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:23] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:24] INFO: Planilha limpa no início da execução.
+[2025-06-22 10:38:24] INFO: Processando conta de anúncio CBO: act_790223756353632
+[2025-06-22 10:38:24] INFO: Buscando campanhas para conta act_790223756353632...
+[2025-06-22 10:38:25] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:25] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:26] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:26] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:26] INFO: Encontradas 110 campanhas.
+[2025-06-22 10:38:27] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:27] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:27] INFO: Encontrados 14 insights.
+[2025-06-22 10:38:27] INFO: Processadas 12 campanhas ativas.
+[2025-06-22 10:38:27] INFO: Processando conta de anúncio CBO: act_303402486183447
+[2025-06-22 10:38:27] INFO: Buscando campanhas para conta act_303402486183447...
+[2025-06-22 10:38:28] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:28] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:29] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:29] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:29] INFO: Encontradas 87 campanhas.
+[2025-06-22 10:38:30] INFO: Encontrados 7 insights.
+[2025-06-22 10:38:30] INFO: Processadas 5 campanhas ativas.
+[2025-06-22 10:38:30] INFO: Processando conta de anúncio ABO: act_406219475582745
+[2025-06-22 10:38:30] INFO: Buscando campanhas para conta act_406219475582745...
+[2025-06-22 10:38:30] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:30] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:31] INFO: Encontradas 34 campanhas.
+[2025-06-22 10:38:31] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:31] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:31] INFO: Encontrados 6 insights.
+[2025-06-22 10:38:32] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:32] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:32] INFO: Campanha ABO 120226735943410030: 15 adsets ativos, orçamento total: R$ 813.69
+[2025-06-22 10:38:33] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:33] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:33] INFO: Campanha ABO 120226735942950030: 15 adsets ativos, orçamento total: R$ 293.78
+[2025-06-22 10:38:34] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:34] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:34] INFO: Campanha ABO 120226735942940030: 15 adsets ativos, orçamento total: R$ 511.04
+[2025-06-22 10:38:35] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:35] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:35] INFO: Campanha ABO 120226735942930030: 15 adsets ativos, orçamento total: R$ 120.00
+[2025-06-22 10:38:35] INFO: Processadas 4 campanhas ativas.
+[2025-06-22 10:38:36] INFO: Total de 21 campanhas ativas encontradas.
+[2025-06-22 10:38:36] INFO: Campanhas CBO: 17, Campanhas ABO: 4
+[2025-06-22 10:38:36] INFO: Total de AdSets em campanhas ABO: 60
+[2025-06-22 10:38:36] INFO: Dados das campanhas salvos na planilha.
+[2025-06-22 10:38:36] INFO:   -> 0 AdSets com lucro >= R$ 1.00
+[2025-06-22 10:38:36] INFO:   -> 1 AdSets com lucro >= R$ 1.00
+[2025-06-22 10:38:36] INFO:   -> 1 AdSets com lucro >= R$ 1.00
+[2025-06-22 10:38:36] INFO:   -> 0 AdSets com lucro >= R$ 1.00
+[2025-06-22 10:38:36] INFO: [INFO] 13 unidades para escalonamento:
+[2025-06-22 10:38:36] INFO: - Campanhas CBO: 11
+[2025-06-22 10:38:36] INFO: - AdSets ABO: 2
+[2025-06-22 10:38:36] INFO: - Soma dos lucros: R$ 810.41
+[2025-06-22 10:38:36] INFO: Enviando atualização de orçamento para campanha 120222533000150431
+[2025-06-22 10:38:36] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:36] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:37] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:38:37] INFO: Orçamento atualizado para a campanha 120222533000150431: R$ 1448.32
+[2025-06-22 10:38:37] INFO: Campanha CBO 120222533000150431 escalada para R$ 1448.32 (+R$ 988.24)
+[2025-06-22 10:38:37] INFO: Enviando atualização de orçamento para campanha 120227628451420338
+[2025-06-22 10:38:37] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:37] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:38] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:38:38] INFO: Orçamento atualizado para a campanha 120227628451420338: R$ 4785.36
+[2025-06-22 10:38:38] INFO: Campanha CBO 120227628451420338 escalada para R$ 4785.36 (+R$ 548.39)
+[2025-06-22 10:38:38] INFO: Enviando atualização de orçamento para campanha 120227626914980338
+[2025-06-22 10:38:38] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:38] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:39] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:39] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:40] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:38:40] INFO: Orçamento atualizado para a campanha 120227626914980338: R$ 4266.83
+[2025-06-22 10:38:40] INFO: Campanha CBO 120227626914980338 escalada para R$ 4266.83 (+R$ 384.32)
+[2025-06-22 10:38:40] INFO: Enviando atualização de orçamento para campanha 120227095176980431
+[2025-06-22 10:38:40] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:40] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:41] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:38:41] INFO: Orçamento atualizado para a campanha 120227095176980431: R$ 582.48
+[2025-06-22 10:38:41] INFO: Campanha CBO 120227095176980431 escalada para R$ 582.48 (+R$ 327.06)
+[2025-06-22 10:38:41] INFO: Enviando atualização de orçamento para campanha 120221473064310431
+[2025-06-22 10:38:41] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:41] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:42] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:38:42] INFO: Orçamento atualizado para a campanha 120221473064310431: R$ 429.12
+[2025-06-22 10:38:42] INFO: Campanha CBO 120221473064310431 escalada para R$ 429.12 (+R$ 222.67)
+[2025-06-22 10:38:42] INFO: Enviando atualização de orçamento para campanha 120227590767740431
+[2025-06-22 10:38:42] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:42] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:43] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:38:43] INFO: Orçamento atualizado para a campanha 120227590767740431: R$ 301.22
+[2025-06-22 10:38:43] INFO: Campanha CBO 120227590767740431 escalada para R$ 301.22 (+R$ 136.23)
+[2025-06-22 10:38:43] INFO: Enviando atualização de orçamento para campanha 120227639640790338
+[2025-06-22 10:38:43] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:43] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:44] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:38:44] INFO: Orçamento atualizado para a campanha 120227639640790338: R$ 306.11
+[2025-06-22 10:38:44] INFO: Campanha CBO 120227639640790338 escalada para R$ 306.11 (+R$ 110.54)
+[2025-06-22 10:38:44] INFO: Enviando atualização de orçamento para campanha 120227372043910431
+[2025-06-22 10:38:44] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:44] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:45] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:45] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:46] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:38:46] INFO: Orçamento atualizado para a campanha 120227372043910431: R$ 176.59
+[2025-06-22 10:38:46] INFO: Campanha CBO 120227372043910431 escalada para R$ 176.59 (+R$ 76.59)
+[2025-06-22 10:38:46] INFO: Atualizando orçamento do AdSet 120226736700480030 para R$ 100.00
+[2025-06-22 10:38:47] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:47] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:47] INFO: Orçamento do AdSet 120226736700480030 atualizado com sucesso
+[2025-06-22 10:38:47] INFO: AdSet 120226736700480030 escalado de R$ 8.00 para R$ 100.00 (+R$ 92.00)
+[2025-06-22 10:38:47] INFO: Enviando atualização de orçamento para campanha 120227588920730431
+[2025-06-22 10:38:48] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:48] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:48] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:38:48] INFO: Orçamento atualizado para a campanha 120227588920730431: R$ 159.71
+[2025-06-22 10:38:48] INFO: Campanha CBO 120227588920730431 escalada para R$ 159.71 (+R$ 59.71)
+[2025-06-22 10:38:48] INFO: Atualizando orçamento do AdSet 120226736700180030 para R$ 100.00
+[2025-06-22 10:38:49] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:49] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:49] INFO: Orçamento do AdSet 120226736700180030 atualizado com sucesso
+[2025-06-22 10:38:49] INFO: AdSet 120226736700180030 escalado de R$ 8.00 para R$ 100.00 (+R$ 92.00)
+[2025-06-22 10:38:49] INFO: Enviando atualização de orçamento para campanha 120214507411990338
+[2025-06-22 10:38:50] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:50] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:51] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:51] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:51] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:38:51] INFO: Orçamento atualizado para a campanha 120214507411990338: R$ 155.48
+[2025-06-22 10:38:51] INFO: Campanha CBO 120214507411990338 escalada para R$ 155.48 (+R$ 20.03)
+[2025-06-22 10:38:51] INFO: Enviando atualização de orçamento para campanha 120214323043310431
+[2025-06-22 10:38:52] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:52] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:52] INFO: Resposta da API: {'success': True}
+[2025-06-22 10:38:52] INFO: Orçamento atualizado para a campanha 120214323043310431: R$ 127.41
+[2025-06-22 10:38:52] INFO: Campanha CBO 120214323043310431 escalada para R$ 127.41 (+R$ 17.03)
+[2025-06-22 10:38:52] INFO: [RESUMO] Total de unidades escaladas: 13
+[2025-06-22 10:38:52] INFO: [RESUMO] Campanhas CBO escaladas: 11
+[2025-06-22 10:38:52] INFO: [RESUMO] AdSets ABO escalados: 2
+[2025-06-22 10:38:52] INFO: [RESUMO] Total distribuído: R$ 3074.80
+[2025-06-22 10:38:52] INFO: Iniciando envio de mensagem para o grupo: #IMP - ROI DIÁRIO
+[2025-06-22 10:38:52] INFO: Mensagem limpa: [OK] Escala realizada com sucesso!
+
+[$$] Total distribuído: R$ 3074.80
+[DADOS] Unidades escaladas: 1...
+[2025-06-22 10:38:52] INFO: ====== WebDriver manager ======
+[2025-06-22 10:38:53] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:53] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:53] INFO: Get LATEST chromedriver version for google-chrome
+[2025-06-22 10:38:53] INFO: Get LATEST chromedriver version for google-chrome
+[2025-06-22 10:38:53] INFO: Driver [C:\Users\Pichau\.wdm\drivers\chromedriver\win64\137.0.7151.119\chromedriver-win32/chromedriver.exe] found in cache
+[2025-06-22 10:38:54] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:54] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:55] INFO: Abrindo WhatsApp Web...
+[2025-06-22 10:38:56] INFO: Aguardando carregamento do WhatsApp Web...
+[2025-06-22 10:38:56] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:56] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:38:58] INFO: 127.0.0.1 - - [22/Jun/2025 10:38:58] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:00] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:00] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:02] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:02] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:03] INFO: WhatsApp Web carregado, elemento detectado: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 10:39:04] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:04] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:06] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:06] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:06] INFO: Campo de pesquisa encontrado com seletor: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 10:39:08] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:08] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:10] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:10] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:11] INFO: Texto de pesquisa '#IMP - ROI DIÁRIO' inserido.
+[2025-06-22 10:39:12] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:12] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:14] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:14] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:14] INFO: Grupo encontrado com seletor: //span[@title='#IMP - ROI DIÁRIO']
+[2025-06-22 10:39:14] INFO: Grupo clicado com sucesso
+[2025-06-22 10:39:16] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:16] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:17] INFO: Conversa do grupo aberta com sucesso
+[2025-06-22 10:39:17] INFO: Localizando campo de mensagem...
+[2025-06-22 10:39:17] INFO: Campo de mensagem encontrado com seletor: //div[@role='textbox' and @data-tab='10']
+[2025-06-22 10:39:17] INFO: Tentando digitar mensagem...
+[2025-06-22 10:39:18] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:18] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:20] INFO: Mensagem digitada com sucesso
+[2025-06-22 10:39:20] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:20] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:21] INFO: Enviando mensagem...
+[2025-06-22 10:39:22] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:22] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:24] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:24] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:26] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:26] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:28] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:28] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:30] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:30] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:31] INFO: Botão de enviar encontrado com seletor: button[data-tab='11']
+[2025-06-22 10:39:31] INFO: Botão de enviar clicado
+[2025-06-22 10:39:32] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:32] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:34] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:34] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:36] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:36] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:36] INFO: Mensagem enviada com sucesso (confirmado)
+[2025-06-22 10:39:36] INFO: Processo de envio de mensagem concluído
+[2025-06-22 10:39:37] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:37] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:38] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:38] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 10:39:39] INFO: [INFO] Mensagem enviada com sucesso
+[2025-06-22 10:39:39] INFO: Processo de escala concluído com sucesso!
+[2025-06-22 10:39:39] INFO: 127.0.0.1 - - [22/Jun/2025 10:39:39] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 11:13:26] INFO: 127.0.0.1 - - [22/Jun/2025 11:13:26] "GET /login HTTP/1.1" 200 -
+[2025-06-22 11:13:26] INFO: 127.0.0.1 - - [22/Jun/2025 11:13:26] "GET /static/style.css HTTP/1.1" 200 -
+[2025-06-22 11:13:26] INFO: 127.0.0.1 - - [22/Jun/2025 11:13:26] "GET /static/scripts.js HTTP/1.1" 200 -
+[2025-06-22 11:13:27] INFO: 127.0.0.1 - - [22/Jun/2025 11:13:27] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+[2025-06-22 11:13:27] INFO: 127.0.0.1 - - [22/Jun/2025 11:13:27] "GET /login HTTP/1.1" 200 -
+[2025-06-22 11:13:30] INFO: 127.0.0.1 - - [22/Jun/2025 11:13:30] "[32mPOST /login HTTP/1.1[0m" 302 -
+[2025-06-22 11:13:30] INFO: 127.0.0.1 - - [22/Jun/2025 11:13:30] "GET / HTTP/1.1" 200 -
+[2025-06-22 11:13:30] INFO: 127.0.0.1 - - [22/Jun/2025 11:13:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-22 11:13:30] INFO: 127.0.0.1 - - [22/Jun/2025 11:13:30] "[36mGET /static/scripts.js HTTP/1.1[0m" 304 -
+[2025-06-22 11:13:43] INFO: 127.0.0.1 - - [22/Jun/2025 11:13:43] "POST /start HTTP/1.1" 200 -
+[2025-06-22 11:13:43] INFO: Iniciando execução da função run...
+[2025-06-22 11:13:43] INFO: Parâmetros da operação:
+[2025-06-22 11:13:43] INFO: - Token: EAAQ0...FNOK0 (truncado)
+[2025-06-22 11:13:43] INFO: - Contas: ['act_790223756353632', 'act_303402486183447', 'act_406219475582745']
+[2025-06-22 11:13:43] INFO: - Grupo: #IMP - ROI DIÁRIO
+[2025-06-22 11:13:43] INFO: - Date Range: today
+[2025-06-22 11:13:43] INFO: - Limite de Lucro Baixo: R$ 1000.0
+[2025-06-22 11:13:43] INFO: - Percentual de Redução: 15.0%
+[2025-06-22 11:13:43] INFO: - Contas ABO configuradas: ['act_406219475582745']
+[2025-06-22 11:13:43] INFO: 127.0.0.1 - - [22/Jun/2025 11:13:43] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 11:13:45] INFO: 127.0.0.1 - - [22/Jun/2025 11:13:45] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 11:13:46] INFO: 127.0.0.1 - - [22/Jun/2025 11:13:46] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 11:13:47] INFO: 127.0.0.1 - - [22/Jun/2025 11:13:47] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 11:13:47] INFO: Planilha limpa no início da execução.
+[2025-06-22 11:13:47] INFO: Processando conta de anúncio CBO: act_790223756353632
+[2025-06-22 11:13:47] INFO: Buscando campanhas para conta act_790223756353632...
+[2025-06-22 11:13:50] INFO: Encontradas 110 campanhas.
+[2025-06-22 11:13:51] INFO: Encontrados 14 insights.
+[2025-06-22 11:13:51] INFO: Processadas 12 campanhas ativas.
+[2025-06-22 11:13:51] INFO: Processando conta de anúncio CBO: act_303402486183447
+[2025-06-22 11:13:51] INFO: Buscando campanhas para conta act_303402486183447...
+[2025-06-22 11:13:53] INFO: Encontradas 87 campanhas.
+[2025-06-22 11:13:54] INFO: Encontrados 7 insights.
+[2025-06-22 11:13:54] INFO: Processadas 5 campanhas ativas.
+[2025-06-22 11:13:54] INFO: Processando conta de anúncio ABO: act_406219475582745
+[2025-06-22 11:13:54] INFO: Buscando campanhas para conta act_406219475582745...
+[2025-06-22 11:13:55] INFO: Encontradas 34 campanhas.
+[2025-06-22 11:13:56] INFO: Encontrados 6 insights.
+[2025-06-22 11:13:57] INFO: Campanha ABO 120226735943410030: 15 adsets ativos, orçamento total: R$ 813.69
+[2025-06-22 11:13:58] INFO: Campanha ABO 120226735942950030: 15 adsets ativos, orçamento total: R$ 385.78
+[2025-06-22 11:14:00] INFO: Campanha ABO 120226735942940030: 15 adsets ativos, orçamento total: R$ 603.04
+[2025-06-22 11:14:01] INFO: Campanha ABO 120226735942930030: 15 adsets ativos, orçamento total: R$ 120.00
+[2025-06-22 11:14:01] INFO: Processadas 4 campanhas ativas.
+[2025-06-22 11:14:01] INFO: Total de 21 campanhas ativas encontradas.
+[2025-06-22 11:14:01] INFO: Campanhas CBO: 17, Campanhas ABO: 4
+[2025-06-22 11:14:01] INFO: Total de AdSets em campanhas ABO: 60
+[2025-06-22 11:14:01] INFO: Dados das campanhas salvos na planilha.
+[2025-06-22 11:14:01] INFO: Iniciando processo de redução...
+[2025-06-22 11:14:01] INFO:   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 11:14:01] INFO:   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 11:14:01] INFO:   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 11:14:01] INFO:   -> 15 AdSets com lucro < R$ 1000.00
+[2025-06-22 11:14:01] INFO: [INFO] 77 unidades para redução:
+[2025-06-22 11:14:01] INFO: - Campanhas CBO: 17
+[2025-06-22 11:14:01] INFO: - AdSets ABO: 60
+[2025-06-22 11:14:01] INFO: Enviando atualização de orçamento para campanha 120215567870460431
+[2025-06-22 11:14:03] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:14:03] INFO: Orçamento atualizado para a campanha 120215567870460431: R$ 771.99
+[2025-06-22 11:14:03] INFO: Campanha CBO 120215567870460431 reduzida de R$ 908.22 para R$ 771.99 (-R$ 136.23)
+[2025-06-22 11:14:03] INFO: Enviando atualização de orçamento para campanha 120214808911760431
+[2025-06-22 11:14:05] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:14:05] INFO: Orçamento atualizado para a campanha 120214808911760431: R$ 1160.18
+[2025-06-22 11:14:05] INFO: Campanha CBO 120214808911760431 reduzida de R$ 1364.92 para R$ 1160.18 (-R$ 204.74)
+[2025-06-22 11:14:05] INFO: Enviando atualização de orçamento para campanha 120215039931450431
+[2025-06-22 11:14:06] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:14:06] INFO: Orçamento atualizado para a campanha 120215039931450431: R$ 100.00
+[2025-06-22 11:14:06] INFO: Campanha CBO 120215039931450431 reduzida de R$ 100.00 para R$ 100.00 (-R$ 0.00)
+[2025-06-22 11:14:06] INFO: Atualizando orçamento do AdSet 120226735943130030 para R$ 596.44
+[2025-06-22 11:14:08] INFO: Orçamento do AdSet 120226735943130030 atualizado com sucesso
+[2025-06-22 11:14:08] INFO: AdSet 120226735943130030 reduzido de R$ 701.69 para R$ 596.44 (-R$ 105.25)
+[2025-06-22 11:14:08] INFO: Atualizando orçamento do AdSet 120226736700440030 para R$ 339.18
+[2025-06-22 11:14:09] INFO: Orçamento do AdSet 120226736700440030 atualizado com sucesso
+[2025-06-22 11:14:09] INFO: AdSet 120226736700440030 reduzido de R$ 399.04 para R$ 339.18 (-R$ 59.86)
+[2025-06-22 11:14:09] INFO: Enviando atualização de orçamento para campanha 120214509094010338
+[2025-06-22 11:14:11] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:14:11] INFO: Orçamento atualizado para a campanha 120214509094010338: R$ 100.00
+[2025-06-22 11:14:11] INFO: Campanha CBO 120214509094010338 reduzida de R$ 100.00 para R$ 100.00 (-R$ 0.00)
+[2025-06-22 11:14:11] INFO: Atualizando orçamento do AdSet 120226736700390030 para R$ 8.00
+[2025-06-22 11:14:12] INFO: Orçamento do AdSet 120226736700390030 atualizado com sucesso
+[2025-06-22 11:14:12] INFO: AdSet 120226736700390030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:12] INFO: Atualizando orçamento do AdSet 120226736700330030 para R$ 8.00
+[2025-06-22 11:14:13] INFO: Orçamento do AdSet 120226736700330030 atualizado com sucesso
+[2025-06-22 11:14:13] INFO: AdSet 120226736700330030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:13] INFO: Atualizando orçamento do AdSet 120226736700010030 para R$ 8.00
+[2025-06-22 11:14:14] INFO: Orçamento do AdSet 120226736700010030 atualizado com sucesso
+[2025-06-22 11:14:14] INFO: AdSet 120226736700010030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:14] INFO: Atualizando orçamento do AdSet 120226736700460030 para R$ 8.00
+[2025-06-22 11:14:15] INFO: Orçamento do AdSet 120226736700460030 atualizado com sucesso
+[2025-06-22 11:14:15] INFO: AdSet 120226736700460030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:15] INFO: Atualizando orçamento do AdSet 120226736700210030 para R$ 8.00
+[2025-06-22 11:14:16] INFO: Orçamento do AdSet 120226736700210030 atualizado com sucesso
+[2025-06-22 11:14:16] INFO: AdSet 120226736700210030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:16] INFO: Atualizando orçamento do AdSet 120226735942920030 para R$ 8.00
+[2025-06-22 11:14:17] INFO: Orçamento do AdSet 120226735942920030 atualizado com sucesso
+[2025-06-22 11:14:17] INFO: AdSet 120226735942920030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:17] INFO: Atualizando orçamento do AdSet 120226736700200030 para R$ 8.00
+[2025-06-22 11:14:18] INFO: Orçamento do AdSet 120226736700200030 atualizado com sucesso
+[2025-06-22 11:14:18] INFO: AdSet 120226736700200030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:18] INFO: Atualizando orçamento do AdSet 120226736700430030 para R$ 8.00
+[2025-06-22 11:14:19] INFO: Orçamento do AdSet 120226736700430030 atualizado com sucesso
+[2025-06-22 11:14:19] INFO: AdSet 120226736700430030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:19] INFO: Atualizando orçamento do AdSet 120226736700340030 para R$ 8.00
+[2025-06-22 11:14:20] INFO: Orçamento do AdSet 120226736700340030 atualizado com sucesso
+[2025-06-22 11:14:20] INFO: AdSet 120226736700340030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:20] INFO: Atualizando orçamento do AdSet 120226736700000030 para R$ 8.00
+[2025-06-22 11:14:21] INFO: Orçamento do AdSet 120226736700000030 atualizado com sucesso
+[2025-06-22 11:14:21] INFO: AdSet 120226736700000030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:21] INFO: Atualizando orçamento do AdSet 120226736700040030 para R$ 8.00
+[2025-06-22 11:14:23] INFO: Orçamento do AdSet 120226736700040030 atualizado com sucesso
+[2025-06-22 11:14:23] INFO: AdSet 120226736700040030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:23] INFO: Atualizando orçamento do AdSet 120226736699470030 para R$ 8.00
+[2025-06-22 11:14:24] INFO: Orçamento do AdSet 120226736699470030 atualizado com sucesso
+[2025-06-22 11:14:24] INFO: AdSet 120226736699470030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:24] INFO: Atualizando orçamento do AdSet 120226736700240030 para R$ 8.00
+[2025-06-22 11:14:25] INFO: Orçamento do AdSet 120226736700240030 atualizado com sucesso
+[2025-06-22 11:14:25] INFO: AdSet 120226736700240030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:25] INFO: Atualizando orçamento do AdSet 120226735943240030 para R$ 8.00
+[2025-06-22 11:14:27] INFO: Orçamento do AdSet 120226735943240030 atualizado com sucesso
+[2025-06-22 11:14:27] INFO: AdSet 120226735943240030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:27] INFO: Atualizando orçamento do AdSet 120226735943250030 para R$ 8.00
+[2025-06-22 11:14:27] INFO: Orçamento do AdSet 120226735943250030 atualizado com sucesso
+[2025-06-22 11:14:28] INFO: AdSet 120226735943250030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:28] INFO: Atualizando orçamento do AdSet 120226736699440030 para R$ 8.00
+[2025-06-22 11:14:29] INFO: Orçamento do AdSet 120226736699440030 atualizado com sucesso
+[2025-06-22 11:14:29] INFO: AdSet 120226736699440030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:29] INFO: Atualizando orçamento do AdSet 120226735942960030 para R$ 8.00
+[2025-06-22 11:14:30] INFO: Orçamento do AdSet 120226735942960030 atualizado com sucesso
+[2025-06-22 11:14:30] INFO: AdSet 120226735942960030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:30] INFO: Atualizando orçamento do AdSet 120226736700220030 para R$ 8.00
+[2025-06-22 11:14:31] INFO: Orçamento do AdSet 120226736700220030 atualizado com sucesso
+[2025-06-22 11:14:31] INFO: AdSet 120226736700220030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:31] INFO: Atualizando orçamento do AdSet 120226736700230030 para R$ 8.00
+[2025-06-22 11:14:32] INFO: Orçamento do AdSet 120226736700230030 atualizado com sucesso
+[2025-06-22 11:14:32] INFO: AdSet 120226736700230030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:32] INFO: Atualizando orçamento do AdSet 120226736700420030 para R$ 8.00
+[2025-06-22 11:14:33] INFO: Orçamento do AdSet 120226736700420030 atualizado com sucesso
+[2025-06-22 11:14:33] INFO: AdSet 120226736700420030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:33] INFO: Atualizando orçamento do AdSet 120226736700380030 para R$ 8.00
+[2025-06-22 11:14:34] INFO: Orçamento do AdSet 120226736700380030 atualizado com sucesso
+[2025-06-22 11:14:34] INFO: AdSet 120226736700380030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:34] INFO: Atualizando orçamento do AdSet 120226736699480030 para R$ 8.00
+[2025-06-22 11:14:35] INFO: Orçamento do AdSet 120226736699480030 atualizado com sucesso
+[2025-06-22 11:14:35] INFO: AdSet 120226736699480030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:35] INFO: Atualizando orçamento do AdSet 120226736700140030 para R$ 8.00
+[2025-06-22 11:14:36] INFO: Orçamento do AdSet 120226736700140030 atualizado com sucesso
+[2025-06-22 11:14:36] INFO: AdSet 120226736700140030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:36] INFO: Atualizando orçamento do AdSet 120226736700120030 para R$ 8.00
+[2025-06-22 11:14:37] INFO: Orçamento do AdSet 120226736700120030 atualizado com sucesso
+[2025-06-22 11:14:37] INFO: AdSet 120226736700120030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:37] INFO: Atualizando orçamento do AdSet 120226736700150030 para R$ 8.00
+[2025-06-22 11:14:38] INFO: Orçamento do AdSet 120226736700150030 atualizado com sucesso
+[2025-06-22 11:14:38] INFO: AdSet 120226736700150030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:38] INFO: Atualizando orçamento do AdSet 120226736700450030 para R$ 8.00
+[2025-06-22 11:14:39] INFO: Orçamento do AdSet 120226736700450030 atualizado com sucesso
+[2025-06-22 11:14:39] INFO: AdSet 120226736700450030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:39] INFO: Atualizando orçamento do AdSet 120226736699460030 para R$ 8.00
+[2025-06-22 11:14:40] INFO: Orçamento do AdSet 120226736699460030 atualizado com sucesso
+[2025-06-22 11:14:40] INFO: AdSet 120226736699460030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:40] INFO: Atualizando orçamento do AdSet 120226735943090030 para R$ 8.00
+[2025-06-22 11:14:41] INFO: Orçamento do AdSet 120226735943090030 atualizado com sucesso
+[2025-06-22 11:14:41] INFO: AdSet 120226735943090030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:41] INFO: Atualizando orçamento do AdSet 120226736699430030 para R$ 8.00
+[2025-06-22 11:14:42] INFO: Orçamento do AdSet 120226736699430030 atualizado com sucesso
+[2025-06-22 11:14:42] INFO: AdSet 120226736699430030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:42] INFO: Atualizando orçamento do AdSet 120226736700100030 para R$ 8.00
+[2025-06-22 11:14:43] INFO: Orçamento do AdSet 120226736700100030 atualizado com sucesso
+[2025-06-22 11:14:43] INFO: AdSet 120226736700100030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:43] INFO: Atualizando orçamento do AdSet 120226736700030030 para R$ 8.00
+[2025-06-22 11:14:44] INFO: Orçamento do AdSet 120226736700030030 atualizado com sucesso
+[2025-06-22 11:14:44] INFO: AdSet 120226736700030030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:44] INFO: Atualizando orçamento do AdSet 120226736700190030 para R$ 8.00
+[2025-06-22 11:14:45] INFO: Orçamento do AdSet 120226736700190030 atualizado com sucesso
+[2025-06-22 11:14:45] INFO: AdSet 120226736700190030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:45] INFO: Atualizando orçamento do AdSet 120226736700350030 para R$ 8.00
+[2025-06-22 11:14:47] INFO: Orçamento do AdSet 120226736700350030 atualizado com sucesso
+[2025-06-22 11:14:47] INFO: AdSet 120226736700350030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:47] INFO: Atualizando orçamento do AdSet 120226736700400030 para R$ 8.00
+[2025-06-22 11:14:49] INFO: Orçamento do AdSet 120226736700400030 atualizado com sucesso
+[2025-06-22 11:14:49] INFO: AdSet 120226736700400030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:49] INFO: Atualizando orçamento do AdSet 120226736700080030 para R$ 8.00
+[2025-06-22 11:14:50] INFO: Orçamento do AdSet 120226736700080030 atualizado com sucesso
+[2025-06-22 11:14:50] INFO: AdSet 120226736700080030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:50] INFO: Atualizando orçamento do AdSet 120226735943370030 para R$ 8.00
+[2025-06-22 11:14:51] INFO: Orçamento do AdSet 120226735943370030 atualizado com sucesso
+[2025-06-22 11:14:51] INFO: AdSet 120226735943370030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:51] INFO: Atualizando orçamento do AdSet 120226736700470030 para R$ 8.00
+[2025-06-22 11:14:52] INFO: Orçamento do AdSet 120226736700470030 atualizado com sucesso
+[2025-06-22 11:14:52] INFO: AdSet 120226736700470030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:52] INFO: Atualizando orçamento do AdSet 120226736700170030 para R$ 8.00
+[2025-06-22 11:14:53] INFO: Orçamento do AdSet 120226736700170030 atualizado com sucesso
+[2025-06-22 11:14:53] INFO: AdSet 120226736700170030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:53] INFO: Atualizando orçamento do AdSet 120226735943000030 para R$ 8.00
+[2025-06-22 11:14:54] INFO: Orçamento do AdSet 120226735943000030 atualizado com sucesso
+[2025-06-22 11:14:54] INFO: AdSet 120226735943000030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:54] INFO: Atualizando orçamento do AdSet 120226736700110030 para R$ 8.00
+[2025-06-22 11:14:55] INFO: Orçamento do AdSet 120226736700110030 atualizado com sucesso
+[2025-06-22 11:14:55] INFO: AdSet 120226736700110030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:55] INFO: Atualizando orçamento do AdSet 120226735943520030 para R$ 8.00
+[2025-06-22 11:14:57] INFO: Orçamento do AdSet 120226735943520030 atualizado com sucesso
+[2025-06-22 11:14:57] INFO: AdSet 120226735943520030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:57] INFO: Atualizando orçamento do AdSet 120226736699450030 para R$ 8.00
+[2025-06-22 11:14:57] INFO: Orçamento do AdSet 120226736699450030 atualizado com sucesso
+[2025-06-22 11:14:57] INFO: AdSet 120226736699450030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:57] INFO: Atualizando orçamento do AdSet 120226736700070030 para R$ 8.00
+[2025-06-22 11:14:58] INFO: Orçamento do AdSet 120226736700070030 atualizado com sucesso
+[2025-06-22 11:14:58] INFO: AdSet 120226736700070030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:58] INFO: Atualizando orçamento do AdSet 120226736700410030 para R$ 8.00
+[2025-06-22 11:14:59] INFO: Orçamento do AdSet 120226736700410030 atualizado com sucesso
+[2025-06-22 11:14:59] INFO: AdSet 120226736700410030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:14:59] INFO: Atualizando orçamento do AdSet 120226736699490030 para R$ 8.00
+[2025-06-22 11:15:00] INFO: Orçamento do AdSet 120226736699490030 atualizado com sucesso
+[2025-06-22 11:15:00] INFO: AdSet 120226736699490030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:15:00] INFO: Atualizando orçamento do AdSet 120226736700490030 para R$ 8.00
+[2025-06-22 11:15:01] INFO: Orçamento do AdSet 120226736700490030 atualizado com sucesso
+[2025-06-22 11:15:01] INFO: AdSet 120226736700490030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:15:01] INFO: Atualizando orçamento do AdSet 120226736700160030 para R$ 8.00
+[2025-06-22 11:15:02] INFO: Orçamento do AdSet 120226736700160030 atualizado com sucesso
+[2025-06-22 11:15:02] INFO: AdSet 120226736700160030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:15:02] INFO: Atualizando orçamento do AdSet 120226736700090030 para R$ 8.00
+[2025-06-22 11:15:03] INFO: Orçamento do AdSet 120226736700090030 atualizado com sucesso
+[2025-06-22 11:15:03] INFO: AdSet 120226736700090030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:15:03] INFO: Atualizando orçamento do AdSet 120226736700050030 para R$ 8.00
+[2025-06-22 11:15:04] INFO: Orçamento do AdSet 120226736700050030 atualizado com sucesso
+[2025-06-22 11:15:04] INFO: AdSet 120226736700050030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:15:04] INFO: Atualizando orçamento do AdSet 120226736700060030 para R$ 8.00
+[2025-06-22 11:15:05] INFO: Orçamento do AdSet 120226736700060030 atualizado com sucesso
+[2025-06-22 11:15:05] INFO: AdSet 120226736700060030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:15:05] INFO: Atualizando orçamento do AdSet 120226736700020030 para R$ 8.00
+[2025-06-22 11:15:07] INFO: Orçamento do AdSet 120226736700020030 atualizado com sucesso
+[2025-06-22 11:15:07] INFO: AdSet 120226736700020030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:15:07] INFO: Atualizando orçamento do AdSet 120226736700250030 para R$ 8.00
+[2025-06-22 11:15:08] INFO: Orçamento do AdSet 120226736700250030 atualizado com sucesso
+[2025-06-22 11:15:08] INFO: AdSet 120226736700250030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:15:08] INFO: Atualizando orçamento do AdSet 120226736700130030 para R$ 8.00
+[2025-06-22 11:15:09] INFO: Orçamento do AdSet 120226736700130030 atualizado com sucesso
+[2025-06-22 11:15:09] INFO: AdSet 120226736700130030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:15:09] INFO: Atualizando orçamento do AdSet 120226735943490030 para R$ 8.00
+[2025-06-22 11:15:10] INFO: Orçamento do AdSet 120226735943490030 atualizado com sucesso
+[2025-06-22 11:15:10] INFO: AdSet 120226735943490030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:15:10] INFO: Atualizando orçamento do AdSet 120226735943380030 para R$ 8.00
+[2025-06-22 11:15:11] INFO: Orçamento do AdSet 120226735943380030 atualizado com sucesso
+[2025-06-22 11:15:11] INFO: AdSet 120226735943380030 reduzido de R$ 8.00 para R$ 8.00 (-R$ 0.00)
+[2025-06-22 11:15:11] INFO: Enviando atualização de orçamento para campanha 120215038900720431
+[2025-06-22 11:15:13] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:15:13] INFO: Orçamento atualizado para a campanha 120215038900720431: R$ 100.00
+[2025-06-22 11:15:13] INFO: Campanha CBO 120215038900720431 reduzida de R$ 100.00 para R$ 100.00 (-R$ 0.00)
+[2025-06-22 11:15:13] INFO: Atualizando orçamento do AdSet 120226735943350030 para R$ 154.51
+[2025-06-22 11:15:14] INFO: Orçamento do AdSet 120226735943350030 atualizado com sucesso
+[2025-06-22 11:15:14] INFO: AdSet 120226735943350030 reduzido de R$ 181.78 para R$ 154.51 (-R$ 27.27)
+[2025-06-22 11:15:14] INFO: Enviando atualização de orçamento para campanha 120215736960620431
+[2025-06-22 11:15:15] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:15:15] INFO: Orçamento atualizado para a campanha 120215736960620431: R$ 118.23
+[2025-06-22 11:15:15] INFO: Campanha CBO 120215736960620431 reduzida de R$ 139.09 para R$ 118.23 (-R$ 20.86)
+[2025-06-22 11:15:15] INFO: Enviando atualização de orçamento para campanha 120214507411990338
+[2025-06-22 11:15:18] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:15:18] INFO: Orçamento atualizado para a campanha 120214507411990338: R$ 132.15
+[2025-06-22 11:15:18] INFO: Campanha CBO 120214507411990338 reduzida de R$ 155.47 para R$ 132.15 (-R$ 23.32)
+[2025-06-22 11:15:18] INFO: Atualizando orçamento do AdSet 120226736700180030 para R$ 85.00
+[2025-06-22 11:15:19] INFO: Orçamento do AdSet 120226736700180030 atualizado com sucesso
+[2025-06-22 11:15:19] INFO: AdSet 120226736700180030 reduzido de R$ 100.00 para R$ 85.00 (-R$ 15.00)
+[2025-06-22 11:15:19] INFO: Enviando atualização de orçamento para campanha 120227588920730431
+[2025-06-22 11:15:20] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:15:20] INFO: Orçamento atualizado para a campanha 120227588920730431: R$ 135.75
+[2025-06-22 11:15:20] INFO: Campanha CBO 120227588920730431 reduzida de R$ 159.71 para R$ 135.75 (-R$ 23.96)
+[2025-06-22 11:15:20] INFO: Enviando atualização de orçamento para campanha 120214323043310431
+[2025-06-22 11:15:22] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:15:22] INFO: Orçamento atualizado para a campanha 120214323043310431: R$ 108.29
+[2025-06-22 11:15:22] INFO: Campanha CBO 120214323043310431 reduzida de R$ 127.40 para R$ 108.29 (-R$ 19.11)
+[2025-06-22 11:15:22] INFO: Atualizando orçamento do AdSet 120226736700480030 para R$ 85.00
+[2025-06-22 11:15:23] INFO: Orçamento do AdSet 120226736700480030 atualizado com sucesso
+[2025-06-22 11:15:23] INFO: AdSet 120226736700480030 reduzido de R$ 100.00 para R$ 85.00 (-R$ 15.00)
+[2025-06-22 11:15:23] INFO: Enviando atualização de orçamento para campanha 120227372043910431
+[2025-06-22 11:15:24] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:15:24] INFO: Orçamento atualizado para a campanha 120227372043910431: R$ 150.10
+[2025-06-22 11:15:24] INFO: Campanha CBO 120227372043910431 reduzida de R$ 176.59 para R$ 150.10 (-R$ 26.49)
+[2025-06-22 11:15:24] INFO: Enviando atualização de orçamento para campanha 120227639640790338
+[2025-06-22 11:15:25] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:15:25] INFO: Orçamento atualizado para a campanha 120227639640790338: R$ 260.19
+[2025-06-22 11:15:25] INFO: Campanha CBO 120227639640790338 reduzida de R$ 306.10 para R$ 260.19 (-R$ 45.92)
+[2025-06-22 11:15:25] INFO: Enviando atualização de orçamento para campanha 120227590767740431
+[2025-06-22 11:15:27] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:15:27] INFO: Orçamento atualizado para a campanha 120227590767740431: R$ 256.03
+[2025-06-22 11:15:27] INFO: Campanha CBO 120227590767740431 reduzida de R$ 301.21 para R$ 256.03 (-R$ 45.18)
+[2025-06-22 11:15:27] INFO: Enviando atualização de orçamento para campanha 120221473064310431
+[2025-06-22 11:15:28] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:15:28] INFO: Orçamento atualizado para a campanha 120221473064310431: R$ 364.74
+[2025-06-22 11:15:28] INFO: Campanha CBO 120221473064310431 reduzida de R$ 429.11 para R$ 364.74 (-R$ 64.37)
+[2025-06-22 11:15:28] INFO: Enviando atualização de orçamento para campanha 120227095176980431
+[2025-06-22 11:15:29] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:15:29] INFO: Orçamento atualizado para a campanha 120227095176980431: R$ 495.10
+[2025-06-22 11:15:29] INFO: Campanha CBO 120227095176980431 reduzida de R$ 582.47 para R$ 495.10 (-R$ 87.37)
+[2025-06-22 11:15:29] INFO: Enviando atualização de orçamento para campanha 120227626914980338
+[2025-06-22 11:15:30] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:15:30] INFO: Orçamento atualizado para a campanha 120227626914980338: R$ 3626.81
+[2025-06-22 11:15:30] INFO: Campanha CBO 120227626914980338 reduzida de R$ 4266.83 para R$ 3626.81 (-R$ 640.02)
+[2025-06-22 11:15:30] INFO: Enviando atualização de orçamento para campanha 120227628451420338
+[2025-06-22 11:15:32] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:15:32] INFO: Orçamento atualizado para a campanha 120227628451420338: R$ 4067.55
+[2025-06-22 11:15:32] INFO: Campanha CBO 120227628451420338 reduzida de R$ 4785.35 para R$ 4067.55 (-R$ 717.80)
+[2025-06-22 11:15:32] INFO: Enviando atualização de orçamento para campanha 120222533000150431
+[2025-06-22 11:15:33] INFO: Resposta da API: {'success': True}
+[2025-06-22 11:15:33] INFO: Orçamento atualizado para a campanha 120222533000150431: R$ 1231.07
+[2025-06-22 11:15:33] INFO: Campanha CBO 120222533000150431 reduzida de R$ 1448.32 para R$ 1231.07 (-R$ 217.25)
+[2025-06-22 11:15:33] INFO: [RESUMO] Total de unidades reduzidas: 77
+[2025-06-22 11:15:33] INFO: [RESUMO] Campanhas CBO reduzidas: 17
+[2025-06-22 11:15:33] INFO: [RESUMO] AdSets ABO reduzidos: 60 em 4 campanhas
+[2025-06-22 11:15:33] INFO: [RESUMO] Total reduzido: R$ 2495.00
+[2025-06-22 11:15:33] INFO: [RESUMO] Orçamento total atual: R$ 14878.31
+[2025-06-22 11:15:33] INFO: Iniciando envio de mensagem para o grupo: #IMP - ROI DIÁRIO
+[2025-06-22 11:15:33] INFO: Mensagem limpa: [OK] Redução concluída!
+
+[DESCEU] Critério: Lucro < R$ 1000.00
+ Percentual aplicado: 15%
+ Total redu...
+[2025-06-22 11:15:33] INFO: ====== WebDriver manager ======
+[2025-06-22 11:15:34] INFO: Get LATEST chromedriver version for google-chrome
+[2025-06-22 11:15:34] INFO: Get LATEST chromedriver version for google-chrome
+[2025-06-22 11:15:34] INFO: Driver [C:\Users\Pichau\.wdm\drivers\chromedriver\win64\137.0.7151.119\chromedriver-win32/chromedriver.exe] found in cache
+[2025-06-22 11:15:36] INFO: Abrindo WhatsApp Web...
+[2025-06-22 11:15:37] INFO: Aguardando carregamento do WhatsApp Web...
+[2025-06-22 11:15:45] INFO: WhatsApp Web carregado, elemento detectado: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 11:15:47] INFO: Campo de pesquisa encontrado com seletor: div[role='textbox'][aria-label='Caixa de texto de pesquisa']
+[2025-06-22 11:15:49] INFO: Texto de pesquisa '#IMP - ROI DIÁRIO' inserido.
+[2025-06-22 11:15:54] INFO: Grupo encontrado com seletor: //span[@title='#IMP - ROI DIÁRIO']
+[2025-06-22 11:15:54] INFO: Grupo clicado com sucesso
+[2025-06-22 11:15:57] INFO: Conversa do grupo aberta com sucesso
+[2025-06-22 11:15:57] INFO: Localizando campo de mensagem...
+[2025-06-22 11:15:57] INFO: Campo de mensagem encontrado com seletor: //div[@role='textbox' and @data-tab='10']
+[2025-06-22 11:15:57] INFO: Tentando digitar mensagem...
+[2025-06-22 11:16:01] INFO: Mensagem digitada com sucesso
+[2025-06-22 11:16:02] INFO: Enviando mensagem...
+[2025-06-22 11:16:02] INFO: Botão de enviar encontrado com seletor: button[aria-label='Enviar']
+[2025-06-22 11:16:02] INFO: Botão de enviar clicado
+[2025-06-22 11:16:07] INFO: Mensagem enviada com sucesso (confirmado)
+[2025-06-22 11:16:07] INFO: Processo de envio de mensagem concluído
+[2025-06-22 11:16:10] INFO: [INFO] Mensagem enviada com sucesso
+[2025-06-22 11:16:10] INFO: Processo de redução concluído com sucesso!
+[2025-06-22 11:16:18] INFO: 127.0.0.1 - - [22/Jun/2025 11:16:18] "GET /logs HTTP/1.1" 200 -
+[2025-06-22 12:28:01] INFO:  * Detected change in 'C:\\Users\\Pichau\\iCloudDrive\\PROJETOS\\ZIP\\PROCESSOS\\ROBOS_PY\\ROBO_IMPERIO\\meu_projeto_web\\realocar_orcamento.py', reloading
+[2025-06-22 12:28:05] INFO:  * Restarting with stat
+[2025-06-22 12:28:07] WARNING:  * Debugger is active!
+[2025-06-22 12:28:07] INFO:  * Debugger PIN: 372-168-963
+[2025-06-22 12:38:15] INFO:  * Detected change in 'C:\\Users\\Pichau\\iCloudDrive\\PROJETOS\\ZIP\\PROCESSOS\\ROBOS_PY\\ROBO_IMPERIO\\meu_projeto_web\\realocar_orcamento.py', reloading
+[2025-06-22 12:38:15] INFO:  * Restarting with stat
