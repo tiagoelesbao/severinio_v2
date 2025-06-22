@@ -18,6 +18,17 @@
       <label for="ad_accounts" class="form-label">Contas de Anúncio (IDs separados por vírgula):</label>
       <input type="text" id="ad_accounts" name="ad_accounts" class="form-control" value="{{ config.ad_accounts|join(', ') }}">
     </div>
+    <!-- NOVA SEÇÃO PARA ABO -->
+    <div class="mb-3">
+      <label for="abo_accounts" class="form-label">Contas ABO (IDs separados por vírgula):</label>
+      <input type="text" id="abo_accounts" name="abo_accounts" class="form-control" 
+             value="{{ config.abo_accounts|join(', ') }}" 
+             placeholder="act_406219475582745">
+      <small class="form-text text-muted">
+        Especifique quais das contas acima usam ABO (Ad Set Budget). Deixe em branco se todas usam CBO.
+      </small>
+    </div>
+    <!-- FIM DA NOVA SEÇÃO -->
     <div class="mb-3">
       <label for="whatsapp_group" class="form-label">Grupo do WhatsApp:</label>
       <input type="text" id="whatsapp_group" name="whatsapp_group" class="form-control" value="{{ config.whatsapp_group }}">

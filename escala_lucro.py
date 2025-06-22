@@ -36,40 +36,48 @@ def log_message(msg):
         logs_list.append(mensagem)
     logging.info(msg)
 
-# Leitura de config.json (não altera valores aqui – são passados via run())
+# Leitura de config.json
 CONFIG_FILE = "config.json"
 if not os.path.exists(CONFIG_FILE):
     default_config = {
         "ACCESS_TOKEN": "",
         "AD_ACCOUNTS": [],
+        "ABO_ACCOUNTS": [],  # Nova configuração para contas ABO
         "LIMITE_LUCRO": 1,
         "VALOR_TOTAL_ESCALA": 1000,
         "MINIMO_ORCAMENTO": 100,
+        "MAXIMO_ORCAMENTO": 10000,  # Nova configuração
         "WHATSAPP_GROUP": "#ZIP - ROAS IMPERIO",
         "DATE_PRESET": "today"
     }
     with open(CONFIG_FILE, "w", encoding="utf-8") as f:
         json.dump(default_config, f, indent=4, ensure_ascii=False)
+
 with open(CONFIG_FILE, "r", encoding="utf-8") as f:
     config = json.load(f)
 
 ACCESS_TOKEN = config.get("ACCESS_TOKEN", "")
 AD_ACCOUNTS = config.get("AD_ACCOUNTS", [])
+ABO_ACCOUNTS = config.get("ABO_ACCOUNTS", [])  # Contas que usam ABO
 SPREADSHEET_PATH = "campanhas_lucro.xlsx"
 LIMITE_LUCRO = float(config.get("LIMITE_LUCRO", 1))
 VALOR_TOTAL_ESCALA = float(config.get("VALOR_TOTAL_ESCALA", 10000))
 MINIMO_ORCAMENTO = float(config.get("MINIMO_ORCAMENTO", 100))
+MAXIMO_ORCAMENTO = float(config.get("MAXIMO_ORCAMENTO", 10000))
 WHATSAPP_GROUP = config.get("WHATSAPP_GROUP", "#ZIP - ROAS IMPERIO")
 DATE_PRESET = config.get("DATE_PRESET", "today")
+
+# Armazena dados completos das campanhas para uso no escalonamento
+campanhas_completas_data = {}
 
 def criar_planilha():
     workbook = openpyxl.Workbook()
     sheet = workbook.active
     sheet.title = "CAMPANHAS"
     sheet.append([
-        "ID da Conta de Anúncio", "ID da Campanha", "Nome da Campanha",
+        "ID da Conta de Anúncio", "ID da Campanha", "Nome da Campanha", "Tipo",
         "Orçamento Diário", "Gasto", "Valor de Conversões",
-        "ROAS", "Lucro", "Novo Orçamento"
+        "ROAS", "Lucro", "Novo Orçamento", "Detalhes AdSets"
     ])
     workbook.save(SPREADSHEET_PATH)
     log_message("Planilha criada com sucesso.")
@@ -112,12 +120,82 @@ def buscar_todos_dados_facebook(url):
         url = dados.get("paging", {}).get("next")
     return todos_dados
 
-def processar_dados_campanhas(campanhas, insights, ad_account):
-    campanhas_filtradas = []
-    for campanha in campanhas:
-        # Apenas processa campanhas ativas (sem log para cada campanha)
-        if campanha.get("status", "").upper().strip() == "ACTIVE":
-            insight = next((i for i in insights if i.get("campaign_id") == campanha.get("id")), None)
+def detectar_tipo_campanha(campanha, ad_account):
+    """
+    Detecta se a campanha é CBO ou ABO
+    CBO tem daily_budget > 0, ABO tem daily_budget = 0 ou null
+    """
+    daily_budget = campanha.get("daily_budget", 0)
+    
+    # Verificação adicional pela conta
+    if ad_account in ABO_ACCOUNTS:
+        return "ABO"
+    
+    # Verificação pelo orçamento
+    if daily_budget and int(daily_budget) > 0:
+        return "CBO"
+    else:
+        return "ABO"
+
+def buscar_adsets_campanha(campaign_id):
+    """Busca todos os ad sets de uma campanha ABO"""
+    url = (
+        f"https://graph.facebook.com/v17.0/{campaign_id}/adsets"
+        f"?fields=id,name,daily_budget,status&access_token={ACCESS_TOKEN}"
+    )
+    return buscar_todos_dados_facebook(url)
+
+def buscar_insights_adset(ad_account, campaign_id, date_preset=None, start_date=None, end_date=None):
+    """Busca insights no nível de ad set para campanhas ABO"""
+    filtering = f'[{{"field":"campaign_id","operator":"EQUAL","value":"{campaign_id}"}}]'
+    
+    if date_preset:
+        url = (
+            f"https://graph.facebook.com/v17.0/{ad_account}/insights"
+            f"?fields=adset_id,adset_name,campaign_id,spend,action_values"
+            f"&date_preset={date_preset}&level=adset"
+            f"&filtering={filtering}"
+            f"&access_token={ACCESS_TOKEN}"
+        )
+    else:
+        url = (
+            f"https://graph.facebook.com/v17.0/{ad_account}/insights"
+            f"?fields=adset_id,adset_name,campaign_id,spend,action_values"
+            f"&time_range[since]={start_date}&time_range[until]={end_date}"
+            f"&level=adset"
+            f"&filtering={filtering}"
+            f"&access_token={ACCESS_TOKEN}"
+        )
+    
+    return buscar_todos_dados_facebook(url)
+
+def processar_campanha_abo(campanha, ad_account, date_preset=None, start_date=None, end_date=None):
+    """
+    Processa campanhas ABO agregando dados de todos os ad sets ativos
+    """
+    campaign_id = campanha["id"]
+    log_message(f"Processando campanha ABO: {campanha['name']}")
+    
+    adsets = buscar_adsets_campanha(campaign_id)
+    insights_adsets = buscar_insights_adset(ad_account, campaign_id, date_preset, start_date, end_date)
+    
+    # Agregar dados de todos os ad sets ativos
+    total_orcamento = 0
+    total_gasto = 0
+    total_conversao = 0
+    adsets_info = []
+    adsets_ativos = 0
+    
+    for adset in adsets:
+        if adset.get("status") == "ACTIVE":
+            adsets_ativos += 1
+            adset_id = adset["id"]
+            daily_budget = float(adset.get("daily_budget", 0)) / 100
+            total_orcamento += daily_budget
+            
+            # Buscar insight correspondente
+            insight = next((i for i in insights_adsets if i.get("adset_id") == adset_id), None)
+            
             if insight:
                 gasto = float(insight.get("spend", 0))
                 valor_conversao = sum(
@@ -125,22 +203,91 @@ def processar_dados_campanhas(campanhas, insights, ad_account):
                     for a in insight.get("action_values", [])
                     if a.get("action_type") in ['offsite_conversion.purchase', 'offsite_conversion.fb_pixel_purchase']
                 )
+                total_gasto += gasto
+                total_conversao += valor_conversao
             else:
-                gasto = 0.0
-                valor_conversao = 0.0
-            daily_budget = float(campanha.get("daily_budget", 0)) / 100
-            lucro = valor_conversao - gasto
-            roas = round(valor_conversao / gasto, 2) if gasto > 0 else 0
-            campanhas_filtradas.append({
-                "id_conta": ad_account,
-                "id_campanha": campanha["id"],
-                "nome_campanha": campanha["name"],
-                "orcamento_diario": daily_budget,
+                gasto = 0
+                valor_conversao = 0
+            
+            adsets_info.append({
+                "adset_id": adset_id,
+                "adset_name": adset["name"],
+                "daily_budget": daily_budget,
                 "gasto": gasto,
-                "valor_conversao": valor_conversao,
-                "roas": roas,
-                "lucro": lucro
+                "valor_conversao": valor_conversao
             })
+    
+    log_message(f"Campanha ABO {campaign_id}: {adsets_ativos} adsets ativos, orçamento total: R$ {total_orcamento:.2f}")
+    
+    lucro = total_conversao - total_gasto
+    roas = round(total_conversao / total_gasto, 2) if total_gasto > 0 else 0
+    
+    return {
+        "id_conta": ad_account,
+        "id_campanha": campaign_id,
+        "nome_campanha": campanha["name"],
+        "tipo_campanha": "ABO",
+        "orcamento_diario": total_orcamento,
+        "gasto": total_gasto,
+        "valor_conversao": total_conversao,
+        "roas": roas,
+        "lucro": lucro,
+        "adsets_info": adsets_info,
+        "detalhes_adsets": f"{adsets_ativos} adsets ativos"
+    }
+
+def processar_dados_campanhas(campanhas, insights, ad_account, date_preset=None, start_date=None, end_date=None):
+    """
+    Processa dados das campanhas, detectando automaticamente se são CBO ou ABO
+    """
+    campanhas_filtradas = []
+    
+    for campanha in campanhas:
+        if campanha.get("status", "").upper().strip() == "ACTIVE":
+            tipo_campanha = detectar_tipo_campanha(campanha, ad_account)
+            
+            if tipo_campanha == "ABO":
+                # Processar como ABO
+                dados_campanha = processar_campanha_abo(campanha, ad_account, date_preset, start_date, end_date)
+                campanhas_filtradas.append(dados_campanha)
+                # Armazenar dados completos para uso posterior
+                campanhas_completas_data[campanha["id"]] = dados_campanha
+            else:
+                # Processar como CBO (código original)
+                insight = next((i for i in insights if i.get("campaign_id") == campanha.get("id")), None)
+                
+                if insight:
+                    gasto = float(insight.get("spend", 0))
+                    valor_conversao = sum(
+                        float(a.get("value", 0))
+                        for a in insight.get("action_values", [])
+                        if a.get("action_type") in ['offsite_conversion.purchase', 'offsite_conversion.fb_pixel_purchase']
+                    )
+                else:
+                    gasto = 0.0
+                    valor_conversao = 0.0
+                
+                daily_budget = float(campanha.get("daily_budget", 0)) / 100
+                lucro = valor_conversao - gasto
+                roas = round(valor_conversao / gasto, 2) if gasto > 0 else 0
+                
+                dados_campanha = {
+                    "id_conta": ad_account,
+                    "id_campanha": campanha["id"],
+                    "nome_campanha": campanha["name"],
+                    "tipo_campanha": "CBO",
+                    "orcamento_diario": daily_budget,
+                    "gasto": gasto,
+                    "valor_conversao": valor_conversao,
+                    "roas": roas,
+                    "lucro": lucro,
+                    "adsets_info": None,
+                    "detalhes_adsets": "N/A"
+                }
+                
+                campanhas_filtradas.append(dados_campanha)
+                campanhas_completas_data[campanha["id"]] = dados_campanha
+    
     return campanhas_filtradas
 
 def salvar_campanhas_excel(campanhas):
@@ -150,18 +297,22 @@ def salvar_campanhas_excel(campanhas):
     try:
         workbook = openpyxl.load_workbook(SPREADSHEET_PATH)
         sheet = workbook["CAMPANHAS"]
+        
         for campanha in campanhas:
             sheet.append([
                 campanha["id_conta"],
                 campanha["id_campanha"],
                 campanha["nome_campanha"],
+                campanha.get("tipo_campanha", "CBO"),
                 campanha["orcamento_diario"],
                 campanha["gasto"],
                 campanha["valor_conversao"],
                 campanha["roas"],
                 campanha["lucro"],
-                ""
+                "",  # Novo orçamento
+                campanha.get("detalhes_adsets", "")
             ])
+        
         workbook.save(SPREADSHEET_PATH)
         log_message("Dados das campanhas salvos na planilha.")
     except Exception as e:
@@ -173,77 +324,95 @@ def calcular_orcamento_total():
         sheet = workbook["CAMPANHAS"]
         total = 0
         for row in sheet.iter_rows(min_row=2, values_only=True):
-            novo_orcamento = row[8] if row[8] is not None else row[3]
+            novo_orcamento = row[9] if row[9] is not None else row[4]
             total += novo_orcamento
         return total
     except Exception as e:
         log_message(f"[ERRO] Falha ao calcular orçamento total: {e}")
         return 0
 
-def escalar_campanhas():
-    if not os.path.exists(SPREADSHEET_PATH):
-        log_message("[ERRO] Planilha de campanhas não encontrada.")
-        return False
+def atualizar_orcamento_adset(adset_id, novo_orcamento):
+    """Atualiza o orçamento de um ad set específico"""
+    url = f"https://graph.facebook.com/v17.0/{adset_id}"
+    payload = {
+        "daily_budget": int(novo_orcamento * 100),
+        "access_token": ACCESS_TOKEN
+    }
     
-    workbook = openpyxl.load_workbook(SPREADSHEET_PATH)
-    if "CAMPANHAS" not in workbook.sheetnames:
-        log_message("[ERRO] Aba 'CAMPANHAS' não encontrada na planilha.")
-        return False
-    
-    sheet = workbook["CAMPANHAS"]
-    campanhas_para_escalar = []
-    for row_index, row in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
-        lucro = row[7]
-        if lucro is not None and lucro >= LIMITE_LUCRO:
-            campanhas_para_escalar.append({
-                "linha_index": row_index,
-                "id_campanha": row[1],
-                "orcamento_diario": row[3],
-                "lucro": row[7]
-            })
-    
-    if not campanhas_para_escalar:
-        log_message("[INFO] Nenhuma campanha para escalar.")
-        return False
-    
-    soma_lucro = sum(c["lucro"] for c in campanhas_para_escalar)
-    log_message(f"[INFO] {len(campanhas_para_escalar)} campanhas para escalonamento. Soma dos lucros: R$ {soma_lucro:.2f}")
-    
-    campanhas_escaladas = 0
-    for campanha in campanhas_para_escalar:
-        if soma_lucro > 0:
-            proporcao = campanha["lucro"] / soma_lucro
-            incremento = VALOR_TOTAL_ESCALA * proporcao
+    try:
+        log_message(f"Atualizando orçamento do AdSet {adset_id} para R$ {novo_orcamento:.2f}")
+        response = requests.post(url, data=payload)
+        result = response.json()
+        
+        if result.get("success"):
+            log_message(f"Orçamento do AdSet {adset_id} atualizado com sucesso")
+            return True
         else:
-            incremento = VALOR_TOTAL_ESCALA / len(campanhas_para_escalar)
+            erro_msg = result.get('error', {}).get('message', 'Erro desconhecido')
+            log_message(f"[ERRO] Falha ao atualizar AdSet {adset_id}: {erro_msg}")
+            return False
+    except requests.exceptions.RequestException as e:
+        log_message(f"[ERRO] Erro na requisição para atualizar AdSet {adset_id}: {e}")
+        return False
+
+def escalar_campanha_abo(campanha_info, incremento_total):
+    """
+    Distribui o incremento entre os ad sets da campanha ABO
+    proporcionalmente ao desempenho de cada um
+    """
+    adsets_info = campanha_info.get("adsets_info", [])
+    if not adsets_info:
+        log_message(f"[AVISO] Campanha ABO {campanha_info['id_campanha']} sem adsets ativos")
+        return False
+    
+    log_message(f"Escalando campanha ABO {campanha_info['nome_campanha']} com {len(adsets_info)} adsets")
+    
+    # Calcular lucro de cada adset
+    for adset in adsets_info:
+        adset['lucro'] = adset['valor_conversao'] - adset['gasto']
+    
+    # Ordenar por lucro e pegar os melhores
+    adsets_info.sort(key=lambda x: x['lucro'], reverse=True)
+    
+    # Distribuir incremento proporcionalmente entre os adsets com lucro positivo
+    adsets_lucrativos = [a for a in adsets_info if a['lucro'] > 0]
+    
+    if adsets_lucrativos:
+        total_lucro_adsets = sum(a['lucro'] for a in adsets_lucrativos)
+        adsets_escalados = 0
         
-        novo_orcamento = max(campanha["orcamento_diario"] + incremento, MINIMO_ORCAMENTO)
-        resultado = atualizar_orcamento_facebook(campanha["id_campanha"], novo_orcamento)
+        for adset in adsets_lucrativos:
+            proporcao = adset['lucro'] / total_lucro_adsets
+            incremento_adset = incremento_total * proporcao
+            novo_orcamento = min(
+                max(adset['daily_budget'] + incremento_adset, MINIMO_ORCAMENTO),
+                MAXIMO_ORCAMENTO
+            )
+            
+            if atualizar_orcamento_adset(adset['adset_id'], novo_orcamento):
+                adsets_escalados += 1
+                log_message(f"AdSet {adset['adset_name']} escalado de R$ {adset['daily_budget']:.2f} para R$ {novo_orcamento:.2f}")
         
-        if resultado:
-            sheet.cell(row=campanha["linha_index"], column=9).value = novo_orcamento
-            log_message(f"Campanha {campanha['id_campanha']} escalada para R$ {novo_orcamento:.2f}")
-            campanhas_escaladas += 1
-    
-    workbook.save(SPREADSHEET_PATH)
-    total_orcamento_atual = calcular_orcamento_total()
-    
-    mensagem = (
-        f"Escala realizada: R$ {VALOR_TOTAL_ESCALA:.2f} distribuídos entre {campanhas_escaladas} campanhas "
-        f"com lucro >= R$ {LIMITE_LUCRO:.2f}. Orçamento total atual: R$ {total_orcamento_atual:.2f}."
-    )
-    
-    sucesso_whatsapp = enviar_mensagem_whatsapp(WHATSAPP_GROUP, mensagem)
-    
-    if not sucesso_whatsapp:
-        log_message(f"[AVISO] Falha ao enviar mensagem WhatsApp, mas a escala foi concluída: {mensagem}")
+        return adsets_escalados > 0
     else:
-        log_message(f"[INFO] Mensagem enviada com sucesso: {mensagem}")
-    
-    log_message("Processo de escala concluído com sucesso!")
-    return True
+        # Se nenhum adset tem lucro positivo, distribuir igualmente entre todos
+        log_message(f"Nenhum adset lucrativo, distribuindo igualmente entre {len(adsets_info)} adsets")
+        incremento_por_adset = incremento_total / len(adsets_info)
+        adsets_escalados = 0
+        
+        for adset in adsets_info:
+            novo_orcamento = min(
+                max(adset['daily_budget'] + incremento_por_adset, MINIMO_ORCAMENTO),
+                MAXIMO_ORCAMENTO
+            )
+            
+            if atualizar_orcamento_adset(adset['adset_id'], novo_orcamento):
+                adsets_escalados += 1
+        
+        return adsets_escalados > 0
 
 def atualizar_orcamento_facebook(id_campanha, novo_orcamento):
+    """Atualiza o orçamento de campanhas CBO"""
     url = f"https://graph.facebook.com/v17.0/{id_campanha}"
     payload = {
         "daily_budget": int(novo_orcamento * 100),
@@ -264,17 +433,108 @@ def atualizar_orcamento_facebook(id_campanha, novo_orcamento):
         log_message(f"[ERRO] Erro na requisição para atualizar orçamento: {e}")
         return False
 
+def escalar_campanhas():
+    if not os.path.exists(SPREADSHEET_PATH):
+        log_message("[ERRO] Planilha de campanhas não encontrada.")
+        return False
+    
+    workbook = openpyxl.load_workbook(SPREADSHEET_PATH)
+    if "CAMPANHAS" not in workbook.sheetnames:
+        log_message("[ERRO] Aba 'CAMPANHAS' não encontrada na planilha.")
+        return False
+    
+    sheet = workbook["CAMPANHAS"]
+    campanhas_para_escalar = []
+    
+    for row_index, row in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
+        lucro = row[8]  # Ajustado para a nova posição da coluna Lucro
+        if lucro is not None and lucro >= LIMITE_LUCRO:
+            campanhas_para_escalar.append({
+                "linha_index": row_index,
+                "id_campanha": row[1],
+                "nome_campanha": row[2],
+                "tipo_campanha": row[3] if len(row) > 3 else "CBO",
+                "orcamento_diario": row[4],
+                "lucro": row[8]
+            })
+    
+    if not campanhas_para_escalar:
+        log_message("[INFO] Nenhuma campanha para escalar.")
+        return False
+    
+    soma_lucro = sum(c["lucro"] for c in campanhas_para_escalar)
+    log_message(f"[INFO] {len(campanhas_para_escalar)} campanhas para escalonamento. Soma dos lucros: R$ {soma_lucro:.2f}")
+    
+    campanhas_escaladas = 0
+    campanhas_escaladas_lista = []
+    total_distribuido = 0
+    
+    for campanha in campanhas_para_escalar:
+        if soma_lucro > 0:
+            proporcao = campanha["lucro"] / soma_lucro
+            incremento = VALOR_TOTAL_ESCALA * proporcao
+        else:
+            incremento = VALOR_TOTAL_ESCALA / len(campanhas_para_escalar)
+        
+        if campanha["tipo_campanha"] == "ABO":
+            # Para ABO, escalar os adsets
+            campanha_completa = campanhas_completas_data.get(campanha["id_campanha"])
+            if campanha_completa and campanha_completa.get("adsets_info"):
+                if escalar_campanha_abo(campanha_completa, incremento):
+                    novo_orcamento_total = campanha["orcamento_diario"] + incremento
+                    sheet.cell(row=campanha["linha_index"], column=10).value = novo_orcamento_total
+                    campanhas_escaladas += 1
+                    campanhas_escaladas_lista.append(f"{campanha['nome_campanha']} (ABO)")
+                    total_distribuido += incremento
+                    log_message(f"Campanha ABO {campanha['id_campanha']} escalada com R$ {incremento:.2f}")
+            else:
+                log_message(f"[AVISO] Dados de adsets não encontrados para campanha ABO {campanha['id_campanha']}")
+        else:
+            # Para CBO, escalar normalmente
+            novo_orcamento = min(
+                max(campanha["orcamento_diario"] + incremento, MINIMO_ORCAMENTO),
+                MAXIMO_ORCAMENTO
+            )
+            
+            if atualizar_orcamento_facebook(campanha["id_campanha"], novo_orcamento):
+                sheet.cell(row=campanha["linha_index"], column=10).value = novo_orcamento
+                campanhas_escaladas += 1
+                campanhas_escaladas_lista.append(f"{campanha['nome_campanha']} (CBO)")
+                total_distribuido += incremento
+                log_message(f"Campanha CBO {campanha['id_campanha']} escalada para R$ {novo_orcamento:.2f}")
+    
+    workbook.save(SPREADSHEET_PATH)
+    total_orcamento_atual = calcular_orcamento_total()
+    
+    # Criar mensagem detalhada
+    mensagem = (
+        f"✅ Escala realizada com sucesso!\n\n"
+        f"💰 Total distribuído: R$ {total_distribuido:.2f}\n"
+        f"📊 Campanhas escaladas: {campanhas_escaladas}\n"
+        f"📈 Orçamento total atual: R$ {total_orcamento_atual:.2f}\n\n"
+        f"Campanhas:\n"
+    )
+    
+    # Adicionar lista de campanhas (máximo 5 para não ficar muito longo)
+    for i, camp in enumerate(campanhas_escaladas_lista[:5]):
+        mensagem += f"• {camp}\n"
+    
+    if len(campanhas_escaladas_lista) > 5:
+        mensagem += f"... e mais {len(campanhas_escaladas_lista) - 5} campanhas"
+    
+    sucesso_whatsapp = enviar_mensagem_whatsapp(WHATSAPP_GROUP, mensagem)
+    
+    if not sucesso_whatsapp:
+        log_message(f"[AVISO] Falha ao enviar mensagem WhatsApp, mas a escala foi concluída: {mensagem}")
+    else:
+        log_message(f"[INFO] Mensagem enviada com sucesso")
+    
+    log_message("Processo de escala concluído com sucesso!")
+    return True
+
 def enviar_mensagem_whatsapp(grupo, mensagem):
     """
-    Função atualizada para enviar mensagens para um grupo do WhatsApp Web/Business
-    usando técnicas robustas com cliques reais na interface.
-    
-    Args:
-        grupo (str): Nome do grupo para enviar a mensagem
-        mensagem (str): Texto da mensagem a ser enviada
-        
-    Returns:
-        bool: True se a mensagem foi enviada com sucesso, False caso contrário
+    Função para enviar mensagens para um grupo do WhatsApp
     """
     log_message(f"Iniciando envio de mensagem para o grupo: {grupo}")
     driver = None
@@ -588,7 +848,7 @@ def enviar_mensagem_whatsapp(grupo, mensagem):
         if driver:
             driver.quit()
 
-def run(token, accounts, group, logs, date_range='today', start_date=None, end_date=None, min_profit=None, scale_value=None):
+def run(token, accounts, group, logs, date_range='today', start_date=None, end_date=None, min_profit=None, scale_value=None, abo_accounts=None):
     """
     Função principal que executa o processo de escala de orçamento
     
@@ -602,20 +862,32 @@ def run(token, accounts, group, logs, date_range='today', start_date=None, end_d
         end_date (str): Data final (se date_range for custom)
         min_profit (float): Lucro mínimo para considerar escala
         scale_value (float): Valor total para escalar
+        abo_accounts (list): Lista de contas que usam ABO
         
     Returns:
         bool: True se o processo foi concluído com sucesso, False caso contrário
     """
-    global ACCESS_TOKEN, AD_ACCOUNTS, WHATSAPP_GROUP, DATE_PRESET, LIMITE_LUCRO, VALOR_TOTAL_ESCALA, logs_list
+    global ACCESS_TOKEN, AD_ACCOUNTS, WHATSAPP_GROUP, DATE_PRESET, LIMITE_LUCRO, VALOR_TOTAL_ESCALA, logs_list, ABO_ACCOUNTS
+    
     ACCESS_TOKEN = token
     AD_ACCOUNTS = accounts if accounts is not None else []
     WHATSAPP_GROUP = group
     logs_list = logs
+    
+    # Definir contas ABO se fornecidas
+    if abo_accounts:
+        ABO_ACCOUNTS = abo_accounts
+    
+    # Limpar dados de campanhas anteriores
+    global campanhas_completas_data
+    campanhas_completas_data = {}
+    
     if date_range == 'custom' and start_date and end_date:
         DATE_PRESET = None
     else:
         presets = {'today': 'today', 'yesterday': 'yesterday', 'last7': 'last_7d'}
         DATE_PRESET = presets.get(date_range, 'today')
+    
     if min_profit is not None:
         LIMITE_LUCRO = float(min_profit)
     if scale_value is not None:
@@ -624,14 +896,18 @@ def run(token, accounts, group, logs, date_range='today', start_date=None, end_d
     log_message("Iniciando escala com: Token=" + token[:5] + "..." + token[-5:] + 
                f", Contas={accounts}, Grupo={group}")
     log_message(f"Parâmetros: Date Range={date_range}, Min Profit={min_profit}, Scale Value={scale_value}")
+    log_message(f"Contas ABO configuradas: {ABO_ACCOUNTS}")
     
     try:
         limpar_planilha()
         todas_campanhas = []
+        
         for ad_account in AD_ACCOUNTS:
             log_message(f"Processando conta de anúncio: {ad_account}")
             log_message(f"Buscando campanhas para conta {ad_account}...")
+            
             campaigns_url = f"https://graph.facebook.com/v17.0/{ad_account}/campaigns?fields=id,name,daily_budget,status&access_token={ACCESS_TOKEN}"
+            
             if date_range == 'custom' and start_date and end_date:
                 insights_url = f"https://graph.facebook.com/v17.0/{ad_account}/insights?fields=campaign_id,campaign_name,spend,action_values&time_range[since]={start_date}&time_range[until]={end_date}&level=campaign&access_token={ACCESS_TOKEN}"
             else:
@@ -643,16 +919,30 @@ def run(token, accounts, group, logs, date_range='today', start_date=None, end_d
             insights = buscar_todos_dados_facebook(insights_url)
             log_message(f"Encontrados {len(insights)} insights.")
             
-            campanhas_processadas = processar_dados_campanhas(campaigns, insights, ad_account)
+            # Processar campanhas com suporte a ABO
+            campanhas_processadas = processar_dados_campanhas(
+                campaigns, insights, ad_account, 
+                DATE_PRESET if DATE_PRESET else None, 
+                start_date if date_range == 'custom' else None,
+                end_date if date_range == 'custom' else None
+            )
+            
             log_message(f"Processadas {len(campanhas_processadas)} campanhas ativas.")
             
             todas_campanhas.extend(campanhas_processadas)
         
         log_message(f"Total de {len(todas_campanhas)} campanhas ativas encontradas.")
+        
+        # Contar campanhas por tipo
+        campanhas_cbo = [c for c in todas_campanhas if c.get("tipo_campanha") == "CBO"]
+        campanhas_abo = [c for c in todas_campanhas if c.get("tipo_campanha") == "ABO"]
+        log_message(f"Campanhas CBO: {len(campanhas_cbo)}, Campanhas ABO: {len(campanhas_abo)}")
+        
         salvar_campanhas_excel(todas_campanhas)
         
         resultado = escalar_campanhas()
         return resultado
+        
     except Exception as e:
         log_message(f"Erro durante o processo de escala: {e}")
         return False
@@ -660,13 +950,19 @@ def run(token, accounts, group, logs, date_range='today', start_date=None, end_d
 if __name__ == "__main__":
     limpar_planilha()
     todas_campanhas = []
+    
     for ad_account in AD_ACCOUNTS:
         log_message(f"[INFO] Processando conta de anúncio: {ad_account}")
         campaigns_url = f"https://graph.facebook.com/v17.0/{ad_account}/campaigns?fields=id,name,daily_budget,status&access_token={ACCESS_TOKEN}"
         insights_url = f"https://graph.facebook.com/v17.0/{ad_account}/insights?fields=campaign_id,campaign_name,spend,action_values&date_preset={DATE_PRESET}&level=campaign&access_token={ACCESS_TOKEN}"
+        
         campaigns = buscar_todos_dados_facebook(campaigns_url)
         insights = buscar_todos_dados_facebook(insights_url)
-        campanhas_processadas = processar_dados_campanhas(campaigns, insights, ad_account)
+        
+        campanhas_processadas = processar_dados_campanhas(
+            campaigns, insights, ad_account, DATE_PRESET
+        )
         todas_campanhas.extend(campanhas_processadas)
+    
     salvar_campanhas_excel(todas_campanhas)
     escalar_campanhas()

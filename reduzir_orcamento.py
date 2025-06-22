@@ -42,34 +42,42 @@ if not os.path.exists(CONFIG_FILE):
     default_config = {
         "ACCESS_TOKEN": "",
         "AD_ACCOUNTS": [],
+        "ABO_ACCOUNTS": [],
         "LIMITE_LUCRO_BAIXO": 1000,
         "PERCENTUAL_REDUCAO": 0.10,
         "MINIMO_ORCAMENTO": 100,
+        "MAXIMO_ORCAMENTO": 10000,
         "WHATSAPP_GROUP": "#ZIP - ROAS IMPERIO",
         "DATE_PRESET": "today"
     }
     with open(CONFIG_FILE, "w", encoding="utf-8") as f:
         json.dump(default_config, f, indent=4, ensure_ascii=False)
+
 with open(CONFIG_FILE, "r", encoding="utf-8") as f:
     config = json.load(f)
 
 ACCESS_TOKEN = config.get("ACCESS_TOKEN", "")
 AD_ACCOUNTS = config.get("AD_ACCOUNTS", [])
-SPREADSHEET_PATH = ("campanhas_lucro_reducao.xlsx")
+ABO_ACCOUNTS = config.get("ABO_ACCOUNTS", [])
+SPREADSHEET_PATH = "campanhas_lucro_reducao.xlsx"
 LIMITE_LUCRO_BAIXO = float(config.get("LIMITE_LUCRO_BAIXO", 10000))
 PERCENTUAL_REDUCAO = float(config.get("PERCENTUAL_REDUCAO", 0.50))
 MINIMO_ORCAMENTO = float(config.get("MINIMO_ORCAMENTO", 100))
+MAXIMO_ORCAMENTO = float(config.get("MAXIMO_ORCAMENTO", 10000))
 WHATSAPP_GROUP = config.get("WHATSAPP_GROUP", "#ZIP - ROAS IMPERIO")
 DATE_PRESET = config.get("DATE_PRESET", "today")
+
+# Armazena dados completos das campanhas para uso na redução
+campanhas_completas_data = {}
 
 def criar_planilha():
     workbook = openpyxl.Workbook()
     sheet = workbook.active
     sheet.title = "CAMPANHAS"
     sheet.append([
-        "ID da Conta de Anúncio", "ID da Campanha", "Nome da Campanha",
+        "ID da Conta de Anúncio", "ID da Campanha", "Nome da Campanha", "Tipo",
         "Orçamento Diário", "Gasto", "Valor de Conversões",
-        "ROAS", "Lucro", "Novo Orçamento"
+        "ROAS", "Lucro", "Novo Orçamento", "Detalhes AdSets"
     ])
     workbook.save(SPREADSHEET_PATH)
     log_message("Planilha criada com sucesso.")
@@ -112,11 +120,75 @@ def buscar_todos_dados_facebook(url):
         url = dados.get("paging", {}).get("next")
     return todos_dados
 
-def processar_dados_campanhas(campanhas, insights, ad_account):
-    campanhas_filtradas = []
-    for campanha in campanhas:
-        if campanha.get("status", "").upper().strip() == "ACTIVE":
-            insight = next((i for i in insights if i.get("campaign_id") == campanha.get("id")), None)
+def detectar_tipo_campanha(campanha, ad_account):
+    """Detecta se a campanha é CBO ou ABO"""
+    daily_budget = campanha.get("daily_budget", 0)
+    
+    if ad_account in ABO_ACCOUNTS:
+        return "ABO"
+    
+    if daily_budget and int(daily_budget) > 0:
+        return "CBO"
+    else:
+        return "ABO"
+
+def buscar_adsets_campanha(campaign_id):
+    """Busca todos os ad sets de uma campanha ABO"""
+    url = (
+        f"https://graph.facebook.com/v17.0/{campaign_id}/adsets"
+        f"?fields=id,name,daily_budget,status&access_token={ACCESS_TOKEN}"
+    )
+    return buscar_todos_dados_facebook(url)
+
+def buscar_insights_adset(ad_account, campaign_id, date_preset=None, start_date=None, end_date=None):
+    """Busca insights no nível de ad set para campanhas ABO"""
+    filtering = f'[{{"field":"campaign_id","operator":"EQUAL","value":"{campaign_id}"}}]'
+    
+    if date_preset:
+        url = (
+            f"https://graph.facebook.com/v17.0/{ad_account}/insights"
+            f"?fields=adset_id,adset_name,campaign_id,spend,action_values"
+            f"&date_preset={date_preset}&level=adset"
+            f"&filtering={filtering}"
+            f"&access_token={ACCESS_TOKEN}"
+        )
+    else:
+        url = (
+            f"https://graph.facebook.com/v17.0/{ad_account}/insights"
+            f"?fields=adset_id,adset_name,campaign_id,spend,action_values"
+            f"&time_range[since]={start_date}&time_range[until]={end_date}"
+            f"&level=adset"
+            f"&filtering={filtering}"
+            f"&access_token={ACCESS_TOKEN}"
+        )
+    
+    return buscar_todos_dados_facebook(url)
+
+def processar_campanha_abo(campanha, ad_account, date_preset=None, start_date=None, end_date=None):
+    """Processa campanhas ABO agregando dados de todos os ad sets ativos"""
+    campaign_id = campanha["id"]
+    log_message(f"Processando campanha ABO: {campanha['name']}")
+    
+    adsets = buscar_adsets_campanha(campaign_id)
+    insights_adsets = buscar_insights_adset(ad_account, campaign_id, date_preset, start_date, end_date)
+    
+    # Agregar dados de todos os ad sets ativos
+    total_orcamento = 0
+    total_gasto = 0
+    total_conversao = 0
+    adsets_info = []
+    adsets_ativos = 0
+    
+    for adset in adsets:
+        if adset.get("status") == "ACTIVE":
+            adsets_ativos += 1
+            adset_id = adset["id"]
+            daily_budget = float(adset.get("daily_budget", 0)) / 100
+            total_orcamento += daily_budget
+            
+            # Buscar insight correspondente
+            insight = next((i for i in insights_adsets if i.get("adset_id") == adset_id), None)
+            
             if insight:
                 gasto = float(insight.get("spend", 0))
                 valor_conversao = sum(
@@ -124,22 +196,92 @@ def processar_dados_campanhas(campanhas, insights, ad_account):
                     for a in insight.get("action_values", [])
                     if a.get("action_type") in ['offsite_conversion.purchase', 'offsite_conversion.fb_pixel_purchase']
                 )
+                total_gasto += gasto
+                total_conversao += valor_conversao
             else:
-                gasto = 0.0
-                valor_conversao = 0.0
-            daily_budget = float(campanha.get("daily_budget", 0)) / 100
+                gasto = 0
+                valor_conversao = 0
+            
             lucro = valor_conversao - gasto
-            roas = round(valor_conversao / gasto, 2) if gasto > 0 else 0
-            campanhas_filtradas.append({
-                "id_conta": ad_account,
-                "id_campanha": campanha["id"],
-                "nome_campanha": campanha["name"],
-                "orcamento_diario": daily_budget,
+            
+            adsets_info.append({
+                "adset_id": adset_id,
+                "adset_name": adset["name"],
+                "daily_budget": daily_budget,
                 "gasto": gasto,
                 "valor_conversao": valor_conversao,
-                "roas": roas,
                 "lucro": lucro
             })
+    
+    log_message(f"Campanha ABO {campaign_id}: {adsets_ativos} adsets ativos, orçamento total: R$ {total_orcamento:.2f}")
+    
+    lucro = total_conversao - total_gasto
+    roas = round(total_conversao / total_gasto, 2) if total_gasto > 0 else 0
+    
+    return {
+        "id_conta": ad_account,
+        "id_campanha": campaign_id,
+        "nome_campanha": campanha["name"],
+        "tipo_campanha": "ABO",
+        "orcamento_diario": total_orcamento,
+        "gasto": total_gasto,
+        "valor_conversao": total_conversao,
+        "roas": roas,
+        "lucro": lucro,
+        "adsets_info": adsets_info,
+        "detalhes_adsets": f"{adsets_ativos} adsets ativos"
+    }
+
+def processar_dados_campanhas(campanhas, insights, ad_account, date_preset=None, start_date=None, end_date=None):
+    """Processa dados das campanhas, detectando automaticamente se são CBO ou ABO"""
+    campanhas_filtradas = []
+    
+    for campanha in campanhas:
+        if campanha.get("status", "").upper().strip() == "ACTIVE":
+            tipo_campanha = detectar_tipo_campanha(campanha, ad_account)
+            
+            if tipo_campanha == "ABO":
+                # Processar como ABO
+                dados_campanha = processar_campanha_abo(campanha, ad_account, date_preset, start_date, end_date)
+                campanhas_filtradas.append(dados_campanha)
+                # Armazenar dados completos para uso posterior
+                campanhas_completas_data[campanha["id"]] = dados_campanha
+            else:
+                # Processar como CBO (código original)
+                insight = next((i for i in insights if i.get("campaign_id") == campanha.get("id")), None)
+                
+                if insight:
+                    gasto = float(insight.get("spend", 0))
+                    valor_conversao = sum(
+                        float(a.get("value", 0))
+                        for a in insight.get("action_values", [])
+                        if a.get("action_type") in ['offsite_conversion.purchase', 'offsite_conversion.fb_pixel_purchase']
+                    )
+                else:
+                    gasto = 0.0
+                    valor_conversao = 0.0
+                
+                daily_budget = float(campanha.get("daily_budget", 0)) / 100
+                lucro = valor_conversao - gasto
+                roas = round(valor_conversao / gasto, 2) if gasto > 0 else 0
+                
+                dados_campanha = {
+                    "id_conta": ad_account,
+                    "id_campanha": campanha["id"],
+                    "nome_campanha": campanha["name"],
+                    "tipo_campanha": "CBO",
+                    "orcamento_diario": daily_budget,
+                    "gasto": gasto,
+                    "valor_conversao": valor_conversao,
+                    "roas": roas,
+                    "lucro": lucro,
+                    "adsets_info": None,
+                    "detalhes_adsets": "N/A"
+                }
+                
+                campanhas_filtradas.append(dados_campanha)
+                campanhas_completas_data[campanha["id"]] = dados_campanha
+    
     return campanhas_filtradas
 
 def salvar_campanhas_excel(campanhas):
@@ -150,84 +292,84 @@ def salvar_campanhas_excel(campanhas):
         if "CAMPANHAS" not in workbook.sheetnames:
             sheet = workbook.create_sheet("CAMPANHAS")
             sheet.append([
-                "ID da Conta de Anúncio", "ID da Campanha", "Nome da Campanha",
+                "ID da Conta de Anúncio", "ID da Campanha", "Nome da Campanha", "Tipo",
                 "Orçamento Diário", "Gasto", "Valor de Conversões",
-                "ROAS", "Lucro", "Novo Orçamento"
+                "ROAS", "Lucro", "Novo Orçamento", "Detalhes AdSets"
             ])
         else:
             sheet = workbook["CAMPANHAS"]
+        
         for campanha in campanhas:
             sheet.append([
                 campanha["id_conta"],
                 campanha["id_campanha"],
                 campanha["nome_campanha"],
+                campanha.get("tipo_campanha", "CBO"),
                 campanha["orcamento_diario"],
                 campanha["gasto"],
                 campanha["valor_conversao"],
                 campanha["roas"],
                 campanha["lucro"],
-                ""
+                "",  # Novo orçamento
+                campanha.get("detalhes_adsets", "")
             ])
+        
         workbook.save(SPREADSHEET_PATH)
         log_message("Dados das campanhas salvos na planilha.")
     except Exception as e:
         log_message(f"[ERRO] Falha ao salvar planilha: {e}")
 
-def calcular_orcamento_total():
+def atualizar_orcamento_adset(adset_id, novo_orcamento):
+    """Atualiza o orçamento de um ad set específico"""
+    url = f"https://graph.facebook.com/v17.0/{adset_id}"
+    payload = {
+        "daily_budget": int(novo_orcamento * 100),
+        "access_token": ACCESS_TOKEN
+    }
+    
     try:
-        workbook = openpyxl.load_workbook(SPREADSHEET_PATH)
-        sheet = workbook["CAMPANHAS"]
-        total = 0
-        for row in sheet.iter_rows(min_row=2, values_only=True):
-            novo_orcamento = row[8] if row[8] is not None else row[3]
-            total += novo_orcamento
-        return total
-    except Exception as e:
-        log_message(f"[ERRO] Falha ao calcular orçamento total: {e}")
-        return 0
+        log_message(f"Atualizando orçamento do AdSet {adset_id} para R$ {novo_orcamento:.2f}")
+        response = requests.post(url, data=payload)
+        result = response.json()
+        
+        if result.get("success"):
+            log_message(f"Orçamento do AdSet {adset_id} atualizado com sucesso")
+            return True
+        else:
+            erro_msg = result.get('error', {}).get('message', 'Erro desconhecido')
+            log_message(f"[ERRO] Falha ao atualizar AdSet {adset_id}: {erro_msg}")
+            return False
+    except requests.exceptions.RequestException as e:
+        log_message(f"[ERRO] Erro na requisição para atualizar AdSet {adset_id}: {e}")
+        return False
 
-def reduzir_campanhas():
-    if not os.path.exists(SPREADSHEET_PATH):
-        log_message("[ERRO] Planilha de campanhas não encontrada.")
-        return
-    workbook = openpyxl.load_workbook(SPREADSHEET_PATH)
-    if "CAMPANHAS" not in workbook.sheetnames:
-        log_message("[ERRO] Aba 'CAMPANHAS' não encontrada na planilha.")
-        return
-    sheet = workbook["CAMPANHAS"]
-    total_reduzido = 0.0
-    # Itera pelas linhas a partir da segunda (ignorando cabeçalho)
-    campanhas_reduzidas = 0
-    for row_index, row in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
-        lucro = row[7]      # Coluna 8: Lucro
-        orcamento = row[3]  # Coluna 4: Orçamento Diário
-        if lucro is None or orcamento is None:
-            continue
-        if lucro < LIMITE_LUCRO_BAIXO:
-            novo_orcamento = max(orcamento * (1 - PERCENTUAL_REDUCAO), MINIMO_ORCAMENTO)
-            reducao = orcamento - novo_orcamento
-            total_reduzido += reducao
-            sheet.cell(row=row_index, column=9).value = novo_orcamento
-            log_message(f"Campanha {row[1]} será reduzida de R$ {orcamento:.2f} para R$ {novo_orcamento:.2f}")
-            resultado = atualizar_orcamento_facebook(row[1], novo_orcamento)
-            if resultado:
-                log_message(f"Campanha {row[1]} reduzida com sucesso para R$ {novo_orcamento:.2f}")
-                campanhas_reduzidas += 1
-    workbook.save(SPREADSHEET_PATH)
-    total_orcamento_atual = calcular_orcamento_total()
-    mensagem = (
-        f"Redução realizada: {int(PERCENTUAL_REDUCAO * 100)}% dos orçamentos de campanhas com lucro abaixo de R$ {LIMITE_LUCRO_BAIXO} foram reduzidos. "
-        f"Total de {campanhas_reduzidas} campanhas reduzidas. Valor total reduzido: R$ {total_reduzido:.2f}. Orçamento atual total: R$ {total_orcamento_atual:.2f}."
-    )
-    sucesso_whatsapp = enviar_mensagem_whatsapp(WHATSAPP_GROUP, mensagem)
-    if not sucesso_whatsapp:
-        log_message(f"[AVISO] Falha ao enviar mensagem WhatsApp, mas a redução foi concluída: {mensagem}")
-    else:
-        log_message(f"[INFO] Mensagem enviada com sucesso: {mensagem}")
-    log_message("Processo de redução concluído com sucesso!")
-    return True
+def reduzir_campanha_abo(campanha_info, percentual_reducao):
+    """
+    Reduz o orçamento de uma campanha ABO
+    Reduz proporcionalmente todos os ad sets
+    """
+    adsets_info = campanha_info.get("adsets_info", [])
+    if not adsets_info:
+        log_message(f"[AVISO] Campanha ABO {campanha_info['id_campanha']} sem adsets ativos")
+        return 0, 0
+    
+    total_reducao = 0
+    adsets_reduzidos = 0
+    
+    for adset in adsets_info:
+        reducao = adset['daily_budget'] * percentual_reducao
+        novo_orcamento = max(adset['daily_budget'] - reducao, MINIMO_ORCAMENTO)
+        reducao_real = adset['daily_budget'] - novo_orcamento
+        
+        if atualizar_orcamento_adset(adset['adset_id'], novo_orcamento):
+            total_reducao += reducao_real
+            adsets_reduzidos += 1
+            log_message(f"AdSet {adset['adset_name']} reduzido de R$ {adset['daily_budget']:.2f} para R$ {novo_orcamento:.2f}")
+    
+    return total_reducao, adsets_reduzidos
 
 def atualizar_orcamento_facebook(id_campanha, novo_orcamento):
+    """Atualiza o orçamento de campanhas CBO"""
     url = f"https://graph.facebook.com/v17.0/{id_campanha}"
     payload = {
         "daily_budget": int(novo_orcamento * 100),
@@ -248,18 +390,106 @@ def atualizar_orcamento_facebook(id_campanha, novo_orcamento):
         log_message(f"[ERRO] Erro na requisição para atualizar orçamento: {e}")
         return False
 
-def enviar_mensagem_whatsapp(grupo, mensagem):
-    """
-    Função atualizada para enviar mensagens para um grupo do WhatsApp Web/Business
-    usando técnicas robustas com cliques reais na interface.
+def calcular_orcamento_total():
+    try:
+        workbook = openpyxl.load_workbook(SPREADSHEET_PATH)
+        sheet = workbook["CAMPANHAS"]
+        total = 0
+        for row in sheet.iter_rows(min_row=2, values_only=True):
+            novo_orcamento = row[9] if row[9] is not None else row[4]
+            total += novo_orcamento
+        return total
+    except Exception as e:
+        log_message(f"[ERRO] Falha ao calcular orçamento total: {e}")
+        return 0
+
+def reduzir_campanhas():
+    """Reduz orçamentos de campanhas com lucro baixo, suportando CBO e ABO"""
+    if not os.path.exists(SPREADSHEET_PATH):
+        log_message("[ERRO] Planilha de campanhas não encontrada.")
+        return False
     
-    Args:
-        grupo (str): Nome do grupo para enviar a mensagem
-        mensagem (str): Texto da mensagem a ser enviada
+    workbook = openpyxl.load_workbook(SPREADSHEET_PATH)
+    if "CAMPANHAS" not in workbook.sheetnames:
+        log_message("[ERRO] Aba 'CAMPANHAS' não encontrada na planilha.")
+        return False
+    
+    sheet = workbook["CAMPANHAS"]
+    total_reduzido = 0.0
+    campanhas_reduzidas = 0
+    campanhas_cbo_reduzidas = 0
+    campanhas_abo_reduzidas = 0
+    total_adsets_reduzidos = 0
+    
+    # Itera pelas linhas a partir da segunda (ignorando cabeçalho)
+    for row_index, row in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
+        lucro = row[8]      # Lucro
+        orcamento = row[4]  # Orçamento Diário
+        tipo_campanha = row[3] if len(row) > 3 else "CBO"
         
-    Returns:
-        bool: True se a mensagem foi enviada com sucesso, False caso contrário
-    """
+        if lucro is None or orcamento is None:
+            continue
+        
+        if lucro < LIMITE_LUCRO_BAIXO:
+            if tipo_campanha == "ABO":
+                # Para ABO, reduzir os adsets
+                campanha_completa = campanhas_completas_data.get(row[1])  # row[1] é o ID da campanha
+                if campanha_completa and campanha_completa.get("adsets_info"):
+                    reducao_total, adsets_mod = reduzir_campanha_abo(campanha_completa, PERCENTUAL_REDUCAO)
+                    if reducao_total > 0:
+                        novo_orcamento_total = orcamento - reducao_total
+                        sheet.cell(row=row_index, column=10).value = novo_orcamento_total
+                        total_reduzido += reducao_total
+                        campanhas_reduzidas += 1
+                        campanhas_abo_reduzidas += 1
+                        total_adsets_reduzidos += adsets_mod
+                        log_message(f"Campanha ABO {row[2]} reduzida em R$ {reducao_total:.2f}")
+            else:
+                # Para CBO, reduzir normalmente
+                novo_orcamento = max(orcamento * (1 - PERCENTUAL_REDUCAO), MINIMO_ORCAMENTO)
+                reducao = orcamento - novo_orcamento
+                total_reduzido += reducao
+                
+                sheet.cell(row=row_index, column=10).value = novo_orcamento
+                log_message(f"Campanha CBO {row[2]} será reduzida de R$ {orcamento:.2f} para R$ {novo_orcamento:.2f}")
+                
+                resultado = atualizar_orcamento_facebook(row[1], novo_orcamento)
+                if resultado:
+                    log_message(f"Campanha CBO {row[2]} reduzida com sucesso para R$ {novo_orcamento:.2f}")
+                    campanhas_reduzidas += 1
+                    campanhas_cbo_reduzidas += 1
+    
+    workbook.save(SPREADSHEET_PATH)
+    total_orcamento_atual = calcular_orcamento_total()
+    
+    # Preparar mensagem de relatório detalhada
+    mensagem = (
+        f"✅ Redução concluída!\n\n"
+        f"📉 Campanhas com lucro < R$ {LIMITE_LUCRO_BAIXO:.2f}:\n"
+        f"• {campanhas_reduzidas} campanhas reduzidas ({campanhas_cbo_reduzidas} CBO, {campanhas_abo_reduzidas} ABO)\n"
+    )
+    
+    if campanhas_abo_reduzidas > 0:
+        mensagem += f"• {total_adsets_reduzidos} ad sets reduzidos\n"
+    
+    mensagem += (
+        f"• Percentual aplicado: {int(PERCENTUAL_REDUCAO * 100)}%\n"
+        f"• Total reduzido: R$ {total_reduzido:.2f}\n\n"
+        f"💰 Orçamento total atual: R$ {total_orcamento_atual:.2f}"
+    )
+    
+    sucesso_whatsapp = enviar_mensagem_whatsapp(WHATSAPP_GROUP, mensagem)
+    
+    if not sucesso_whatsapp:
+        log_message(f"[AVISO] Falha ao enviar mensagem WhatsApp, mas a redução foi concluída")
+    else:
+        log_message(f"[INFO] Mensagem enviada com sucesso")
+    
+    log_message("Processo de redução concluído com sucesso!")
+    return True
+
+def enviar_mensagem_whatsapp(grupo, mensagem):
+    """Função para enviar mensagens para um grupo do WhatsApp"""
     log_message(f"Iniciando envio de mensagem para o grupo: {grupo}")
     driver = None
     
@@ -572,19 +802,33 @@ def enviar_mensagem_whatsapp(grupo, mensagem):
         if driver:
             driver.quit()
 
-def run(token, accounts, group, logs, date_range='today', start_date=None, end_date=None, low_profit=None, reduce_pct=None):
-    global ACCESS_TOKEN, AD_ACCOUNTS, WHATSAPP_GROUP, DATE_PRESET, LIMITE_LUCRO_BAIXO, PERCENTUAL_REDUCAO, logs_list
+def run(token, accounts, group, logs, date_range='today', start_date=None, end_date=None, reduce_profit_limit=None, reduce_pct=None, abo_accounts=None):
+    """
+    Função principal com suporte a ABO
+    """
+    global ACCESS_TOKEN, AD_ACCOUNTS, WHATSAPP_GROUP, DATE_PRESET, LIMITE_LUCRO_BAIXO, PERCENTUAL_REDUCAO, logs_list, ABO_ACCOUNTS
+    
     ACCESS_TOKEN = token
     AD_ACCOUNTS = accounts if accounts is not None else []
     WHATSAPP_GROUP = group
     logs_list = logs
+    
+    # Definir contas ABO se fornecidas
+    if abo_accounts:
+        ABO_ACCOUNTS = abo_accounts
+    
+    # Limpar dados de campanhas anteriores
+    global campanhas_completas_data
+    campanhas_completas_data = {}
+    
     if date_range == 'custom' and start_date and end_date:
         DATE_PRESET = None
     else:
         presets = {'today': 'today', 'yesterday': 'yesterday', 'last7': 'last_7d'}
         DATE_PRESET = presets.get(date_range, 'today')
-    if low_profit is not None:
-        LIMITE_LUCRO_BAIXO = float(low_profit)
+    
+    if reduce_profit_limit is not None:
+        LIMITE_LUCRO_BAIXO = float(reduce_profit_limit)
     if reduce_pct is not None:
         PERCENTUAL_REDUCAO = float(reduce_pct) if float(reduce_pct) <= 1.0 else float(reduce_pct)/100.0
     
@@ -596,13 +840,17 @@ def run(token, accounts, group, logs, date_range='today', start_date=None, end_d
     log_message(f"- Date Range: {date_range}")
     log_message(f"- Limite de Lucro Baixo: R$ {LIMITE_LUCRO_BAIXO}")
     log_message(f"- Percentual de Redução: {PERCENTUAL_REDUCAO * 100}%")
+    log_message(f"- Contas ABO configuradas: {ABO_ACCOUNTS}")
     
     limpar_planilha()
     todas_campanhas = []
+    
     for ad_account in AD_ACCOUNTS:
         log_message(f"Processando conta de anúncio: {ad_account}")
         log_message(f"Buscando campanhas para conta {ad_account}...")
+        
         campaigns_url = f"https://graph.facebook.com/v17.0/{ad_account}/campaigns?fields=id,name,daily_budget,status&access_token={ACCESS_TOKEN}"
+        
         if date_range == 'custom' and start_date and end_date:
             insights_url = (
                 f"https://graph.facebook.com/v17.0/{ad_account}/insights?fields=campaign_id,campaign_name,spend,action_values"
@@ -613,36 +861,58 @@ def run(token, accounts, group, logs, date_range='today', start_date=None, end_d
                 f"https://graph.facebook.com/v17.0/{ad_account}/insights?fields=campaign_id,campaign_name,spend,action_values"
                 f"&date_preset={DATE_PRESET}&level=campaign&access_token={ACCESS_TOKEN}"
             )
+        
         campaigns = buscar_todos_dados_facebook(campaigns_url)
         log_message(f"Encontradas {len(campaigns)} campanhas.")
+        
         insights = buscar_todos_dados_facebook(insights_url)
         log_message(f"Encontrados {len(insights)} insights.")
-        campanhas_processadas = processar_dados_campanhas(campaigns, insights, ad_account)
+        
+        # Processar campanhas com suporte a ABO
+        campanhas_processadas = processar_dados_campanhas(
+            campaigns, insights, ad_account,
+            DATE_PRESET if DATE_PRESET else None,
+            start_date if date_range == 'custom' else None,
+            end_date if date_range == 'custom' else None
+        )
+        
         log_message(f"Processadas {len(campanhas_processadas)} campanhas ativas.")
+        
         todas_campanhas.extend(campanhas_processadas)
     
     log_message(f"Total de {len(todas_campanhas)} campanhas ativas encontradas.")
+    
+    # Contar campanhas por tipo
+    campanhas_cbo = [c for c in todas_campanhas if c.get("tipo_campanha") == "CBO"]
+    campanhas_abo = [c for c in todas_campanhas if c.get("tipo_campanha") == "ABO"]
+    log_message(f"Campanhas CBO: {len(campanhas_cbo)}, Campanhas ABO: {len(campanhas_abo)}")
+    
     salvar_campanhas_excel(todas_campanhas)
     log_message("Iniciando processo de redução...")
     
     try:
-        reduzir_campanhas()
+        resultado = reduzir_campanhas()
+        return resultado
     except Exception as e:
         log_message(f"Erro geral ao reduzir campanhas: {e}")
         return False
-    
-    return True
 
 if __name__ == "__main__":
     limpar_planilha()
     todas_campanhas = []
+    
     for ad_account in AD_ACCOUNTS:
         log_message(f"[INFO] Processando conta de anúncio: {ad_account}")
         campaigns_url = f"https://graph.facebook.com/v17.0/{ad_account}/campaigns?fields=id,name,daily_budget,status&access_token={ACCESS_TOKEN}"
         insights_url = f"https://graph.facebook.com/v17.0/{ad_account}/insights?fields=campaign_id,campaign_name,spend,action_values&date_preset={DATE_PRESET}&level=campaign&access_token={ACCESS_TOKEN}"
+        
         campaigns = buscar_todos_dados_facebook(campaigns_url)
         insights = buscar_todos_dados_facebook(insights_url)
-        campanhas_processadas = processar_dados_campanhas(campaigns, insights, ad_account)
+        
+        campanhas_processadas = processar_dados_campanhas(
+            campaigns, insights, ad_account, DATE_PRESET
+        )
         todas_campanhas.extend(campanhas_processadas)
+    
     salvar_campanhas_excel(todas_campanhas)
     reduzir_campanhas()

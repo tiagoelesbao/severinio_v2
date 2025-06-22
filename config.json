@@ -4,10 +4,10 @@
     "act_790223756353632",
     "act_303402486183447"
   ],
-  "LIMITE_LUCRO": 500.0,
-  "VALOR_TOTAL_ESCALA": 100.0,
+  "LIMITE_LUCRO": 1.0,
+  "VALOR_TOTAL_ESCALA": 5000.0,
   "MINIMO_ORCAMENTO": 100.0,
-  "WHATSAPP_GROUP": "#ZIP - ROAS IMPERIO",
+  "WHATSAPP_GROUP": "#IMP - ROI DI\u00c1RIO",
   "DATE_PRESET": "today",
   "APP_PASSWORD": "admin",
   "LIMITE_LUCRO_BAIXO": 500.0,
@@ -18,7 +18,18 @@
     "act_790223756353632",
     "act_303402486183447"
   ],
-  "whatsapp_group": "#ZIP - ROAS IMPERIO",
+  "whatsapp_group": "#IMP - ROI DI\u00c1RIO",
   "admin_username": "admin",
-  "admin_password": "admin"
+  "admin_password": "admin",
+  "abo_accounts": [
+    "act_406219475582745"
+  ],
+  "scale_value": 5000.0,
+  "min_profit": 1.0,
+  "min_budget": 100.0,
+  "max_budget": 10000.0,
+  "ABO_ACCOUNTS": [
+    "act_406219475582745"
+  ],
+  "MAXIMO_ORCAMENTO": 10000.0
 }
